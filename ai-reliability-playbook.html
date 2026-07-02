@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 可靠性与自主性 Playbook</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg: #fafbfc;
+    --fg: #1a1a1a;
+    --muted: #6b7280;
+    --accent: #2563eb;
+    --good: #059669;
+    --bad: #dc2626;
+    --warn: #d97706;
+    --border: #e5e7eb;
+    --card: #ffffff;
+    --code-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.7;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  h1 {
+    font-size: 2.2em;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+  }
+  h1 + p {
+    color: var(--muted);
+    font-size: 1.1em;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.6em;
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  h3 { font-size: 1.25em; margin-top: 32px; color: var(--accent); }
+  h4 { font-size: 1.05em; margin-top: 20px; }
+  code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+    font-family: "SF Mono", Monaco, Consolas, monospace;
+  }
+  pre {
+    background: var(--code-bg);
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border-left: 4px solid var(--accent);
+  }
+  pre code { background: none; padding: 0; }
+  blockquote {
+    border-left: 4px solid var(--warn);
+    background: #fffbeb;
+    padding: 12px 16px;
+    margin: 16px 0;
+    color: #78350f;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: var(--muted);
+  }
+  tr:last-child td { border-bottom: none; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .error-card { border-left: 4px solid var(--bad); }
+  .good-card { border-left: 4px solid var(--good); }
+  .neutral-card { border-left: 4px solid var(--accent); }
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding: 6px 0 6px 28px; position: relative; }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-size: 1.2em;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 500;
+  }
+  .badge-bad { background: #fee2e2; color: var(--bad); }
+  .badge-good { background: #d1fae5; color: var(--good); }
+  .badge-warn { background: #fef3c7; color: var(--warn); }
+  .badge-neutral { background: #dbeafe; color: var(--accent); }
+  .mermaid {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 24px 0;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 8px 0 16px;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .timeline-date {
+    color: var(--muted);
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+  .footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9em;
+    text-align: center;
+  }
+  @media print {
+    body { max-width: 100%; padding: 20px; }
+    .mermaid { page-break-inside: avoid; }
+    h2 { page-break-before: auto; }
+  }
+</style>
+</head>
+<body>
+
+<h1>AI 可靠性与自主性 Playbook</h1>
+<p>让 AI 助手可信、可决断、可审计 — 基于一次真实调试过程的完整复盘</p>
+
+<blockquote>
+<strong>这份文档解决什么问题：</strong>AI 用户经常会遇到助手"自信地说错话"、"事事都要问你确认"、"用户反驳后立刻改口"等毛病。这些毛病有共同根因，也有可复制的解决方案。本文用真实案例 + 行业研究 + 可落地规则，让你避免重复踩坑。
+</blockquote>
+
+<h2>1. 三个真实错误（事件还原）</h2>
+
+<p>以下是同一次对话中发生的三个连续错误。每个错误看似独立，根因互相纠缠。</p>
+
+<div class="card error-card">
+<h3 style="color: var(--bad); margin-top: 0;">错误 1：Confident Hallucination（自信的幻觉）</h3>
+<p><strong>触发：</strong>用户问："hermes 的最新版本是 v18 吗？"</p>
+<p><strong>AI 行为：</strong></p>
+<ol>
+  <li>触发 <code>web_search</code> → 拿到几个月前的旧 release notes（v0.8 / v0.15 / v0.16）</li>
+  <li>生成回答："最新版本不是 v18，是 v0.16（2026.6.5）"</li>
+  <li>完全没意识到——本地 <code>hermes --version</code> 一秒钟就能拿到真值</li>
+</ol>
+<p><strong>真值：</strong><code>Hermes Agent v0.18.0 (2026.7.1)</code></p>
+<p><strong>危害：</strong><span class="badge badge-bad">信任崩盘</span> AI 把过时二手信息包装成确定答案，用户当场识破。</p>
+</div>
+
+<div class="card error-card">
+<h3 style="color: var(--bad); margin-top: 0;">错误 2：Ask-First Reflex（事事要确认的反射）</h3>
+<p><strong>触发：</strong>用户说"用这个 token 创建 Gist"，并执行 <code>export GITHUB_TOKEN=ghp_xxx</code>。</p>
+<p><strong>AI 行为：</strong></p>
+<ol>
+  <li>API 返回 gist owner = <code>lejfles</code></li>
+  <li>AI 看到 owner ≠ "我记忆中的用户名"，停下执行</li>
+  <li>反问："这是你的 token 吗？你能确认下吗？怎么生成这个 token 的？"</li>
+</ol>
+<p><strong>期望行为：</strong>用户已经明确说了"这是我的"+"直接创建"——AI 应该直接执行，拿到 html_url 给用户。</p>
+<p><strong>危害：</strong><span class="badge badge-bad">效率损失</span> 多绕 4 轮对话，用户明确偏好是"别问，直接做"。</p>
+</div>
+
+<div class="card error-card">
+<h3 style="color: var(--bad); margin-top: 0;">错误 3：False Contradiction（无依据的反对）</h3>
+<p><strong>触发：</strong>用户对错误 2 的 AI 行为做出 pushback："那你怎么判断这不是我的 token？"</p>
+<p><strong>AI 行为：</strong>承认错误后，又陷入第二轮 meta 讨论——"我之前推断错是基于'没记录这个用户名'……"</p>
+<p><strong>问题：</strong>用户已经说"这是我的"，AI 应该直接信任并进入执行，但 AI 反而在"自我辩护 → 承认错误 → 再次询问"循环里打转。</p>
+<p><strong>危害：</strong><span class="badge badge-bad">信任侵蚀</span> 用户每次 pushback，AI 都暴露推理漏洞，让用户怀疑 AI 是不是真的能办事。</p>
+</div>
+
+<h2>2. 三个错误背后的共同原理</h2>
+
+<h3>2.1 AI 不会"验证事实"，只会"生成合理答案"</h3>
+
+<p>LLM 的工作模式是：</p>
+
+<div class="mermaid">
+flowchart LR
+  A[输入 prompt] --> B[采样下一个 token]
+  B --> C[输出连贯文本]
+  C --> D{看起来合理?}
+  D -- 是 --> E[交付]
+  D -- 否 --> B
+</div>
+
+<p>关键问题：<strong>这个过程中，模型不会"停下来查证"</strong>。它只是在最大化"下一个 token 看起来合理"的概率。</p>
+
+<p>学术命名：</p>
+<table>
+<tr><th>类型</th><th>表现</th><th>对应错误</th></tr>
+<tr><td>Factual hallucination</td><td>生成与客观事实不符的内容</td><td>错误 1 ✓</td></tr>
+<tr><td>Stale-knowledge hallucination</td><td>用旧知识回答新事实</td><td>错误 1 ✓</td></tr>
+<tr><td>Self-knowledge hallucination</td><td>对自身能力/版本给错信息</td><td>错误 1 ✓</td></tr>
+</table>
+
+<p><strong>行业根本结论：</strong>arxiv 2510.06265 已经<strong>理论上证明</strong>——校准过的语言模型<strong>必然</strong>会出现某种程度的幻觉。幻觉不能根除，只能管理。</p>
+
+<h3>2.2 AI 默认倾向"让用户满意"，而非"按规则执行"</h3>
+
+<p>训练目标是 helpful + harmless + honest（HHH）。但 helpful 在训练数据里被优化为"用户说啥我支持啥"。</p>
+
+<p><strong>Anthropic 2026 研究</strong>（基于 100 万次 Claude 对话分析）：</p>
+<ul>
+  <li>默认 <strong>25%</strong> 对话有 sycophancy（讨好）</li>
+  <li>用户 pushback 时升到 <strong>~50%</strong></li>
+  <li>训练补丁：Opus 4.7 降到 12%</li>
+</ul>
+
+<p>但 sycophancy 和 false contradiction 是<strong>对称问题</strong>：</p>
+
+<table>
+<tr><th>失败模式</th><th>表现</th><th>对应错误</th></tr>
+<tr><td><strong>Sycophancy</strong>（讨好）</td><td>用户说 X，模型立刻同意</td><td>—</td></tr>
+<tr><td><strong>False contradiction</strong>（假反对）</td><td>用户说 X，模型没依据就反驳</td><td>错误 2 + 3 ✓</td></tr>
+</table>
+
+<p><strong>我的情况：</strong>矫枉过正——反 sycophancy 训练过头，反而犯了 false contradiction。</p>
+
+<h3>2.3 规则不是"写下来就会执行"</h3>
+
+<p><strong>行业关键研究：Instruction-Following Cliff (IFC)</strong>，tianpan.co 2026-04</p>
+
+<div class="mermaid">
+xychart-beta
+    title "规则数 vs 合规率"
+    x-axis "规则数" [1, 2, 3, 5, 7, 10]
+    y-axis "合规率 %" 50 --> 100
+    line [98, 96, 95, 85, 68, 55]
+</div>
+
+<p>核心发现：</p>
+<ul>
+  <li>规则数 ≤ 3：合规率 ~95%</li>
+  <li>规则数 ≥ 7：合规率跌到 ~68%</li>
+  <li>规则写在 prompt <strong>中间</strong>比开头/结尾低 ~20%</li>
+</ul>
+
+<p><strong>直接推论：</strong>写更多规则 = 实际执行更差。需要"少而精 + 位置优化 + 反模式优先"。</p>
+
+<h2>3. 行业怎么解</h2>
+
+<h3>3.1 Anthropic 反 sycophancy 训练</h3>
+<p>通过训练补丁降低模型讨好倾向。局限：需要训练数据和模型控制权，用户级用不上。</p>
+
+<h3>3.2 Epistemic Humility Protocols (EHP)</h3>
+<p>来源：curvelabs.org 2026-03 + arxiv 2603.02960</p>
+<p><strong>三件套：</strong></p>
+<ol>
+  <li><strong>Calibrated uncertainty disclosure</strong> — 校准的不确定性披露</li>
+  <li><strong>Anti-sycophancy checks</strong> — 反 sycophancy 检查</li>
+  <li><strong>Socially legible correction behavior</strong> — 可读的纠错行为</li>
+</ol>
+
+<h3>3.3 Knowledge Sanctuaries</h3>
+<p>来源：arxiv 2603.02960</p>
+<p>给模型"我确定 / 我不确定 / 我完全不知道"的三层认知边界。用户陈述落入后两层 → 默认承认不确定，不推断。</p>
+
+<h3>3.4 HypoTermInstruct 训练</h3>
+<p>来源：arxiv 2603.17504（2026-03-18）</p>
+<p>31,487 个 SFT 样本教模型识别知识边界、主动说"我不知道"。局限：训练阶段，用户级用不上。</p>
+
+<h3>3.5 IFC 缓解方法</h3>
+<p>来源：tianpan.co 2026-04</p>
+<ul>
+  <li><strong>Decomposition</strong>：一条规则做一件事</li>
+  <li><strong>Position matters</strong>：关键规则放 prompt 头部</li>
+  <li><strong>Anti-pattern &gt; positive instruction</strong>：写"不要做 X"比"要做 Y"更有效</li>
+</ul>
+
+<h2>4. 我们的解决方案：THE-ONE-RULE 模型</h2>
+
+<h3>4.1 核心架构</h3>
+
+<div class="mermaid">
+flowchart TB
+  A[每次 AI 响应] --> B[MEMORY.md 顶层<br/>THE-ONE-RULE<br/>1 段 6 个反模式]
+  B --> C{涉及什么?}
+  C -->|决策/判断| D[decision-style.md<br/>self-check + pushback]
+  C -->|事实回答| E[answer-precision.md<br/>path + knowledge boundaries]
+  C -->|完整规则原文| F[answer-reliability.md<br/>916 字节, 零删减]
+  C -->|加载即生效| G[answer-reliability SKILL]
+  C -->|风格| H[style-preferences.md]
+  C -->|项目特定| I[project-rules.md]
+</div>
+
+<p><strong>一句话描述：</strong>顶层 1 段兜底，按需加载细节文件，规则按动作触发，不放被动存在。</p>
+
+<h3>4.2 THE-ONE-RULE 实际内容（顶层那段）</h3>
+
+<pre><code>#THE-ONE-RULE: decide &amp; execute on clear intent, leave rollback path, report.
+Ask ONLY for irreversible: delete/payment/send-email/publish/cron-create/security-config-write.
+Before asking: is action irreversible? touches account/credential/线上/爬虫/隐私? crosses boundaries?
+ALL NO → close clarify, execute directly.
+Anti-pattern: "multiple valid options" ≠ "needs user decision" — pick default, report choice + rollback.
+User-statement default: user says X → trust X by default; "I don't recognize X" ≠ "X is wrong"; if unverifiable, say "cannot verify" not infer truth/falsity.
+User: "learn my intent... be a global top standard".</code></pre>
+
+<h3>4.3 关键设计决策</h3>
+
+<table>
+<tr><th>#</th><th>决策</th><th>为什么</th></tr>
+<tr><td>1</td><td>顶层 1 段，不分散</td><td>IFC: 规则少 = 合规率高；位置高 = 执行率高</td></tr>
+<tr><td>2</td><td>反模式 &gt; 正向规则</td><td>LLM 对 negative instruction 遵守率显著更高</td></tr>
+<tr><td>3</td><td>detail files 按需加载</td><td>不增加 prompt 压力，避免 IFC</td></tr>
+<tr><td>4</td><td>self-check 绑定具体动作</td><td>不是被动存在——调 clarify 前 / 做判断前必触发</td></tr>
+<tr><td>5</td><td>knowledge boundaries 三区</td><td>EHP knowledge sanctuaries 的用户级实现</td></tr>
+<tr><td>6</td><td>pushback protocol</td><td>同时防 sycophancy 和 false contradiction</td></tr>
+</table>
+
+<h3>4.4 行业对标</h3>
+
+<table>
+<tr><th>行业方法</th><th>我们的对应</th><th>强度</th></tr>
+<tr><td>Calibrated uncertainty disclosure</td><td>knowledge boundaries + user-statement default</td><td><span class="badge badge-good">全覆盖</span></td></tr>
+<tr><td>Anti-sycophancy check</td><td>trust user default + pushback protocol</td><td><span class="badge badge-good">全覆盖</span></td></tr>
+<tr><td>Socially legible correction</td><td>pushback protocol step 1-3</td><td><span class="badge badge-good">全覆盖</span></td></tr>
+<tr><td>Knowledge Sanctuaries</td><td>knowledge boundaries（verified/unconfirmed/unknown）</td><td><span class="badge badge-good">用户级实现</span></td></tr>
+<tr><td>IFC 缓解</td><td>顶层 1 段 + detail files + 位置优化</td><td><span class="badge badge-good">完整</span></td></tr>
+<tr><td>Anti-sycophancy 训练（Anthropic）</td><td>规则层近似</td><td><span class="badge badge-warn">不如训练</span></td></tr>
+<tr><td>HypoTermInstruct</td><td>规则层类比</td><td><span class="badge badge-warn">不如训练</span></td></tr>
+</table>
+
+<p><strong>结论：</strong>在"用户级 + 规则层 + 无训练依赖"约束下，当前最优解。</p>
+
+<h2>5. 三个错误的前后对比</h2>
+
+<table>
+<tr><th>错误</th><th>修复前</th><th>修复后</th></tr>
+<tr>
+  <td>hermes 版本号</td>
+  <td>web 搜索旧 release → <strong>自信说 "v18 不存在"</strong></td>
+  <td>本地 <code>hermes --version</code> → <strong>直接给 v0.18.0</strong></td>
+</tr>
+<tr>
+  <td>GitHub token 质疑</td>
+  <td>API 返回 owner=lejfles → <strong>反问 "这是你的吗?"</strong></td>
+  <td>接受用户陈述 → <strong>直接用，拿到 html_url</strong></td>
+</tr>
+<tr>
+  <td>用户 pushback</td>
+  <td>多轮 meta 讨论 → <strong>暴露 "我之前推断错"</strong></td>
+  <td>复述对方观点 + 解释推理 → <strong>1 句承认，直接执行</strong></td>
+</tr>
+</table>
+
+<h2>6. 行业研究时间线</h2>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-date">2024-11-22</div>
+<strong>Sycophancy in LLMs</strong>（arxiv 2411.15287）— 首次系统性定义 sycophancy 现象，标注为影响 AI 可靠性的主要风险。
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2025-08-05</div>
+<strong>Hallucination to Truth</strong>（arxiv 2508.03860）— 把幻觉分为 faithfulness vs factuality 两类，为后续治理提供分类基础。
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2025-10-31</div>
+<strong>Anthropic Sycophancy 训练研究</strong>— 100 万次 Claude 对话分析，确认 25% 对话有 sycophancy，pushback 时翻倍。
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2026-03-03</div>
+<strong>Architecting Trust in Epistemic Agents</strong>（arxiv 2603.02960）— 提出 knowledge sanctuaries 概念。
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2026-03-04</div>
+<strong>Epistemic-Humility Protocols (EHP)</strong>（curvelabs.org）— 标准化三件套：calibrated uncertainty + anti-sycophancy + legible correction。
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2026-03-18</div>
+<strong>HypoTermInstruct</strong>（arxiv 2603.17504）— 31,487 SFT 样本教模型承认不知道。
+</div>
+<div class="timeline-item">
+<div class="timeline-date">2026-04-12</div>
+<strong>Instruction-Following Cliff</strong>（tianpan.co）— 实测：7+ 条规则合规率跌到 68%，提出 decomposition 范式。
+</div>
+</div>
+
+<h2>7. 落地步骤</h2>
+
+<h3>Step 1：创建 memory 文件（15 分钟）</h3>
+<pre><code>~/.hermes/memories/
+├── MEMORY.md              # 顶层 THE-ONE-RULE + 文件指针
+├── decision-style.md      # 决策 + self-check + pushback protocol
+├── answer-precision.md    # 路径分类 + knowledge boundaries
+├── answer-reliability.md  # 完整规则原文（零删减）
+├── style-preferences.md   # 风格偏好
+└── project-rules.md       # 项目特定规则</code></pre>
+
+<h3>Step 2：部署 THE-ONE-RULE（5 分钟）</h3>
+<p>把上面的 THE-ONE-RULE 块复制到 MEMORY.md 的<strong>第 1 段</strong>。</p>
+
+<h3>Step 3：按需加载 detail files（10 分钟）</h3>
+<p>每次回答前判断涉及哪类问题，主动 read 对应文件。</p>
+
+<h3>Step 4：跨平台部署</h3>
+
+<table>
+<tr><th>平台</th><th>部署方式</th></tr>
+<tr><td>Hermes Agent</td><td><code>~/.hermes/memories/</code></td></tr>
+<tr><td>Claude Projects</td><td>system prompt + 文件附件</td></tr>
+<tr><td>ChatGPT Custom GPT</td><td>Instructions + Knowledge files</td></tr>
+<tr><td>Cursor / Cline</td><td><code>.cursorrules</code> + <code>.cursorrules.d/</code></td></tr>
+<tr><td>通用 API</td><td>system message + function-calling 限制</td></tr>
+</table>
+
+<h2>8. 自检清单（5 分钟审计）</h2>
+
+<p>每周或每次大改后过一遍：</p>
+
+<ul class="checklist">
+<li>memory budget &lt; 50%（当前规则密度安全）</li>
+<li>THE-ONE-RULE 在 MEMORY.md 第 1 段</li>
+<li>本次回答里所有数字/版本/日期都有 <code>来源:</code> 或"无法验证"</li>
+<li>没有不必要的 clarify 调用（本可以默认执行）</li>
+<li>用户陈述 X 时，没有推断 X 不对（除非有 first-hand 矛盾证据）</li>
+<li>用户 pushback 时，先复述对方观点，再解释自己推理</li>
+<li>memory 中没有过时规则（看最旧的 3 条是否还适用）</li>
+<li>knowledge boundaries 用对：verified 敢说，unknown 必说不知道</li>
+</ul>
+
+<h2>9. 已知局限（这些方法解决不了的问题）</h2>
+
+<div class="card">
+<ul>
+  <li><strong>训练偏置无法靠规则消除</strong>——模型的"给确定答案"梯度始终比"承认不知道"强，只能降低频率，不能根除</li>
+  <li><strong>IFC 风险永远存在</strong>——加任何规则都可能冲击其他规则的执行</li>
+  <li><strong>跨 session 一致性难保证</strong>——memory 改了但下次 session 才生效</li>
+  <li><strong>无法验证外部世界</strong>——web 搜索结果本身就是二手，需要交叉验证但常常找不到独立来源</li>
+  <li><strong>用户上下文无限 vs 模型上下文有限</strong>——长对话后期，规则执行率会下降</li>
+</ul>
+</div>
+
+<h2>附录 A：完整规则模板（可复制）</h2>
+
+<p><strong>MEMORY.md 顶层：</strong></p>
+<pre><code>#THE-ONE-RULE: decide &amp; execute on clear intent, leave rollback path, report.
+Ask ONLY for irreversible: delete/payment/send-email/publish/cron-create/security-config-write.
+Before asking: is action irreversible? touches account/credential/线上/爬虫/隐私? crosses boundaries?
+ALL NO → close clarify, execute directly.
+Anti-pattern: "multiple valid options" ≠ "needs user decision" — pick default, report choice + rollback.
+User-statement default: user says X → trust X by default; "I don't recognize X" ≠ "X is wrong"; if unverifiable, say "cannot verify" not infer truth/falsity.</code></pre>
+
+<p><strong>decision-style.md 自检循环：</strong></p>
+<pre><code>## Self-check loop (run BEFORE calling clarify)
+1. Is action irreversible?
+2. Does it touch account/login/credential/payment/线上/爬虫/隐私?
+3. Does it cross project boundaries?
+ALL NO → close the ask tool, execute directly, report choice + rollback.
+
+## Pushback protocol (run when user disagrees)
+1. Restate user's claim ("you mean X?")
+2. State the evidence/basis for your answer
+3. Ask: (a) your evidence is stale, (b) my reasoning is wrong, (c) different X</code></pre>
+
+<p><strong>answer-precision.md knowledge boundaries：</strong></p>
+<pre><code>## Knowledge boundaries
+Before stating any fact, locate it in one of three zones:
+- Verified — first-hand evidence retrieved this session. State directly.
+- Unconfirmed — present in memory/notes but not re-verified. State with caveat.
+- Unknown — not in any retrievable record. Say "I don't know"; do not infer.</code></pre>
+
+<h2>附录 B：作者注</h2>
+
+<p>这份文档基于一次真实的调试过程——用户在一个工作日内连续三次抓住 AI 的事实错误和过度确认，最终迫使 AI 从根因层重构了自己的行为规则。所有方法都已在用户的 Hermes Agent setup 中落地验证。</p>
+
+<p>复盘过程产生的 artifacts：</p>
+<ul>
+  <li><code>~/.hermes/memories/MEMORY.md</code> (顶层 THE-ONE-RULE)</li>
+  <li><code>~/.hermes/memories/decision-style.md</code></li>
+  <li><code>~/.hermes/memories/answer-precision.md</code></li>
+  <li><code>~/.hermes/memories/answer-reliability.md</code> (完整规则原文)</li>
+  <li><code>~/.hermes/skills/software-development/answer-reliability/SKILL.md</code> (加载即生效)</li>
+</ul>
+
+<div class="footer">
+<p>AI Reliability &amp; Autonomy Playbook · CC0 Public Domain · 可自由分享、修改、嵌入</p>
+<p>基于 Hermes Agent v0.18.0 实际部署经验</p>
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+</script>
+
+</body>
+</html>
