@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>lejfles / vps — Hub</title>
+<meta name="description" content="Personal hub hosted on GitHub Pages — everything I want to view in a browser." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📂%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --tag-html: #f97316;
+    --tag-md: #6366f1;
+    --tag-img: #ec4899;
+    --tag-file: #6b7280;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; min-height: 100vh; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); text-decoration: underline; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Header */
+  header { padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  header h1 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  header h1 span { color: var(--accent); }
+  header p { color: var(--text-dim); font-size: 1.05rem; max-width: 700px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.5rem; font-size: 0.875rem; color: var(--text-dim); }
+  .meta a { color: var(--text-dim); }
+  .meta a:hover { color: var(--accent); text-decoration: none; }
+
+  /* Search */
+  .search-box { margin: 1.5rem 0; position: relative; }
+  .search-box input { width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 1rem; outline: none; transition: border-color 0.15s; }
+  .search-box input:focus { border-color: var(--accent); }
+  .search-box::before { content: "🔍"; position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%); opacity: 0.6; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin: 1.5rem 0 2.5rem; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem; text-align: center; }
+  .stat .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; }
+  .stat .label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Section */
+  .section { margin: 2rem 0; }
+  .section h2 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+
+  /* Card grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; transition: border-color 0.15s, transform 0.15s; display: flex; flex-direction: column; gap: 0.5rem; }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+  .card .icon { font-size: 1.75rem; }
+  .card .title { font-weight: 600; color: var(--text); word-break: break-all; }
+  .card .desc { color: var(--text-dim); font-size: 0.875rem; flex-grow: 1; }
+  .card .footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem; }
+  .tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tag-html { background: rgba(249,115,22,0.15); color: var(--tag-html); }
+  .tag-md { background: rgba(99,102,241,0.15); color: var(--tag-md); }
+  .tag-img { background: rgba(236,72,153,0.15); color: var(--tag-img); }
+  .tag-file { background: rgba(107,114,128,0.15); color: var(--tag-file); }
+
+  /* Empty */
+  .empty { text-align: center; padding: 3rem 1rem; color: var(--text-dim); background: var(--surface); border: 1px dashed var(--border); border-radius: 6px; }
+  .empty .icon { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+  .empty code { background: var(--bg); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.875rem; }
+
+  /* Footer */
+  footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.85rem; text-align: center; }
+
+  /* Hide empty sections in search */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>📂 <span>lejfles</span> / vps</h1>
+  <p>Personal hub — anything I want to open in a browser lives here. Hosted free on GitHub Pages.</p>
+  <div class="meta">
+    <a href="https://github.com/lejfles/vps" target="_blank" rel="noopener">⬢ Repository</a>
+    <a href="https://github.com/lejfles/vps/commits/main" target="_blank" rel="noopener">⏱ Commits</a>
+    <span>🚀 GitHub Pages</span>
+    <span id="last-updated">⏳ Loading…</span>
+  </div>
+</header>
+
+<div class="search-box">
+  <input type="search" id="search" placeholder="Search files & docs…" autocomplete="off" />
+</div>
+
+<div class="stats" id="stats">
+  <div class="stat"><span class="num" id="stat-total">—</span><span class="label">Total</span></div>
+  <div class="stat"><span class="num" id="stat-html">—</span><span class="label">HTML</span></div>
+  <div class="stat"><span class="num" id="stat-md">—</span><span class="label">Markdown</span></div>
+  <div class="stat"><span class="num" id="stat-img">—</span><span class="label">Images</span></div>
+</div>
+
+<!-- Sections populated by JS -->
+<div id="sections"></div>
+
+<!-- Empty state shown if no files yet -->
+<div id="empty" class="empty" style="display:none">
+  <span class="icon">📭</span>
+  <p><strong>No content yet.</strong></p>
+  <p>Push any file (HTML / MD / images / docs) to the <code>main</code> branch — it will appear here automatically.</p>
+  <p style="margin-top:1rem"><a href="https://github.com/lejfles/vps">→ Add your first file on GitHub</a></p>
+</div>
+
+<footer>
+  <p>Auto-generated index · <a href="https://github.com/lejfles/vps/edit/main/index.html">edit on GitHub</a></p>
+</footer>
+
+</div>
+
+<script>
+// Fetch repo file list from GitHub API, render dynamically.
+(async function () {
+  const REPO = 'lejfles/vps';
+  const BRANCH = 'main';
+  const sectionsEl = document.getElementById('sections');
+  const emptyEl = document.getElementById('empty');
+  const updatedEl = document.getElementById('last-updated');
+
+  const ICON = { html: '🌐', md: '📝', img: '🖼', pdf: '📕', file: '📄', dir: '📁' };
+  const TAG_CLASS = { html: 'tag-html', md: 'tag-md', img: 'tag-img', pdf: 'tag-file', file: 'tag-file' };
+
+  function classify(name) {
+    const ext = name.split('.').pop().toLowerCase();
+    if (['png','jpg','jpeg','gif','webp','svg','avif','ico'].includes(ext)) return 'img';
+    if (['html','htm'].includes(ext)) return 'html';
+    if (['md','markdown'].includes(ext)) return 'md';
+    if (ext === 'pdf') return 'pdf';
+    return 'file';
+  }
+
+  function fmtSize(bytes) {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+  }
+
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    const now = new Date();
+    const diff = (now - d) / 1000;
+    if (diff < 60) return 'just now';
+    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    if (diff < 86400 * 7) return Math.floor(diff / 86400) + 'd ago';
+    return d.toISOString().slice(0, 10);
+  }
+
+  function relTime(iso) {
+    const d = new Date(iso);
+    return d.toLocaleString();
+  }
+
+  try {
+    // Get latest commit time
+    const commitsRes = await fetch(`https://api.github.com/repos/${REPO}/commits?sha=${BRANCH}&per_page=1`);
+    if (commitsRes.ok) {
+      const commits = await commitsRes.json();
+      if (commits[0]) {
+        updatedEl.textContent = '⏱ Updated ' + fmtDate(commits[0].commit.committer.date);
+        updatedEl.title = relTime(commits[0].commit.committer.date);
+      }
+    }
+
+    // Get tree
+    const treeRes = await fetch(`https://api.github.com/repos/${REPO}/git/trees/${BRANCH}?recursive=1`);
+    if (!treeRes.ok) throw new Error('tree fetch failed: ' + treeRes.status);
+    const tree = await treeRes.json();
+
+    // Skip these
+    const SKIP = new Set(['index.html', 'README.md', '.gitignore']);
+    const items = tree.tree
+      .filter(t => t.type === 'blob' && !SKIP.has(t.path) && !t.path.includes('/'))
+      .map(t => ({
+        name: t.path,
+        kind: classify(t.path),
+        size: t.size || 0,
+        url: '/' + t.path,
+        sha: t.sha
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    // Stats
+    const counts = { html: 0, md: 0, img: 0, other: 0 };
+    items.forEach(i => {
+      if (i.kind === 'html') counts.html++;
+      else if (i.kind === 'md') counts.md++;
+      else if (i.kind === 'img') counts.img++;
+      else counts.other++;
+    });
+    document.getElementById('stat-total').textContent = items.length;
+    document.getElementById('stat-html').textContent = counts.html;
+    document.getElementById('stat-md').textContent = counts.md;
+    document.getElementById('stat-img').textContent = counts.img;
+
+    if (items.length === 0) {
+      emptyEl.style.display = 'block';
+      return;
+    }
+
+    // Build sections by kind
+    const groups = { html: [], md: [], img: [], file: [] };
+    items.forEach(i => groups[i.kind]?.push(i) || groups.file.push(i));
+
+    const sectionTitles = {
+      html: '🌐 HTML Pages',
+      md: '📝 Markdown Docs',
+      img: '🖼 Images',
+      file: '📄 Other Files'
+    };
+
+    let html = '';
+    for (const k of ['html', 'md', 'img', 'file']) {
+      if (groups[k].length === 0) continue;
+      html += `<section class="section" data-section="${k}"><h2>${sectionTitles[k]} <span style="color:var(--text-dim);font-weight:400;font-size:0.85em">(${groups[k].length})</span></h2><div class="grid">`;
+      groups[k].forEach(i => {
+        const tag = k === 'file' ? 'FILE' : k.toUpperCase();
+        const cls = TAG_CLASS[k] || 'tag-file';
+        const ext = i.name.split('.').pop().toUpperCase();
+        html += `<a class="card" href="${i.url}" data-name="${i.name.toLowerCase()}">
+          <div class="icon">${ICON[k] || ICON.file}</div>
+          <div class="title">${i.name}</div>
+          <div class="footer">
+            <span class="tag ${cls}">${ext}</span>
+            <span>${fmtSize(i.size)}</span>
+          </div>
+        </a>`;
+      });
+      html += '</div></section>';
+    }
+    sectionsEl.innerHTML = html;
+
+    // Search filter
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const match = !q || card.dataset.name.includes(q);
+        card.classList.toggle('hidden', !match);
+      });
+      document.querySelectorAll('.section').forEach(sec => {
+        const visible = sec.querySelectorAll('.card:not(.hidden)').length;
+        sec.classList.toggle('hidden', visible === 0);
+      });
+    });
+
+  } catch (err) {
+    sectionsEl.innerHTML = `<div class="empty"><span class="icon">⚠️</span><p>Failed to load repository contents.</p><p style="margin-top:0.5rem;font-size:0.85rem">${err.message}</p><p style="margin-top:1rem"><a href="https://github.com/${REPO}">→ Open repository on GitHub</a></p></div>`;
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>

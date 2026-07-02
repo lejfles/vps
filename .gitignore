@@ -1,0 +1,23 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Node / build (future-proofing)
+node_modules/
+dist/
+.vite/
+.cache/
+
+# Logs
+*.log
+
+# Local env
+.env
+.env.local
+
+# Temp
+tmp/
+*.tmp
