@@ -1,0 +1,191 @@
+{
+  "run_id": "apple_com_20260705",
+  "project_id": "apple_com",
+  "date": "2026-07-05",
+  "pages_audited": [
+    "home",
+    "iphone",
+    "macbook_pro",
+    "support",
+    "buy_iphone"
+  ],
+  "total_findings": 21,
+  "by_risk_level": {
+    "P2": 10,
+    "P3": 2,
+    "P1": 3,
+    "INFO": 1,
+    "PASS": 3,
+    "N/A": 2
+  },
+  "findings": [
+    {
+      "rule": "Rule 2",
+      "risk_level": "P2",
+      "page": "home",
+      "issue": "Title too short",
+      "evidence": "title=\"Apple\" (5 chars)",
+      "fix_action": "Expand title to 30-60 chars with primary keyword"
+    },
+    {
+      "rule": "Rule 3",
+      "risk_level": "P3",
+      "page": "home",
+      "issue": "Meta description may be truncated",
+      "evidence": "length=172 chars",
+      "fix_action": "Trim to ≤160 chars"
+    },
+    {
+      "rule": "Rule 4",
+      "risk_level": "P1",
+      "page": "buy_iphone",
+      "issue": "Multiple H1 (4)",
+      "evidence": "H1 texts: ['Shop iPhone', 'Shop iPhone', 'iPhone Setup With Quick Start']",
+      "fix_action": "Reduce to exactly one H1 per page"
+    },
+    {
+      "rule": "Rule 5",
+      "risk_level": "INFO",
+      "page": "support",
+      "issue": "Canonical points to different subdomain (intentional cross-domain)",
+      "evidence": "canonical=https://support.apple.com",
+      "fix_action": "No action — this is the correct pattern for subdomains"
+    },
+    {
+      "rule": "Rule 7",
+      "risk_level": "PASS",
+      "page": "all",
+      "issue": "sitemap.xml reachable and valid",
+      "evidence": "GET https://www.apple.com/sitemap.xml → 200, application/xml",
+      "fix_action": "No action needed"
+    },
+    {
+      "rule": "Rule 8",
+      "risk_level": "PASS",
+      "page": "all",
+      "issue": "robots.txt well-structured",
+      "evidence": "GET /robots.txt → 200, properly scoped per-bot (Baiduspider, HaoSouSpider, etc.)",
+      "fix_action": "No action needed"
+    },
+    {
+      "rule": "Rule 9",
+      "risk_level": "P2",
+      "page": "home",
+      "issue": "Twitter Card incomplete: missing ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']",
+      "evidence": "found 0 twitter tags",
+      "fix_action": "Add missing twitter: tags for complete Twitter previews"
+    },
+    {
+      "rule": "Rule 9",
+      "risk_level": "P2",
+      "page": "iphone",
+      "issue": "Twitter Card incomplete: missing ['twitter:title', 'twitter:description', 'twitter:image']",
+      "evidence": "found 2 twitter tags",
+      "fix_action": "Add missing twitter: tags for complete Twitter previews"
+    },
+    {
+      "rule": "Rule 9",
+      "risk_level": "P2",
+      "page": "macbook_pro",
+      "issue": "Twitter Card incomplete: missing ['twitter:title', 'twitter:description', 'twitter:image']",
+      "evidence": "found 2 twitter tags",
+      "fix_action": "Add missing twitter: tags for complete Twitter previews"
+    },
+    {
+      "rule": "Rule 9",
+      "risk_level": "P2",
+      "page": "support",
+      "issue": "OG tags incomplete: missing ['og:title', 'og:description', 'og:image', 'og:url', 'og:type']",
+      "evidence": "found 0 og tags",
+      "fix_action": "Add missing og: tags for complete social previews"
+    },
+    {
+      "rule": "Rule 9",
+      "risk_level": "P2",
+      "page": "support",
+      "issue": "Twitter Card incomplete: missing ['twitter:card', 'twitter:title', 'twitter:description', 'twitter:image']",
+      "evidence": "found 0 twitter tags",
+      "fix_action": "Add missing twitter: tags for complete Twitter previews"
+    },
+    {
+      "rule": "Rule 9",
+      "risk_level": "P2",
+      "page": "buy_iphone",
+      "issue": "Twitter Card incomplete: missing ['twitter:title', 'twitter:description', 'twitter:image']",
+      "evidence": "found 2 twitter tags",
+      "fix_action": "Add missing twitter: tags for complete Twitter previews"
+    },
+    {
+      "rule": "Rule 10",
+      "risk_level": "P1",
+      "page": "buy_iphone",
+      "issue": "Buy page missing Product schema",
+      "evidence": "has ['BreadcrumbList'], no Product",
+      "fix_action": "Add Product schema with offer/price/availability"
+    },
+    {
+      "rule": "Rule 11",
+      "risk_level": "P2",
+      "page": "all",
+      "issue": "llms.txt MISSING on apple.com",
+      "evidence": "GET https://www.apple.com/llms.txt → 404, GET /llms-full.txt → 404",
+      "fix_action": "Even Apple has not adopted llms.txt. Add /llms.txt with site description + key product categories to improve AI-crawler discovery"
+    },
+    {
+      "rule": "Rule 15",
+      "risk_level": "N/A",
+      "page": "all",
+      "issue": "Core Web Vitals require real-user measurement (CrUX) or lab test",
+      "evidence": "not measurable from HTML alone",
+      "fix_action": "Check https://pagespeed.web.dev/ or CrUX dashboard for field data"
+    },
+    {
+      "rule": "Rule 16",
+      "risk_level": "P2",
+      "page": "iphone",
+      "issue": "11/213 images missing alt (5%)",
+      "evidence": "images=213, missing_alt=11",
+      "fix_action": "Add alt=\"\" to decorative images, descriptive alt to informative ones"
+    },
+    {
+      "rule": "Rule 16",
+      "risk_level": "P1",
+      "page": "macbook_pro",
+      "issue": "145/217 images missing alt (67%)",
+      "evidence": "images=217, missing_alt=145",
+      "fix_action": "Add alt=\"\" to decorative images, descriptive alt to informative ones"
+    },
+    {
+      "rule": "Rule 16",
+      "risk_level": "P2",
+      "page": "buy_iphone",
+      "issue": "2/13 images missing alt (15%)",
+      "evidence": "images=13, missing_alt=2",
+      "fix_action": "Add alt=\"\" to decorative images, descriptive alt to informative ones"
+    },
+    {
+      "rule": "Rule 16",
+      "risk_level": "P3",
+      "page": "support",
+      "issue": "No charset meta declared",
+      "evidence": "no <meta charset>",
+      "fix_action": "Add <meta charset=\"utf-8\">"
+    },
+    {
+      "rule": "Rule 17",
+      "risk_level": "PASS",
+      "page": "all",
+      "issue": "Security headers comprehensive",
+      "evidence": "HSTS preload + CSP + X-Frame-Options: SAMEORIGIN + X-Content-Type-Options: nosniff + X-XSS-Protection",
+      "fix_action": "No action needed — exemplary configuration"
+    },
+    {
+      "rule": "Rule 18",
+      "risk_level": "N/A",
+      "page": "all",
+      "issue": "Requires account access",
+      "evidence": "GSC/GA4 cannot be verified without credentials",
+      "fix_action": "User must verify in their own GSC/GA4 accounts"
+    }
+  ]
+}
