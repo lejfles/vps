@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI SEO Agent Workflow — v0.6</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #020617;
+    color: #e2e8f0;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+  .header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .pulse-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #34d399; box-shadow: 0 0 12px #34d399;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+  h1 { font-size: 24px; font-weight: 600; color: #f1f5f9; letter-spacing: -0.5px; }
+  .subtitle { font-size: 12px; color: #94a3b8; margin-bottom: 28px; margin-left: 22px; }
+  .diagram-card {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 24px; margin-bottom: 24px; overflow-x: auto;
+  }
+  svg { display: block; margin: 0 auto; }
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-bottom: 24px;
+  }
+  .card {
+    background: #0f172a; border: 1px solid #1e293b;
+    border-radius: 8px; padding: 16px;
+  }
+  .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .card-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .card-dot.cyan { background: #22d3ee; box-shadow: 0 0 6px #22d3ee; }
+  .card-dot.emerald { background: #34d399; box-shadow: 0 0 6px #34d399; }
+  .card-dot.violet { background: #a78bfa; box-shadow: 0 0 6px #a78bfa; }
+  .card-dot.amber { background: #fbbf24; box-shadow: 0 0 6px #fbbf24; }
+  .card-dot.rose { background: #fb7185; box-shadow: 0 0 6px #fb7185; }
+  .card h3 { font-size: 13px; font-weight: 600; color: #f1f5f9; }
+  .card ul { list-style: none; padding: 0; }
+  .card li { font-size: 11px; color: #cbd5e1; margin-bottom: 4px; line-height: 1.5; }
+  .footer { text-align: center; font-size: 10px; color: #475569; margin-top: 16px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="pulse-dot"></div>
+    <h1>AI SEO Agent Workflow — v0.6</h1>
+  </div>
+  <div class="subtitle">
+    Merged from ChatGPT share 6a491641 (The Lazy Developer + Google Search Central) · 8 agents · 11 handoffs · 19 audit rules · P0–P3 risk levels
+  </div>
+
+  <div class="diagram-card">
+<svg width="1360" height="1480" viewBox="0 0 1360 1480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-rose" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fb7185"/>
+    </marker>
+    <marker id="arrow-emerald" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <rect width="1360" height="1480" fill="#020617"/>
+  <rect width="1360" height="1480" fill="url(#grid)"/>
+
+  <!-- ROW 1: Strategy + Research + Evidence + Risk -->
+  <g transform="translate(80, 60)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(34,211,238,0.18)" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#22d3ee">01 STRATEGY</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">business goal · audience</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">conversion · forbidden</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 01 → 02</text>
+  </g>
+
+  <g transform="translate(420, 60)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(34,211,238,0.18)" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#22d3ee">02 RESEARCH</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">search intent · SERP gap</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">cannibalization check</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 02 → 03</text>
+  </g>
+
+  <g transform="translate(760, 60)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(34,211,238,0.18)" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#22d3ee">03 EVIDENCE</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">facts · sources · cases</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">claims · evidence · reasoning</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 03 → 04</text>
+  </g>
+
+  <g transform="translate(1100, 60)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(251,113,133,0.18)" stroke="#fb7185" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#fb7185">04 RISK</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">commercial boundary</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">public / anonymize / DNP</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 04 → 05 (↓)</text>
+  </g>
+
+  <!-- 04 Risk → 05 Architect (downward arrow, connects to top of Architect box) -->
+  <line x1="1220" y1="160" x2="1220" y2="238" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+
+  <!-- ROW 1 horizontal arrows -->
+  <line x1="320" y1="110" x2="420" y2="110" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <line x1="660" y1="110" x2="760" y2="110" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <line x1="1000" y1="110" x2="1100" y2="110" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+
+  <!-- ROW 2: Architect + Writer + Audit + Monitor -->
+  <g transform="translate(80, 240)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(167,139,250,0.18)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#a78bfa">05 ARCHITECT</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">blueprint · FAQ · tables</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">keyword map · H2-H6</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 05 → 06</text>
+  </g>
+
+  <g transform="translate(420, 240)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(167,139,250,0.18)" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#a78bfa">06 WRITER</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">drafts · title · meta</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">avoid AI voice</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 06 → 07</text>
+  </g>
+
+  <g transform="translate(760, 240)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(52,211,153,0.22)" stroke="#34d399" stroke-width="2"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#34d399">07 AUDIT ★</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">19 rules · 7-section output</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">P0–P3 risk levels</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 07 → 08</text>
+  </g>
+
+  <g transform="translate(1100, 240)">
+    <rect width="240" height="100" rx="6" fill="#0f172a"/>
+    <rect width="240" height="100" rx="6" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1.5"/>
+    <text x="120" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#fbbf24">08 MONITOR</text>
+    <text x="120" y="54" text-anchor="middle" font-size="9" fill="#cbd5e1">GSC · GA4 · AI citation</text>
+    <text x="120" y="68" text-anchor="middle" font-size="9" fill="#cbd5e1">refresh backlog</text>
+    <text x="120" y="86" text-anchor="middle" font-size="8" fill="#64748b">handoff 08 → 09 → 10</text>
+  </g>
+
+  <!-- Row 2 horizontal arrows -->
+  <line x1="320" y1="290" x2="420" y2="290" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="660" y1="290" x2="760" y2="290" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="1000" y1="290" x2="1100" y2="290" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+  <!-- HUMAN APPROVAL GATE -->
+  <g transform="translate(80, 410)">
+    <rect width="1200" height="80" rx="8" fill="#0f172a"/>
+    <rect width="1200" height="80" rx="8" fill="rgba(251,191,36,0.10)" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="600" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">⚠ HUMAN APPROVAL GATE</text>
+    <text x="600" y="56" text-anchor="middle" font-size="10" fill="#cbd5e1">audit pass → review by human → publish OR fail back to specific stage via failure_router</text>
+    <text x="600" y="70" text-anchor="middle" font-size="9" fill="#64748b">handoff 08 (audit→approval) · 09 (approval→publish)</text>
+  </g>
+
+  <!-- Arrow from audit down to approval gate -->
+  <line x1="880" y1="340" x2="880" y2="395" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+  <!-- FAILURE ROUTER -->
+  <g transform="translate(80, 540)">
+    <rect width="1200" height="110" rx="8" fill="#0f172a"/>
+    <rect width="1200" height="110" rx="8" fill="rgba(251,113,133,0.10)" stroke="#fb7185" stroke-width="2" stroke-dasharray="8,4"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#fb7185">⟲ FAILURE ROUTER (precise back-routing — no global restart)</text>
+    <text x="20" y="50" font-size="10" fill="#cbd5e1">审计失败按原因回到对应环节：</text>
+    <text x="20" y="72" font-size="9" fill="#fb7185">
+      <tspan fill="#22d3ee">business goal wrong → Strategy</tspan>
+      <tspan dx="20" fill="#22d3ee">SERP/topic weak → Research</tspan>
+      <tspan dx="20" fill="#22d3ee">proof missing → Evidence</tspan>
+    </text>
+    <text x="20" y="92" font-size="9" fill="#fb7185">
+      <tspan fill="#a78bfa">disclosure risk → Risk</tspan>
+      <tspan dx="20" fill="#a78bfa">structure weak → Architect</tspan>
+      <tspan dx="20" fill="#a78bfa">voice issue → Writer</tspan>
+      <tspan dx="20" fill="#34d399">P0 finding → fix in-place (no global re-run)</tspan>
+    </text>
+  </g>
+
+  <!-- Arrow from approval down to failure router (only on fail path) -->
+  <line x1="200" y1="490" x2="200" y2="535" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow-rose)"/>
+  <text x="210" y="515" font-size="8" fill="#fb7185">on fail</text>
+
+  <!-- SHARED KNOWLEDGE BASE -->
+  <g transform="translate(80, 700)">
+    <rect width="1200" height="180" rx="8" fill="#0f172a"/>
+    <rect width="1200" height="180" rx="8" fill="rgba(167,139,250,0.06)" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#a78bfa">SHARED KNOWLEDGE BASE — 03_shared_knowledge/</text>
+
+    <g transform="translate(20, 50)">
+      <rect width="380" height="110" rx="6" fill="rgba(34,211,238,0.06)" stroke="#22d3ee" stroke-width="0.8"/>
+      <text x="15" y="22" font-size="11" font-weight="600" fill="#22d3ee">audit_rubrics.md</text>
+      <text x="15" y="42" font-size="9" fill="#cbd5e1">• 5 high-level audits</text>
+      <text x="15" y="58" font-size="9" fill="#cbd5e1">• 19 detailed Pass/Fail rules</text>
+      <text x="15" y="74" font-size="9" fill="#cbd5e1">• Keyword Placement Module</text>
+      <text x="15" y="90" font-size="9" fill="#cbd5e1">• Citation trust hierarchy</text>
+    </g>
+    <g transform="translate(410, 50)">
+      <rect width="380" height="110" rx="6" fill="rgba(167,139,250,0.06)" stroke="#a78bfa" stroke-width="0.8"/>
+      <text x="15" y="22" font-size="11" font-weight="600" fill="#a78bfa">seo_principles.md</text>
+      <text x="15" y="42" font-size="9" fill="#cbd5e1">• 4 principles: Prominence</text>
+      <text x="15" y="58" font-size="9" fill="#cbd5e1">  Term frequency · Distribution</text>
+      <text x="15" y="74" font-size="9" fill="#cbd5e1">  Semantic coverage</text>
+      <text x="15" y="90" font-size="9" fill="#cbd5e1">• Keyword classification (5 types)</text>
+    </g>
+    <g transform="translate(800, 50)">
+      <rect width="380" height="110" rx="6" fill="rgba(251,113,133,0.06)" stroke="#fb7185" stroke-width="0.8"/>
+      <text x="15" y="22" font-size="11" font-weight="600" fill="#fb7185">commercial_boundary_rules.md</text>
+      <text x="15" y="42" font-size="9" fill="#cbd5e1">• Public / anonymize / DNP</text>
+      <text x="15" y="58" font-size="9" fill="#cbd5e1">• Forbidden disclosure types</text>
+      <text x="15" y="74" font-size="9" fill="#cbd5e1">• Forbidden acts (share's 禁止事项)</text>
+      <text x="15" y="90" font-size="9" fill="#cbd5e1">• "公开判断保留执行" framework</text>
+    </g>
+  </g>
+
+  <!-- RISK LEVELS LEGEND -->
+  <g transform="translate(80, 920)">
+    <rect width="1200" height="120" rx="8" fill="#0f172a"/>
+    <rect width="1200" height="120" rx="8" fill="rgba(251,191,36,0.06)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#fbbf24">RISK LEVELS — applied to every audit finding + every handoff risk_flags entry</text>
+
+    <g transform="translate(20, 50)">
+      <rect width="280" height="55" rx="4" fill="rgba(251,113,133,0.18)" stroke="#fb7185" stroke-width="1.2"/>
+      <text x="15" y="22" font-size="12" font-weight="700" fill="#fb7185">P0 · CRITICAL</text>
+      <text x="15" y="40" font-size="8" fill="#cbd5e1">blocks crawl/index/build/deploy/security</text>
+      <text x="15" y="50" font-size="8" fill="#64748b">must fix before any production change</text>
+    </g>
+    <g transform="translate(310, 50)">
+      <rect width="280" height="55" rx="4" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="1.2"/>
+      <text x="15" y="22" font-size="12" font-weight="700" fill="#fbbf24">P1 · HIGH</text>
+      <text x="15" y="40" font-size="8" fill="#cbd5e1">clearly hurts SEO/schema/UX</text>
+      <text x="15" y="50" font-size="8" fill="#64748b">fix in current iteration</text>
+    </g>
+    <g transform="translate(600, 50)">
+      <rect width="280" height="55" rx="4" fill="rgba(34,211,238,0.18)" stroke="#22d3ee" stroke-width="1.2"/>
+      <text x="15" y="22" font-size="12" font-weight="700" fill="#22d3ee">P2 · MEDIUM</text>
+      <text x="15" y="40" font-size="8" fill="#cbd5e1">recommended optimization</text>
+      <text x="15" y="50" font-size="8" fill="#64748b">not blocking · fix next iteration</text>
+    </g>
+    <g transform="translate(890, 50)">
+      <rect width="290" height="55" rx="4" fill="rgba(148,163,184,0.18)" stroke="#94a3b8" stroke-width="1.2"/>
+      <text x="15" y="22" font-size="12" font-weight="700" fill="#94a3b8">P3 · LOW</text>
+      <text x="15" y="40" font-size="8" fill="#cbd5e1">style · maintainability · enhancement</text>
+      <text x="15" y="50" font-size="8" fill="#64748b">backlog</text>
+    </g>
+  </g>
+
+  <!-- FOLDER STRUCTURE OVERVIEW -->
+  <g transform="translate(80, 1080)">
+    <rect width="1200" height="220" rx="8" fill="#0f172a"/>
+    <rect width="1200" height="220" rx="8" fill="rgba(94,234,212,0.05)" stroke="#5eead4" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#5eead4">FOLDER STRUCTURE — every file belongs to a layer (8 layers)</text>
+
+    <g font-size="10" fill="#cbd5e1">
+      <text x="20" y="58" fill="#5eead4" font-weight="600">00_system/</text>
+      <text x="180" y="58">global_config · mvp_goal_loop · run_protocol · system_overview</text>
+
+      <text x="20" y="80" fill="#5eead4" font-weight="600">01_agents/</text>
+      <text x="180" y="80">01_strategy .. 08_monitor (each: README + agent.md + checklist.md + input/output_schema.json)</text>
+
+      <text x="20" y="102" fill="#5eead4" font-weight="600">02_handoffs/</text>
+      <text x="180" y="102">01..11 + failure_router (each: schema.json + handoff.md + example.json)</text>
+
+      <text x="20" y="124" fill="#5eead4" font-weight="600">03_shared/</text>
+      <text x="180" y="124">audit_rubrics · seo_principles · commercial_boundary_rules</text>
+
+      <text x="20" y="146" fill="#5eead4" font-weight="600">04_projects/</text>
+      <text x="180" y="146">project_config.yaml per client</text>
+
+      <text x="20" y="168" fill="#5eead4" font-weight="600">05_runs/</text>
+      <text x="180" y="168">draft · audit_report.{md,json} · summary.json · report.{html,pdf}</text>
+
+      <text x="20" y="190" fill="#5eead4" font-weight="600">06_outputs/ 07_templates/</text>
+      <text x="180" y="190">final deliverables · project_config · content_brief · audit_report · run_record</text>
+    </g>
+  </g>
+
+  <!-- FILE OWNERSHIP LEGEND -->
+  <g transform="translate(80, 1330)">
+    <rect width="1200" height="120" rx="8" fill="#0f172a"/>
+    <rect width="1200" height="120" rx="8" fill="rgba(94,234,212,0.05)" stroke="#5eead4" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#5eead4">FILE OWNERSHIP — which file belongs to which Agent / layer (cross-references)</text>
+
+    <g font-size="9" fill="#cbd5e1">
+      <text x="20" y="52">• <tspan fill="#22d3ee" font-weight="600">audit_rubrics.md</tspan> → consumed by 07_audit_agent (all 19 rules) + 06_writer_agent (Keyword Module) + 05_content_architect_agent (Keyword classification)</text>
+      <text x="20" y="72">• <tspan fill="#a78bfa" font-weight="600">seo_principles.md</tspan> → consumed by 02_research_agent (4 principles) + 05_content_architect_agent (H2-H6) + 06_writer_agent (anchor rules)</text>
+      <text x="20" y="92">• <tspan fill="#fb7185" font-weight="600">commercial_boundary_rules.md</tspan> → consumed by 04_risk_agent (DNP filter) + 06_writer_agent (commercial checklist) + 07_audit_agent (Commercial Risk Audit)</text>
+    </g>
+  </g>
+
+</svg>
+  </div>
+
+  <div class="summary-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot emerald"></div>
+        <h3>v0.6 additions (2026-07-05)</h3>
+      </div>
+      <ul>
+        <li>• 19 detailed Pass/Fail audit rules (audit_rubrics.md)</li>
+        <li>• Keyword Placement Module (Prominence / Term / Distribution / Semantic)</li>
+        <li>• 5-type keyword classification (Primary / Secondary / Synonym / Entity / Long-tail)</li>
+        <li>• Phase 0–13 audit workflow (Project ID → Architecture → Crawlability → sitemap/robots/llms → metadata → Schema → CWV → Security → Validation → Modification → Verification → Before/After → 7-section Output)</li>
+        <li>• P0–P3 risk level standardization across 12 handoff schemas</li>
+        <li>• Audit report template (7 sections A–G)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot cyan"></div>
+        <h3>Source & Provenance</h3>
+      </div>
+      <ul>
+        <li>• Source: chatgpt.com/share/6a491641-4d88-83e8-b019-c6d774216090</li>
+        <li>• Title: 结构化数据资源与文档</li>
+        <li>• 4 turns · 4 user + 4 assistant</li>
+        <li>• References: The Lazy Developer + Google Search Central</li>
+        <li>• Local copy: 资料导入/chatgpt_share_6a491641_extracted.md (76KB)</li>
+        <li>• Comparison: 09_docs/what_we_have_vs_chatgpt_share.md</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-dot rose"></div>
+        <h3>Key v0.6 invariants</h3>
+      </div>
+      <ul>
+        <li>• Every finding cites a specific Rule (1–19) + Risk Level (P0–P3)</li>
+        <li>• P0 finding → fix in-place · no global restart</li>
+        <li>• Failure router → back-routes to the exact broken agent</li>
+        <li>• Local-first: no account/CMS/API access without explicit confirmation</li>
+        <li>• "公开判断保留执行；公开经验保留系统；公开案例保留名单；公开框架保留 SOP"</li>
+        <li>• llms.txt treated as first-class crawler entry (NEW)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    AI SEO Agent System · v0.6 · 2026-07-05 · 8 agents · 11 handoffs · 19 audit rules · 5 risk levels
+  </div>
+</div>
+</body>
+</html>
