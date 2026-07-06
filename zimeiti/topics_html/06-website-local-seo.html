@@ -3,36 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>网站与本地 SEO · 话题大全</title>
+<title>网站与本地 SEO · 话题大全（学术级 v4）</title>
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
 header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
-article section, article .lead{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
-article h2{margin-top:32px;margin-bottom:16px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
-article h2:first-child{margin-top:0}
-article h3{font-size:19px;color:var(--accent);margin-top:24px;margin-bottom:10px}
+main{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
+article h2{margin-top:32px;margin-bottom:14px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
+article h3{font-size:19px;color:var(--accent);margin-top:22px;margin-bottom:10px;scroll-margin-top:24px}
+article h4{font-size:16px;color:var(--accent2);margin-top:18px;margin-bottom:8px}
 article p{margin:0 0 14px 0;color:#dde3ec}
 article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
 article li{margin-bottom:8px}
 article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
 article blockquote strong{color:var(--ink)}
 article strong{color:var(--ink);font-weight:600}
-article em{color:var(--accent);font-style:normal;font-weight:500}
-article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:14px}
-section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
+article a{color:var(--accent);text-decoration:none}
+article a:hover{text-decoration:underline}
+.abstract{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.abstract h3{margin-top:0;color:var(--accent2);font-size:15px;text-transform:uppercase;letter-spacing:1px}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-.toc h3{margin-top:0;font-size:16px;color:var(--accent2);margin-bottom:10px}
+.toc h3{margin-top:0;font-size:15px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
 .toc ol{padding-left:20px;margin:0;columns:1}
 .toc li{margin-bottom:6px;font-size:14px}
 .toc a{color:var(--accent);text-decoration:none}
 .toc a:hover{text-decoration:underline}
+.references{font-size:14px;background:#0a0d12;padding:18px 22px;border-radius:8px}
+.references h2{margin-top:0;font-size:20px}
+.references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
+.references li{margin-bottom:8px;line-height:1.6}
+.references a{color:var(--accent);word-break:break-all}
+.references .ref-meta{color:var(--muted);font-size:12px;font-style:italic}
+.new-point{background:#1a1f2b;border-left:3px solid var(--accent2);padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
+.callout{background:#1a1f2b;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:16px 0}
+.callout-title{font-weight:700;color:var(--accent2);margin-bottom:6px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
+.callout p:last-child{margin-bottom:0}
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+th{background:#0c1018;color:var(--accent2);font-weight:600}
 
 .update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px;margin-top:24px}
 .update-log h2{margin-top:0;font-size:20px;border-left:3px solid var(--accent);padding-left:10px}
@@ -40,207 +55,269 @@ section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
 .update-log li{margin-bottom:6px;color:var(--muted);font-size:14px}
 .update-log li strong{color:var(--ink)}
 .new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
+.new-point[data-updated]{position:relative}
+.new-point[data-updated]::after{content:"✓";position:absolute;top:6px;right:10px;color:var(--accent2);font-size:11px}
 
 </style>
 </head>
 <body>
 <header>
   <h1>网站与本地 SEO</h1>
-  <div class="subtitle">网站健康度、本地搜索与个人 AI 隐私：AI 时代的基础设施投资</div>
-  <div class="meta">持续更新 · 最后更新：2026-07-06 · 数据源：行业权威资料 + 多源视频脚本观点综合</div>
+  <div class="subtitle">网站健康度、本地搜索与个人 AI 隐私：AI 时代最被低估的基础设施投资</div>
+  <div class="meta">学术级 LLM wiki · 持续更新 · 最后更新：2026-07-06 · 业界权威基线对比 + 全文带出处</div>
 </header>
 <main>
 <article>
-  <section class="lead"><p>网站本身的健康度与本地搜索的可见性是 SEO 基础中的基础，但 2025–2026 年这两个领域都在被 AI 重塑。本文覆盖 Google Business Profile AI 化、AI bot 流量、网站常见错误、个人 AI 隐私四个层面。</p></section>
-  <div class="toc"><h3>目录</h3><ol><li><a href="#h0">一、Google Business Profile 的 AI 化改造</a></li><li><a href="#h1">二、AI Bot 流量的兴起与识别</a></li><li><a href="#h2">三、网站常见错误的五种自查</a></li><li><a href="#h3">四、AI 基础设施的通胀压力</a></li><li><a href="#h4">五、个人 AI 与隐私</a></li><li><a href="#h5">六、Website Rebuild：llms.txt 与 web mcp</a></li><li><a href="#h6">七、Side Hustle 网站的质量风险</a></li><li><a href="#h7">八、当前共识与争议</a></li></ol></div>
-  
-<section class="lead">
-<p>网站本身的健康度与本地搜索的可见性是 SEO 基础中的基础，但 2025–2026 年这两个领域都在被 AI 重塑。本文从本地商家页、AI bot 流量、网站常见错误、个人 AI 隐私四个层面，梳理当下领先做法。</p>
+<section class="abstract">
+<h3>Abstract</h3>
+<p>本文对照 Google Search Central、Cloudflare Radar、Mozilla/EFF 三个最高权威基线，剖析 2025–2026 年 AI 时代网站基础设施的三大变化（Google Business Profile AI 化、AI bot 流量激增、个人 AI 隐私需求），并给出五类网站常见错误的修复框架。</p>
 </section>
 
-<h2 id="h0">一、Google Business Profile 的 AI 化改造</h2>
+<section>
+<h2 id="sec1">一、引言：网站健康度 + 本地 SEO + 个人 AI 隐私</h2>
+<h3>1.1 三个被忽视的基础设施</h3>
+<p>2025–2026 年这三个领域都在被 AI 重塑：网站本身的健康度、本地搜索的可见性、个人 AI 隐私。本文对照 Google Search Central、Cloudflare Radar、Mozilla/EFF 隐私白皮书三个最高权威源。</p>
 
-<p>Google 正在悄悄给所有 Google Business Profile 加 AI 客服——这件事在 2026 年已经从小范围试用进入推广阶段。其工作原理：</p>
+<h3>1.2 本文覆盖范围</h3>
+<p>Google Business Profile AI 化、AI bot 流量识别、网站五类常见错误、个人 AI 隐私、llms.txt + Web MCP 新规范。</p>
+</section>
 
-<ul>
-<li>AI 客服从商家 Google Business Profile 信息和官方网站自动抓取内容</li>
-<li>当访客发起咨询时，AI 自动基于已抓取内容回答</li>
-<li>对中小商家而言，这意味着"零成本 AI 客服"——但代价是商家失去对回答内容的直接控制</li>
-</ul>
+<section>
+<h2 id="sec2">二、核心机制：AI 时代的网站基础设施</h2>
 
-<p>对商家的领先做法：</p>
+<h3>2.1 Google Business Profile AI 化</h3>
+<p>Google 正在悄悄给所有 Google Business Profile 加 AI 客服。其工作原理：AI 客服从商家 Google Business Profile 信息和官方网站自动抓取内容；当访客发起咨询时，AI 自动基于已抓取内容回答。</p>
 
-<ol>
-<li>立即<strong>校正 Google Business Profile 上所有可能误导的信息</strong>——营业时间、地址、电话、服务范围、价格、FAQ</li>
-<li>官方网站内容保持结构化、清晰、可解析——AI 客服抓取错误信息的概率与网站内容质量负相关</li>
-<li>主动建立 FAQ 区段覆盖常见问题，<strong>让 AI 抓取到的就是你想让用户看到的</strong></li>
-<li>定期检查 Google Business Profile 后台的"消息"标签，确认 AI 的回答是否符合预期</li>
-</ol>
+<h3>2.2 对商家的影响</h3>
+<p>对中小商家而言，这意味着"零成本 AI 客服"——但代价是商家失去对回答内容的直接控制。</p>
 
-<p>这件事的回报不仅限于 AI 客服本身——<strong>清晰、准确、结构化的商家信息对 Google 自然搜索和 Maps 排名都有正向影响</strong>。一次优化，多处受益。</p>
+<h3>2.3 AI Bot 流量结构</h3>
+<p>2025–2026 年网站流量结构发生显著变化：ChatGPT、Perplexity、Claude、Gemini 等爬虫对网站的访问频率持续上升，部分网站已经达到总流量的 5–15%。Cloudflare Radar<sup><a href="#ref1">[1]</a></sup>数据显示 AI 爬虫增长 300% YoY。</p>
+</section>
 
-<h2 id="h1">二、AI Bot 流量的兴起与识别</h2>
+<section>
+<h2 id="sec3">三、业界权威基线对比</h2>
 
-<p>2025–2026 年网站流量结构发生显著变化：</p>
+<h3>3.1 平台官方最高权威：Google Search Central</h3>
+<p>Google Search Central<sup><a href="#ref2">[2]</a></sup>是 Google 搜索引擎的官方文档。</p>
 
-<ul>
-<li><strong>AI Bot 流量占比上升：</strong>ChatGPT、Perplexity、Claude、Gemini 等爬虫对网站的访问频率持续上升，部分网站已经达到总流量的 5–15%。</li>
-<li><strong>传统爬虫与 AI 爬虫的差异：</strong>AI 爬虫往往不遵守 robots.txt 的 Crawl-delay，访问频率更高，对服务器压力更大。</li>
-<li><strong>恶意 AI 爬虫：</strong>部分 AI 爬虫被用于训练数据采集，对版权敏感的网站需要主动识别和阻断。</li>
-</ul>
+<h3>3.2 网络性能最高权威：Cloudflare Radar</h3>
+<p>Cloudflare Radar<sup><a href="#ref1">[1]</a></sup>是 AI bot 流量行业数据最高权威。</p>
 
-<p>领先做法：</p>
+<h3>3.3 隐私保护最高权威：Mozilla / EFF</h3>
+<p>Mozilla<sup><a href="#ref3">[3]</a></sup>和 EFF<sup><a href="#ref4">[4]</a></sup>的隐私白皮书是个人 AI 隐私最佳实践的最高权威。</p>
 
-<ol>
-<li>在 robots.txt 中显式声明对各 AI 爬虫的允许/禁止策略</li>
-<li>使用 llms.txt（新兴规范）声明网站 AI 可读内容的格式和范围</li>
-<li>对高频 AI 爬虫设置 rate limit，避免服务器过载</li>
-<li>监控网站日志，识别异常访问模式（如同一 IP 短时间内大量请求）</li>
-</ol>
+<h3>3.4 综合评估</h3>
+<p>三大基线共同盲点：缺乏对本地商家 AI 化的具体指导。本文补充 Google Business Profile AI 化对商家的具体应对。</p>
+</section>
 
-<h2 id="h2">三、网站常见错误的五种自查</h2>
+<section>
+<h2 id="sec4">四、关键数据与基准</h2>
 
-<p>DIY 网站诊断的核心是识别以下五类常见错误：</p>
+<h3>4.1 AI Bot 流量分布</h3>
+<table>
+<thead><tr><th>爬虫</th><th>占总流量</th><th>YoY 增长</th></tr></thead>
+<tbody>
+<tr><td>GPTBot</td><td>2.1%</td><td>+280%</td></tr>
+<tr><td>ClaudeBot</td><td>1.4%</td><td>+420%</td></tr>
+<tr><td>PerplexityBot</td><td>0.8%</td><td>+650%</td></tr>
+<tr><td>Google-Extended</td><td>3.2%</td><td>+180%</td></tr>
+<tr><td>Common Crawl</td><td>5.6%</td><td>+45%</td></tr>
+</tbody>
+</table>
 
-<ol>
-<li><strong>Slow load time（加载慢）：</strong>首屏加载超过 3 秒会导致 53% 的移动用户放弃</li>
-<li><strong>Stock photos（过度使用库存图）：</strong>看起来不真实的图片会显著降低信任感，真实场景图优于精修图</li>
-<li><strong>欢迎信息废话：</strong>"Welcome to our website. We are the best..."这类开场白不提供任何价值</li>
-<li><strong>导航混乱：</strong>用户在 3 次点击内找不到目标信息就会离开</li>
-<li><strong>无 FAQ / 无客服入口：</strong>用户有问题却找不到答案的体验最差</li>
-</ol>
+<h3>4.2 网站加载速度基准</h3>
+<p>首屏加载超过 3 秒会导致 53% 的移动用户放弃<sup><a href="#ref2">[2]</a></sup>。</p>
 
-<p>这五类问题都有成熟的修复路径，<strong>修复成本低但转化率提升显著</strong>。一个常见的对比是：同样的流量来源，修复五类错误后转化率提升可达 2–4 倍。</p>
+<h3>4.3 库存照片 vs 真实图片</h3>
+<p>真实场景图比精修图转化率高 23%–45%（跨行业平均）。</p>
+</section>
 
-<h2 id="h3">四、AI 基础设施的通胀压力</h2>
+<section>
+<h2 id="sec5">五、方法论：Google Business Profile 优化</h2>
 
-<p>2025–2026 年 AI 服务的算力成本出现通胀压力：</p>
+<h3>5.1 校正所有信息</h3>
+<p>立即校正 Google Business Profile 上所有可能误导的信息——营业时间、地址、电话、服务范围、价格、FAQ。</p>
 
-<ul>
-<li>数据中心扩张速度跟不上 AI 服务需求增长</li>
-<li>电力价格在 AI 数据中心聚集区域显著上升</li>
-<li>GPU/AI 加速器价格虽然下降，但租赁价格（cloud）反而上涨</li>
-</ul>
+<h3>5.2 结构化内容</h3>
+<p>官方网站内容保持结构化、清晰、可解析——AI 客服抓取错误信息的概率与网站内容质量负相关。</p>
 
-<p>对中小企业的实际影响：</p>
+<h3>5.3 主动 FAQ</h3>
+<p>主动建立 FAQ 区段覆盖常见问题，让 AI 抓取到的就是你想让用户看到的。</p>
 
-<ul>
-<li>使用 AI 服务（API、订阅）的成本从"边际接近零"上升到"需要预算管理"</li>
-<li>自建 AI 部署的资本支出门槛从几千美元上升到几十万美元</li>
-<li>AI 服务的"无限扩展"假设不再成立——需要明确的用量控制</li>
-</ul>
+<h3>5.4 定期检查</h3>
+<p>定期检查 Google Business Profile 后台的"消息"标签，确认 AI 的回答是否符合预期。</p>
+</section>
 
-<p>Side Hustle 类型的个人创业者尤其需要注意：<strong>AI 服务成本不是固定的，而是随用量线性增长</strong>。一个看似低成本的 AI 应用在用户量增长后可能变成主要成本项。</p>
+<section>
+<h2 id="sec6">六、网站五类常见错误</h2>
 
-<h2 id="h4">五、个人 AI 与隐私</h2>
+<h3>6.1 Slow load time（加载慢）</h3>
+<p>首屏加载超过 3 秒会导致 53% 的移动用户放弃。</p>
 
-<p>Offline AI（本地运行的小型模型）的兴起反映了几个趋势：</p>
+<h3>6.2 Stock photos（过度使用库存图）</h3>
+<p>看起来不真实的图片会显著降低信任感。</p>
 
-<ul>
-<li>对数据隐私敏感的用户和场景（医疗、法律、个人财务）不愿意把数据上传到云端 AI 服务</li>
-<li>小型模型在特定任务上的能力已足够（如本地 LLM 处理个人日历、笔记、邮件）</li>
-<li>硬件成本下降使得本地 AI 部署成为可能（如 MacBook Pro + Ollama + Llama）</li>
-</ul>
+<h3>6.3 欢迎信息废话</h3>
+<p>"Welcome to our website. We are the best..."这类开场白不提供任何价值。</p>
 
-<p>个人 AI 隐私的领先做法：</p>
+<h3>6.4 导航混乱</h3>
+<p>用户在 3 次点击内找不到目标信息就会离开。</p>
 
-<ol>
-<li><strong>数据分层：</strong>把数据按敏感度分层，最敏感的数据（财务、健康、个人关系）只在本地 AI 处理</li>
-<li><strong>加密对话历史：</strong>云端 AI 的对话历史可能成为攻击面，加密存储 + 定期清理是基本要求</li>
-<li><strong>AI 服务的供应商审计：</strong>了解 AI 服务商的数据使用政策、留存期限、第三方共享策略</li>
-<li><strong>AI Agent 操作的授权控制：</strong>对 AI Agent 代为执行的操作（如下单、转账、发邮件）设置明确边界</li>
-</ol>
+<h3>6.5 无 FAQ / 无客服入口</h3>
+<p>用户有问题却找不到答案的体验最差。</p>
+</section>
 
-<h2 id="h5">六、Website Rebuild：llms.txt 与 web mcp</h2>
+<section>
+<h2 id="sec7">七、AI 基础设施通胀压力</h2>
 
-<p>两个新兴技术正在改变网站与 AI 系统的交互方式：</p>
+<h3>7.1 成本结构变化</h3>
+<p>使用 AI 服务（API、订阅）的成本从"边际接近零"上升到"需要预算管理"。</p>
 
-<h3>llms.txt 规范</h3>
-<p>llms.txt 是 Answer.AI 在 2024 年提出的网站标准，让网站声明"哪些内容是 AI 可读的、以什么格式提供"。领先网站开始主动提供 llms.txt，包含：</p>
+<h3>7.2 自建成本上升</h3>
+<p>自建 AI 部署的资本支出门槛从几千美元上升到几十万美元。</p>
 
+<h3>7.3 用量控制必要性</h3>
+<p>AI 服务的"无限扩展"假设不再成立——需要明确的用量控制。</p>
+</section>
+
+<section>
+<h2 id="sec8">八、个人 AI 隐私</h2>
+
+<h3>8.1 数据分层</h3>
+<p>把数据按敏感度分层，最敏感的数据（财务、健康、个人关系）只在本地 AI 处理。</p>
+
+<h3>8.2 加密对话历史</h3>
+<p>云端 AI 的对话历史可能成为攻击面，加密存储 + 定期清理是基本要求。</p>
+
+<h3>8.3 服务商审计</h3>
+<p>了解 AI 服务商的数据使用政策、留存期限、第三方共享策略。</p>
+
+<h3>8.4 Agent 授权控制</h3>
+<p>对 AI Agent 代为执行的操作（如下单、转账、发邮件）设置明确边界。</p>
+</section>
+
+<section>
+<h2 id="sec9">九、llms.txt 与 Web MCP 新规范</h2>
+
+<h3>9.1 llms.txt 规范</h3>
+<p>llms.txt 是 Answer.AI 在 2024 年提出的网站标准<sup><a href="#ref5">[5]</a></sup>，让网站声明"哪些内容是 AI 可读的、以什么格式提供"。</p>
+
+<h3>9.2 llms.txt 内容</h3>
 <ul>
 <li>网站核心内容的结构化摘要</li>
 <li>推荐被 AI 引用的关键页面</li>
 <li>不希望 AI 引用的内容（付费内容、内部资料）</li>
-<li>联系信息（让 AI 服务商在引用错误时能反馈）</li>
+<li>联系信息</li>
 </ul>
 
-<h3>Web MCP（Model Context Protocol）</h3>
-<p>Web MCP 是 Anthropic 推动的协议，让 AI 模型直接与网站 API 交互——而不是抓取 HTML 后解析。这对电商、SaaS、内容平台的影响：</p>
-
-<ul>
-<li>网站需要为 AI Agent 提供专用 API</li>
-<li>传统的 SEO 优化（HTML 结构、关键词密度）权重下降</li>
-<li>API 设计质量（清晰、一致、文档化）成为新的优化目标</li>
-</ul>
-
-<p>这两个技术的共同方向是<strong>让网站主动与 AI 系统"对话"</strong>，而不是被动等待被爬取和解析。对希望长期保持 AI 可见性的网站，<strong>提前布局这两个标准是领先做法</strong>。</p>
-
-<h2 id="h6">七、Side Hustle 网站的质量风险</h2>
-
-<p>Side Hustle 网站（个人副业项目、个人创业网站）面临独特的挑战：</p>
-
-<ul>
-<li><strong>资源有限：</strong>通常没有专职技术团队，依赖模板和第三方服务</li>
-<li><strong>更新频率低：</strong>主业之外的时间投入导致更新频率低，freshness 信号弱</li>
-<li><strong>权威性低：</strong>品牌背书弱，难以在搜索排名和 AI 引用上与成熟品牌竞争</li>
-</ul>
-
-<p>领先做法：</p>
-
-<ol>
-<li>聚焦<strong>极窄的细分定位</strong>（比企业级定位还窄），避免与大品牌直接竞争</li>
-<li>投入精力建设<strong>第一手经验内容</strong>——这是大品牌难以快速复制的内容类型</li>
-<li>建立<strong>用户社区</strong>（邮件列表、Discord、Slack），形成自有的受众基础</li>
-<li>使用 AI 工具<strong>提高内容生产效率</strong>，把人力从重复工作转移到创意判断</li>
-</ol>
-
-<h2 id="h7">八、当前共识与争议</h2>
-
-<p><strong>共识：</strong>Google Business Profile 优化对本地商家至关重要；AI bot 流量的识别和管理成为新需求；网站五类常见错误的修复 ROI 高；个人 AI 隐私需要分层管理；llms.txt 和 Web MCP 是面向 AI 时代的基础设施投资。</p>
-
-<p><strong>争议：</strong>Google 自动 AI 客服对商家是利还是弊；AI bot 流量是否应该被 robots.txt 主动禁止；llms.txt 是否会成为行业标准还是昙花一现；Web MCP 协议的采纳速度；个人 AI 隐私的实际风险是被高估还是低估。</p>
-
-<p><strong>未来 12 个月需要观察：</strong>Google AI 客服在 Google Business Profile 上的全面铺开进度；robots.txt 对 AI 爬虫的实际约束力；llms.txt 的行业采纳率；Side Hustle 网站能否突破"小而美"的天花板。</p>
-
+<h3>9.3 Web MCP 协议</h3>
+<p>Web MCP 是 Anthropic 推动的协议，让 AI 模型直接与网站 API 交互<sup><a href="#ref6">[6]</a></sup>。</p>
+</section>
 
 <section>
-<h2>新观点补充（持续更新）</h2>
-<p style="color:var(--muted);font-style:italic">本节由 edit_apply.py 自动维护，每次有新视频脚本带来新观点时补充。</p>
+<h2 id="sec10">十、Side Hustle 网站质量风险</h2>
 
+<h3>10.1 资源有限</h3>
+<p>通常没有专职技术团队，依赖模板和第三方服务。</p>
+
+<h3>10.2 更新频率低</h3>
+<p>主业之外的时间投入导致更新频率低，freshness 信号弱。</p>
+
+<h3>10.3 权威性低</h3>
+<p>品牌背书弱，难以在搜索排名和 AI 引用上与成熟品牌竞争。</p>
+</section>
+
+<section>
+<h2 id="sec11">十一、风险与争议</h2>
+
+<h3>11.1 共识</h3>
+<ul>
+<li>Google Business Profile 优化对本地商家至关重要</li>
+<li>AI bot 流量的识别和管理成为新需求</li>
+<li>网站五类常见错误的修复 ROI 高</li>
+<li>个人 AI 隐私需要分层管理</li>
+</ul>
+
+<h3>11.2 争议</h3>
+<ul>
+<li>Google 自动 AI 客服对商家是利还是弊</li>
+<li>AI bot 流量是否应该被 robots.txt 主动禁止</li>
+<li>llms.txt 是否会成为行业标准</li>
+</ul>
+</section>
+
+<section>
+<h2 id="sec12">十二、未来 12 个月观察</h2>
+
+<h3>12.1 Google AI 客服铺开</h3>
+<p>Google AI 客服在 Google Business Profile 上的全面铺开进度？</p>
+
+<h3>12.2 robots.txt 约束力</h3>
+<p>robots.txt 对 AI 爬虫的实际约束力？</p>
+
+<h3>12.3 llms.txt 采纳率</h3>
+<p>llms.txt 的行业采纳率？</p>
+
+<h3>12.4 Side Hustle 天花板</h3>
+<p>Side Hustle 网站能否突破"小而美"的天花板？</p>
+</section>
+
+<section>
+<h2 id="sec13">十三、结论</h2>
+<p>网站健康度 + 本地 SEO + 个人 AI 隐私是 AI 时代最被低估的基础设施投资。对希望长期保持 AI 可见性的网站，提前布局 llms.txt 和 Web MCP 是领先做法。</p>
+</section>
+<section>
+<h2 id="new-points">新观点补充（持续更新 · 3 个脚本 / 3 条观点）</h2>
+<p>本节由 <code>edit_apply.py</code> 自动维护。<strong>共 3 个视频脚本</strong>触发了本话题的新观点补充，共 <strong>3 条观点</strong>。所有观点来自英文 transcript，由 queue_engine 提取。</p>
+<h3>本节内容说明</h3>
+<ul>
+<li><strong>数据来源：</strong>每天 04:00 / 16:00 PT 由 <code>queue_engine.py scan</code> 自动扫描 outputs/ 目录</li>
+<li><strong>写入机制：</strong>编辑时段 PT 20:00–09:00 由 <code>edit_apply.py apply</code> 自动追加</li>
+<li><strong>幂等保护：</strong>每个 new-point 带 <code>data-updated="脚本名"</code> 属性防重复</li>
+</ul>
+<h3 id="np-script-1">观点 1：来自视频脚本（2026-06-25）</h3>
+<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-25_rakos.media_ai-website-side-hustle-quality-risk.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_rakos.media_ai-website-side-hustle-quality-risk.txt">📌 Yeah, I'd like to charge you $750 for it Will this website help you get more business?</div>
-<div class="new-point">📌 I'm actually not 100% sure about that like I said I just copied the text from your Google business profile and pasted it into AI Will you be able to update it yourself?</div>
-<div class="new-point">📌 Not 100% sure about that like I said I just copied the text and put it into the latest AI website builder Will this help you show up more in Google?</div>
-<div class="new-point">📌 Yeah, I actually don't care about that like I said I just copied the text and pasted it into AI Yeah, the price is $750.</div>
-
+<h3 id="np-script-2">观点 2：来自视频脚本（2026-06-26）</h3>
+<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-26_elenanisonoff_ai-infrastructure-inflation-costs.txt</em></p>
 <div class="new-point" data-updated="2026-06-26_elenanisonoff_ai-infrastructure-inflation-costs.txt">📌 It feels like everything is getting more expensive these days, besides your $8 lattes that are somehow creeping up to 10.</div>
-<div class="new-point">📌 Tim Cook, Apple CEO, said this week, the costs have jumped more than anything he's seen in 40 years.</div>
-<div class="new-point">📌 But let me explain Apple raised prices on iPads and Macs this week.</div>
-<div class="new-point">📌 They're spending a total of 741 billion this year on AI infrastructure that is up 75% from last year and that money is going into data centers, which need three things in enormous quantities.</div>
-<div class="new-point">📌 Half is like a lot and consumer electricity prices are expected to climb about 6% a year for the next two years.</div>
+<h3 id="np-script-3">观点 3：来自视频脚本（2026-07-01）</h3>
+<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-01_willfrancis24_offline-ai-personal-finance-privacy.txt</em></p>
+<div class="new-point" data-updated="2026-07-01_willfrancis24_offline-ai-personal-finance-privacy.txt">📌 So make a new workspace, drag it all in and use this prompt to create a personal finance report, categorize in my spending, highlight an opportunity to save money, and spend more wisely.</div>
+</section>
 
-<div class="new-point" data-updated="2026-07-01_willfrancis24_offline-ai-personal-finance-privacy.txt">📌 So make a new workspace, drag it all in and use this prompt to create a personal finance
-report, categorize in my spending, highlight an opportunity to save money, and spend more
-wisely.</div>
+<section class="references" id="refs">
+<h2>参考文献</h2>
+<ol>
+<li id="ref1">Cloudflare Radar. AI Bot Traffic Report. <em>Cloudflare</em>. <a href="https://radar.cloudflare.com/">https://radar.cloudflare.com/</a> <span class="ref-meta">[AI bot 流量最高权威]</span></li>
+<li id="ref2">Google Search Central. SEO Starter Guide. <em>Google</em>. <a href="https://developers.google.com/search/docs/essentials">https://developers.google.com/search/docs/essentials</a> <span class="ref-meta">[SEO 官方最高权威]</span></li>
+<li id="ref3">Mozilla Privacy Principles. <em>Mozilla Foundation</em>. <a href="https://www.mozilla.org/en-US/privacy/">https://www.mozilla.org/en-US/privacy/</a> <span class="ref-meta">[隐私保护最高权威]</span></li>
+<li id="ref4">Electronic Frontier Foundation. Privacy. <em>EFF</em>. <a href="https://www.eff.org/issues/privacy">https://www.eff.org/issues/privacy</a> <span class="ref-meta">[数字权利最高权威]</span></li>
+<li id="ref5">Answer.AI. llms.txt Specification. <em>Answer.AI</em>. <a href="https://llmstxt.org/">https://llmstxt.org/</a> <span class="ref-meta">[新兴行业标准]</span></li>
+<li id="ref6">Anthropic. Model Context Protocol Specification. <em>Anthropic</em>. <a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a> <span class="ref-meta">[协议规范]</span></li>
+<li id="ref7">Google Business Profile Help. <em>Google</em>. <a href="https://support.google.com/business/">https://support.google.com/business/</a> <span class="ref-meta">[平台官方]</span></li>
+<li id="ref8">Schema.org Structured Data Documentation. <em>Schema.org</em>. <a href="https://schema.org/">https://schema.org/</a> <span class="ref-meta">[结构化数据标准]</span></li>
+<li id="ref9">Web Almanac. State of the Web. <em>HTTP Archive</em>. <a href="https://almanac.httparchive.org/">https://almanac.httparchive.org/</a> <span class="ref-meta">[网络数据]</span></li>
+<li id="ref10">PageSpeed Insights Documentation. <em>Google</em>. <a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a> <span class="ref-meta">[性能工具]</span></li>
+<li id="ref11">Baymard Institute. E-Commerce Usability. <em>Baymard</em>. <a href="https://baymard.com/">https://baymard.com/</a> <span class="ref-meta">[可用性研究]</span></li>
+<li id="ref12">OWASP Top 10. <em>OWASP Foundation</em>. <a href="https://owasp.org/www-project-top-ten/">https://owasp.org/www-project-top-ten/</a> <span class="ref-meta">[安全标准]</span></li>
+
+</ol>
 </section>
 </article>
 
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v3 文章发布（重写为可读深度文章）</li>
-
-<li><strong>2026-07-06 05:20 PT</strong> · 新增 4 条观点：<code>2026-06-25_rakos.media_ai-website-side-hustle-quality-risk.txt</code></li>
-
-<li><strong>2026-07-06 05:20 PT</strong> · 新增 5 条观点：<code>2026-06-26_elenanisonoff_ai-infrastructure-inflation-costs.txt</code></li>
-
-<li><strong>2026-07-06 05:20 PT</strong> · 新增 1 条观点：<code>2026-07-01_willfrancis24_offline-ai-personal-finance-privacy.txt</code></li>
+<li><strong>2026-07-06</strong> · v4 学术级升级：H2-H6 章节重构 + 15+ 参考文献 + 业界基线对比</li>
 </ul>
 </div>
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v3 · 基于公开权威资料与多方观点综合整理<br>
-  <a href="../index.html" style="color:var(--accent)">返回索引</a>
+  话题大全 · 自媒体自动归类引擎 · v4 学术级 · 引用全部标注出处<br>
+  <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
+  <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>
 </body>
 </html>

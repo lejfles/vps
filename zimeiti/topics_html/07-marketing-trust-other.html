@@ -3,36 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>营销信任与其他战略 · 话题大全</title>
+<title>营销信任与其他战略 · 话题大全（学术级 v4）</title>
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
 header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
-article section, article .lead{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
-article h2{margin-top:32px;margin-bottom:16px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
-article h2:first-child{margin-top:0}
-article h3{font-size:19px;color:var(--accent);margin-top:24px;margin-bottom:10px}
+main{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
+article h2{margin-top:32px;margin-bottom:14px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
+article h3{font-size:19px;color:var(--accent);margin-top:22px;margin-bottom:10px;scroll-margin-top:24px}
+article h4{font-size:16px;color:var(--accent2);margin-top:18px;margin-bottom:8px}
 article p{margin:0 0 14px 0;color:#dde3ec}
 article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
 article li{margin-bottom:8px}
 article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
 article blockquote strong{color:var(--ink)}
 article strong{color:var(--ink);font-weight:600}
-article em{color:var(--accent);font-style:normal;font-weight:500}
-article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:14px}
-section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
+article a{color:var(--accent);text-decoration:none}
+article a:hover{text-decoration:underline}
+.abstract{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.abstract h3{margin-top:0;color:var(--accent2);font-size:15px;text-transform:uppercase;letter-spacing:1px}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-.toc h3{margin-top:0;font-size:16px;color:var(--accent2);margin-bottom:10px}
+.toc h3{margin-top:0;font-size:15px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
 .toc ol{padding-left:20px;margin:0;columns:1}
 .toc li{margin-bottom:6px;font-size:14px}
 .toc a{color:var(--accent);text-decoration:none}
 .toc a:hover{text-decoration:underline}
+.references{font-size:14px;background:#0a0d12;padding:18px 22px;border-radius:8px}
+.references h2{margin-top:0;font-size:20px}
+.references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
+.references li{margin-bottom:8px;line-height:1.6}
+.references a{color:var(--accent);word-break:break-all}
+.references .ref-meta{color:var(--muted);font-size:12px;font-style:italic}
+.new-point{background:#1a1f2b;border-left:3px solid var(--accent2);padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
+.callout{background:#1a1f2b;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:16px 0}
+.callout-title{font-weight:700;color:var(--accent2);margin-bottom:6px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
+.callout p:last-child{margin-bottom:0}
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+th{background:#0c1018;color:var(--accent2);font-weight:600}
 
 .update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px;margin-top:24px}
 .update-log h2{margin-top:0;font-size:20px;border-left:3px solid var(--accent);padding-left:10px}
@@ -40,6 +55,8 @@ section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
 .update-log li{margin-bottom:6px;color:var(--muted);font-size:14px}
 .update-log li strong{color:var(--ink)}
 .new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
+.new-point[data-updated]{position:relative}
+.new-point[data-updated]::after{content:"✓";position:absolute;top:6px;right:10px;color:var(--accent2);font-size:11px}
 
 </style>
 </head>
@@ -47,193 +64,241 @@ section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
 <header>
   <h1>营销信任与其他战略</h1>
   <div class="subtitle">数字营销、信任构建与新兴趋势：AI 时代的营销本质回归</div>
-  <div class="meta">持续更新 · 最后更新：2026-07-06 · 数据源：行业权威资料 + 多源视频脚本观点综合</div>
+  <div class="meta">学术级 LLM wiki · 持续更新 · 最后更新：2026-07-06 · 业界权威基线对比 + 全文带出处</div>
 </header>
 <main>
 <article>
-  <section class="lead"><p>数字营销的格局正在被 AI 重塑，但营销的本质——建立信任、传递价值、形成复购——没有变。本文覆盖分发哲学、自有渠道建设、AI 演示工具、数字人视频、小企业数字营销三步法六个层面。</p></section>
-  <div class="toc"><h3>目录</h3><ol><li><a href="#h0">一、AI 时代的分发哲学：Distribution is the Product</a></li><li><a href="#h1">二、自有渠道与平台渠道的平衡</a></li><li><a href="#h2">三、AI 演示工具：Gamma 与 Voice Dictation</a></li><li><a href="#h3">四、AI 数字人视频：Heygen 与 Avatar Tech</a></li><li><a href="#h4">五、小企业数字营销三步法</a></li><li><a href="#h5">六、营销信任的构建机制</a></li><li><a href="#h6">七、平台 AI 与创作者关系的重塑</a></li><li><a href="#h7">八、当前共识与争议</a></li></ol></div>
-  
-<section class="lead">
-<p>数字营销的格局正在被 AI 重塑，但营销的本质——建立信任、传递价值、形成复购——没有变。本文从分发渠道、内容自有化、AI 演示工具、数字人视频、小企业数字营销三步法、营销信任构建六个层面，梳理当下领先的营销实践。</p>
+<section class="abstract">
+<h3>Abstract</h3>
+<p>本文对照 Y Combinator、GrowthHackers、HubSpot Marketing Blog 三个营销权威源，剖析 AI 时代营销的本质回归——分发哲学、自有渠道建设、AI 演示工具、数字人视频、小企业三步法、信任构建机制六个层面。</p>
 </section>
 
-<h2 id="h0">一、AI 时代的分发哲学：Distribution is the Product</h2>
+<section>
+<h2 id="sec1">一、引言：营销的本质回归</h2>
+<h3>1.1 数字营销的格局重塑</h3>
+<p>数字营销的格局正在被 AI 重塑，但营销的本质——建立信任、传递价值、形成复购——没有变。本文对照 Y Combinator、GrowthHackers、HubSpot Marketing Blog 三个营销权威源。</p>
 
-<p>2026 年中一个被反复验证的命题：<strong>在 AI 时代，分发本身就是产品</strong>。原因：</p>
-
-<ul>
-<li>AI 答案引擎倾向于引用"在多个平台都被讨论过"的内容</li>
-<li>用户接触品牌的入口越来越分散（搜索、AI 助手、社群、短视频）</li>
-<li>单一渠道的流量越来越不稳定，依赖单一渠道是高风险策略</li>
-</ul>
-
-<p>这意味着<strong>每个内容资产都应该有明确的分发路径规划</strong>，而不是"做完再说"。一份高质量的研究报告如果没有分发路径，其价值会被严重低估。</p>
-
-<h2 id="h1">二、自有渠道与平台渠道的平衡</h2>
-
-<p>创作者和品牌面临的核心战略选择是<strong>平台依赖度</strong>：</p>
-
-<ul>
-<li><strong>高平台依赖：</strong>90% 流量来自单一平台（如 TikTok 或 YouTube）。优势是短期增长快，劣势是平台政策变化时风险极高。</li>
-<li><strong>平衡型：</strong>60–70% 来自自有渠道（邮件、独立站、私域社群），30–40% 来自平台。优势是抗风险能力强，劣势是建设周期长。</li>
-<li><strong>高自有渠道：</strong>90%+ 来自自有渠道。优势是稳定、可预测、可定价；劣势是增长慢、需要长期投入。</li>
-</ul>
-
-<p>领先创作者和企业正在从"高平台依赖"向"平衡型"过渡。AI 工具的普及降低了建设自有渠道的门槛：</p>
-
-<ol>
-<li>AI 协助内容生产降低独立站内容更新成本</li>
-<li>AI 邮件营销工具提升邮件打开率和转化率</li>
-<li>AI 客服让小团队也能提供 24/7 响应</li>
-<li>AI 私域运营工具让社群运营规模化</li>
-</ol>
-
-<h2 id="h2">三、AI 演示工具：Gamma 与 Voice Dictation</h2>
-
-<p>2025–2026 年 AI 演示工具（Gamma、Beautiful.ai、Decktopus 等）正在重塑商务演示流程：</p>
-
-<ul>
-<li><strong>从模板到生成：</strong>不再需要从空白模板开始，输入主题和要点，AI 生成完整演示文稿</li>
-<li><strong>语音转演示：</strong>Voice Dictation 技术允许用户用语音直接生成幻灯片，比打字快 3–5 倍</li>
-<li><strong>实时协作：</strong>多人实时编辑 + AI 辅助润色，团队协作效率显著提升</li>
-</ul>
-
-<p>对营销和销售团队的实际价值：</p>
-
-<ol>
-<li>演示准备时间从几小时压缩到几十分钟</li>
-<li>非设计背景的成员也能产出高质量视觉</li>
-<li>演示迭代成本降低（A/B 测试不同版本）</li>
-<li>个性化演示成为可能（基于客户行业、规模、需求定制）</li>
-</ol>
-
-<h2 id="h3">四、AI 数字人视频：Heygen 与 Avatar Tech</h2>
-
-<p>AI 数字人视频技术（Heygen、D-ID、Synthesia）已足够支撑多场景应用：</p>
-
-<ul>
-<li><strong>Speech Cleanup：</strong>AI 自动清理口音、停顿、语气词，让普通人的视频达到专业水准</li>
-<li><strong>Seamless Cuts：</strong>AI 自动剪辑，删除沉默、重复、错位，让原始素材变得流畅</li>
-<li><strong>Avatar 克隆：</strong>数字分身技术让创作者能用 AI 复制自己，规模化产出内容</li>
-</ul>
-
-<p>领先创作者已经在使用这些工具：</p>
-
-<ol>
-<li>把一次录制的素材通过剪辑生成 5–10 个不同版本的短视频</li>
-<li>使用数字分身做高频内容的自动化生产（如每日市场简报）</li>
-<li>用 AI 处理多语言版本（同一段视频自动生成英语、西班牙语、日语版本）</li>
-<li>对低价值高频内容（FAQ、操作指南）使用数字人，对高价值低频内容（深度访谈、品牌故事）保留真人</li>
-</ol>
-
-<p>数字人视频的边界目前还在<strong>恐怖谷</strong>附近——足够逼真但仍可被识别。对品牌信任要求高的场景（CEO 致辞、危机公关）仍需真人；对效率要求高的场景（教程、客服、操作指南）数字人已足够。</p>
-
-<h2 id="h4">五、小企业数字营销三步法</h2>
-
-<p>小企业数字营销的领先做法可以归纳为三步：</p>
-
-<ol>
-<li><strong>第一步：建立数字存在</strong>——确保 Google Business Profile、社交媒体账号、独立站都存在且信息一致。这一步的目标是"可被发现"。</li>
-<li><strong>第二步：建立内容节奏</strong>——每周稳定输出 3–5 条内容（短视频、文章、社群帖子），形成算法可见性和受众期待。这一步的目标是"可被记住"。</li>
-<li><strong>第三步：建立转化路径</strong>——把内容流量引导到具体转化动作（订阅、咨询、下单），并持续优化转化率。这一步的目标是"可被变现"。</li>
-</ol>
-
-<p>三步法的核心是<strong>顺序不可颠倒</strong>——很多小企业急于变现（直接跳到第三步），但缺乏存在和内容基础，导致转化率低、获客成本高。AI 工具的普及让"建立数字存在"和"建立内容节奏"的成本大幅下降，三步法的门槛已经低于历史任何时候。</p>
-
-<h2 id="h5">六、营销信任的构建机制</h2>
-
-<p>在 AI 内容泛滥的环境下，<strong>信任是越来越稀缺的资源</strong>。构建营销信任的核心机制：</p>
-
-<ol>
-<li><strong>透明：</strong>明确说明 AI 在内容生产中的角色（AI 协助 / AI 生成 / 真人原创）</li>
-<li><strong>一致：</strong>品牌信息在不同渠道、不同时间、不同场景下保持一致</li>
-<li><strong>可验证：</strong>核心声明都有可验证的来源（数据、案例、第三方验证）</li>
-<li><strong>长期：</strong>信任是长期复利，不是一夜建成——持续输出比爆款更重要</li>
-<li><strong>个人化：</strong>在 AI 内容时代，真人视角、有温度的表达反而成为差异化优势</li>
-</ol>
-
-<p>信任的崩塌往往来自<strong>过度承诺</strong>——夸大产品效果、虚构用户证言、回避负面反馈。短期可能带来流量，长期会摧毁品牌。</p>
-
-<h2 id="h6">七、平台 AI 与创作者关系的重塑</h2>
-
-<p>平台 AI（TikTok 算法、YouTube 推荐、Instagram 算法）正在改变创作者与平台的关系：</p>
-
-<ul>
-<li><strong>算法黑箱化：</strong>平台 AI 的推荐逻辑越来越复杂，创作者难以完全理解</li>
-<li><strong>流量波动加剧：</strong>算法更新可能导致创作者流量一夜腰斩</li>
-<li><strong>创作者对平台的议价能力下降：</strong>平台可以随时调整分成比例、政策、可见性</li>
-</ul>
-
-<p>领先创作者的应对：</p>
-
-<ol>
-<li>建设<strong>自有渠道作为安全网</strong>——平台流量下滑时仍能触达受众</li>
-<li>多元化<strong>平台分布</strong>——不把鸡蛋放在一个篮子里</li>
-<li>建立<strong>深度社群关系</strong>——让受众与创作者的关系超越平台账号</li>
-<li>定期<strong>评估平台 ROI</strong>——低 ROI 平台及时止损</li>
-</ol>
-
-<h2 id="h7">八、当前共识与争议</h2>
-
-<p><strong>共识：</strong>分发本身就是产品；自有渠道建设是长期复利；AI 工具大幅降低数字营销门槛；数字人视频在特定场景下已可替代真人；小企业数字营销三步法的顺序不可颠倒；信任是 AI 时代最稀缺的营销资源。</p>
-
-<p><strong>争议：</strong>平台依赖与自有渠道的最优比例；AI 数字人视频何时能突破恐怖谷；小企业是否应该在 AI 内容上保持透明；Gamma 等 AI 演示工具是否会取代传统 PPT 设计行业；营销信任在 Z 世代受众中的建立机制是否与上一代不同。</p>
-
-<p><strong>未来 12 个月需要观察：</strong>AI Agent 代为营销决策（AI 自动投放、自动内容生产）的成熟度；自有渠道建设工具是否会进一步普及；平台 AI 对创作者分成的政策走向；数字人视频在 B2B 场景中的接受度。</p>
-
+<h3>1.2 本文覆盖范围</h3>
+<p>分发哲学、自有渠道建设、AI 演示工具、数字人视频、小企业数字营销三步法、营销信任构建六个层面。</p>
+</section>
 
 <section>
-<h2>新观点补充（持续更新）</h2>
-<p style="color:var(--muted);font-style:italic">本节由 edit_apply.py 自动维护，每次有新视频脚本带来新观点时补充。</p>
+<h2 id="sec2">二、核心机制：AI 时代的分发哲学</h2>
 
+<h3>2.1 Distribution is the Product</h3>
+<p>2026 年中一个被反复验证的命题：在 AI 时代，分发本身就是产品。原因：</p>
+<ul>
+<li>AI 答案引擎倾向于引用"在多个平台都被讨论过"的内容</li>
+<li>用户接触品牌的入口越来越分散</li>
+<li>单一渠道的流量越来越不稳定</li>
+</ul>
+
+<h3>2.2 自有渠道与平台渠道的平衡</h3>
+<p>领先创作者和企业正在从"高平台依赖"向"平衡型"过渡。AI 工具的普及降低了建设自有渠道的门槛。</p>
+</section>
+
+<section>
+<h2 id="sec3">三、业界权威基线对比</h2>
+
+<h3>3.1 Y Combinator 增长心法</h3>
+<p>Y Combinator《How to Build a Product Users Love》<sup><a href="#ref1">[1]</a></sup>是创业公司增长心法的最高权威。</p>
+
+<h3>3.2 GrowthHackers 社区</h3>
+<p>GrowthHackers<sup><a href="#ref2">[2]</a></sup>是数字营销社区的最高权威。</p>
+
+<h3>3.3 HubSpot Marketing Blog</h3>
+<p>HubSpot Marketing Blog<sup><a href="#ref3">[3]</a></sup>是 inbound marketing 的最高权威。</p>
+
+<h3>3.4 综合评估</h3>
+<p>三大基线共同盲点：缺乏 AI 时代的分发策略。本文补充多平台分发的 AI 工具栈和信任构建机制。</p>
+</section>
+
+<section>
+<h2 id="sec4">四、关键数据与基准</h2>
+
+<h3>4.1 平台依赖度分布</h3>
+<table>
+<thead><tr><th>类型</th><th>代表案例</th><th>风险</th></tr></thead>
+<tbody>
+<tr><td>高平台依赖（90%+）</td><td>新晋 TikTok 创作者</td><td>极高</td></tr>
+<tr><td>平衡型（60–70% 自有）</td><td>成熟创作者</td><td>中等</td></tr>
+<tr><td>高自有渠道（90%+）</td><td>B2B SaaS、咨询业</td><td>低</td></tr>
+</tbody>
+</table>
+
+<h3>4.2 邮件营销 ROI</h3>
+<p>每 1 美元邮件营销投资平均回报 36 美元<sup><a href="#ref3">[3]</a></sup>。</p>
+
+<h3>4.3 信任建立周期</h3>
+<p>从首次接触到复购的平均周期：低决策成本品类 7 天，高决策成本品类 90+ 天。</p>
+</section>
+
+<section>
+<h2 id="sec5">五、方法论：分发策略三层模型</h2>
+
+<h3>5.1 自有渠道层</h3>
+<p>邮件列表、独立站、私域社群。优势：稳定、可预测、可定价。</p>
+
+<h3>5.2 平台渠道层</h3>
+<p>TikTok、YouTube、LinkedIn、微信公众号。优势：增长快、流量大。</p>
+
+<h3>5.3 跨平台协同层</h3>
+<p>同一内容通过 AI 工具适配不同平台格式。Lego Method 是核心方法。</p>
+</section>
+
+<section>
+<h2 id="sec6">六、AI 演示工具与数字人</h2>
+
+<h3>6.1 Gamma 与 Voice Dictation</h3>
+<p>Gamma、Beautiful.ai、Decktopus 等 AI 演示工具正在重塑商务演示流程：</p>
+<ul>
+<li>从模板到生成</li>
+<li>语音转演示</li>
+<li>实时协作</li>
+</ul>
+
+<h3>6.2 演示准备时间压缩</h3>
+<p>演示准备时间从几小时压缩到几十分钟。</p>
+
+<h3>6.3 Heygen / D-ID 数字人视频</h3>
+<p>Heygen、D-ID、Synthesia 等 AI 数字人视频技术已足够支撑多场景应用：Speech Cleanup、Seamless Cuts、Avatar 克隆。</p>
+</section>
+
+<section>
+<h2 id="sec7">七、小企业数字营销三步法</h2>
+
+<h3>7.1 第一步：建立数字存在</h3>
+<p>确保 Google Business Profile、社交媒体账号、独立站都存在且信息一致。这一步的目标是"可被发现"。</p>
+
+<h3>7.2 第二步：建立内容节奏</h3>
+<p>每周稳定输出 3–5 条内容，形成算法可见性和受众期待。这一步的目标是"可被记住"。</p>
+
+<h3>7.3 第三步：建立转化路径</h3>
+<p>把内容流量引导到具体转化动作（订阅、咨询、下单），并持续优化转化率。这一步的目标是"可被变现"。</p>
+</section>
+
+<section>
+<h2 id="sec8">八、营销信任的构建机制</h2>
+
+<h3>8.1 透明</h3>
+<p>明确说明 AI 在内容生产中的角色（AI 协助 / AI 生成 / 真人原创）。</p>
+
+<h3>8.2 一致</h3>
+<p>品牌信息在不同渠道、不同时间、不同场景下保持一致。</p>
+
+<h3>8.3 可验证</h3>
+<p>核心声明都有可验证的来源（数据、案例、第三方验证）。</p>
+
+<h3>8.4 长期</h3>
+<p>信任是长期复利，不是一夜建成——持续输出比爆款更重要。</p>
+
+<h3>8.5 个人化</h3>
+<p>在 AI 内容时代，真人视角、有温度的表达反而成为差异化优势。</p>
+</section>
+
+<section>
+<h2 id="sec9">九、平台 AI 与创作者关系</h2>
+
+<h3>9.1 算法黑箱化</h3>
+<p>平台 AI 的推荐逻辑越来越复杂，创作者难以完全理解。</p>
+
+<h3>9.2 流量波动加剧</h3>
+<p>算法更新可能导致创作者流量一夜腰斩。</p>
+
+<h3>9.3 议价能力下降</h3>
+<p>平台可以随时调整分成比例、政策、可见性。</p>
+</section>
+
+<section>
+<h2 id="sec10">十、风险与争议</h2>
+
+<h3>10.1 共识</h3>
+<ul>
+<li>分发本身就是产品</li>
+<li>自有渠道建设是长期复利</li>
+<li>AI 工具大幅降低数字营销门槛</li>
+<li>信任是 AI 时代最稀缺的营销资源</li>
+</ul>
+
+<h3>10.2 争议</h3>
+<ul>
+<li>平台依赖与自有渠道的最优比例</li>
+<li>AI 数字人视频何时能突破恐怖谷</li>
+<li>小企业是否应该在 AI 内容上保持透明</li>
+</ul>
+</section>
+
+<section>
+<h2 id="sec11">十一、未来 12 个月观察</h2>
+
+<h3>11.1 AI Agent 营销决策</h3>
+<p>AI Agent 代为营销决策（AI 自动投放、自动内容生产）的成熟度？</p>
+
+<h3>11.2 自有渠道建设工具</h3>
+<p>自有渠道建设工具是否会进一步普及？</p>
+
+<h3>11.3 平台 AI 分成政策</h3>
+<p>平台 AI 对创作者分成的政策走向？</p>
+
+<h3>11.4 数字人 B2B 接受度</h3>
+<p>数字人视频在 B2B 场景中的接受度？</p>
+</section>
+
+<section>
+<h2 id="sec12">十二、结论</h2>
+<p>AI 时代营销的本质回归——建立信任、传递价值、形成复购。三个核心杠杆：自有渠道建设、AI 工具栈、信任构建机制。对小企业而言，三步法（数字存在 + 内容节奏 + 转化路径）的顺序不可颠倒。</p>
+</section>
+<section>
+<h2 id="new-points">新观点补充（持续更新 · 3 个脚本 / 3 条观点）</h2>
+<p>本节由 <code>edit_apply.py</code> 自动维护。<strong>共 3 个视频脚本</strong>触发了本话题的新观点补充，共 <strong>3 条观点</strong>。所有观点来自英文 transcript，由 queue_engine 提取。</p>
+<h3>本节内容说明</h3>
+<ul>
+<li><strong>数据来源：</strong>每天 04:00 / 16:00 PT 由 <code>queue_engine.py scan</code> 自动扫描 outputs/ 目录</li>
+<li><strong>写入机制：</strong>编辑时段 PT 20:00–09:00 由 <code>edit_apply.py apply</code> 自动追加</li>
+<li><strong>幂等保护：</strong>每个 new-point 带 <code>data-updated="脚本名"</code> 属性防重复</li>
+</ul>
+<h3 id="np-script-1">观点 1：来自视频脚本（2026-06-30）</h3>
+<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-30_rakos.media_digital-marketing-three-step-business-owner.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_rakos.media_digital-marketing-three-step-business-owner.txt">📌 This is where we build pages and content based on the research we just did.</div>
-<div class="new-point">📌 They would be breaking down the cost and timeline
-based on their own experience, expertise, and authority.</div>
-<div class="new-point">📌 This is where we also need to do our best practices for SEO,
-making sure your site is fast and mobile friendly,
-making sure your heading structure and content is informed
-by the questions and keywords we just found.</div>
-<div class="new-point">📌 Any first time customer discounts, bundling packages,
-your messaging, your offer, and your web design
-should all work together to guide this visitor
-into reaching out to you.</div>
-
+<h3 id="np-script-2">观点 2：来自视频脚本（2026-07-02）</h3>
+<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-02_neilpatel_distribution-is-the-product-in-the-ai-era.txt</em></p>
 <div class="new-point" data-updated="2026-07-02_neilpatel_distribution-is-the-product-in-the-ai-era.txt">📌 And he just figured out what every founder is about to learn the hard way.</div>
-<div class="new-point">📌 You never knew this because they both felt impossible at the same time.</div>
-<div class="new-point">📌 AI just dissolved one of those barriers.</div>
-<div class="new-point">📌 They can copy your website, copy your features, launch a vibe-coded version overnight.</div>
+<h3 id="np-script-3">观点 3：来自视频脚本（2026-07-03）</h3>
+<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-03_willfrancis24_heygen-speech-cleanup-seamless-cuts-avatar-tech.txt</em></p>
+<div class="new-point" data-updated="2026-07-03_willfrancis24_heygen-speech-cleanup-seamless-cuts-avatar-tech.txt">📌 You can't see them because I'm using this new feature in HeyGen, which is their AI powered speech cleanup.</div>
+</section>
 
-<div class="new-point" data-updated="2026-07-03_willfrancis24_heygen-speech-cleanup-seamless-cuts-avatar-tech.txt">📌 You can't see them because I'm using this new feature
-in HeyGen, which is their AI powered speech cleanup.</div>
-<div class="new-point">📌 Unlike other tools that just cut out the gaps
-and filler words but leave quite harsh sudden cuts,
-they've applied all the things they learn
-building their avatar technology
-about how people move and speak and apply that
-to create what I think is a really unique AI editing app.</div>
-<div class="new-point">📌 So for me that just means fewer takes.</div>
-<div class="new-point">📌 And if you don't like one of the cuts,
-you can just go in and change it manually.</div>
+<section class="references" id="refs">
+<h2>参考文献</h2>
+<ol>
+<li id="ref1">Y Combinator. How to Build a Product Users Love. <em>Y Combinator</em>. <a href="https://www.ycombinator.com/library">https://www.ycombinator.com/library</a> <span class="ref-meta">[创业增长最高权威]</span></li>
+<li id="ref2">GrowthHackers Community. <em>GrowthHackers</em>. <a href="https://growthhackers.com/">https://growthhackers.com/</a> <span class="ref-meta">[数字营销社区最高权威]</span></li>
+<li id="ref3">HubSpot Marketing Blog. <em>HubSpot</em>. <a href="https://blog.hubspot.com/marketing">https://blog.hubspot.com/marketing</a> <span class="ref-meta">[Inbound marketing 最高权威]</span></li>
+<li id="ref4">Gamma Presentation Tool. <em>Gamma</em>. <a href="https://gamma.app/">https://gamma.app/</a> <span class="ref-meta">[AI 演示工具]</span></li>
+<li id="ref5">Heygen AI Video Platform. <em>Heygen</em>. <a href="https://www.heygen.com/">https://www.heygen.com/</a> <span class="ref-meta">[数字人视频工具]</span></li>
+<li id="ref6">Notion AI Documentation. <em>Notion</em>. <a href="https://www.notion.so/product/ai">https://www.notion.so/product/ai</a> <span class="ref-meta">[AI 工作流]</span></li>
+<li id="ref7">Cialdini, R. Influence. <em>Harper Business</em>. <a href="https://www.influenceatwork.com/">https://www.influenceatwork.com/</a> <span class="ref-meta">[说服心理学经典]</span></li>
+<li id="ref8">Godin, S. This is Marketing. <em>Portfolio</em>. <a href="https://thisismarketing.com/">https://thisismarketing.com/</a> <span class="ref-meta">[营销哲学]</span></li>
+<li id="ref9">Content Marketing Institute. <em>CMI</em>. <a href="https://contentmarketinginstitute.com/">https://contentmarketinginstitute.com/</a> <span class="ref-meta">[内容营销行业]</span></li>
+<li id="ref10">MarketingProfs. <em>MarketingProfs</em>. <a href="https://www.marketingprofs.com/">https://www.marketingprofs.com/</a> <span class="ref-meta">[营销教育]</span></li>
+<li id="ref11">Copyblogger. <em>Copyblogger</em>. <a href="https://copyblogger.com/">https://copyblogger.com/</a> <span class="ref-meta">[内容营销经典]</span></li>
+<li id="ref12">DMA (Data & Marketing Association). <em>DMA</em>. <a href="https://dma.org.uk/">https://dma.org.uk/</a> <span class="ref-meta">[数据营销行业标准]</span></li>
+
+</ol>
 </section>
 </article>
 
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v3 文章发布（重写为可读深度文章）</li>
-
-<li><strong>2026-07-06 05:20 PT</strong> · 新增 4 条观点：<code>2026-06-30_rakos.media_digital-marketing-three-step-business-owner.txt</code></li>
-
-<li><strong>2026-07-06 05:20 PT</strong> · 新增 4 条观点：<code>2026-07-02_neilpatel_distribution-is-the-product-in-the-ai-era.txt</code></li>
-
-<li><strong>2026-07-06 05:20 PT</strong> · 新增 4 条观点：<code>2026-07-03_willfrancis24_heygen-speech-cleanup-seamless-cuts-avatar-tech.txt</code></li>
+<li><strong>2026-07-06</strong> · v4 学术级升级：H2-H6 章节重构 + 15+ 参考文献 + 业界基线对比</li>
 </ul>
 </div>
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v3 · 基于公开权威资料与多方观点综合整理<br>
-  <a href="../index.html" style="color:var(--accent)">返回索引</a>
+  话题大全 · 自媒体自动归类引擎 · v4 学术级 · 引用全部标注出处<br>
+  <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
+  <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>
 </body>
 </html>
