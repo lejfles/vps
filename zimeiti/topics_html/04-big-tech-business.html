@@ -3,285 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大公司新闻与科技商业 · 话题大全（学术级 v4）</title>
+<title>大公司新闻与科技商业 · 话题大全（v5 诚实版）</title>
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
-header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
+header h1{margin:0 0 10px;font-size:32px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:920px;margin:0 auto;padding:32px 24px 60px}
-article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
-article h2{margin-top:32px;margin-bottom:14px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
-article h3{font-size:19px;color:var(--accent);margin-top:22px;margin-bottom:10px;scroll-margin-top:24px}
-article h4{font-size:16px;color:var(--accent2);margin-top:18px;margin-bottom:8px}
-article p{margin:0 0 14px 0;color:#dde3ec}
-article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
-article li{margin-bottom:8px}
-article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
-article blockquote strong{color:var(--ink)}
+main{max-width:880px;margin:0 auto;padding:32px 24px 60px}
+article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:18px}
+article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
+article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px}
+article p{margin:0 0 12px 0;color:#dde3ec}
+article ul, article ol{padding-left:24px;margin:0 0 14px 0;color:#dde3ec}
+article li{margin-bottom:6px}
 article strong{color:var(--ink);font-weight:600}
 article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
 article a{color:var(--accent);text-decoration:none}
 article a:hover{text-decoration:underline}
-.abstract{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
-.abstract h3{margin-top:0;color:var(--accent2);font-size:15px;text-transform:uppercase;letter-spacing:1px}
-.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-.toc h3{margin-top:0;font-size:15px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.honest-box{background:#2a1f1f;border-left:4px solid #f59e0b;padding:14px 20px;border-radius:0 8px 8px 0;margin-bottom:18px;font-size:14px;color:#cfd6e4}
+.honest-box strong{color:#f59e0b}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px}
+.toc h3{margin-top:0;font-size:14px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .toc ol{padding-left:20px;margin:0;columns:1}
-.toc li{margin-bottom:6px;font-size:14px}
+.toc li{margin-bottom:4px;font-size:14px}
 .toc a{color:var(--accent);text-decoration:none}
-.toc a:hover{text-decoration:underline}
-.references{font-size:14px;background:#0a0d12;padding:18px 22px;border-radius:8px}
-.references h2{margin-top:0;font-size:20px}
+.references{font-size:13px;background:#0a0d12;padding:18px 22px;border-radius:8px}
+.references h2{margin-top:0;font-size:18px}
 .references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
-.references li{margin-bottom:8px;line-height:1.6}
-.references a{color:var(--accent);word-break:break-all}
-.references .ref-meta{color:var(--muted);font-size:12px;font-style:italic}
-.new-point{background:#1a1f2b;border-left:3px solid var(--accent2);padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
-.callout{background:#1a1f2b;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:16px 0}
-.callout-title{font-weight:700;color:var(--accent2);margin-bottom:6px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
-.callout p:last-child{margin-bottom:0}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
-table{width:100%;border-collapse:collapse;margin:12px 0}
-th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
-th{background:#0c1018;color:var(--accent2);font-weight:600}
-
-.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px;margin-top:24px}
-.update-log h2{margin-top:0;font-size:20px;border-left:3px solid var(--accent);padding-left:10px}
+.references li{margin-bottom:6px;line-height:1.55}
+.references a{color:var(--accent);word-break:break-all;font-size:12px}
+.references .ref-meta{color:var(--muted);font-size:11px;font-style:italic}
+.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:9px 13px;border-radius:0 4px 4px 0;margin:6px 0;font-size:14px;color:#cfd6e4;line-height:1.65}
+.new-point[data-updated]::after{content:"✓";margin-left:8px;color:var(--accent2);font-size:11px}
+.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px;margin-top:18px}
+.update-log h2{margin-top:0;font-size:18px;border-left:3px solid var(--accent);padding-left:10px}
 .update-log ul{padding-left:20px}
-.update-log li{margin-bottom:6px;color:var(--muted);font-size:14px}
+.update-log li{margin-bottom:4px;color:var(--muted);font-size:13px}
 .update-log li strong{color:var(--ink)}
-.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
-.new-point[data-updated]{position:relative}
-.new-point[data-updated]::after{content:"✓";position:absolute;top:6px;right:10px;color:var(--accent2);font-size:11px}
-
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
 </style>
 </head>
 <body>
 <header>
   <h1>大公司新闻与科技商业</h1>
-  <div class="subtitle">Big Tech 战略、资本动作与地缘政治：连续轨迹追踪与战略决策评估</div>
-  <div class="meta">学术级 LLM wiki · 持续更新 · 最后更新：2026-07-06 · 业界权威基线对比 + 全文带出处</div>
+  <div class="subtitle">视频脚本观点汇集 · Big Tech 战略与新闻</div>
+  <div class="meta">v5 诚实版 · 持续更新 · 最后更新：2026-07-07 · 5 个视频脚本 / 5 条观点</div>
 </header>
 <main>
 <article>
-<section class="abstract">
-<h3>Abstract</h3>
-<p>本文对照 SEC EDGAR、Bloomberg/Reuters/FT、BIS 三个最高权威基线，剖析 2025–2026 年 Big Tech 战略演化：从 AI 基础设施成本曲线到 SpaceX IPO 路径，从 Meta 开源策略到亚马逊 AI 电影争议，从 AI 出口管制到加密资产政治化。</p>
+
+<div class="honest-box">
+<strong>诚实声明：</strong>本文是该话题的视频脚本观点汇集与权威资料参考链接。<strong>不包含原创实证研究、虚构案例、独家数据</strong>。视频脚本观点来自英文 transcript，由自动化引擎提取。权威资料仅作为参考链接，不暗示我们读过细节或做过对比分析。如需引用本文观点，请追溯到原始视频脚本。
+</div>
+
+<section>
+<h2>摘要</h2>
+<p>本话题汇集了 5 个 TikTok 视频脚本关于 Meta、SpaceX、亚马逊、A24、政府关系等 Big Tech 话题的观点。本文不包含原创实证研究。</p>
+</section>
+
+
+<section>
+<h2 id="sec1">一、话题定义</h2>
+<p>本话题汇集视频脚本中关于 Big Tech 公司新闻：Meta AI 战略、SpaceX、亚马逊、A24 与 AI 电影、政府关系等。共 5 个视频脚本。</p>
 </section>
 
 <section>
-<h2 id="sec1">一、引言：Big Tech 战略的同频与分化</h2>
-<h3>1.1 2025–2026 年的核心命题</h3>
-<p>AI 时代 Big Tech 战略进入"同频 + 分化"阶段：同频——所有公司都把 AI 当作首要战略；分化——每家公司的路径选择差异巨大。本文对照 SEC EDGAR 财报披露、Bloomberg/Reuters/FT 财经报道、The Information/TechCrunch 深度报道三个最高权威源。</p>
+<h2 id="sec2">二、核心议题</h2>
 
-<h3>1.2 本文覆盖范围</h3>
-<p>AI 基础设施、SpaceX 轨迹、Meta AI 战略、亚马逊 AI 电影、政府关系、加密货币六个维度。</p>
+<h3>2.1 Meta AI 战略</h3>
+<p>创作者观察：Meta AI 手机定价相对较低（$299 起，竞品 $399），试图在拥挤的 AI 市场赢得用户。视频中的具体数字（5 分钟 AI 销售触达）是该创作者的案例数据。</p>
+
+<h3>2.2 A24 与 AI 电影</h3>
+<p>创作者观点：A24 与 Google DeepMind 合作（$75M 投资）的传统电影厂与 AI 实验室的"奇怪组合"被讨论。</p>
+
+<h3>2.3 SpaceX 与 IPO</h3>
+<p>创作者观点：SpaceX 估值轨迹和市场关注度，以及 IPO 时间表的多种预测。</p>
 </section>
 
 <section>
-<h2 id="sec2">二、AI 基础设施的成本曲线</h2>
+<h2 id="sec3">三、共识与争议</h2>
 
-<h3>2.1 训练成本</h3>
-<p>新一代旗舰模型（GPT-5、Claude Sonnet 5、Gemini 2 Pro）的训练成本仍在数亿美元量级，但单位能力的训练成本相比 2023 年下降了 10–20 倍。</p>
-
-<h3>2.2 推理成本</h3>
-<p>主力推理（Haiku / GPT-4o-mini 类）的单 token 成本在 18 个月内下降了约 70%。</p>
-
-<h3>2.3 基础设施通胀压力</h3>
-<p>电力、芯片、数据中心的物理扩张速度跟不上需求，部分地区出现算力排队和价格上涨。a16z 报告<sup><a href="#ref1">[1]</a></sup>指出，AI 服务的实际成本从"边际接近零"上升到"需要预算管理"。</p>
-</section>
-
-<section>
-<h2 id="sec3">三、业界权威基线对比</h2>
-
-<h3>3.1 SEC EDGAR 财报</h3>
-<p>上市公司财务披露原文<sup><a href="#ref2">[2]</a></sup>，是 Big Tech 战略最权威的来源。</p>
-
-<h3>3.2 Bloomberg/Reuters/FT</h3>
-<p>全球财经新闻权威来源<sup><a href="#ref3">[3]</a></sup>。</p>
-
-<h3>3.3 BIS 出口管制</h3>
-<p>美国商务部工业与安全局<sup><a href="#ref4">[4]</a></sup>的 AI 芯片与模型出口管制规则，是地缘政治维度的最高权威。</p>
-
-<h3>3.4 综合评估</h3>
-<p>三大基线共同盲点：缺乏对单一公司战略演化的纵向追踪。本文补充 SpaceX、Meta、OpenAI、Anthropic 的连续轨迹。</p>
-</section>
-
-<section>
-<h2 id="sec4">四、SpaceX：从 IPO 流言到产业重塑</h2>
-
-<h3>4.1 估值跃升</h3>
-<p>SpaceX 估值从 2024 年中约 2100 亿美元上升到 2026 年初传闻的 4000 亿美元区间。</p>
-
-<h3>4.2 IPO 时间表</h3>
-<p>经历多次推迟，2026 年的关键变量是 Starbase 商业化进度与 Starship 运营里程碑。</p>
-
-<h3>4.3 AI 手机传闻</h3>
-<p>2026 年中的"SpaceX AI 手机原型"传闻反映了 SpaceX 对消费硬件的探索。</p>
-
-<h3>4.4 基础设施公司向消费品牌延伸</h3>
-<p>SpaceX 案例展示了基础设施公司向消费品牌延伸的路径。这种延伸的成功率历史上不到 30%。</p>
-</section>
-
-<section>
-<h2 id="sec5">五、Meta 的 AI 战略与"做酷"哲学</h2>
-
-<h3>5.1 全力投入开源</h3>
-<p>Llama 系列与 OpenAI、Anthropic 的闭源策略形成对比，开源策略目标是建立生态影响力。</p>
-
-<h3>5.2 消费硬件布局</h3>
-<p>Ray-Ban Meta 智能眼镜销量超预期，2026 年继续向"可穿戴 AI 终端"方向延伸。</p>
-
-<h3>5.3 广告业务 AI 化</h3>
-<p>Meta 的核心营收（广告）正在被 AI 重构——从定向、创意生成到竞价全链路 AI 化。</p>
-
-<h3>5.4 "做酷"的产品哲学</h3>
-<p>扎克伯格反复强调"做酷"——这反映了 Meta 把消费品牌吸引力作为长期竞争力的核心。</p>
-</section>
-
-<section>
-<h2 id="sec6">六、亚马逊的人工电影与好莱坞博弈</h2>
-
-<h3>6.1 2026 年中的"AI 电影"事件</h3>
-<p>疑似由 AI 生成的影片获得奥斯卡提名或奖项讨论，触发了关于 AI 与创意产业的边界讨论。</p>
-
-<h3>6.2 技术可行性</h3>
-<p>AI 在视频生成、声音克隆、剧本写作上的能力已足够支撑一部完整长片。</p>
-
-<h3>6.3 行业反弹</h3>
-<p>好莱坞从业者联合反对，部分演员工会明确要求"演员必须有 AI 不可替代的部分"。</p>
-
-<h3>6.4 商业逻辑</h3>
-<p>AI 电影的成本可能只有传统电影的 5–10%，这在流媒体平台的"内容饥渴"背景下极具吸引力。</p>
-</section>
-
-<section>
-<h2 id="sec7">七、政府关系与 AI 出口管制</h2>
-
-<h3>7.1 三层管制</h3>
-<p>硬件（GPU、AI 加速器）→ 模型（训练算力超过阈值的模型）→ 应用（特定行业的 AI 部署）。</p>
-
-<h3>7.2 中国 AI 的应对</h3>
-<p>DeepSeek、智谱 GLM 等中国模型通过算法优化和工程创新在受限硬件上达到接近国际前沿的能力。</p>
-
-<h3>7.3 盟国协调</h3>
-<p>美国与欧盟、日本、韩国等盟友协调出口管制，但执行难度大、灰色地带多。</p>
-
-<h3>7.4 双刃剑效应</h3>
-<p>出口管制既延缓了中国在算力密集型模型上的发展，又刺激了算法优化和高效架构的创新。</p>
-</section>
-
-<section>
-<h2 id="sec8">八、加密货币与政府关系</h2>
-
-<h3>8.1 政治人物与加密资产的结合</h3>
-<p>2026 年中的"特朗普披露 220 亿美元加密资产"事件反映了几个趋势。</p>
-
-<h3>8.2 OpenAI 5% 股权的政府报价</h3>
-<p>OpenAI 与美国政府就"政府持股"展开的非正式讨论，反映了 AI 公司与国家利益的结构性绑定。</p>
-
-<h3>8.3 AI 与加密的交汇</h3>
-<p>AI Agent 代为管理加密资产、AI 生成的 NFT、AI 计算的去中心化网络等新形态正在出现。</p>
-</section>
-
-<section>
-<h2 id="sec9">九、风险与争议</h2>
-
-<h3>9.1 共识</h3>
+<h3>3.1 共识</h3>
 <ul>
-<li>AI 推理成本在持续下降</li>
-<li>开源模型在追赶闭源模型的差距</li>
-<li>AI 出口管制是结构性而非临时性</li>
-<li>创作者经济与 AI 的冲突是必然</li>
+<li>Big Tech 战略已进入 AI 优先阶段</li>
+<li>开源与闭源策略分化加剧</li>
 </ul>
 
-<h3>9.2 争议</h3>
+<h3>3.2 开放问题</h3>
 <ul>
-<li>SpaceX 的消费硬件延伸是否成功</li>
-<li>Meta 的开源策略是否能转化为长期商业价值</li>
-<li>AI 电影与传统电影产业的边界如何划定</li>
+<li>Meta 开源策略能否转化为长期商业价值</li>
+<li>AI 电影与传统电影产业的边界</li>
+<li>SpaceX IPO 实际时间表</li>
+</ul>
+
+<h3>3.3 本文未涉及</h3>
+<ul>
+<li>SEC EDGAR 财报具体数据（需独立查证）</li>
+<li>SpaceX 估值的权威数字（本文仅引用创作者描述）</li>
+<li>政府关系的具体政策（需独立调研）</li>
 </ul>
 </section>
-
 <section>
-<h2 id="sec10">十、未来 12 个月观察</h2>
-
-<h3>10.1 AI 监管立法</h3>
-<p>主要经济体的进度？</p>
-
-<h3>10.2 OpenAI / Anthropic IPO</h3>
-<p>OpenAI、Anthropic 的 IPO 时间表？</p>
-
-<h3>10.3 SpaceX IPO</h3>
-<p>实际 IPO 决策？</p>
-
-<h3>10.4 中国 AI 能力天花板</h3>
-<p>在受限硬件下的能力天花板？</p>
-</section>
-
-<section>
-<h2 id="sec11">十一、结论</h2>
-<p>Big Tech 战略已进入"AI 优先"阶段，但路径选择差异巨大。本文对照 SEC EDGAR、Bloomberg/Reuters/FT、BIS 三个最高权威基线，给出连续轨迹追踪 + 战略决策评估的框架。未来 12 个月的核心观察是 IPO 决策、监管立法、地缘政治三个维度。</p>
-</section>
-<section>
-<h2 id="new-points">新观点补充（持续更新 · 5 个脚本 / 5 条观点）</h2>
-<p>本节由 <code>edit_apply.py</code> 自动维护。<strong>共 5 个视频脚本</strong>触发了本话题的新观点补充，共 <strong>5 条观点</strong>。所有观点来自英文 transcript，由 queue_engine 提取。</p>
-<h3>本节内容说明</h3>
+<h2 id="new-points">本话题视频脚本观点（5 个脚本 / 5 条）</h2>
+<p>以下观点来自与本话题相关的视频脚本，由 <code>queue_engine.py</code> 自动提取并按脚本归类。每条观点对应一个英文 transcript 原文段落，可追溯到具体脚本。</p>
+<h3>观点来源说明</h3>
 <ul>
-<li><strong>数据来源：</strong>每天 04:00 / 16:00 PT 由 <code>queue_engine.py scan</code> 自动扫描 outputs/ 目录</li>
-<li><strong>写入机制：</strong>编辑时段 PT 20:00–09:00 由 <code>edit_apply.py apply</code> 自动追加</li>
-<li><strong>幂等保护：</strong>每个 new-point 带 <code>data-updated="脚本名"</code> 属性防重复</li>
+<li>每个观点带 <code>data-updated</code> 属性，标识触发该观点的视频脚本文件名</li>
+<li>观点内容是英文 transcript 的段落摘要，不是原文逐字翻译</li>
+<li>脚本归类由关键词匹配 + 手动兜底映射（见 <code>queue_engine.py</code> 的 TOPIC_RULES 和 MANUAL_MAP）</li>
+<li>本文不包含这些观点的原创分析或实证研究</li>
 </ul>
-<h3 id="np-script-1">观点 1：来自视频脚本（2026-06-23）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-23_elenanisonoff_a24s-big-tech-bet.txt</em></p>
+<h3 id="np-1">观点 1：来自 2026-06-23 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_elenanisonoff_a24s-big-tech-bet.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_elenanisonoff_a24s-big-tech-bet.txt">📌 So, A24 just took $75 million from Google's AI lab.</div>
-<h3 id="np-script-2">观点 2：来自视频脚本（2026-06-25）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-25_elenanisonoff_spacex-ipo-crash-landing.txt</em></p>
+<h3 id="np-2">观点 2：来自 2026-06-25 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-25_elenanisonoff_spacex-ipo-crash-landing.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_elenanisonoff_spacex-ipo-crash-landing.txt">📌 As you may know, if you've been hanging around here, SpaceX just debuted on the public market as the biggest IPO in history, but like any star player knows, with sky high expectations, it's easy to fall from grace and fall it has.</div>
-<h3 id="np-script-3">观点 3：来自视频脚本（2026-06-28）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-28_elenanisonoff_us-ai-export-controls-china-cyberwar-mythos-glm.txt</em></p>
+<h3 id="np-3">观点 3：来自 2026-06-28 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-28_elenanisonoff_us-ai-export-controls-china-cyberwar-mythos-glm.txt</em></p>
 <div class="new-point" data-updated="2026-06-28_elenanisonoff_us-ai-export-controls-china-cyberwar-mythos-glm.txt">📌 Sorry, because while the US banned its best AI to stop China and foreign nationals from accessing it, we just found out that China actually built AI that matches it anyway, just kind of embarrassing for us.</div>
-<h3 id="np-script-4">观点 4：来自视频脚本（2026-06-29）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-29_elenanisonoff_meta-brain2qwerty-meg-non-invasive-typing.txt</em></p>
+<h3 id="np-4">观点 4：来自 2026-06-29 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-29_elenanisonoff_meta-brain2qwerty-meg-non-invasive-typing.txt</em></p>
 <div class="new-point" data-updated="2026-06-29_elenanisonoff_meta-brain2qwerty-meg-non-invasive-typing.txt">📌 So you just think about typing and the machine types.</div>
-<h3 id="np-script-5">观点 5：来自视频脚本（2026-06-30）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-30_elenanisonoff_amazon-artificial-movie-oscar-pushback.txt</em></p>
+<h3 id="np-5">观点 5：来自 2026-06-30 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-30_elenanisonoff_amazon-artificial-movie-oscar-pushback.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_elenanisonoff_amazon-artificial-movie-oscar-pushback.txt">📌 Because somewhere in between Amazon invested 50 billion dollars in Sam Altman's company and if you just handed 50 billion dollars to somebody you probably don't want to use Hollywood's finest talent as weapons in a cinematic smear campaign against them.</div>
 </section>
 
+
 <section class="references" id="refs">
-<h2>参考文献</h2>
+<h2>参考资料（仅作链接，不暗示已读细节）</h2>
+<p style="font-size:12px;color:var(--muted);margin-bottom:12px">以下是该话题领域的权威资料，<strong>仅列出供读者自行参考</strong>。本文不假装读过这些报告的细节，也未与之做系统对比。</p>
 <ol>
-<li id="ref1">Andreessen Horowitz. AI Infrastructure Cost Analysis 2025. <em>a16z</em>. <a href="https://a16z.com/marketplace/topics/ai/">https://a16z.com/marketplace/topics/ai/</a> <span class="ref-meta">[AI 投资最高权威]</span></li>
-<li id="ref2">SEC EDGAR. Public Company Filings. <em>U.S. Securities and Exchange Commission</em>. <a href="https://www.sec.gov/edgar">https://www.sec.gov/edgar</a> <span class="ref-meta">[财报披露最高权威]</span></li>
-<li id="ref3">Bloomberg Technology. <em>Bloomberg</em>. <a href="https://www.bloomberg.com/technology">https://www.bloomberg.com/technology</a> <span class="ref-meta">[财经新闻最高权威]</span></li>
-<li id="ref4">Bureau of Industry and Security. AI Export Controls. <em>U.S. Department of Commerce</em>. <a href="https://www.bis.doc.gov/">https://www.bis.doc.gov/</a> <span class="ref-meta">[出口管制最高权威]</span></li>
-<li id="ref5">Reuters Technology. <em>Reuters</em>. <a href="https://www.reuters.com/technology/">https://www.reuters.com/technology/</a> <span class="ref-meta">[全球财经新闻]</span></li>
-<li id="ref6">Financial Times. Technology Coverage. <em>Financial Times</em>. <a href="https://www.ft.com/technology">https://www.ft.com/technology</a> <span class="ref-meta">[财经新闻]</span></li>
-<li id="ref7">The Information. <em>The Information</em>. <a href="https://www.theinformation.com/">https://www.theinformation.com/</a> <span class="ref-meta">[科技深度报道]</span></li>
-<li id="ref8">TechCrunch. <em>TechCrunch</em>. <a href="https://techcrunch.com/">https://techcrunch.com/</a> <span class="ref-meta">[科技行业新闻]</span></li>
-<li id="ref9">SpaceX. Official Updates. <em>SpaceX</em>. <a href="https://www.spacex.com/updates/">https://www.spacex.com/updates/</a> <span class="ref-meta">[公司官方]</span></li>
-<li id="ref10">Meta Investor Relations. <em>Meta</em>. <a href="https://investor.atmeta.com/">https://investor.atmeta.com/</a> <span class="ref-meta">[公司财报]</span></li>
-<li id="ref11">Anthropic. Responsible Scaling Policy. <em>Anthropic</em>. <a href="https://www.anthropic.com/news/anthropics-responsible-scaling-policy">https://www.anthropic.com/news/anthropics-responsible-scaling-policy</a> <span class="ref-meta">[AI 安全政策]</span></li>
-<li id="ref12">OpenAI. Corporate Governance Blog. <em>OpenAI</em>. <a href="https://openai.com/news/">https://openai.com/news/</a> <span class="ref-meta">[公司新闻]</span></li>
+<li>SEC EDGAR Public Filings. <em>U.S. Securities and Exchange Commission, 2024</em>. <a href="https://www.sec.gov/edgar">https://www.sec.gov/edgar</a></li>
+<li>Bloomberg Technology. <em>Bloomberg, 2024</em>. <a href="https://www.bloomberg.com/technology">https://www.bloomberg.com/technology</a></li>
+<li>BIS AI Export Controls. <em>U.S. Department of Commerce, 2024</em>. <a href="https://www.bis.doc.gov/">https://www.bis.doc.gov/</a></li>
+<li>SpaceX Official Updates. <em>SpaceX, 2024</em>. <a href="https://www.spacex.com/updates/">https://www.spacex.com/updates/</a></li>
+<li>Meta Investor Relations. <em>Meta, 2024</em>. <a href="https://investor.atmeta.com/">https://investor.atmeta.com/</a></li>
 
 </ol>
 </section>
+
 </article>
 
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v4 学术级升级：H2-H6 章节重构 + 15+ 参考文献 + 业界基线对比</li>
+<li><strong>2026-07-06</strong> · v5 重写：移除虚构案例与伪对比，明确诚实声明</li>
+<li><strong>2026-07-06</strong> · v4 学术级升级（已弃用，因包含虚构数据）</li>
+<li><strong>2026-07-06</strong> · v3.2 初始版：60 任务批量处理</li>
 </ul>
 </div>
+
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v4 学术级 · 引用全部标注出处<br>
+  话题大全 · 自媒体自动归类引擎 · v5 诚实版<br>
   <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
   <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>

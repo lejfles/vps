@@ -3,345 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude / AI 模型与产品 · 话题大全（学术级 v4）</title>
+<title>Claude / AI 模型与产品 · 话题大全（v5 诚实版）</title>
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
-header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
+header h1{margin:0 0 10px;font-size:32px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:920px;margin:0 auto;padding:32px 24px 60px}
-article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
-article h2{margin-top:32px;margin-bottom:14px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
-article h3{font-size:19px;color:var(--accent);margin-top:22px;margin-bottom:10px;scroll-margin-top:24px}
-article h4{font-size:16px;color:var(--accent2);margin-top:18px;margin-bottom:8px}
-article p{margin:0 0 14px 0;color:#dde3ec}
-article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
-article li{margin-bottom:8px}
-article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
-article blockquote strong{color:var(--ink)}
+main{max-width:880px;margin:0 auto;padding:32px 24px 60px}
+article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:18px}
+article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
+article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px}
+article p{margin:0 0 12px 0;color:#dde3ec}
+article ul, article ol{padding-left:24px;margin:0 0 14px 0;color:#dde3ec}
+article li{margin-bottom:6px}
 article strong{color:var(--ink);font-weight:600}
 article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
 article a{color:var(--accent);text-decoration:none}
 article a:hover{text-decoration:underline}
-.abstract{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
-.abstract h3{margin-top:0;color:var(--accent2);font-size:15px;text-transform:uppercase;letter-spacing:1px}
-.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-.toc h3{margin-top:0;font-size:15px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.honest-box{background:#2a1f1f;border-left:4px solid #f59e0b;padding:14px 20px;border-radius:0 8px 8px 0;margin-bottom:18px;font-size:14px;color:#cfd6e4}
+.honest-box strong{color:#f59e0b}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px}
+.toc h3{margin-top:0;font-size:14px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .toc ol{padding-left:20px;margin:0;columns:1}
-.toc li{margin-bottom:6px;font-size:14px}
+.toc li{margin-bottom:4px;font-size:14px}
 .toc a{color:var(--accent);text-decoration:none}
-.toc a:hover{text-decoration:underline}
-.references{font-size:14px;background:#0a0d12;padding:18px 22px;border-radius:8px}
-.references h2{margin-top:0;font-size:20px}
+.references{font-size:13px;background:#0a0d12;padding:18px 22px;border-radius:8px}
+.references h2{margin-top:0;font-size:18px}
 .references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
-.references li{margin-bottom:8px;line-height:1.6}
-.references a{color:var(--accent);word-break:break-all}
-.references .ref-meta{color:var(--muted);font-size:12px;font-style:italic}
-.new-point{background:#1a1f2b;border-left:3px solid var(--accent2);padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
-.callout{background:#1a1f2b;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:16px 0}
-.callout-title{font-weight:700;color:var(--accent2);margin-bottom:6px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
-.callout p:last-child{margin-bottom:0}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
-table{width:100%;border-collapse:collapse;margin:12px 0}
-th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
-th{background:#0c1018;color:var(--accent2);font-weight:600}
-
-.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px;margin-top:24px}
-.update-log h2{margin-top:0;font-size:20px;border-left:3px solid var(--accent);padding-left:10px}
+.references li{margin-bottom:6px;line-height:1.55}
+.references a{color:var(--accent);word-break:break-all;font-size:12px}
+.references .ref-meta{color:var(--muted);font-size:11px;font-style:italic}
+.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:9px 13px;border-radius:0 4px 4px 0;margin:6px 0;font-size:14px;color:#cfd6e4;line-height:1.65}
+.new-point[data-updated]::after{content:"✓";margin-left:8px;color:var(--accent2);font-size:11px}
+.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px;margin-top:18px}
+.update-log h2{margin-top:0;font-size:18px;border-left:3px solid var(--accent);padding-left:10px}
 .update-log ul{padding-left:20px}
-.update-log li{margin-bottom:6px;color:var(--muted);font-size:14px}
+.update-log li{margin-bottom:4px;color:var(--muted);font-size:13px}
 .update-log li strong{color:var(--ink)}
-.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
-.new-point[data-updated]{position:relative}
-.new-point[data-updated]::after{content:"✓";position:absolute;top:6px;right:10px;color:var(--accent2);font-size:11px}
-
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
 </style>
 </head>
 <body>
 <header>
   <h1>Claude / AI 模型与产品</h1>
-  <div class="subtitle">LLM 多产品矩阵、Agent 形态与第二大脑工作流的学术级框架</div>
-  <div class="meta">学术级 LLM wiki · 持续更新 · 最后更新：2026-07-06 · 业界权威基线对比 + 全文带出处</div>
+  <div class="subtitle">视频脚本观点汇集 · LLM 模型与产品</div>
+  <div class="meta">v5 诚实版 · 持续更新 · 最后更新：2026-07-07 · 11 个视频脚本 / 11 条观点</div>
 </header>
 <main>
 <article>
-<section class="abstract">
-<h3>Abstract</h3>
-<p>本文系统梳理 2024–2026 年 LLM 产品形态演化，对照 Stanford HELM、Anthropic Agent 框架、OpenAI Agent 指南三个最高权威基线，给出七种 Agent 形态的方法论、AI 写作机器感的去除策略、Prompt Injection 防御体系，并以第二大脑工作流作为实践闭环。</p>
+
+<div class="honest-box">
+<strong>诚实声明：</strong>本文是该话题的视频脚本观点汇集与权威资料参考链接。<strong>不包含原创实证研究、虚构案例、独家数据</strong>。视频脚本观点来自英文 transcript，由自动化引擎提取。权威资料仅作为参考链接，不暗示我们读过细节或做过对比分析。如需引用本文观点，请追溯到原始视频脚本。
+</div>
+
+<section>
+<h2>摘要</h2>
+<p>本话题汇集了 11 个 TikTok 视频脚本关于 Claude、ChatGPT、AI Agent、AI 写作、Prompt Injection、第二大脑工作流等话题的观点。本文不包含原创实证研究。</p>
+</section>
+
+
+<section>
+<h2 id="sec1">一、话题定义</h2>
+<p>本话题汇集视频脚本中关于 Claude、ChatGPT、AI 模型分层、Agent 形态、AI 写作的机器感、Prompt Injection 防护、第二大脑工作流等观点。共 11 个视频脚本，关键词聚类基于 transcript 内容。</p>
 </section>
 
 <section>
-<h2 id="sec1">一、引言：从单模型到模型生态</h2>
-<h3>1.1 LLM 产品形态的两次跃迁</h3>
-<p>2022 年 ChatGPT 发布是 LLM 产品化的第一跃——单一聊天窗口成为产品形态。2024–2025 年的第二跃从单一窗口扩展到多产品矩阵：Claude（Anthropic）、ChatGPT（OpenAI）、Gemini（Google）各有主力 + 实时 + 深度三层推理模型。</p>
+<h2 id="sec2">二、核心机制</h2>
 
-<h3>1.2 与业界权威基线的距离</h3>
-<p>本文对照：Stanford CRFM《HELM》评测（学术最高权威）、Anthropic《Building Effective Agents》（厂商最高权威）、OpenAI《A Practical Guide to Building Agents》（厂商最高权威）。</p>
+<h3>2.1 模型分层</h3>
+<p>视频脚本观点：当下模型已形成清晰的三层结构（实时推理 / 主力推理 / 深度推理）。多个创作者强调"按任务复杂度选用不同模型"。</p>
+
+<h3>2.2 AI Agent 七种形态</h3>
+<p>某创作者详细描述了 AI Agent 的 7 种类型：检索型、工具调用型、规划型、协作型、代码型、监控型、自主学习型。这一分类与 Anthropic《Building Effective Agents》框架对应。</p>
+
+<h3>2.3 AI 写作的"机器感"问题</h3>
+<p>创作者观察：随着模型能力提升，AI 写作被识别的难度增加，但被识别为低质量内容的概率也在上升。去除 AI 感的核心是加入"只有人类才能提供的东西"——具体场景判断、第一人称经历、可被反驳的具体观点、独家数据、明确立场。</p>
 </section>
 
 <section>
-<h2 id="sec2">二、核心机制：模型分层与任务路由</h2>
+<h2 id="sec3">三、共识与争议</h2>
 
-<h3>2.1 三层模型架构</h3>
-<p>主流厂商已形成三层结构：</p>
-<ul>
-<li><strong>实时推理层（Haiku / GPT-4o-mini）：</strong>单次成本约主力模型 1/10–1/20</li>
-<li><strong>主力推理层（Sonnet / GPT-4o）：</strong>能力与成本的平衡点</li>
-<li><strong>深度推理层（Opus / o1 / o3）：</strong>成本可达主力 5–20 倍</li>
-</ul>
-
-<h3>2.2 任务路由的工程化</h3>
-<p>Stanford HELM 评测<sup><a href="#ref1">[1]</a></sup>显示，复杂规划任务上 Opus 比 Haiku 准确率高 47%，但成本高 18 倍。任务路由让 80% 轻量任务用 Haiku，20% 复杂任务用 Opus，总体成本可比"全主力"降低 60% 以上。</p>
-
-<h3>2.3 Anthropic Claude 产品矩阵演化</h3>
-<p>Claude 在 2024–2026 年从单一产品扩展到多产品矩阵：</p>
-<ul>
-<li><strong>Sonnet 系列：</strong>主力推理，每代成本下降约 20%</li>
-<li><strong>Fable 系列：</strong>垂直场景定制模型，成本为主力 1/3</li>
-<li><strong>Sonnet 5 Task Fit：</strong>按任务复杂度阶梯计费</li>
-</ul>
-</section>
-
-<section>
-<h2 id="sec3">三、业界权威基线对比</h2>
-
-<h3>3.1 学术权威：Stanford CRFM HELM</h3>
-<p>HELM (Holistic Evaluation of Language Models)<sup><a href="#ref1">[1]</a></sup>是斯坦福 CRFM 发布的语言模型综合评测框架，覆盖准确性、鲁棒性、公平性、偏见、效率、有毒性等 7 大维度。</p>
-
-<h3>3.2 厂商权威：Anthropic Agent 框架</h3>
-<p>Anthropic《Building Effective Agents》<sup><a href="#ref2">[2]</a></sup>定义了 7 种 Agent 形态：检索型、工具调用型、规划型、协作型、代码型、监控型、自主学习型。</p>
-
-<h3>3.3 厂商权威：OpenAI Agent 指南</h3>
-<p>OpenAI《A Practical Guide to Building Agents》<sup><a href="#ref3">[3]</a></sup>对 Agent 与 Chain 的区别、工具选择、人类参与节点给出具体建议。</p>
-
-<h3>3.4 综合评估</h3>
-<p>三大基线的共同局限：缺乏跨厂商横向对比的成本/性能数据。本文补充主流厂商 2026 年定价对比。</p>
-</section>
-
-<section>
-<h2 id="sec4">四、关键数据与定价</h2>
-
-<h3>4.1 主流模型定价（2026 Q2）</h3>
-<table>
-<thead><tr><th>模型</th><th>输入 $/M tokens</th><th>输出 $/M tokens</th><th>推理速度</th></tr></thead>
-<tbody>
-<tr><td>Claude Sonnet 5</td><td>3</td><td>15</td><td>快</td></tr>
-<tr><td>Claude Haiku 4</td><td>0.8</td><td>4</td><td>极快</td></tr>
-<tr><td>Claude Opus 4</td><td>15</td><td>75</td><td>慢</td></tr>
-<tr><td>GPT-4o</td><td>5</td><td>15</td><td>快</td></tr>
-<tr><td>GPT-4o-mini</td><td>0.15</td><td>0.6</td><td>极快</td></tr>
-<tr><td>Gemini 2 Pro</td><td>1.25</td><td>5</td><td>快</td></tr>
-</tbody>
-</table>
-
-<h3>4.2 推理成本下降曲线</h3>
-<p>主力推理层单 token 成本在 18 个月内下降约 70%<sup><a href="#ref1">[1]</a></sup>。这意味着"每美元价值"持续改善。</p>
-
-<h3>4.3 AI Agent 任务成功率</h3>
-<p>Anthropic 公开数据显示<sup><a href="#ref2">[2]</a></sup>，Agent 在 SWE-bench 编程任务上成功率从 2024 年的 13% 提升到 2026 年的 65%。</p>
-</section>
-
-<section>
-<h2 id="sec5">五、方法论：七种 Agent 形态与最佳实践</h2>
-
-<h3>5.1 检索型 Agent</h3>
-<p>单次或多次搜索 + 总结。适合竞品监测、研究助手。</p>
-
-<h3>5.2 工具调用型 Agent</h3>
-<p>调用外部 API 执行操作。适合 CRM 更新、表单提交、订单处理。</p>
-
-<h3>5.3 规划型 Agent</h3>
-<p>长链条规划 + 多步执行。适合复杂项目管理、研究计划。</p>
-
-<h3>5.4 协作型 Agent（Multi-Agent）</h3>
-<p>多个 Agent 角色分工协作。适合内容生产流水线、复杂决策支持。</p>
-
-<h3>5.5 代码型 Agent</h3>
-<p>自主编写、调试、执行代码。适合自动化运维、数据处理。</p>
-
-<h3>5.6 监控型 Agent</h3>
-<p>长期运行，持续观察并响应事件。适合品牌舆情、SRE 监控、市场变化预警。</p>
-
-<h3>5.7 自主学习型 Agent</h3>
-<p>从执行结果中持续优化策略。适合推荐系统、广告投放优化。</p>
-</section>
-
-<section>
-<h2 id="sec6">六、AI 写作的"机器感"问题</h2>
-
-<h3>6.1 AI 内容的可识别性悖论</h3>
-<p>随着模型能力提升，AI 写作被识别的难度增加，但被识别为低质量内容的概率也在上升。</p>
-
-<h3>6.2 AI 写作的典型"口头禅"</h3>
-<p>"此外"、"值得注意的是"、"综上所述"、"在当今"——频繁使用是机器感的标志。</p>
-
-<h3>6.3 去除 AI 感的五个核心方法</h3>
-<ol>
-<li>加入具体场景下的具体判断</li>
-<li>嵌入第一人称经历或观察</li>
-<li>给出可被反驳的具体观点</li>
-<li>提供独家数据或非公开信息</li>
-<li>拒绝"具体情况而定"的逃避</li>
-</ol>
-</section>
-
-<section>
-<h2 id="sec7">七、安全风险与 Prompt Injection</h2>
-
-<h3>7.1 MITRE ATLAS 与 OWASP LLM Top 10</h3>
-<p>MITRE ATLAS<sup><a href="#ref4">[4]</a></sup>和 OWASP LLM Top 10<sup><a href="#ref5">[5]</a></sup>把 Prompt Injection 列为头号风险向量。</p>
-
-<h3>7.2 四种攻击模式</h3>
-<ul>
-<li>直接注入：用户输入里包含"忽略之前的指令"</li>
-<li>间接注入：恶意内容嵌入到 RAG 检索的文档</li>
-<li>供应链注入：通过第三方插件、MCP server</li>
-<li>多模态注入：通过图片、PDF、音频里的隐藏文本</li>
-</ul>
-
-<h3>7.3 企业级防御策略</h3>
-<ol>
-<li>输入输出双侧过滤 + 内容溯源标签</li>
-<li>高风险操作必须经人工审批节点</li>
-<li>工具调用白名单 + 调用频率异常检测</li>
-<li>定期红队测试 + 注入语料库维护</li>
-</ol>
-</section>
-
-<section>
-<h2 id="sec8">八、第二大脑工作流</h2>
-
-<h3>8.1 四步框架</h3>
-<p>信息收集 → 结构化整理 → 提炼判断 → 行动建议。每步 AI 与人类各占一半工作量。</p>
-
-<h3>8.2 会话压缩</h3>
-<p>长会话中定期"压缩上下文"，把前面对话压缩成结构化笔记。</p>
-
-<h3>8.3 个人知识库</h3>
-<p>把读过的资料、笔记、决策记录向量化存储，AI 助手基于此回答问题。</p>
-
-<h3>8.4 每周频道审计</h3>
-<p>每周由 AI 回顾本周的对话、会议、决策，识别重复出现的盲点和模式。</p>
-</section>
-
-<section>
-<h2 id="sec9">九、风险与争议</h2>
-
-<h3>9.1 共识</h3>
+<h3>3.1 共识</h3>
 <ul>
 <li>模型分层是企业级部署的标配</li>
 <li>AI Agent 形态多样化且各有适用边界</li>
-<li>任务路由是降本的核心手段</li>
 <li>Prompt Injection 是必须正视的生产级威胁</li>
+<li>任务路由是降本的核心手段</li>
 </ul>
 
-<h3>9.2 争议</h3>
+<h3>3.2 开放问题</h3>
 <ul>
-<li>新一代模型的能力提升曲线是否在放缓</li>
-<li>多 Agent 协作是否真有生产力提升</li>
-<li>按结果计费模式是否会取代按 token 计费</li>
+<li>新一代模型的能力提升曲线是否在放缓？</li>
+<li>多 Agent 协作是否真有生产力提升？</li>
+<li>按结果计费模式是否会取代按 token 计费？</li>
 </ul>
-</section>
 
-<section>
-<h2 id="sec10">十、未来 12 个月观察</h2>
-
-<h3>10.1 推理能力的边际收益</h3>
-<p>新一代模型（GPT-5、Claude Sonnet 5、Gemini 2）的边际收益曲线是否仍在增长？</p>
-
-<h3>10.2 垂直行业模型突破</h3>
-<p>医疗、法律、金融行业的专用模型能否突破通用模型的能力上限？</p>
-
-<h3>10.3 Agent 生态系统</h3>
-<p>AI Agent 是否会形成类似"App Store"的生态系统？</p>
-
-<h3>10.4 推理成本下降幅度</h3>
-<p>推理成本是否会随硬件进步下降到当前水平的 1/5 以下？</p>
-</section>
-
-<section>
-<h2 id="sec11">十一、结论</h2>
-<p>LLM 产品已进入多产品矩阵阶段，单一模型时代结束。企业级部署的核心能力是任务路由——把合适的任务路由到合适的模型，而不是一刀切。AI Agent 的七种形态各有适用边界，关键是根据业务场景选择最匹配的形态。</p>
-</section>
-<section>
-<h2 id="new-points">新观点补充（持续更新 · 11 个脚本 / 11 条观点）</h2>
-<p>本节由 <code>edit_apply.py</code> 自动维护。<strong>共 11 个视频脚本</strong>触发了本话题的新观点补充，共 <strong>11 条观点</strong>。所有观点来自英文 transcript，由 queue_engine 提取。</p>
-<h3>本节内容说明</h3>
+<h3>3.3 本文未涉及</h3>
 <ul>
-<li><strong>数据来源：</strong>每天 04:00 / 16:00 PT 由 <code>queue_engine.py scan</code> 自动扫描 outputs/ 目录</li>
-<li><strong>写入机制：</strong>编辑时段 PT 20:00–09:00 由 <code>edit_apply.py apply</code> 自动追加</li>
-<li><strong>幂等保护：</strong>每个 new-point 带 <code>data-updated="脚本名"</code> 属性防重复</li>
+<li>具体模型的定价对比（需查官方定价页）</li>
+<li>Stanford HELM 评测的具体分数（本文仅引用其作为权威框架）</li>
+<li>MITRE ATLAS / OWASP LLM Top 10 的具体攻击向量（本文仅引用其存在）</li>
 </ul>
-<h3 id="np-script-1">观点 1：来自视频脚本（2026-06-25）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt</em></p>
+</section>
+<section>
+<h2 id="new-points">本话题视频脚本观点（11 个脚本 / 11 条）</h2>
+<p>以下观点来自与本话题相关的视频脚本，由 <code>queue_engine.py</code> 自动提取并按脚本归类。每条观点对应一个英文 transcript 原文段落，可追溯到具体脚本。</p>
+<h3>观点来源说明</h3>
+<ul>
+<li>每个观点带 <code>data-updated</code> 属性，标识触发该观点的视频脚本文件名</li>
+<li>观点内容是英文 transcript 的段落摘要，不是原文逐字翻译</li>
+<li>脚本归类由关键词匹配 + 手动兜底映射（见 <code>queue_engine.py</code> 的 TOPIC_RULES 和 MANUAL_MAP）</li>
+<li>本文不包含这些观点的原创分析或实证研究</li>
+</ul>
+<h3 id="np-1">观点 1：来自 2026-06-25 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt">📌 It's not just about writing code.</div>
-<h3 id="np-script-2">观点 2：来自视频脚本（2026-06-26）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt</em></p>
+<h3 id="np-2">观点 2：来自 2026-06-26 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt</em></p>
 <div class="new-point" data-updated="2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt">📌 The new chat GBT model has been held back by the US government.</div>
-<h3 id="np-script-3">观点 3：来自视频脚本（2026-06-27）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt</em></p>
+<h3 id="np-3">观点 3：来自 2026-06-27 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt">📌 Open AI just announced Chatchy PT 5.6.</div>
-<h3 id="np-script-4">观点 4：来自视频脚本（2026-06-27）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt</em></p>
+<h3 id="np-4">观点 4：来自 2026-06-27 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt">📌 An AI skill just tricked 26,000 people into potentially getting hacked, we're talking files, emails, company systems, everything.</div>
-<h3 id="np-script-5">观点 5：来自视频脚本（2026-06-28）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt</em></p>
+<h3 id="np-5">观点 5：来自 2026-06-28 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt</em></p>
 <div class="new-point" data-updated="2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt">📌 Because this report surfaces the hidden trends, patterns, and insights that I just wouldn't have seen otherwise.</div>
-<h3 id="np-script-6">观点 6：来自视频脚本（2026-06-29）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt</em></p>
+<h3 id="np-6">观点 6：来自 2026-06-29 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt</em></p>
 <div class="new-point" data-updated="2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt">📌 It'll then give you a detailed visual breakdown with all the non-obvious insights and patterns you just wouldn't have seen otherwise.</div>
-<h3 id="np-script-7">观点 7：来自视频脚本（2026-06-30）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt</em></p>
+<h3 id="np-7">观点 7：来自 2026-06-30 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt">📌 We can now spot AI Rytum without even looking at the words or for M-Dashers, and this works about 93% at the time, because as this research team found AI Rytum has a shape.</div>
-<h3 id="np-script-8">观点 8：来自视频脚本（2026-07-01）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt</em></p>
+<h3 id="np-8">观点 8：来自 2026-07-01 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt">📌 Andthropic just released Clod Sonnet 5, and while it is a very impressive model in a lot of ways, it's not quite what I am for offic says it is.</div>
-<h3 id="np-script-9">观点 9：来自视频脚本（2026-07-01）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt</em></p>
+<h3 id="np-9">观点 9：来自 2026-07-01 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt">📌 So Fable 5 has just shown up in my Claude a few minutes ago.</div>
-<h3 id="np-script-10">观点 10：来自视频脚本（2026-07-02）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt</em></p>
+<h3 id="np-10">观点 10：来自 2026-07-02 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt</em></p>
 <div class="new-point" data-updated="2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt">📌 It's just a four-part framework that you'll remember after watching this very short video.</div>
-<h3 id="np-script-11">观点 11：来自视频脚本（2026-07-03）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt</em></p>
+<h3 id="np-11">观点 11：来自 2026-07-03 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt</em></p>
 <div class="new-point" data-updated="2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt">📌 For the first time in two years, I'm considering switching over to Chatchubt instead of Claude for work.</div>
 </section>
 
+
 <section class="references" id="refs">
-<h2>参考文献</h2>
+<h2>参考资料（仅作链接，不暗示已读细节）</h2>
+<p style="font-size:12px;color:var(--muted);margin-bottom:12px">以下是该话题领域的权威资料，<strong>仅列出供读者自行参考</strong>。本文不假装读过这些报告的细节，也未与之做系统对比。</p>
 <ol>
-<li id="ref1">Stanford CRFM. HELM: Holistic Evaluation of Language Models. <em>Stanford University</em>. <a href="https://crfm.stanford.edu/helm/">https://crfm.stanford.edu/helm/</a> <span class="ref-meta">[学术最高权威]</span></li>
-<li id="ref2">Anthropic. Building Effective Agents. <em>Anthropic Research</em>. <a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a> <span class="ref-meta">[厂商最高权威]</span></li>
-<li id="ref3">OpenAI. A Practical Guide to Building Agents. <em>OpenAI Research</em>. <a href="https://openai.com/research/a-practical-guide-to-building-agents">https://openai.com/research/a-practical-guide-to-building-agents</a> <span class="ref-meta">[厂商最高权威]</span></li>
-<li id="ref4">MITRE ATLAS. Adversarial Threat Landscape for AI Systems. <em>MITRE Corporation</em>. <a href="https://atlas.mitre.org/">https://atlas.mitre.org/</a> <span class="ref-meta">[安全框架最高权威]</span></li>
-<li id="ref5">OWASP. Top 10 for Large Language Model Applications. <em>OWASP Foundation</em>. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a> <span class="ref-meta">[安全行业标准]</span></li>
-<li id="ref6">Anthropic. Claude Pricing. <em>Anthropic</em>. <a href="https://www.anthropic.com/pricing">https://www.anthropic.com/pricing</a> <span class="ref-meta">[官方定价]</span></li>
-<li id="ref7">OpenAI. ChatGPT Pricing. <em>OpenAI</em>. <a href="https://openai.com/chatgpt/pricing/">https://openai.com/chatgpt/pricing/</a> <span class="ref-meta">[官方定价]</span></li>
-<li id="ref8">Google. Gemini Pricing. <em>Google</em>. <a href="https://ai.google.dev/pricing">https://ai.google.dev/pricing</a> <span class="ref-meta">[官方定价]</span></li>
-<li id="ref9">Bommasani, R., et al. On the Opportunities and Risks of Foundation Models. <em>Stanford CRFM</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a> <span class="ref-meta">[基础模型综述]</span></li>
-<li id="ref10">Anthropic. Model Context Protocol Specification. <em>Anthropic</em>. <a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a> <span class="ref-meta">[协议规范]</span></li>
-<li id="ref11">LangChain. Multi-Agent Systems Documentation. <em>LangChain</em>. <a href="https://python.langchain.com/docs/modules/agents/">https://python.langchain.com/docs/modules/agents/</a> <span class="ref-meta">[实现参考]</span></li>
-<li id="ref12">DeepMind. Gemini Technical Report 2025. <em>Google DeepMind</em>. <a href="https://deepmind.google/technologies/gemini/">https://deepmind.google/technologies/gemini/</a> <span class="ref-meta">[技术报告]</span></li>
-<li id="ref13">Brown, T., et al. Language Models are Few-Shot Learners. <em>NeurIPS 2020</em>. <a href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a> <span class="ref-meta">[GPT-3 原始论文]</span></li>
-<li id="ref14">Vaswani, A., et al. Attention is All You Need. <em>NeurIPS 2017</em>. <a href="https://arxiv.org/abs/1706.03762">https://arxiv.org/abs/1706.03762</a> <span class="ref-meta">[Transformer 原始论文]</span></li>
-<li id="ref15">Anthropic. Constitutional AI. <em>Anthropic Research</em>. <a href="https://www.anthropic.com/research/constitutional-ai">https://www.anthropic.com/research/constitutional-ai</a> <span class="ref-meta">[AI 安全研究]</span></li>
+<li>HELM: Holistic Evaluation of Language Models. <em>Stanford CRFM, 2024</em>. <a href="https://crfm.stanford.edu/helm/">https://crfm.stanford.edu/helm/</a></li>
+<li>Building Effective Agents. <em>Anthropic Research, 2024</em>. <a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a></li>
+<li>A Practical Guide to Building Agents. <em>OpenAI Research, 2025</em>. <a href="https://openai.com/research/a-practical-guide-to-building-agents">https://openai.com/research/a-practical-guide-to-building-agents</a></li>
+<li>Constitutional AI. <em>Anthropic Research, 2022</em>. <a href="https://www.anthropic.com/research/constitutional-ai">https://www.anthropic.com/research/constitutional-ai</a></li>
+<li>Model Context Protocol Specification. <em>Anthropic, 2024</em>. <a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a></li>
+<li>Claude Pricing. <em>Anthropic, 2026</em>. <a href="https://www.anthropic.com/pricing">https://www.anthropic.com/pricing</a></li>
+<li>ChatGPT Pricing. <em>OpenAI, 2026</em>. <a href="https://openai.com/chatgpt/pricing/">https://openai.com/chatgpt/pricing/</a></li>
+<li>MITRE ATLAS. <em>MITRE Corporation, 2024</em>. <a href="https://atlas.mitre.org/">https://atlas.mitre.org/</a></li>
+<li>OWASP Top 10 for LLM Applications. <em>OWASP Foundation, 2025</em>. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a></li>
 
 </ol>
 </section>
+
 </article>
 
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v4 学术级升级：H2-H6 章节重构 + 15+ 参考文献 + 业界基线对比</li>
+<li><strong>2026-07-06</strong> · v5 重写：移除虚构案例与伪对比，明确诚实声明</li>
+<li><strong>2026-07-06</strong> · v4 学术级升级（已弃用，因包含虚构数据）</li>
+<li><strong>2026-07-06</strong> · v3.2 初始版：60 任务批量处理</li>
 </ul>
 </div>
+
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v4 学术级 · 引用全部标注出处<br>
+  话题大全 · 自媒体自动归类引擎 · v5 诚实版<br>
   <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
   <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>

@@ -3,443 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 搜索 / GEO / AI Citation · 话题大全（学术级 v4）</title>
+<title>AI 搜索 / GEO / AI Citation · 话题大全（v5 诚实版）</title>
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
-header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
+header h1{margin:0 0 10px;font-size:32px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:920px;margin:0 auto;padding:32px 24px 60px}
-article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
-article h2{margin-top:32px;margin-bottom:14px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
-article h3{font-size:19px;color:var(--accent);margin-top:22px;margin-bottom:10px;scroll-margin-top:24px}
-article h4{font-size:16px;color:var(--accent2);margin-top:18px;margin-bottom:8px}
-article p{margin:0 0 14px 0;color:#dde3ec}
-article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
-article li{margin-bottom:8px}
-article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
-article blockquote strong{color:var(--ink)}
+main{max-width:880px;margin:0 auto;padding:32px 24px 60px}
+article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:18px}
+article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
+article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px}
+article p{margin:0 0 12px 0;color:#dde3ec}
+article ul, article ol{padding-left:24px;margin:0 0 14px 0;color:#dde3ec}
+article li{margin-bottom:6px}
 article strong{color:var(--ink);font-weight:600}
 article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
 article a{color:var(--accent);text-decoration:none}
 article a:hover{text-decoration:underline}
-.abstract{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
-.abstract h3{margin-top:0;color:var(--accent2);font-size:15px;text-transform:uppercase;letter-spacing:1px}
-.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-.toc h3{margin-top:0;font-size:15px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.honest-box{background:#2a1f1f;border-left:4px solid #f59e0b;padding:14px 20px;border-radius:0 8px 8px 0;margin-bottom:18px;font-size:14px;color:#cfd6e4}
+.honest-box strong{color:#f59e0b}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px}
+.toc h3{margin-top:0;font-size:14px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .toc ol{padding-left:20px;margin:0;columns:1}
-.toc li{margin-bottom:6px;font-size:14px}
+.toc li{margin-bottom:4px;font-size:14px}
 .toc a{color:var(--accent);text-decoration:none}
-.toc a:hover{text-decoration:underline}
-.references{font-size:14px;background:#0a0d12;padding:18px 22px;border-radius:8px}
-.references h2{margin-top:0;font-size:20px}
+.references{font-size:13px;background:#0a0d12;padding:18px 22px;border-radius:8px}
+.references h2{margin-top:0;font-size:18px}
 .references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
-.references li{margin-bottom:8px;line-height:1.6}
-.references a{color:var(--accent);word-break:break-all}
-.references .ref-meta{color:var(--muted);font-size:12px;font-style:italic}
-.new-point{background:#1a1f2b;border-left:3px solid var(--accent2);padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
-.callout{background:#1a1f2b;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:16px 0}
-.callout-title{font-weight:700;color:var(--accent2);margin-bottom:6px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
-.callout p:last-child{margin-bottom:0}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
-
-.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px;margin-top:24px}
-.update-log h2{margin-top:0;font-size:20px;border-left:3px solid var(--accent);padding-left:10px}
+.references li{margin-bottom:6px;line-height:1.55}
+.references a{color:var(--accent);word-break:break-all;font-size:12px}
+.references .ref-meta{color:var(--muted);font-size:11px;font-style:italic}
+.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:9px 13px;border-radius:0 4px 4px 0;margin:6px 0;font-size:14px;color:#cfd6e4;line-height:1.65}
+.new-point[data-updated]::after{content:"✓";margin-left:8px;color:var(--accent2);font-size:11px}
+.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px;margin-top:18px}
+.update-log h2{margin-top:0;font-size:18px;border-left:3px solid var(--accent);padding-left:10px}
 .update-log ul{padding-left:20px}
-.update-log li{margin-bottom:6px;color:var(--muted);font-size:14px}
+.update-log li{margin-bottom:4px;color:var(--muted);font-size:13px}
 .update-log li strong{color:var(--ink)}
-.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:10px 14px;border-radius:0 4px 4px 0;margin:8px 0;font-size:14px;color:#cfd6e4;line-height:1.7}
-.new-point[data-updated]{position:relative}
-.new-point[data-updated]::after{content:"✓";position:absolute;top:6px;right:10px;color:var(--accent2);font-size:11px}
-
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
 </style>
 </head>
 <body>
 <header>
   <h1>AI 搜索 / GEO / AI Citation</h1>
-  <div class="subtitle">生成式引擎优化的学术框架、业界基线与可证伪方法论</div>
-  <div class="meta">学术级 LLM wiki · 持续更新 · 最后更新：2026-07-06 · 含 15+ 参考文献</div>
+  <div class="subtitle">视频脚本观点汇集 · AI 答案引擎时代的引用与可见性</div>
+  <div class="meta">v5 诚实版 · 持续更新 · 最后更新：2026-07-07 · 21 个视频脚本 / 21 条观点</div>
 </header>
 <main>
 <article>
 
-<section class="abstract">
-<h3>Abstract</h3>
-<p>2024 到 2026 年间，生成式引擎优化（Generative Engine Optimization, GEO）从搜索引擎优化（SEO）的一个分支演进为一门独立学科。本文系统回顾 GEO 的学术起源（Princeton & Georgia Tech 2024）、Google AI Overviews 的工程实现、Ahrefs/Semrush 的零点击数据曲线、Anthropic Multi-Agent 协作机制，并提出 LLM 引用率（Cited Rate, CR）这一新的核心指标。基于 22 家跨行业企业的追踪数据，本文给出"答案前置 + 结构化数据 + 跨平台提及"的三层方法论，并通过与 Reddit、G2、Trustpilot、行业协会数据源的对比，论证了 GEO 与传统 SEO 的本质差异——前者解决"被 AI 信任"，后者解决"被 AI 抽取"。最后，本文提出未来 12 个月需要观察的四个关键变量。</p>
-</section>
-
-<div class="toc">
-<h3>Table of Contents</h3>
-<ol>
-<li><a href="#sec1">引言与历史脉络：从 PageRank 到 Cited Rate</a></li>
-<li><a href="#sec2">核心机制：AI 答案引擎如何选择引用源</a></li>
-<li><a href="#sec3">业界权威基线：Princeton GEO、Ahrefs 零点击报告、Google Search Central</a></li>
-<li><a href="#sec4">关键数据：零点击曲线、AI Overview CTR 衰减、模型版本波动</a></li>
-<li><a href="#sec5">方法论：三层引用率优化框架</a></li>
-<li><a href="#sec6">案例研究：22 家企业跨行业追踪</a></li>
-<li><a href="#sec7">风险与争议：引用稳定性、内容污染、零点击极限</a></li>
-<li><a href="#sec8">未来 12 个月：四个关键变量</a></li>
-<li><a href="#sec9">结论</a></li>
-<li><a href="#refs">参考文献</a></li>
-</ol>
+<div class="honest-box">
+<strong>诚实声明：</strong>本文是该话题的视频脚本观点汇集与权威资料参考链接。<strong>不包含原创实证研究、虚构案例、独家数据</strong>。视频脚本观点来自英文 transcript，由自动化引擎提取。权威资料仅作为参考链接，不暗示我们读过细节或做过对比分析。如需引用本文观点，请追溯到原始视频脚本。
 </div>
 
 <section>
-<h2 id="sec1">一、引言与历史脉络：从 PageRank 到 Cited Rate</h2>
+<h2>摘要</h2>
+<p>本话题汇集了 21 个 TikTok 视频脚本关于 AI 搜索、GEO、零点击搜索、AI Overview、Reddit 引用、结构化内容等话题的观点。所有观点来自英文 transcript，由自动化引擎提取。本文不包含原创实证研究。</p>
+</section>
 
-<h3>1.1 SEO 二十年：从关键词到全网提及</h3>
-<p>自 1998 年 Brin & Page 发表《The PageRank Citation Ranking》以来，搜索排序的核心信号一直是<strong>链接作为投票</strong>。这个范式延续了 20 余年。2015 年 Google 发布的 Quality Rater Guidelines 引入 E-E-A-T（Experience, Expertise, Authoritativeness, Trustworthiness）四维评估，标志着<strong>从纯链接信号向"信任信号"扩展</strong>的开始，但本质仍是 PageRank 的延伸——高质量链接隐含 E-E-A-T。</p>
 
-<p>2022 年 ChatGPT 发布后，搜索行为开始分流：用户从"在 Google 找十条链接"转向"向 AI 问一个问题获得一段答案"。2024 年 Princeton 与 Georgia Tech 的 Aggarwal 等人发表《GEO: Generative Engine Optimization》<sup><a href="#ref1">[1]</a></sup>，首次系统定义 GEO，并实验证明：包含统计数据、引用来源、流畅文本的段落被 ChatGPT、Perplexity 等生成引擎的引用率比未优化段落高 30–40%。</p>
-
-<h3>1.2 Cited Rate：新指标的出现</h3>
-<p>传统 SEO 的核心 KPI 是<strong>排名（Rank）</strong>和<strong>点击率（CTR）</strong>。GEO 的核心 KPI 必须重新定义——本文提出<strong>Cited Rate（CR）</strong>：</p>
-
-<blockquote>
-CR = (答案中引用某品牌/页面的次数) / (该话题下总查询次数)
-</blockquote>
-
-<p>CR 与 Rank 的根本差异：Rank 是排序位置，CR 是"是否被提到"。一个排名第 1 但从未被 AI 引用的页面，CR=0；一个排名第 10 但频繁被 AI 抽取的页面，CR 可能远高于前者。</p>
-
-<h3>1.3 与业界权威基线的距离</h3>
-<p>本文对照以下三个业界最高权威来源，确保信息覆盖与深度超越它们：</p>
-<ul>
-<li><strong>Princeton & Georgia Tech《GEO》论文</strong>（学术最高权威）</li>
-<li><strong>Ahrefs《Zero-Click Search Study 2025》</strong>（行业数据最高权威）</li>
-<li><strong>Google Search Central《AI Features and Your Website》</strong>（平台官方最高权威）</li>
-</ul>
-
-<p>下文第 3 节详细对比这三方基线。</p>
+<section>
+<h2 id="sec1">一、话题定义</h2>
+<p>本话题涵盖内容如何被 AI 答案引擎（ChatGPT、Perplexity、Google AI Overviews、Claude、Gemini 等）引用和提及。关键词聚类来自 TikTok 创作者关于 SEO、GEO、AI 答案、零点击搜索、AI Overview 等话题的英文 transcript。</p>
+<p>相关视频脚本共 21 篇，时间跨度 2026-05 至 2026-07，主要来自 TikTok 营销类创作者。</p>
 </section>
 
 <section>
-<h2 id="sec2">二、核心机制：AI 答案引擎如何选择引用源</h2>
+<h2 id="sec2">二、核心机制：AI 答案引擎与传统搜索的差异</h2>
 
-<h3>2.1 召回（Retrieval）阶段的信号权重</h3>
-<p>答案引擎（如 Google AI Overviews、ChatGPT Search、Perplexity）的工作流程分三阶段：召回 → 重排 → 抽取 + 生成。</p>
-
-<p>在召回阶段，主流引擎综合使用以下信号（按权重粗略排序）：</p>
-<ol>
-<li><strong>全网品牌提及（Brand Mentions）：</strong>Gemini 2025 公开的技术报告显示，提及权重高于反向链接<sup><a href="#ref2">[2]</a></sup>。</li>
-<li><strong>权威平台档案（Authoritative Profiles）：</strong>G2、Capterra、Trustpilot 等评测平台的品牌档案被视为权威信号。</li>
-<li><strong>社区讨论（Community Discussions）：</strong>Reddit、Quora、行业论坛的真实讨论被高频引用。</li>
-<li><strong>对比榜单（Comparison Lists）：</strong>"X 的最佳替代品"类文章是 AI 反复依赖的内容格式。</li>
-<li><strong>结构化数据（Structured Data）：</strong>Schema.org 的 FAQPage、Article、Organization、Product 四种类型显著提升召回率。</li>
-<li><strong>Freshness 信号：</strong>更新日期、发布时间、修改时间影响排序。</li>
-</ol>
-
-<h3>2.2 重排（Reranking）阶段的语义匹配</h3>
-<p>重排阶段使用 Embedding 模型 + Cross-Encoder 双塔结构判断候选段落与查询的语义相关度。Princeton GEO 论文<sup><a href="#ref1">[1]</a></sup>证明：在段落中加入<strong>具体统计数据、引用来源、流畅引用格式</strong>，重排分数提升 30–40%。</p>
-
-<h3>2.3 抽取（Extraction）阶段的"可抽取性"设计</h3>
-<p>答案引擎最终不是"读完整篇文章"再回答，而是<strong>抽取段落</strong>直接嵌入答案。这意味着：</p>
-
-<div class="callout">
-<div class="callout-title">关键概念：可抽取性（Extractability）</div>
-<p>一个段落的"可抽取性"由三要素决定：(1) 段落是否能在脱离上下文后仍完整表达一个观点；(2) 是否包含具体数字或可验证事实；(3) 是否使用了清晰的主谓宾结构而非复杂嵌套句。</p>
-</div>
-
-<p>违反这三点，即使页面在 Google 排名第一，AI 答案也不会引用它。</p>
-</section>
-
-<section>
-<h2 id="sec3">三、业界权威基线对比</h2>
-
-<h3>3.1 学术最高权威：Princeton & Georgia Tech《GEO》论文</h3>
-<p>2024 年发表的《GEO: Generative Engine Optimization》<sup><a href="#ref1">[1]</a></sup>是 GEO 领域的开山之作。其核心贡献：</p>
+<h3>2.1 两种任务的不同</h3>
+<p>从视频脚本观点来看，AI 答案引擎与传统搜索引擎的核心差异：</p>
 <ul>
-<li>首次定义 GEO 概念框架</li>
-<li>通过 10,000 个查询的对照实验，给出可量化的优化手段</li>
-<li>提出 Citation Boost（引用加权）的实证数据</li>
+<li><strong>传统搜索：</strong>返回 10 条链接，用户点击进入</li>
+<li><strong>AI 答案：</strong>从候选内容中抽取段落直接回答</li>
+</ul>
+<p>这一差异决定了内容优化的目标完全不同：传统 SEO 优化"排名"，AI 时代优化"被引用"。</p>
+
+<h3>2.2 关键变化：品牌提及权重高于反向链接</h3>
+<p>多位创作者反复提及：</p>
+<ul>
+<li>AI 倾向于引用在多个平台都被讨论过的内容</li>
+<li>Google 缓存旧版本内容并观察你何时更新</li>
+<li>75% 的 AI 引用来自 Google 前 10 名之外</li>
 </ul>
 
-<p><strong>本文对该论文的延伸：</strong>原文主要研究 ChatGPT 和 Perplexity，本文补充 Google AI Overviews、Claude、Gemini 的差异化行为；同时扩展到跨行业（医疗、法律、电商、SaaS）的引用率差异分析。</p>
-
-<h3>3.2 行业数据最高权威：Ahrefs《Zero-Click Search Study 2025》</h3>
-<p>Ahrefs 2025 年发布的零点击研究<sup><a href="#ref3">[3]</a></sup>是该领域数据最权威的来源。其核心结论：</p>
+<h3>2.3 答案前置结构</h3>
+<p>创作者们一致强调：</p>
 <ul>
-<li>2024 年零点击搜索占比从 56% 上升到 69%（按月统计 1000+ 关键词样本）</li>
-<li>AI Overview 出现时，原本第一名的点击率从 1.76% 跌至 0.61%（降幅 65%）</li>
-<li>FAQ 类查询的零点击率超过 80%</li>
-</ul>
-
-<p><strong>本文对该研究的延伸：</strong>Ahrefs 报告未区分行业差异，本文补充电商、SaaS、医疗、法律的细分数据；同时新增"被引用域名的稳定性分析"——AI Overview 引用的域名在 6 个月内有 30% 发生变动。</p>
-
-<h3>3.3 平台官方最高权威：Google Search Central</h3>
-<p>Google Search Central 的官方文档<sup><a href="#ref4">[4]</a></sup>给出了 AI Overviews 的工作机制说明和 Schema.org 实施建议。其核心要点：</p>
-<ul>
-<li>AI Overview 不替代搜索结果，而是叠加显示</li>
-<li>结构化数据（FAQPage、HowTo、Article）是 AI Overview 召回的关键</li>
-<li>被引用不会直接提升搜索排名，但会提升品牌提及和流量</li>
-</ul>
-
-<p><strong>本文对官方文档的延伸：</strong>Google 未公开权重细节，本文通过 22 家企业追踪数据反推各信号的实际权重；并补充 AI Overview 在不同国家/语言下的覆盖率差异。</p>
-
-<h3>3.4 综合评估：超越路径</h3>
-<p>三大基线的共同盲点：</p>
-<ul>
-<li><strong>缺乏跨引擎对比：</strong>Princeton 主要测试 ChatGPT，Ahrefs 只测 Google，Google 文档只讲自家。</li>
-<li><strong>缺乏跨行业对比：</strong>三大基线都未系统对比医疗、法律、金融等高合规行业的差异。</li>
-<li><strong>缺乏长期跟踪：</strong>短期数据无法判断引用稳定性，本文补充 6 个月域名变动数据。</li>
+<li>首先必须非常清晰地回答问题</li>
+<li>我们不只给数字，我们给你精确的转录和回复</li>
 </ul>
 </section>
 
 <section>
-<h2 id="sec4">四、关键数据与实证</h2>
+<h2 id="sec3">三、常见误区</h2>
 
-<h3>4.1 零点击搜索的加速度</h3>
-<p>2024–2025 年的零点击搜索占比从 56% 提升到 69%<sup><a href="#ref3">[3]</a></sup>，其中 AI Overview 触发场景的零点击率为 92%。这意味着大部分搜索查询甚至不产生外部点击，传统的"流量=曝光"逻辑正在失效。</p>
+<h3>3.1 "SEO 已死"</h3>
+<p>多位创作者明确反对这个说法，认为 SEO 是 GEO 的基础而非替代关系。</p>
 
-<h3>4.2 AI Overview 的 CTR 衰减</h3>
-<p>原本排名第一的链接，在 AI Overview 出现时的点击率从 1.76% 跌至 0.61%。但被引用的来源相对未被引用的来源，多获得 35% 的自然点击和 91% 的付费点击<sup><a href="#ref3">[3]</a></sup>。流量没有消失——它重新集中到了 AI 信任的来源上。</p>
+<h3>3.2 "为 ChatGPT 优化"</h3>
+<p>创作者提示：模型版本波动巨大，针对单一模型优化是高风险策略。应优化"被任何 AI 抽取的结构"。</p>
 
-<h3>4.3 AI 引用源分布</h3>
-<p>Ahrefs 追踪 1000+ 关键词发现<sup><a href="#ref3">[3]</a></sup>：</p>
-<ul>
-<li>约 75% 的引用源来自 Google 排名前十之外</li>
-<li>Reddit 是 Gemini 和 ChatGPT 引用率最高的社区类来源</li>
-<li>G2、Capterra、Trustpilot 等评测平台是高引用的"权威档案"</li>
-<li>"最佳替代品"对比类文章的引用率是常规博客的 3.2 倍</li>
-</ul>
-
-<h3>4.4 模型版本波动</h3>
-<p>AI 引用的稳定性远低于搜索排名。一次模型迭代（如 GPT-4 → GPT-5 或 Claude Sonnet 4 → 4.5）就能让博客类来源的引用率从 8% 跳到 56%。这一波动幅度意味着：<strong>为单个模型过度优化是高风险策略</strong>。</p>
-
-<h3>4.5 跨行业差异</h3>
-<p>基于 22 家企业的 6 个月追踪数据：</p>
-<ul>
-<li>电商行业：CR 中位数 4.2%，最高 12.7%</li>
-<li>SaaS 行业：CR 中位数 7.8%，最高 23.5%</li>
-<li>医疗行业：CR 中位数 1.9%，最高 8.3%</li>
-<li>法律行业：CR 中位数 0.8%，最高 5.1%</li>
-</ul>
-
-<p>差异主要来自：(1) 高合规行业的 AI 答案更保守；(2) 内容池大小差异；(3) 信任信号密度差异。</p>
+<h3>3.3 "把 SEO 预算全转 GEO"</h3>
+<p>创作者观点：弱 SEO 加 GEO，AI 不信你；强 SEO 没有 GEO，新玩家抢你午餐。两者缺一不可。</p>
 </section>
 
 <section>
-<h2 id="sec5">五、方法论：三层引用率优化框架</h2>
+<h2 id="sec4">四、共识与争议</h2>
 
-<p>本文提出 GEO 的三层框架，每层都对应可量化的优化动作。</p>
-
-<h3>5.1 第一层：答案前置（Answer-First Architecture）</h3>
-
-<h4>5.1.1 答案在前两句话内</h4>
-<p>AI 不像人类读完八段铺垫——它扫描结构，问"我能从这里抽出一段完整的自信答案吗"。把核心答案放在标题后的两到三句话内。</p>
-
-<h4>5.1.2 问题即标题（Question-as-Heading）</h4>
-<p>使用用户实际会向 AI 提问的完整问题作为 H2/H3，而非关键词化的写法。逐字匹配等于把答案送到 AI 嘴边。</p>
-
-<h4>5.1.3 FAQ 区段</h4>
-<p>AI 答案中 76% 是长尾、对话式、多词组查询（6 词以上）<sup><a href="#ref3">[3]</a></sup>，只有 23% 是短关键词查询。建立真实 FAQ 区段，长度不少于 10 组。</p>
-
-<h3>5.2 第二层：结构化数据（Structured Data Implementation）</h3>
-
-<h4>5.2.1 四种 Schema 优先级</h4>
-<p>Google Search Central<sup><a href="#ref4">[4]</a></sup>推荐：FAQPage、Article、Organization、Product/Service 四种 Schema 是当下回报最高的结构化数据。</p>
-
-<h4>5.2.2 llms.txt 规范</h4>
-<p>llms.txt 是 Answer.AI 在 2024 年提出的网站标准<sup><a href="#ref5">[5]</a></sup>，让网站声明"哪些内容是 AI 可读的"。</p>
-
-<h4>5.2.3 Web MCP 协议</h4>
-<p>Anthropic 推动的 Web MCP 协议让 AI 直接与网站 API 交互<sup><a href="#ref6">[6]</a></sup>，网站需要为 AI Agent 提供专用 API。</p>
-
-<h3>5.3 第三层：跨平台提及（Cross-Platform Mentions）</h3>
-
-<h4>5.3.1 三类权威平台</h4>
-<p>把"被引用"目标拆解到三类外部平台：</p>
+<h3>4.1 共识</h3>
 <ul>
-<li><strong>社区平台：</strong>Reddit 真实讨论、行业论坛、专业社群</li>
-<li><strong>评测档案：</strong>G2、Capterra、Trustpilot 上的品牌档案</li>
-<li><strong>对比榜单：</strong>"最佳替代品"类文章</li>
+<li>SEO 是 GEO 的基础，二者不是替代关系</li>
+<li>被 AI 引用需要"答案即内容"的结构化策略</li>
+<li>权威来源（评测、社区、对比榜单）的重要性超过自有博客</li>
+<li>Reddit 等社区平台是 AI 高引用的来源之一</li>
 </ul>
 
-<h4>5.3.2 品牌提及密度</h4>
-<p>研究显示，品牌在 30+ 个不同域名的提及对 AI 引用率有显著正向影响<sup><a href="#ref1">[1]</a></sup>。</p>
-</section>
+<h3>4.2 开放问题（未达成共识）</h3>
+<ul>
+<li>AI 引用稳定性远低于搜索排名，模型迭代可能让优化归零——是否有解？</li>
+<li>零点击搜索是否最终蚕食所有内容生态？</li>
+<li>新兴的 llms.txt 规范是否会真正成为行业标准？</li>
+<li>为单家 AI 引擎优化是否值得？</li>
+</ul>
 
+<h3>4.3 本文未涉及</h3>
+<ul>
+<li>具体的跨企业引用率数据（需独立追踪）</li>
+<li>Ahrefs 2025 报告的具体数据点（本文仅引用其存在）</li>
+<li>Princeton GEO 论文的实验方法（本文仅引用其作为权威来源）</li>
+</ul>
+</section>
 <section>
-<h2 id="sec6">六、案例研究</h2>
-
-<h3>6.1 案例 A：B2B SaaS 企业的 GEO 转型</h3>
-<p>某中型 SaaS 公司（CRM 行业）实施 6 个月 GEO 策略后的数据变化：</p>
+<h2 id="new-points">本话题视频脚本观点（21 个脚本 / 21 条）</h2>
+<p>以下观点来自与本话题相关的视频脚本，由 <code>queue_engine.py</code> 自动提取并按脚本归类。每条观点对应一个英文 transcript 原文段落，可追溯到具体脚本。</p>
+<h3>观点来源说明</h3>
 <ul>
-<li>被 ChatGPT 引用的查询数从 8 增长到 47（+487%）</li>
-<li>来自 AI 引用的自然流量增长 312%</li>
-<li>未做付费推广的查询中，被引用率从 3% 上升到 19%</li>
+<li>每个观点带 <code>data-updated</code> 属性，标识触发该观点的视频脚本文件名</li>
+<li>观点内容是英文 transcript 的段落摘要，不是原文逐字翻译</li>
+<li>脚本归类由关键词匹配 + 手动兜底映射（见 <code>queue_engine.py</code> 的 TOPIC_RULES 和 MANUAL_MAP）</li>
+<li>本文不包含这些观点的原创分析或实证研究</li>
 </ul>
-
-<h3>6.2 案例 B：电商独立站的零点击生存</h3>
-<p>某 DTC 电商品牌在零点击率上升到 78% 后，如何调整策略：</p>
-<ul>
-<li>建立品牌专属 FAQ 区段，覆盖 50+ 真实长尾问题</li>
-<li>主动在 Reddit 相关子版块建立品牌档案和真实讨论</li>
-<li>优化产品对比页（vs. 竞品）以匹配 AI 答案格式</li>
-<li>结果：6 个月后被 AI 引用的查询从 4 个上升到 28 个</li>
-</ul>
-
-<h3>6.3 案例 C：医疗合规行业的 GEO 边界</h3>
-<p>某医疗信息平台在 GEO 优化中遇到特殊挑战：</p>
-<ul>
-<li>YMYL（Your Money Your Life）合规限制使得 AI 引用保守</li>
-<li>需要依赖 E-E-A-T 信号（资质证书、专家署名、引用医学期刊）</li>
-<li>Schema.org 的 MedicalCondition、MedicalEntity 类型是关键</li>
-<li>6 个月追踪：CR 从 1.2% 上升到 4.7%，但仍低于电商和 SaaS</li>
-</ul>
-</section>
-
-<section>
-<h2 id="sec7">七、风险与争议</h2>
-
-<h3>7.1 当前共识</h3>
-<ul>
-<li><strong>共识 1：</strong>SEO 是 GEO 的基础，二者不是替代关系</li>
-<li><strong>共识 2：</strong>被 AI 引用需要"答案即内容"的结构化策略</li>
-<li><strong>共识 3：</strong>权威来源（评测、社区、对比榜单）的重要性超过自有博客</li>
-<li><strong>共识 4：</strong>零点击搜索会继续上升，但流量集中到了 AI 信任的来源</li>
-</ul>
-
-<h3>7.2 当前争议</h3>
-<ul>
-<li><strong>争议 1：</strong>AI 引用的稳定性远低于搜索排名，模型迭代可能让一个季度的优化归零</li>
-<li><strong>争议 2：</strong>零点击是否最终蚕食所有内容生态？目前尚有大量细分场景 AI 答案不够精准</li>
-<li><strong>争议 3：</strong>新兴的 llms.txt 规范是否会真正成为行业标准？</li>
-<li><strong>争议 4：</strong>为单家 AI 引擎优化（如 ChatGPT）是否值得？</li>
-</ul>
-
-<h3>7.3 内容污染风险</h3>
-<p>GEO 优化的副作用是大量"AI 友好型"内容涌现，可能造成低质量内容池扩张，反过来影响 AI 答案质量。这是内容生态层面的系统性风险。</p>
-</section>
-
-<section>
-<h2 id="sec8">八、未来 12 个月观察</h2>
-
-<h3>8.1 Google 是否扩展 AI Overview</h3>
-<p>关键观察：Google 是否把 AI Overview 从"顶部卡片"扩展为"替代式答案框"。如果发生，整个 SEO 行业将进入新阶段。</p>
-
-<h3>8.2 OpenAI 与 Anthropic 的搜索产品</h3>
-<p>OpenAI 推出 ChatGPT Search、Anthropic 推出 Claude Search 的进度。这些产品可能重新分配流量。</p>
-
-<h3>8.3 跨引擎 Citation Rate 分布变化</h3>
-<p>未来 12 个月，建议持续监测 ChatGPT、Perplexity、Google AIO、Claude、Gemini 五个引擎的 CR 分布。任何一家的份额突变可能预示更广泛的趋势转向。</p>
-
-<h3>8.4 高合规行业 GEO 边界</h3>
-<p>医疗、法律、金融行业的 GEO 优化是否会触发新的合规要求？这是值得监管机构关注的开放问题。</p>
-</section>
-
-<section>
-<h2 id="sec9">九、结论</h2>
-<p>GEO 不是 SEO 的替代，而是延伸。核心 KPI 从 Rank 转向 Cited Rate，优化目标从"被找到"转向"被 AI 信任"。本文提出的三层框架（答案前置 + 结构化数据 + 跨平台提及）覆盖了从内容结构到外部生态的全链路优化动作。未来 12 个月需要持续观察四个关键变量，以判断 GEO 范式的最终走向。</p>
-</section>
-
-<section class="references" id="refs">
-<h2>参考文献</h2>
-<ol>
-<li id="ref1">Aggarwal, P., et al. "GEO: Generative Engine Optimization." <em>Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining</em>, 2024. <a href="https://dl.acm.org/doi/10.1145/3637528.3671900">https://dl.acm.org/doi/10.1145/3637528.3671900</a> <span class="ref-meta">[Princeton & Georgia Tech · KDD 2024 · 学术最高权威]</span></li>
-<li id="ref2">Google DeepMind. "Gemini Technical Report 2025." <em>Google Research</em>, 2025. <a href="https://deepmind.google/technologies/gemini/">https://deepmind.google/technologies/gemini/</a> <span class="ref-meta">[Google 官方技术报告]</span></li>
-<li id="ref3">Ahrefs. "Zero-Click Search Study 2025." <em>Ahrefs Blog</em>, 2025. <a href="https://ahrefs.com/blog/zero-click-search-study/">https://ahrefs.com/blog/zero-click-search-study/</a> <span class="ref-meta">[行业数据 · 1000+ 关键词样本]</span></li>
-<li id="ref4">Google Search Central. "AI Features and Your Website." <em>Google Developers</em>, 2025. <a href="https://developers.google.com/search/docs/appearance/ai-features">https://developers.google.com/search/docs/appearance/ai-features</a> <span class="ref-meta">[平台官方文档 · 最高权威]</span></li>
-<li id="ref5">Answer.AI. "llms.txt Specification." <em>Answer.AI</em>, 2024. <a href="https://llmstxt.org/">https://llmstxt.org/</a> <span class="ref-meta">[新兴行业标准]</span></li>
-<li id="ref6">Anthropic. "Model Context Protocol (MCP) Specification." <em>Anthropic Documentation</em>, 2024. <a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a> <span class="ref-meta">[Anthropic 官方协议规范]</span></li>
-<li id="ref7">Anthropic. "Building Effective Agents." <em>Anthropic Research</em>, 2024. <a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a></li>
-<li id="ref8">Google. "Quality Rater Guidelines." <em>Google Search Central</em>, 2024. <a href="https://developers.google.com/search/docs/essentials-quality-guidelines">https://developers.google.com/search/docs/essentials-quality-guidelines</a></li>
-<li id="ref9">Patel, S., et al. "Cross-Engine Citation Stability Analysis." <em>Journal of Web Engineering</em>, 2025.</li>
-<li id="ref10">Semrush. "AI Search Trends Report 2025." <em>Semrush Blog</em>, 2025. <a href="https://www.semrush.com/blog/ai-search-trends/">https://www.semrush.com/blog/ai-search-trends/</a></li>
-<li id="ref11">OpenAI. "A Practical Guide to Building Agents." <em>OpenAI Research</em>, 2025. <a href="https://openai.com/research/a-practical-guide-to-building-agents">https://openai.com/research/a-practical-guide-to-building-agents</a></li>
-<li id="ref12">Microsoft Bing. "Generative Search Architecture." <em>Microsoft Search</em>, 2025. <a href="https://www.microsoft.com/en-us/bing/blog">https://www.microsoft.com/en-us/bing/blog</a></li>
-<li id="ref13">Perplexity. "How Perplexity Works." <em>Perplexity Engineering Blog</em>, 2025. <a href="https://www.perplexity.ai/hub/blog/how-perplexity-works">https://www.perplexity.ai/hub/blog/how-perplexity-works</a></li>
-<li id="ref14">Cloudflare. "AI Bot Traffic Report 2025." <em>Cloudflare Radar</em>, 2025. <a href="https://radar.cloudflare.com/">https://radar.cloudflare.com/</a></li>
-<li id="ref15">Stanford CRFM. "HELM: Holistic Evaluation of Language Models." <em>Stanford University</em>, 2024. <a href="https://crfm.stanford.edu/helm/">https://crfm.stanford.edu/helm/</a></li>
-</ol>
-</section>
-
-<section>
-<h2 id="new-points">新观点补充（持续更新 · 21 个脚本 / 21 条观点）</h2>
-<p>本节由 <code>edit_apply.py</code> 自动维护。<strong>共 21 个视频脚本</strong>触发了本话题的新观点补充，共 <strong>21 条观点</strong>。所有观点来自英文 transcript，由 queue_engine 提取。</p>
-<h3>本节内容说明</h3>
-<ul>
-<li><strong>数据来源：</strong>每天 04:00 / 16:00 PT 由 <code>queue_engine.py scan</code> 自动扫描 outputs/ 目录</li>
-<li><strong>写入机制：</strong>编辑时段 PT 20:00–09:00 由 <code>edit_apply.py apply</code> 自动追加</li>
-<li><strong>幂等保护：</strong>每个 new-point 带 <code>data-updated="脚本名"</code> 属性防重复</li>
-</ul>
-<h3 id="np-script-1">观点 1：来自视频脚本（2026-06-22）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt</em></p>
+<h3 id="np-1">观点 1：来自 2026-06-22 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt</em></p>
 <div class="new-point" data-updated="2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt">📌 So first and foremost, you must just very clearly answer the question.</div>
-<h3 id="np-script-2">观点 2：来自视频脚本（2026-06-23）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt</em></p>
+<h3 id="np-2">观点 2：来自 2026-06-23 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt">📌 Yesterday, I was speaking on a marketing conference.</div>
-<h3 id="np-script-3">观点 3：来自视频脚本（2026-06-23）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt</em></p>
+<h3 id="np-3">观点 3：来自 2026-06-23 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt">📌 This is not a new concept that's been around since like 2012, but LLMs heavily pull from this database.</div>
-<h3 id="np-script-4">观点 4：来自视频脚本（2026-06-23）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt</em></p>
+<h3 id="np-4">观点 4：来自 2026-06-23 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt">📌 Google actually is caching old versions of your article and noticing when you update that article.</div>
-<h3 id="np-script-5">观点 5：来自视频脚本（2026-06-24）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt</em></p>
+<h3 id="np-5">观点 5：来自 2026-06-24 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt</em></p>
 <div class="new-point" data-updated="2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt">📌 So I just like to paint a picture of what I think marketing work will look like one year from now for those businesses that are keeping up.</div>
-<h3 id="np-script-6">观点 6：来自视频脚本（2026-06-25）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt</em></p>
+<h3 id="np-6">观点 6：来自 2026-06-25 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt">📌 We don't just stop at numbers, we give you the exact transcripts and responses driving those numbers, in case you are a geek like us.</div>
-<h3 id="np-script-7">观点 7：来自视频脚本（2026-06-26）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt</em></p>
+<h3 id="np-7">观点 7：来自 2026-06-26 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt</em></p>
 <div class="new-point" data-updated="2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt">📌 So in this video, I just want to explain a difference between structuring your website so AI can use it.</div>
-<h3 id="np-script-8">观点 8：来自视频脚本（2026-06-27）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-27_neilpatel_ai-search-citations-content-structure.txt</em></p>
+<h3 id="np-8">观点 8：来自 2026-06-27 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-27_neilpatel_ai-search-citations-content-structure.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_neilpatel_ai-search-citations-content-structure.txt">📌 Google just gave away their new ranking playbook at their annual conference.</div>
-<h3 id="np-script-9">观点 9：来自视频脚本（2026-06-28）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt</em></p>
+<h3 id="np-9">观点 9：来自 2026-06-28 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt</em></p>
 <div class="new-point" data-updated="2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt">📌 Google told you how to be a search back in 2015, but you just weren't listening.</div>
-<h3 id="np-script-10">观点 10：来自视频脚本（2026-06-29）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt</em></p>
+<h3 id="np-10">观点 10：来自 2026-06-29 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt</em></p>
 <div class="new-point" data-updated="2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt">📌 Google just released a spam update.</div>
-<h3 id="np-script-11">观点 11：来自视频脚本（2026-06-30）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt</em></p>
+<h3 id="np-11">观点 11：来自 2026-06-30 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt">📌 For the first time in internet history, bots have officially passed human traffic.</div>
-<h3 id="np-script-12">观点 12：来自视频脚本（2026-06-30）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt</em></p>
+<h3 id="np-12">观点 12：来自 2026-06-30 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt">📌 The best and most effective way to use Reddit as a business is just to be a genuine active participant sharing helpful advice.</div>
-<h3 id="np-script-13">观点 13：来自视频脚本（2026-07-01）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt</em></p>
+<h3 id="np-13">观点 13：来自 2026-07-01 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt">📌 HubSpot reportedly lost 80% of its Google traffic and they're not the only ones.</div>
-<h3 id="np-script-14">观点 14：来自视频脚本（2026-07-01）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt</em></p>
+<h3 id="np-14">观点 14：来自 2026-07-01 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt">📌 AI just made the thing Google warned us about impossible to ignore.</div>
-<h3 id="np-script-15">观点 15：来自视频脚本（2026-07-02）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt</em></p>
+<h3 id="np-15">观点 15：来自 2026-07-02 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt</em></p>
 <div class="new-point" data-updated="2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt">📌 If you're selling shoes, did you know if your customer was a brand new runner, someone with a knee injury, or a dad buying shoes for his kid?</div>
-<h3 id="np-script-16">观点 16：来自视频脚本（2026-07-03）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt</em></p>
+<h3 id="np-16">观点 16：来自 2026-07-03 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt</em></p>
 <div class="new-point" data-updated="2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt">📌 And 76% of people now say they want a conversational search experience.</div>
-<h3 id="np-script-17">观点 17：来自视频脚本（2026-07-04）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt</em></p>
+<h3 id="np-17">观点 17：来自 2026-07-04 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt</em></p>
 <div class="new-point" data-updated="2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt">📌 AI used to pull most of its citations from Google's top 10 results, 76% of them, today that's down to 38%.</div>
-<h3 id="np-script-18">观点 18：来自视频脚本（2026-07-04）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt</em></p>
+<h3 id="np-18">观点 18：来自 2026-07-04 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt</em></p>
 <div class="new-point" data-updated="2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt">📌 Small publishers lost roughly 60% of their traffic over the last two years.</div>
-<h3 id="np-script-19">观点 19：来自视频脚本（2026-07-04）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt</em></p>
+<h3 id="np-19">观点 19：来自 2026-07-04 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt</em></p>
 <div class="new-point" data-updated="2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt">📌 What we found is that these two things are often at odds with each other, and I just want to share how we figured out how to have our cake and eat it to.</div>
-<h3 id="np-script-20">观点 20：来自视频脚本（2026-07-05）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt</em></p>
+<h3 id="np-20">观点 20：来自 2026-07-05 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt</em></p>
 <div class="new-point" data-updated="2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt">📌 What is the best moisturizer for acne prone skin under $100?</div>
-<h3 id="np-script-21">观点 21：来自视频脚本（2026-07-06）</h3>
-<p style="color:var(--muted);font-size:13px"><em>脚本标识：2026-07-06_neilpatel_ai-search-trends-weekly.txt</em></p>
+<h3 id="np-21">观点 21：来自 2026-07-06 的视频脚本</h3>
+<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-06_neilpatel_ai-search-trends-weekly.txt</em></p>
 <div class="new-point" data-updated="2026-07-06_neilpatel_ai-search-trends-weekly.txt">📌 This week we saw a 25% jump in AI Overview appearances.</div>
 </section>
+
+
+<section class="references" id="refs">
+<h2>参考资料（仅作链接，不暗示已读细节）</h2>
+<p style="font-size:12px;color:var(--muted);margin-bottom:12px">以下是该话题领域的权威资料，<strong>仅列出供读者自行参考</strong>。本文不假装读过这些报告的细节，也未与之做系统对比。</p>
+<ol>
+<li>GEO: Generative Engine Optimization. <em>Aggarwal et al., KDD 2024, 2024</em>. <a href="https://dl.acm.org/doi/10.1145/3637528.3671900">https://dl.acm.org/doi/10.1145/3637528.3671900</a></li>
+<li>Zero-Click Search Study. <em>Ahrefs Blog, 2025</em>. <a href="https://ahrefs.com/blog/zero-click-search-study/">https://ahrefs.com/blog/zero-click-search-study/</a></li>
+<li>AI Features and Your Website. <em>Google Search Central, 2025</em>. <a href="https://developers.google.com/search/docs/appearance/ai-features">https://developers.google.com/search/docs/appearance/ai-features</a></li>
+<li>llms.txt Specification. <em>Answer.AI, 2024</em>. <a href="https://llmstxt.org/">https://llmstxt.org/</a></li>
+<li>Building Effective Agents. <em>Anthropic Research, 2024</em>. <a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a></li>
+<li>Quality Rater Guidelines. <em>Google Search Central, 2024</em>. <a href="https://developers.google.com/search/docs/essentials-quality-guidelines">https://developers.google.com/search/docs/essentials-quality-guidelines</a></li>
+<li>Gemini Technical Report. <em>Google DeepMind, 2025</em>. <a href="https://deepmind.google/technologies/gemini/">https://deepmind.google/technologies/gemini/</a></li>
+
+</ol>
+</section>
+
 </article>
 
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v4 学术级升级：H2-H6 章节重构 + 15+ 参考文献 + 业界基线对比</li>
+<li><strong>2026-07-06</strong> · v5 重写：移除虚构案例与伪对比，明确诚实声明</li>
+<li><strong>2026-07-06</strong> · v4 学术级升级（已弃用，因包含虚构数据）</li>
+<li><strong>2026-07-06</strong> · v3.2 初始版：60 任务批量处理</li>
 </ul>
 </div>
+
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v4 学术级 · 引用全部标注出处<br>
+  话题大全 · 自媒体自动归类引擎 · v5 诚实版<br>
   <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
   <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>
