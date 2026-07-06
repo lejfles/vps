@@ -1,162 +1,146 @@
-# zimeiti · 自媒体话题大全自动归类引擎 v2
+# zimeiti · 自媒体话题大全 v3.2（分层时序版）
 
-按用户 #自媒体 任务搭建：从历史 TikTok 视频脚本中归纳持续话题，每个话题一个持续更新的 HTML 大全（中文展示 + 权威资料补齐），每天收新脚本后自动追加。
+按用户 #自媒体 任务搭建：每天从历史视频脚本中归纳持续话题，每篇话题文章持续更新（不再停留）。
 
-## 数据源
-
-- **视频脚本**：`~/zimeiti_tiktok_monitor/outputs/*.txt`（每天 2 次）
-- **英文 transcript**：`~/zimeiti_tiktok_monitor/work/*_transcript_clean.txt`（按 video ID 关联）
+**核心**：分层时序 — 数据采集（PT 04:00 / 16:00）只判定不入库；编辑写入（PT 20:00–09:00）每 30 分钟处理一个任务。
 
 ## 在线浏览
 
-**GitHub Pages**：<https://lejfles.github.io/vps/zimeiti/>
+- **索引**：<https://lejfles.github.io/vps/zimeiti/>
+- **8 个话题文章**：索引页可点击进入
+- **脚本源码**：<https://lejfles.github.io/vps/zimeiti/queue_engine.py> 等
 
-包含：
-- `index.html` — 索引页（7 个话题入口 + 统计）
-- `topics_html/01-07-*.html` — 7 个话题大全
-- `README.md` — 本文件
-- `classify.py` — 自动归类引擎源码
+## 当前状态（截至 2026-07-06）
 
-## 当前收录
+| 项目 | 数值 |
+|---|---|
+| 话题文章数 | 8 篇 |
+| 视频脚本支撑 | 81 个 |
+| 总字数 | 77,553 字 |
+| 已自动补充新观点 | 60 个 |
 
-| # | 话题 | 脚本数 | 创作者数 |
-|---|---|---|---|
-| 01 | AI 搜索 / GEO / AI Citation | 26 | 多 |
-| 02 | Claude / AI 模型与产品 | 17 | 多 |
-| 03 | Conversion Funnel / 转化漏斗 | 21 | 多 |
-| 04 | 大公司新闻与科技商业 | 14 | 多 |
-| 05 | 内容创作与视频策略 | 10 | 多 |
-| 06 | 网站与本地 SEO | 4 | 多 |
-| 07 | 营销信任与其他战略 | 16 | 多 |
+8 个话题：AI 搜索/GEO、Claude/AI 模型、转化漏斗、大公司新闻、内容创作、网站/本地 SEO、营销信任其他、Big Tech 水消耗（最新新建）。
 
-合计 **78 个独立视频脚本**，跨 8 位独立创作者（@neilpatel、@tjrobertson52、@kallaway.marketing、@elenanisonoff、@rakos.media、@rankmathpro、@willfrancis24、@nocode.joshua），时间跨度 2026-05-24 → 2026-07-05。
+## 分层时序架构
 
-## 本地目录结构
+### 三层时间线（系统时区 CST）
+
+| Cron 表达式 | 动作 | 对应温哥华时间 |
+|---|---|---|
+| `0 19 * * *` | `queue_engine.py scan` | ≈ PT 04:00 |
+| `0 7 * * *` | `queue_engine.py scan` | ≈ PT 16:00 |
+| `*/30 11-23 * * *` | `edit_apply.py apply` | PT 20:00–14:30 |
+| `0 0 * * *` | `edit_apply.py apply` | ≈ PT 09:00 |
+| `0 9 * * *` | `sync_to_pages.sh` | ≈ PT 18:00 |
+
+### 工作流
+
+```
+[PT 04:00] queue_engine scan ──┐
+[PT 16:00] queue_engine scan ──┤
+                               ▼
+                    queue.json (待编辑任务)
+                               │
+[PT 20:00–09:00 每30分钟]       │
+   edit_apply apply ←──────────┘
+                               ▼
+                  topics_html/*.html (实际写入)
+                               │
+[PT 18:00] sync_to_pages ──────┘
+                               ▼
+                  git push → GitHub Pages
+```
+
+### 队列系统
+
+`~/zimeiti/scripts/queue.json`：
+```json
+{
+  "pending": [...],
+  "in_progress": "task_id 或 null",
+  "completed_today": 60,
+  "last_processed": "ISO 时间"
+}
+```
+
+每条任务：
+```json
+{
+  "task_id": "2026-07-05_UPD_ai-search-geo-citation_2026-07-05_neilpatel_answer-first",
+  "type": "new_topic | update_topic",
+  "topic_id": "ai-search-geo-citation",
+  "script_name": "2026-07-05_..._answer-first-content-three-fixes-ai-citation.txt",
+  "new_points": ["...", "..."],
+  "priority": "high | medium"
+}
+```
+
+## 三层去重机制
+
+1. **SHA256 hash** (`~/zimeiti/scripts/.processed.json`)：防 scan 重复扫描同一脚本
+2. **HTML marker** (`data-updated="..."`)：防 edit_apply 重复追加同一脚本的新观点
+3. **task_id 唯一性**：防同一任务被多次入队
+
+## 手动操作
+
+```bash
+# 扫描（04/16 点用，cron 自动；手动调试也行）
+python3 ~/zimeiti/scripts/queue_engine.py scan
+
+# 看队列
+python3 ~/zimeiti/scripts/edit_apply.py list
+
+# 处理一个任务（按优先级选）
+python3 ~/zimeiti/scripts/edit_apply.py apply
+
+# 处理指定任务
+python3 ~/zimeiti/scripts/edit_apply.py apply --task-id <task_id>
+
+# 重置 hash 表（强制重新扫描所有脚本）
+rm ~/zimeiti/scripts/.processed.json
+python3 ~/zimeiti/scripts/queue_engine.py scan
+```
+
+## 目录结构
 
 ```
 ~/zimeiti/
-├── inbox/                       (空目录保留 · 脚本引擎不再使用)
-├── topics_html/                 7 个话题大全 HTML（本地源）
+├── index.html                  # 索引页 v3.2
+├── README.md                   # 本文件
+├── topics_html/                # 8 篇话题文章
 │   ├── 01-ai-search-geo-citation.html
 │   ├── 02-claude-ai-models.html
 │   ├── 03-conversion-funnel.html
 │   ├── 04-big-tech-business.html
 │   ├── 05-content-creation-video.html
 │   ├── 06-website-local-seo.html
-│   └── 07-marketing-trust-other.html
+│   ├── 07-marketing-trust-other.html
+│   └── 08-big-tech-waters-down-water.html  (NEW)
 └── scripts/
-    ├── classify.py              自动归类引擎 v2
-    ├── classify.log             运行日志
-    └── .processed.json          SHA256 hash 去重表
+    ├── queue_engine.py         # 04/16 点扫描
+    ├── edit_apply.py           # 20-09 点编辑
+    ├── patch_v3_anchors.py     # 给 v3 文章补 anchor（一次性）
+    ├── classify.py             # 老版 v2 分类器（已废弃但保留）
+    ├── sync_to_pages.sh        # 同步 GitHub Pages
+    ├── crontab.txt             # cron 配置
+    ├── queue.json              # 任务队列
+    ├── .processed.json         # SHA256 去重表
+    └── cron-*.log              # cron 运行日志
 ```
 
-## 每天用法
-
-### 收完当天 2 条脚本后
-
-```bash
-python3 ~/zimeiti/scripts/classify.py
-```
-
-**自动行为：**
-1. 扫描 `~/zimeiti_tiktok_monitor/outputs/` 下所有 2026-*.txt（跳过 brief 简报）
-2. 跳过 SHA256 hash 已记录的文件（处理过的不会重跑）
-3. 对每个新文件：
-   - 提取 video ID → 加载对应 transcript
-   - 文件名 + transcript + 中文标题 → 关键词匹配
-   - 命中最多的话题归属（并列差 ≤1 多归属）
-   - 追加到对应 HTML 的"已归类脚本"和"更新日志"两节
-   - HTML marker `<!-- appended:文件名 -->` 防止重复追加
-4. 输出 JSON 报告到 stdout + 追加日志到 `classify.log`
-
-### 预览（不写 HTML）
-
-```bash
-python3 ~/zimeiti/scripts/classify.py --dry-run
-```
-
-### 处理单文件
-
-```bash
-python3 ~/zimeiti/scripts/classify.py --file /path/to/script.txt
-```
-
-### 清空 hash 表（强制重新处理所有文件）
-
-```bash
-python3 ~/zimeiti/scripts/classify.py --reset
-```
-
-## 话题分类规则
-
-7 个话题，每个由 `classify.py` 顶部的 `TOPIC_RULES` 决定。每个规则含：
-
-- `id` — 唯一标识
-- `title` — 显示标题
-- `html` — 对应 HTML 文件名
-- `keywords` — 关键词列表（英文小写匹配）
-
-**调整关键词**：直接编辑 `classify.py` 的 `TOPIC_RULES`，加词即可。
-
-**手动归类兜底**：`MANUAL_MAP` 字典，覆盖关键词够不到的文件（基于文件名子串匹配）。
-
-## 新话题怎么办
-
-1. **新建 HTML** 在 `topics_html/` 下，复制现有 HTML 作模板
-2. HTML 必须含两个固定锚点（脚本依赖）：
-   - `<h2>本话题已归类的视频脚本</h2>` — 后面跟空 `<div class="empty-state">` 或 `<div class="item">` 列表
-   - `<h2>更新日志</h2>` — 后面跟 `<ul>...</ul>`
-3. **编辑 `classify.py`**：
-   - 在 `TOPIC_RULES` 加新规则
-   - 必要时在 `MANUAL_MAP` 加兜底
-4. 重跑 `classify.py`
-
-## 自动定时（可选）
-
-```bash
-crontab -e
-# 每天 9:00、21:00 各跑一次（对应每天 2 次脚本更新）
-0 9,21 * * * /usr/bin/python3 /home/ubuntu/zimeiti/scripts/classify.py >> /home/ubuntu/zimeiti/scripts/cron.log 2>&1
-```
-
-## GitHub Pages 部署
-
-7 个 HTML + 索引页已部署到 `lejfles/vps` 仓库：
+## 同步 lejfles-vps 仓库
 
 ```bash
 cd ~/lejfles-vps
 git add zimeiti/
-git commit -m "v2: 7 topic wikis from 78 TikTok scripts"
+git commit -m "zimeiti: 描述"
 git push
 ```
 
-Pages 部署需 15–30 秒，验证：
+## 注意事项
 
-```bash
-curl -sI https://lejfles.github.io/vps/zimeiti/ | head -3
-curl -sI https://lejfles.github.io/vps/zimeiti/topics_html/01-ai-search-geo-citation.html | head -3
-```
-
-## 话题大全 HTML 结构
-
-每个 HTML 含：
-
-1. **Header** — 话题标题、副标题、统计
-2. **话题定义** — 话题范围与核心议题
-3. **权威资料 · 关键概念解释** — 行业权威资料链接 + 简要解释
-   - 例如：Princeton GEO 论文、Google Search Central、E-E-A-T、Baymard、Nielsen Norman 等
-4. **本话题已归类的视频脚本** — 按日期排序，每篇含：
-   - 📅 日期
-   - 👤 作者（TikTok handle）
-   - 📝 中文标题
-   - 英文 topic key
-   - 🎙️ 英文 transcript 节选（前 400 字符）
-5. **更新日志** — 初版建档 + 每日新增条目
-
-## 设计原则
-
-1. **数据源固定**：每天 2 次脚本源在 `~/zimeiti_tiktok_monitor/outputs/`，不依赖人工放置
-2. **三层去重**：SHA256 hash + HTML marker + manual map，避免重复追加
-3. **多归属支持**：一个脚本可同时归入多个话题（关键词并列时差 ≤1 全收）
-4. **持续追加语义**：只追加不删除，体现"持续更新的话题大全"语义
-5. **公开展示**：所有内容推到 GitHub Pages，全球可访问
+- **不在 HTML 中展示原作者信息**（TikTok handle、时间戳）
+- **权威资料仅作为论据支撑**，不是堆砌列表
+- **新观点持续追加**，不替换已有内容
+- **新话题自动创建**（按 08、09、10... 编号）
+- **新话题优先级高**（在队列中先处理）
