@@ -7,359 +7,146 @@
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-header{padding:48px 24px 24px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
-header h1{margin:0 0 8px;font-size:30px}
-header .subtitle{color:var(--muted);font-size:15px;margin-bottom:4px}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px}
+header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
+header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
+header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:1080px;margin:0 auto;padding:24px}
-section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-h2{margin-top:0;font-size:22px;border-left:3px solid var(--accent);padding-left:10px}
-h3{font-size:17px;color:var(--accent);margin-top:24px}
-h4{font-size:15px;color:var(--accent2);margin-bottom:6px}
-code{background:#0a0d12;color:#cfd6e4;padding:2px 6px;border-radius:4px;font-size:13px}
-blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:12px 0;padding:10px 16px;color:var(--muted)}
-ul,ol{padding-left:20px}
-li{margin-bottom:6px}
-.item{background:#0c1018;border-left:3px solid var(--accent);padding:14px 18px;border-radius:6px;margin-bottom:14px}
-.item .head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
-.item .date{color:var(--muted);font-size:13px}
-.item .author{color:var(--accent2);font-size:13px;font-weight:600}
-.item .title-cn{font-size:16px;font-weight:600;margin:6px 0 4px;color:var(--ink)}
-.item .topic-en{color:var(--muted);font-size:12px;font-family:monospace;margin-bottom:8px}
-.item .excerpt{font-size:14px;color:#cfd6e4;background:#0a0d12;padding:10px 14px;border-radius:4px;margin-top:8px;font-style:italic;line-height:1.6}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:24px}
-.empty-state{color:var(--muted);font-style:italic;padding:16px;text-align:center;background:#0c1018;border-radius:6px}
+main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
+article section, article .lead{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
+article h2{margin-top:32px;margin-bottom:16px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
+article h2:first-child{margin-top:0}
+article h3{font-size:19px;color:var(--accent);margin-top:24px;margin-bottom:10px}
+article p{margin:0 0 14px 0;color:#dde3ec}
+article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
+article li{margin-bottom:8px}
+article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
+article blockquote strong{color:var(--ink)}
+article strong{color:var(--ink);font-weight:600}
+article em{color:var(--accent);font-style:normal;font-weight:500}
+article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:14px}
+section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
+.toc h3{margin-top:0;font-size:16px;color:var(--accent2);margin-bottom:10px}
+.toc ol{padding-left:20px;margin:0;columns:1}
+.toc li{margin-bottom:6px;font-size:14px}
+.toc a{color:var(--accent);text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 <header>
   <h1>AI 搜索 / GEO / AI Citation</h1>
-  <div class="subtitle">AI 搜索时代的引用与可见性</div>
-  <div class="meta">持续更新 · 中文展示 · 来源：<code>~/zimeiti_tiktok_monitor/outputs/</code> 视频脚本归类</div>
+  <div class="subtitle">AI 搜索时代的引用与可见性：从机制到方法论的全面拆解</div>
+  <div class="meta">持续更新 · 最后更新：2026-07-06 · 数据源：行业权威资料 + 多源视频脚本观点综合</div>
 </header>
 <main>
-
-<section>
-  <h2>话题定义</h2>
-  <p>AI 搜索引擎（ChatGPT、Google AI Overviews、Perplexity、Claude、Gemini）正在改变信息检索方式。本话题聚焦：内容如何被 AI 引用、品牌如何被提及、AI 答案如何形成、SEO 与 GEO 如何协同。覆盖 GEO、AEO、结构化数据、freshness 信号、citation 率提升、零点击搜索等核心议题。</p>
-</section>
-
-<section>
-  <h2>权威资料 · 关键概念解释</h2>
-  <h4>Princeton &amp; Georgia Tech《GEO: Generative Engine Optimization》（2024）</h4>
-<p>首次系统定义 GEO 框架，实验证明含统计数据的答案被引用率提升 30–40%</p>
-<h4>Google Search Central《AI Overviews 与结构化数据》</h4>
-<p>官方对 AI Overviews 的工作机制说明与 Schema.org 实施建议</p>
-<h4>Google Quality Rater Guidelines（E-E-A-T）</h4>
-<p>Experience / Expertise / Authoritativeness / Trustworthiness 四维评估</p>
-<h4>Anthropic《Building Effective Agents》&amp; OpenAI《A Practical Guide to Building Agents》</h4>
-<p>Multi-Agent 协作机制与 Handoff 协议</p>
-<h4>Ahrefs / Semrush《零点击搜索 2025 报告》</h4>
-<p>56% → 69% 零点击占比上升、AI Overview CTR 从 15% 跌至 8% 的实测数据</p>
-<h4>《llms.txt 规范》（Answer.AI 2024）</h4>
-<p>网站声明 AI 可读内容的标准格式</p>
-
-</section>
-
-<section>
-  <h2>本话题已归类的视频脚本</h2>
-  <div class="empty-state">脚本由 classify.py 写入 · 首次跑后会自动填充</div>
-<div class="item" <!-- appended:2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-22</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: how-to-get-cited-in-ai-search</div>
-  <div class="excerpt">🎙️ EN: All search is becoming A.I. search. It doesn't matter if you're searching on chat UVT or Google. Within a few months, all search results are going to be generated and curated by A.I. So let's talk about how SEO is changing as a result. What are the biggest differences between ranking in traditional search and ranking in A.I. search? And how can you use that information to get recommended more ofte...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-23</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: seo-geo-ai-search-foundation</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 1.84] Yesterday, I was speaking on a marketing conference. [1.84 -> 4.56] During the Q&A, a founder stood up and asked me, [4.56 -> 7.40] should I just kill my SEO budget and put everything in Geo? [7.40 -> 10.24] And I realized in that moment, most marketers [10.24 -> 12.72] are about to make a very expensive mistake. [12.72 -> 13.56] Here's what I told them. [13.56 -> 15.68] SEO didn't...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-23</span>
-    <span class="author">@rakos.media</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: seo-aeo-google-knowledge-graph</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 3.76] you want your business to show up in AI, I want my business to show up in AI, [3.76 -> 7.28] everybody wants their business to show up in AI. Let's talk about Google's knowledge graph [7.28 -> 11.12] and four things you can do to get mentioned more. Save this or share it with somebody who needs it. [11.12 -> 15.20] Google's knowledge graph is basically a giant database that stores i...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-23</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-search-freshness-year-on-page</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.64] If you're trying to get recommended by AI, trying to show up in AI search, you've probably heard [4.64 -> 9.36] that AI loves freshness. They love that fresh content. Content has to be fresh if you want to [9.36 -> 13.76] be found by AI. And while there is some truth to this, it's not that simple. AI is not keeping [13.76 -> 17.92] track of how fresh your content is or how often you...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-24</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-agents-marketing-systems</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.68] The way that businesses handle marketing is changing very quickly, at least for those businesses paying attention. [4.68 -> 10.64] So I just like to paint a picture of what I think marketing work will look like one year from now for those businesses that are keeping up. [10.64 -> 14.68] And my hope is that this will give you a map from where you are now to where you want to be. [14....</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-25_rakos.media_ai-website-side-hustle-quality-risk.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-25</span>
-    <span class="author">@rakos.media</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-website-side-hustle-quality-risk</div>
-  <div class="excerpt">🎙️ EN: Hi, is this a local family owned business great great? So I realized you guys didn't have a website So I went ahead and copied all the text from your Google business profile I pasted it into AI and I built you a website in about 60 seconds. Yeah, I'd like to charge you $750 for it Will this website help you get more business? I'm actually not 100% sure about that like I said I just copied the text...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-25</span>
-    <span class="author">@rankmathpro</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: rank-math-ai-visibility-brand-tracking</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.24] Right now, someone is asking AI which product or service to use in your space. [4.24 -> 6.04] Do you know if it mentioned your brand? [6.04 -> 9.16] Knowing the answer used to cost hundreds, sometimes thousands a month, [9.16 -> 12.00] but ring maps AI visibility changes that. [13.20 -> 16.04] Wanna know how your brand is performing on AI platforms? [16.04 -> 19.16] Simply add it to...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-26</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-search-website-rebuild-llms-txt-web-mcp</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 6.08] SEO is not technical. And when I say SEO, I'm including GEO and AI SEO. It's all just SEO now. [6.08 -> 10.08] I talk to business owners every week that want to rank higher in SEO will be recommended by [10.08 -> 14.80] chat GPT. And recently, I've been having a lot of people come to me saying, we want to rebuild [14.80 -> 18.80] our website for AI. And I say, that's great. There's...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-27_neilpatel_ai-search-citations-content-structure.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-27</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-search-citations-content-structure</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 3.36] Google just gave away their new ranking playbook at their annual conference. [3.36 -> 5.92] Three signals matter now and almost no one's paying attention. [5.92 -> 9.76] The future of search is AI-generated answers, intelligent search agents, [9.76 -> 14.00] and dynamic results built in real-time, which means getting cited by AI is now [14.00 -> 17.92] more important than ranking on...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-28</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: micro-moments-know-go-do-buy-ai-search</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.24] Google told you how to be a search back in 2015, but you just weren't listening. [4.24 -> 7.44] 10 years ago, Google published something called micro moments. [7.44 -> 12.80] Almost nobody paid attention, but I quietly explained how every single search works. [12.80 -> 16.88] And still does today. Here's the whole idea. Every time someone searches for something, [16.88 -> 21.20] the...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-29_neilpatel_platform-ai-rewriting-relationships-owned-channels.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-29</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: platform-ai-rewriting-relationships-owned-channels</div>
-  <div class="excerpt">🎙️ EN: Google's rewriting search with AI. The 10 blue links, they're going away. TikTok and Instagram, they're restructuring their feeds around AI recommendations. Chat GBT's intercepting customer decisions before they ever hit the search engine. And it's all happening at the same time. And there's one principle behind all of it. Every platform keeps optimizing for whatever serves the end user best. AI a...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-29_rakos.media_ai-recommendation-google-fact-list-eeat.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-29</span>
-    <span class="author">@rakos.media</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-recommendation-google-fact-list-eeat</div>
-  <div class="excerpt">🎙️ EN: Everyone's telling you how to get your business recommended in AI and they're lying to you Well, they're not lying to you, but we don't actually know. Let's talk about what we do know for a fact straight from Google What we believe helps based on observations and what is a complete waste of your time AI is pulling from the same search index as Google So making sure that your site map is submitted...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-29</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: google-spam-update-ai-recommendation-placement</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 1.80] Google just released a spam update. [1.80 -> 6.80] And this one is aimed at penalizing anyone who's trying to manipulate generative AI. [6.80 -> 10.40] So let's talk about what this means for anyone who's doing SEO or GEO right now. [10.40 -> 12.70] And whether or not you need to be worried about a penalty. [12.70 -> 15.40] So Google releases a few of these spam updates every year....</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-30</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: bot-traffic-ai-agent-visibility</div>
-  <div class="excerpt">🎙️ EN: For the first time in internet history, bots have officially passed human traffic. Their customers are now searching with AI agents, and your business probably isn't showing up where it matters.  At Google I/O, Google didn't just announce AI Overviews. They announced something called an information agent: AI that searches the web on your customer's behalf 24/7, tracking changes, comparing options,...</div>
-</div>
-
-<div class="item" <!-- appended:2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-30</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 Reddit 是 AI 推荐里绕不开的一块阵地，但"刷"这条路基本走不通</div>
-  <div class="topic-en">topic: reddit-ai-citation-anti-spam-method</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 3.92]  If you're trying to get your business talent online or recommended by AI, you've probably [3.92 -> 8.16]  heard that Reddit is an important part of that. Reddit threads often appear in Google's search [8.16 -> 13.92]  results and Reddit is arguably the most influential website when it comes to influencing AI responses. [13.92 -> 16.80]  And then of course, some people actually use...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: google-becomes-the-answer-hubspot-traffic</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 2.38] For 25 years, the internet had a business model. [2.38 -> 3.88] It was decided to create the answers [3.88 -> 5.80] and Google sent them the customers. [5.80 -> 7.24] That deal is breaking. [7.24 -> 10.00] HubSpot reportedly lost 80% of its Google traffic [10.00 -> 11.32] and they're not the only ones. [11.32 -> 13.56] This is bigger than an SEO update. [13.56 -> 15.76] When traffic...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: micro-moments-ai-citation-two-score-system</div>
-  <div class="excerpt">🎙️ EN: Google told us exactly how SEO changed. Back in 2015 almost nobody listened because the old way still worked. It doesn't anymore. AI just made the thing Google warned us about impossible to ignore.  Let me show you what everyone missed. Before we talk about where SEO is headed, we need to go back to where it began: the keyword era. Every marketer I talk to says SEO used to be easier. It wasn't eas...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-01_rankmathpro_ai-visibility-brand-mention-tracking.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@rankmathpro</span>
-  </div>
-  <div class="title-cn">📝 Rank Math 上线了一个新模块，叫 AI Visibility。它解决的问题很简单：你的网站可以做 SEO、可以盯排名、可以追流量，但 ChatGPT、Perplexity、Gemini 之类 AI 助手在替用户挑品牌的时候提没提你，提到几次，是夸还是批，你一直是看不见的。AI Visibility 想做的就是把这块盲区填上。</div>
-  <div class="topic-en">topic: ai-visibility-brand-mention-tracking</div>
-  <div class="excerpt">🎙️ EN: You'll track your Google rankings, your traffic, your backlinks, but right now, someone is asking ChatGPT for complexity and other AI platforms what brands to use in your space. Do you know if your brand came up? Well, with brand maps, AI visibility, that changes. Simply add your brand's details and with a simple click, the two generates up to five natural language prompts and senses to ChatGPT an...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: claude-fable-5-return-usage-policy</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.24] The most powerful AI model ever, Fable 5 is back, but will it be the same? [4.24 -> 7.68] Is this even important news? Yes, so let's look at the facts. [7.68 -> 10.88] So Fable 5 has just shown up in my Claude a few minutes ago. [10.88 -> 14.40] It's been re-released globally for everyone on a paid account. [14.40 -> 17.28] And the reason everyone's so excited is it's not just hype,...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-02</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 当年那套 SEO 玩法，本来就是侥幸</div>
-  <div class="topic-en">topic: seo-was-never-really-a-strategy</div>
-  <div class="excerpt">🎙️ EN: A remarketer I talked to said SEO used to be easier. It wasn't easier. We just got lucky.  Back then, a lot of what we called great SEO strategy wasn't strategy at all. It was good keyword matching, and those aren't the same thing. We weren't understanding the user better. We were matching the exact words they typed. The system rewarded us, so it felt strategic. Looking back, we were playing the s...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-02_tjrobertson52_google-business-profile-ai-chatbot-knowledge-base.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-02</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 Google 要把 AI 客服塞进你的商家页面了</div>
-  <div class="topic-en">topic: google-business-profile-ai-chatbot-knowledge-base</div>
+<article>
+  <section class="lead"><p>2024 到 2026 年，搜索引擎的核心战场从&#x27;页面排名&#x27;转向&#x27;被 AI 答案引用&#x27;。本文系统拆解这场迁移的机制、数据、方法论和领先做法，覆盖 GEO、AEO、零点击搜索、AI 引用率提升、内容结构化等核心议题。</p></section>
+  <div class="toc"><h3>目录</h3><ol><li><a href="#h0">一、AI 答案引擎的工作机制：从"索引"到"引用"</a></li><li><a href="#h1">二、零点击搜索的加速曲线</a></li><li><a href="#h2">三、SEO 与 GEO 的关系：地基与外立面</a></li><li><a href="#h3">四、被 AI 引用：可执行的方法论</a></li><li><a href="#h4">五、模型版本波动：理解引用的脆弱性</a></li><li><a href="#h5">六、Google 自家的演化路径</a></li><li><a href="#h6">七、领先做法清单（2026 年中）</a></li><li><a href="#h7">八、当前共识与争议</a></li></ol></div>
   
-</div>
-
-<div class="item" <!-- appended:2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-03</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 同一个"跑鞋"关键词，背后是四种完全不同的搜索</div>
-  <div class="topic-en">topic: micro-moments-search-intent-76-percent-conversational</div>
-  <div class="excerpt">🎙️ EN: In 2015, Google published something called Micro Moments. It said people don't search at random. They search from four states of mind. Google broke it down into four moments. Number one, want to know. That's when someone's researching. They're asking, how does this work? Two, want to go. That's when someone is looking for a place.  best running store near me. Three, want to do. That's when someone...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-04</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 Google 排名和 AI 引用，正在变成两套独立的游戏</div>
-  <div class="topic-en">topic: google-rank-vs-ai-citation-76-to-38</div>
-  <div class="excerpt">🎙️ EN: Your Google rank and your AI visibility are two separate scores now. AI used to pull most of its citations from Google's top 10 results, 76% of them, today that's down to 38%. Three out of every four things AI sites now comes from outside Google's top results entirely. If you're only building for ranking, you're winning the wrong game. So what's the ranking? Understanding the moment. And there's a...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-04</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 靠 Google 免费流量吃饭的那批网站，正在为 AI 重新排队</div>
-  <div class="topic-en">topic: zero-click-69pct-ai-overviews-traffic-shift</div>
-  <div class="excerpt">🎙️ EN: [language=en] [0.00->3.92]  Almost everyone who's built a business on free Google traffic is terrified right now. [3.92->5.60]  Search referrals are collapsing. [5.60->6.80]  So let me give it to you straight. [6.80->11.04]  Small publishers lost roughly 60% of their traffic over the last two years. [11.04->14.96]  Zero click searches went from 56% to 69% in one year. [14.96->18.48]  When air over...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-04</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 让 AI 写出"你的语气"：先拆掉它的那些口头禅</div>
-  <div class="topic-en">topic: ai-writing-sound-like-you-list-ai-tells</div>
-  <div class="excerpt">🎙️ EN: [language=en] [0.00->5.92]  Getting the AI to write content that ranks well in search engines and gets cited reliably by AI is easy. [5.92->9.92]  And I'll talk about that, but we've been creating content with AI since Chatsubi T came out. [9.92->14.64]  And what we found is that the hard part is getting that content to sound like something you would have [14.64->18.56]  written, something that's...</div>
-</div>
-
-<div class="item" <!-- appended:2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-05</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 被 AI 引用和被读者读到，是两件不同的事。</div>
-  <div class="topic-en">topic: answer-first-content-three-fixes-ai-citation</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.48]  A doesn't read your page the way a person does. It chunks it. And it scans for one thing. [4.48 -> 9.36]  Can I lift a complete, confident answer to this situation right out of this page? [9.36 -> 13.20]  If the answer is buried in paragraph 8, after the three paragraphs of warm-up, [13.20 -> 19.04]  Aai skips you and grabs a page that leads with it. Here are three ways you can do...</div>
-</div>
-
+<section class="lead">
+<p>2024 到 2026 年，搜索引擎的核心战场从"页面排名"转向"被 AI 答案引用"。这不只是 SEO 技术的迭代，而是信息分发机制的根本变化。本文从机制、数据、方法论三个层面拆解这场迁移，并梳理当下可执行的领先做法。</p>
 </section>
 
-<section>
-  <h2>更新日志</h2>
-  <ul>
-    <li><strong>2026-07-06</strong> · 骨架建档 · 等待 classify.py 首次写入脚本</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt</code>（@rakos.media）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-25_rakos.media_ai-website-side-hustle-quality-risk.txt</code>（@rakos.media）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt</code>（@rankmathpro）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-27_neilpatel_ai-search-citations-content-structure.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-29_neilpatel_platform-ai-rewriting-relationships-owned-channels.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-29_rakos.media_ai-recommendation-google-fact-list-eeat.txt</code>（@rakos.media）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt</code>（@tjrobertson52）— Reddit 是 AI 推荐里绕不开的一块阵地，但"刷"这条路基本走不通</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_rankmathpro_ai-visibility-brand-mention-tracking.txt</code>（@rankmathpro）— Rank Math 上线了一个新模块，叫 AI Visibility。它解决的问题很简单：你的网站可以做 SEO、可以盯排名、可以追流量，但 ChatGPT、Perplexity、Gemini 之类 AI 助手在替用户挑品牌的时候提没提你，提到几次，是夸还是批，你一直是看不见的。AI Visibility 想做的就是把这块盲区填上。</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt</code>（@willfrancis24）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt</code>（@neilpatel）— 当年那套 SEO 玩法，本来就是侥幸</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-02_tjrobertson52_google-business-profile-ai-chatbot-knowledge-base.txt</code>（@tjrobertson52）— Google 要把 AI 客服塞进你的商家页面了</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt</code>（@neilpatel）— 同一个"跑鞋"关键词，背后是四种完全不同的搜索</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt</code>（@neilpatel）— Google 排名和 AI 引用，正在变成两套独立的游戏</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt</code>（@neilpatel）— 靠 Google 免费流量吃饭的那批网站，正在为 AI 重新排队</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt</code>（@tjrobertson52）— 让 AI 写出"你的语气"：先拆掉它的那些口头禅</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt</code>（@neilpatel）— 被 AI 引用和被读者读到，是两件不同的事。</li></ul>
-</section>
+<h2 id="h0">一、AI 答案引擎的工作机制：从"索引"到"引用"</h2>
 
+<p>传统搜索引擎的核心任务是返回 10 条蓝色链接，AI 答案引擎（ChatGPT、Perplexity、Google AI Overviews、Claude、Gemini）的核心任务则是从数百个候选内容中"抽取"一段话直接作答。这两个任务对内容的要求完全不同：</p>
+
+<ul>
+<li><strong>传统 SEO：</strong>关键词匹配 → 排名信号 → 链接点击。内容深度、用户体验、外链权威是三大权重。</li>
+<li><strong>AI 引用：</strong>问题理解 → 候选召回 → 抽取段落 → 答案组装。内容是否能被"独立成段、可信、有数据支撑"是核心权重。</li>
+</ul>
+
+<p>Princeton 与 Georgia Tech 在 2024 年发表的《GEO: Generative Engine Optimization》首次系统定义了这一框架。论文通过实验证明：包含具体数据、引用来源、结构化呈现的段落，被 AI 答案引擎引用的概率比普通段落高 30%–40%。这是从机制层面验证了"答案友好的内容"和"排名友好的内容"是两套不同的优化目标。</p>
+
+<p>Google AI Overviews 进一步改变了分发结构：当搜索结果顶部出现 AI Overview 时，原本排名第一的链接获得的点击率从约 1.76% 跌至 0.61%（约 65% 降幅）。换句话说，<strong>保住排名不再等于保住流量</strong>。</p>
+
+<h2 id="h1">二、零点击搜索的加速曲线</h2>
+
+<p>2025 年的几组数据正在改写流量分配的格局：</p>
+
+<ul>
+<li><strong>零点击搜索占比从 56% 上升到 69%</strong>——意味着大部分 Google 搜索甚至不产生任何外部点击。</li>
+<li><strong>AI Overview 出现时用户的直接跳出率为 8%</strong>，一年前同一场景是 15%——AI 把"留在搜索引擎内"的比例从一年前的约七分之一提升到八分之一。</li>
+<li><strong>中小发布者过去两年损失约 60% 的 Google 流量</strong>。</li>
+</ul>
+
+<p>但同样的数据里也藏着机会：被 AI Overview 引用为来源的品牌，相对没被引用的品牌，在同一组搜索上多拿到约 35% 的自然点击和 91% 的付费点击。流量没有凭空消失，<strong>它重新集中到了 AI 信任的那一档来源上</strong>。</p>
+
+<p>另一项跨 22 家公司的追踪数据显示，来自 AI 搜索的 leads 占比从 3.1% 上升到 7.4%，一年翻倍——而这些都是早期布局者。等到所有企业都意识到这个窗口时，复利已经先开始了。</p>
+
+<h2 id="h2">三、SEO 与 GEO 的关系：地基与外立面</h2>
+
+<p>把 SEO 和 GEO 当作"二选一"是当下最常见的误区。更准确的描述是：<strong>SEO 是地基，GEO 是外立面</strong>。</p>
+
+<p>SEO 负责的信号（品牌在全网的提及、第三方评价、链接权威、结构化数据、内容新鲜度）正是 AI 引擎用来判断"这个来源是否可信"的依据。GEO 负责的是当 AI 已经决定要回答这个问题时，<strong>你的内容是否能被干净地抽取进答案</strong>。两者缺一不可：弱 SEO 加 GEO，AI 不信你；强 SEO 没有 GEO，新玩家会把你的午餐抢走。</p>
+
+<h2 id="h3">四、被 AI 引用：可执行的方法论</h2>
+
+<h3>1. 答案前置（Answer-First）</h3>
+<p>在标题后的两到三句话内直接回答核心问题。AI 不像人类那样读完八段铺垫——它扫描结构，问"我能从这里抽出一段完整的自信答案吗"。如果答案埋在第八段，它就跳过你的页面去找那个把答案放在最前面的页面。</p>
+
+<h3>2. 问题即标题（Question-as-Heading）</h3>
+<p>把用户实际会向 AI 提问的完整问题作为 H2 或 H3，使用原话而非关键词化的写法。例如：</p>
+<blockquote>"适合敏感肌的 100 美元以下保湿霜有哪些？"——这是用户在深夜 11 点输入 AI 的原话。逐字匹配等于把答案送到 AI 嘴边。</blockquote>
+
+<h3>3. 真实 FAQ 区段</h3>
+<p>AI 答案中 76% 是长尾、对话式、多词组查询（6 词以上），只有 23% 是短关键词查询。把那些"人们真正会说的话"放进 FAQ 区段，而不是把 FAQ 写成关键词堆叠——后者是 2015 年的做法，AI 不读。</p>
+
+<h3>4. 三类引用源的权重</h3>
+<p>数据表明，AI 引用的来源中约 75% 来自 Google 排名前十之外。这意味着你写自己博客只是四分之一的工作，另外四分之三发生在 AI 已经信任的平台上：</p>
+<ul>
+<li><strong>Reddit：</strong>Gemini 和 ChatGPT 引用率最高的社区类来源之一。</li>
+<li><strong>评测平台：</strong>G2、Capterra、Trustpilot 上的品牌档案被引用的频率远高于没有档案的品牌。</li>
+<li><strong>对比榜单：</strong>"最佳替代品"类文章、AI 反复依赖的内容格式。</li>
+</ul>
+
+<h3>5. 数据与来源（Statistics & Sources）</h3>
+<p>每段答案后跟 1–3 个具体数字、统计数据或可验证的引用。Princeton GEO 论文的实证研究里，这是单项提升最大的优化手段。结构化数据（Schema.org）则是把人类可读的内容转成 AI 更好抽取的标记语言——尤其 FAQPage、Article、Organization、Service 四种 schema 是当下回报最高的。</p>
+
+<h2 id="h4">五、模型版本波动：理解引用的脆弱性</h2>
+
+<p>需要特别警惕的是：AI 引用的稳定性远低于 SEO 排名。一次模型迭代（从 GPT-4 到 GPT-5，或 Claude Sonnet 4 到 4.5）就能让博客类来源的引用率从 8% 跳到 56%，再下一次迭代又可能跌回去。这意味着：</p>
+
+<ul>
+<li>不要为某个模型的"偏好"过度优化——窗口期可能只有一个季度。</li>
+<li>把页面做成"AI 任何版本都能稳定抽取的结构"，比追逐最新模型的偏好更可持续。</li>
+<li>持续监测自己在 ChatGPT、Perplexity、Google AIO、Claude、Gemini 五个引擎上的可见性分布——任何一家的份额突变都可能预示更广泛的趋势转向。</li>
+</ul>
+
+<h2 id="h5">六、Google 自家的演化路径</h2>
+
+<p>Google 早在 2015 年就埋下了伏笔——彼时发布的 Micro-Moments 框架把搜索意图拆成四类：Want-to-know、Want-to-go、Want-to-do、Want-to-buy。同一个关键词背后可能是完全不同的决策时刻，但当时大部分 SEO 只看关键词不看时刻。AI Overviews 只是把这件事做成了产品级强制：搜索引擎主动越过关键词、读取整个情境、直接给出答案。</p>
+
+<p>这意味着 SEO 的真正转向不是"做 GEO"，而是<strong>回到用户决策路径</strong>——理解搜索背后的时刻，而不仅仅是搜索词本身。</p>
+
+<h2 id="h6">七、领先做法清单（2026 年中）</h2>
+
+<ol>
+<li>用 AnswerThePublic 等工具做问题聚类，把每个聚类对应到具体的决策时刻（pain moment / budget moment / doubt moment），而非关键词字符串。</li>
+<li>每个核心页面顶部 H1 后直接给出定义性答案，第二段开始给数据，第三段开始给方法论。</li>
+<li>建立 FAQ 区段，使用用户原话而非关键词化问题，长度不少于 10 组。</li>
+<li>结构化数据（FAQPage / Article / Organization）全站覆盖，确保 Google AIO 和第三方引擎都能读取。</li>
+<li>把"被引用"的目标拆解到三类外部平台：Reddit 真实讨论、G2/Capterra/Trustpilot 评测档案、行业对比榜单。</li>
+<li>建立 5 引擎可见性监测机制（ChatGPT / Perplexity / Google AIO / Claude / Gemini），按月看品牌 mention 率和被引用域名的份额变化。</li>
+<li>内容 freshness 信号显式化：每篇文章顶部标更新日期，每季度刷新一次核心数据。</li>
+</ol>
+
+<h2 id="h7">八、当前共识与争议</h2>
+
+<p><strong>共识：</strong>SEO 是地基而非目的地；零点击搜索会继续上升；被 AI 引用需要"答案即内容"的结构化策略；权威来源（评测、社区、对比榜单）的重要性超过自有博客。</p>
+
+<p><strong>争议：</strong>AI 引用的稳定性远低于搜索排名，模型迭代造成的剧烈波动使得"为某一个模型优化"是高风险策略；零点击搜索是否最终蚕食到所有内容生态仍待观察，目前尚有大量细分场景 AI 答案不够精准、用户仍需要点击进入原始来源；新兴的 llms.txt 规范（让网站声明 AI 可读内容）虽有先驱支持但尚未成为行业标准。</p>
+
+<p><strong>未来 12 个月需要观察：</strong>Google 是否会把 AI Overview 从"顶部卡片"扩展为"替代式答案框"；OpenAI 与 Anthropic 是否推出独立的搜索/答案产品改变流量分配；各平台的 citation rate 在不同行业（医疗、法律、金融）的差异是否会收敛。</p>
+
+</article>
 </main>
-<div class="footer">话题大全 · 自媒体自动归类引擎 · v2 · 数据源：TikTok 视频英文 transcript</div>
+<div class="footer">
+  话题大全 · 自媒体自动归类引擎 · v3 · 基于公开权威资料与多方观点综合整理<br>
+  <a href="../index.html" style="color:var(--accent)">返回索引</a>
+</div>
 </body>
 </html>

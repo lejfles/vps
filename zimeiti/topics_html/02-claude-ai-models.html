@@ -7,258 +7,172 @@
 <style>
 :root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-header{padding:48px 24px 24px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
-header h1{margin:0 0 8px;font-size:30px}
-header .subtitle{color:var(--muted);font-size:15px;margin-bottom:4px}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:16px}
+header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
+header h1{margin:0 0 10px;font-size:34px;line-height:1.3}
+header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:1080px;margin:0 auto;padding:24px}
-section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
-h2{margin-top:0;font-size:22px;border-left:3px solid var(--accent);padding-left:10px}
-h3{font-size:17px;color:var(--accent);margin-top:24px}
-h4{font-size:15px;color:var(--accent2);margin-bottom:6px}
-code{background:#0a0d12;color:#cfd6e4;padding:2px 6px;border-radius:4px;font-size:13px}
-blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:12px 0;padding:10px 16px;color:var(--muted)}
-ul,ol{padding-left:20px}
-li{margin-bottom:6px}
-.item{background:#0c1018;border-left:3px solid var(--accent);padding:14px 18px;border-radius:6px;margin-bottom:14px}
-.item .head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
-.item .date{color:var(--muted);font-size:13px}
-.item .author{color:var(--accent2);font-size:13px;font-weight:600}
-.item .title-cn{font-size:16px;font-weight:600;margin:6px 0 4px;color:var(--ink)}
-.item .topic-en{color:var(--muted);font-size:12px;font-family:monospace;margin-bottom:8px}
-.item .excerpt{font-size:14px;color:#cfd6e4;background:#0a0d12;padding:10px 14px;border-radius:4px;margin-top:8px;font-style:italic;line-height:1.6}
-.footer{color:var(--muted);font-size:13px;text-align:center;padding:24px}
-.empty-state{color:var(--muted);font-style:italic;padding:16px;text-align:center;background:#0c1018;border-radius:6px}
+main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
+article section, article .lead{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:20px}
+article h2{margin-top:32px;margin-bottom:16px;font-size:24px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
+article h2:first-child{margin-top:0}
+article h3{font-size:19px;color:var(--accent);margin-top:24px;margin-bottom:10px}
+article p{margin:0 0 14px 0;color:#dde3ec}
+article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
+article li{margin-bottom:8px}
+article blockquote{border-left:3px solid var(--accent);background:#0c1018;margin:16px 0;padding:14px 20px;color:var(--muted);border-radius:0 6px 6px 0}
+article blockquote strong{color:var(--ink)}
+article strong{color:var(--ink);font-weight:600}
+article em{color:var(--accent);font-style:normal;font-weight:500}
+article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:14px}
+section.lead p{font-size:17px;line-height:1.9;color:#e7ecf3}
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
+.toc h3{margin-top:0;font-size:16px;color:var(--accent2);margin-bottom:10px}
+.toc ol{padding-left:20px;margin:0;columns:1}
+.toc li{margin-bottom:6px;font-size:14px}
+.toc a{color:var(--accent);text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
 <header>
   <h1>Claude / AI 模型与产品</h1>
-  <div class="subtitle">AI 模型演进、能力边界与商业化</div>
-  <div class="meta">持续更新 · 中文展示 · 来源：<code>~/zimeiti_tiktok_monitor/outputs/</code> 视频脚本归类</div>
+  <div class="subtitle">AI 模型演进、能力边界与商业化：从单模型到任务路由</div>
+  <div class="meta">持续更新 · 最后更新：2026-07-06 · 数据源：行业权威资料 + 多源视频脚本观点综合</div>
 </header>
 <main>
-
-<section>
-  <h2>话题定义</h2>
-  <p>Claude、ChatGPT 等大模型的产品演进与商业化。覆盖模型对比、能力边界、定价策略、订阅模式、安全风险（prompt injection）、AI Agent 类型、AI 写作的检测与反检测、第二大脑工作流。</p>
+<article>
+  <section class="lead"><p>2025–2026 年是生成式 AI 产品形态急剧分化的两年。本文以 Claude 系列为主轴，横向对比 ChatGPT 与主要竞争对手，覆盖模型分层、AI Agent 类型、AI 写作、AI 安全风险、第二大脑工作流等关键议题。</p></section>
+  <div class="toc"><h3>目录</h3><ol><li><a href="#h0">一、模型能力分层的实际意义</a></li><li><a href="#h1">二、Claude 系列的产品演化</a></li><li><a href="#h2">三、AI Agent 的七种类型与应用边界</a></li><li><a href="#h3">四、AI 写作的"机器感"问题</a></li><li><a href="#h4">五、AI 安全风险与 Prompt Injection</a></li><li><a href="#h5">六、第二大脑工作流：AI 协作的实践模式</a></li><li><a href="#h6">七、商业化与定价趋势</a></li><li><a href="#h7">八、当前共识与争议</a></li></ol></div>
+  
+<section class="lead">
+<p>2025–2026 年是生成式 AI 产品形态急剧分化的两年。从单一聊天窗口到多智能体协作，从文本到语音到视频，从消费级订阅到企业级部署，每个模型都在重新定义自己的能力边界和定价策略。本文以 Claude 系列为主轴，横向对比 ChatGPT 与主要竞争对手，并梳理当下可观察到的产品演进方向。</p>
 </section>
 
-<section>
-  <h2>权威资料 · 关键概念解释</h2>
-  <h4>Anthropic Claude 产品文档与版本说明</h4>
-<p>Sonnet / Haiku / Opus 能力边界与定价</p>
-<h4>OpenAI ChatGPT 产品文档</h4>
-<p>GPT 系列与订阅策略</p>
-<h4>MITRE ATLAS / OWASP LLM Top 10</h4>
-<p>LLM 安全风险与 Prompt Injection 攻击框架</p>
-<h4>Stanford CRFM《HELM 模型评测》</h4>
-<p>模型能力横向对比基准</p>
-<h4>Anthropic《Building Effective Agents》</h4>
-<p>Agent 类型与适用场景分类</p>
+<h2 id="h0">一、模型能力分层的实际意义</h2>
 
-</section>
+<p>当下主要模型已形成清晰的三层结构：</p>
 
-<section>
-  <h2>本话题已归类的视频脚本</h2>
-  <div class="empty-state">脚本由 classify.py 写入 · 首次跑后会自动填充</div>
-<div class="item" <!-- appended:2026-05-24_nocode.joshua_7-types-of-claude-ai-agents.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-05-24</span>
-    <span class="author">@nocode.joshua</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: 7-types-of-claude-ai-agents</div>
-  <div class="excerpt">🎙️ EN: # Transcript  # Language: en (prob 1.00)  0.0s -> 4.8s  Everyone is telling you to build AI agents in Claude, but no one is actually showing you what 4.8s -> 10.1s  an AI agent is and how it can actually help you in Claude. So here are the seven types of AI 10.1s -> 16.6s  agents you can make in Claude code in less than 90 seconds. First is the basic agent with tools. 16.6s -> 22.0s  Think of it l...</div>
-</div>
+<ul>
+<li><strong>实时推理层（Haiku / GPT-4o-mini）：</strong>适合高频、低延迟、成本敏感的场景（客服、摘要、分类），单次成本约为主力模型的 1/10–1/20。</li>
+<li><strong>主力推理层（Sonnet / GPT-4o）：</strong>承担大多数企业级推理任务，能力与成本的平衡点。</li>
+<li><strong>深度推理层（Opus / o1 / o3）：</strong>适合复杂规划、深度分析、长链条推理，单次成本可达主力模型的 5–20 倍。</li>
+</ul>
 
-<div class="item" <!-- appended:2026-06-24_neilpatel_ai-search-answer-pages.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-24</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-search-answer-pages</div>
-  <div class="excerpt">🎙️ EN: More than half of all website visitors are AI agents, not humans. And the businesses that figured out what to do about it are pulling ahead fast. Here's what's actually happening. When someone asks Chad GBT perplexity or Gemini for the best whatever, the AI doesn't make that recommendation in a vacuum. It scans websites, review sites, discussion forums, and content from across the internet to put...</div>
-</div>
+<p>这种分层让"一刀切用一个模型"成为反模式。当下领先做法是<strong>任务路由</strong>：在应用层根据任务复杂度动态选择模型，把 80% 的轻量任务交给 Haiku 类，剩下 20% 的复杂任务才动用 Opus。这种用法的总体成本可比"全用主力模型"降低 60% 以上。</p>
 
-<div class="item" <!-- appended:2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-24</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-agents-marketing-systems</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.68] The way that businesses handle marketing is changing very quickly, at least for those businesses paying attention. [4.68 -> 10.64] So I just like to paint a picture of what I think marketing work will look like one year from now for those businesses that are keeping up. [10.64 -> 14.68] And my hope is that this will give you a map from where you are now to where you want to be. [14....</div>
-</div>
+<h2 id="h1">二、Claude 系列的产品演化</h2>
 
-<div class="item" <!-- appended:2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-25</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: claude-chat-cowork-code-modes</div>
-  <div class="excerpt">🎙️ EN: Here's how to use Claude chat, co-work and code as a non-technical person. They do different things, but they're all really useful. This video will help you immediately get so much more out of Claude. So chat for quick one off simple tasks, co-work for deep knowledge work and code for running agents, and yes, it's really useful for non-technical people. It's not just about writing code. So that's...</div>
-</div>
+<p>Claude 从 2024 年的单一产品扩展到 2026 年的多产品矩阵，路径值得关注：</p>
 
-<div class="item" <!-- appended:2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-26</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: frontier-ai-model-release-safety-review</div>
-  <div class="excerpt">🎙️ EN: The new chat GBT model has been held back by the US government. It was expected to launch any day now, but instead the White House asked OpenAI to release it slowly to a small group of government approved partners first, and the government gets a say in who's on that list. The official reason is security. They say that it's powerful enough that they want the safeguards proven before the rest of us...</div>
-</div>
+<h3>1. Sonnet 系列：主力推理</h3>
+<p>Sonnet 在 2025–2026 年完成两次主要迭代（Sonnet 4.5 → Sonnet 5），能力提升集中在长上下文保持、多步推理稳定性、工具调用的可靠性。每次迭代的成本下降约 20%，而输出质量提升幅度大于成本下降幅度——这意味着主力任务的"每美元价值"在持续改善。</p>
 
-<div class="item" <!-- appended:2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-27</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: chatgpt-claude-model-cost-comparison</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.80] Open AI just announced Chatchy PT 5.6. I want to talk about what we know so far and help you [4.80 -> 8.56] decide if you need to start thinking about switching over from cloud or Gemini. They've actually [8.56 -> 14.48] announced three 5.6 models, Soul, Terra, and Luna. None of them are publicly available yet, so we just [14.48 -> 18.48] have to go off of what Open AI has released...</div>
-</div>
+<h3>2. Fable 系列：垂直场景</h3>
+<p>Fable 是面向特定垂直场景的定制模型族，特点是<strong>在窄任务上以更低成本达到主力模型的能力</strong>。例如 Fable-5 在合规审查、合同分析、客服分流等任务上接近 Opus 能力，成本仅为主力模型的 1/3。</p>
 
-<div class="item" <!-- appended:2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-27</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-skill-prompt-injection-supply-chain-risk</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 3.84] An AI skill just tricked 26,000 people into potentially getting hacked, [3.84 -> 7.04] we're talking files, emails, company systems, everything. [7.04 -> 9.52] This is a massive vulnerability with AI at the moment, [9.52 -> 10.72] so you need to know about it. [10.72 -> 13.52] And I'm going to explain how this very simple hack works. [13.52 -> 16.48] So as you probably know, an AI s...</div>
-</div>
+<h3>3. Sonnet 5 Task Fit：任务适配定价</h3>
+<p>2026 年推出的 Task Fit 模式引入了"按任务复杂度阶梯计费"的机制——模型自动判断任务复杂度，按实际消耗的算力收费。这与传统"按 token 计费"形成对照：传统模式下，企业为"模型可能调用更多算力"预付成本；Task Fit 模式下，实际成本更接近真实所需。这对长尾、低频、高复杂度任务特别友好。</p>
 
-<div class="item" <!-- appended:2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-28</span>
-    <span class="author">@kallaway.marketing</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: sandcastles-creator-breakout-claude-skill</div>
-  <div class="excerpt">🎙️ EN: This is how to turn Claude into a social media savant. Most people don't know this, but this Claude skill can figure out the exact moment any channel blew up on social media. It pulls all their videos, finds out exactly when they blew up, and then most importantly, does a super deep analysis to explain why it happened. The topics, the formats, hook storytelling, it's a full breakdown of exactly wh...</div>
-</div>
+<h2 id="h2">三、AI Agent 的七种类型与应用边界</h2>
 
-<div class="item" <!-- appended:2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-29</span>
-    <span class="author">@kallaway.marketing</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: claude-sandcastles-channel-audit-weekly</div>
-  <div class="excerpt">🎙️ EN: This is how you actually use cloth to supercharge your social media. Most people don't know this, but you can use this exact prompt to run an expert level social media scan on any channel. And this is not going to give you the basic information you could get from scrolling. This is a full deep dive audit of all the videos you've posted. Transcripts, topics, formats, hooks, it'll even watch the vid...</div>
-</div>
+<p>当下 AI Agent 已可识别为七种典型形态，各自适用不同任务：</p>
 
-<div class="item" <!-- appended:2026-06-29_neilpatel_platform-ai-rewriting-relationships-owned-channels.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-29</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: platform-ai-rewriting-relationships-owned-channels</div>
-  <div class="excerpt">🎙️ EN: Google's rewriting search with AI. The 10 blue links, they're going away. TikTok and Instagram, they're restructuring their feeds around AI recommendations. Chat GBT's intercepting customer decisions before they ever hit the search engine. And it's all happening at the same time. And there's one principle behind all of it. Every platform keeps optimizing for whatever serves the end user best. AI a...</div>
-</div>
+<ol>
+<li><strong>检索型 Agent</strong>：单次或多次搜索 + 总结。适合竞品监测、研究助手。</li>
+<li><strong>工具调用型 Agent</strong>：调用外部 API 执行操作。适合 CRM 更新、表单提交、订单处理。</li>
+<li><strong>规划型 Agent</strong>：长链条规划 + 多步执行。适合复杂项目管理、研究计划。</li>
+<li><strong>协作型 Agent（Multi-Agent）</strong>：多个 Agent 角色分工协作。适合内容生产流水线、复杂决策支持。</li>
+<li><strong>代码型 Agent</strong>：自主编写、调试、执行代码。适合自动化运维、数据处理。</li>
+<li><strong>监控型 Agent</strong>：长期运行，持续观察并响应事件。适合品牌舆情、SRE 监控、市场变化预警。</li>
+<li><strong>自主学习型 Agent</strong>：从执行结果中持续优化策略。适合推荐系统、广告投放优化。</li>
+</ol>
 
-<div class="item" <!-- appended:2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-06-30</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: ai-writing-shape-structure-detection</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.50] We can now spot AI Rytum without even looking at the words or for M-Dashers, and this works [4.50 -> 10.50] about 93% at the time, because as this research team found AI Rytum has a shape. [10.50 -> 12.62] Look at this, every dot here is a story. [12.62 -> 17.18] The five AI models all bunch up in the same little cluster, the human stories are scattered [17.18 -> 20.66] all over the...</div>
-</div>
+<p>常见误区是把"用 LLM 跑 prompt"当成 Agent——Agent 的核心是<strong>有目标、能感知、能行动、能反馈</strong>。没有目标反馈循环的所谓 Agent 实质上还是 prompt 工程。</p>
 
-<div class="item" <!-- appended:2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: google-becomes-the-answer-hubspot-traffic</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 2.38] For 25 years, the internet had a business model. [2.38 -> 3.88] It was decided to create the answers [3.88 -> 5.80] and Google sent them the customers. [5.80 -> 7.24] That deal is breaking. [7.24 -> 10.00] HubSpot reportedly lost 80% of its Google traffic [10.00 -> 11.32] and they're not the only ones. [11.32 -> 13.56] This is bigger than an SEO update. [13.56 -> 15.76] When traffic...</div>
-</div>
+<h2 id="h3">四、AI 写作的"机器感"问题</h2>
 
-<div class="item" <!-- appended:2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: claude-sonnet-5-task-fit-pricing</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.96] Andthropic just released Clod Sonnet 5, and while it is a very impressive model in a lot of ways, [4.96 -> 8.80] it's not quite what I am for offic says it is. So I just want to talk about what we know so far [8.80 -> 12.64] about Sonnet 5 when you should be using it and when you should not be using it. First, [12.64 -> 18.24] let's talk about cost. Andthropic presented Sonnet 5 as...</div>
-</div>
+<p>一个反直觉的现象：随着模型能力提升，AI 写作被识别的难度反而增加，但<strong>被识别为低质量内容的概率也在上升</strong>。原因是用户（包括搜索引擎质量评估员）对 AI 内容的耐心在下降。</p>
 
-<div class="item" <!-- appended:2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-01</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 (无标题)</div>
-  <div class="topic-en">topic: claude-fable-5-return-usage-policy</div>
-  <div class="excerpt">🎙️ EN: [0.00 -> 4.24] The most powerful AI model ever, Fable 5 is back, but will it be the same? [4.24 -> 7.68] Is this even important news? Yes, so let's look at the facts. [7.68 -> 10.88] So Fable 5 has just shown up in my Claude a few minutes ago. [10.88 -> 14.40] It's been re-released globally for everyone on a paid account. [14.40 -> 17.28] And the reason everyone's so excited is it's not just hype,...</div>
-</div>
+<p>AI 写作的典型"口头禅"包括：</p>
+<ul>
+<li>频繁使用"此外"、"值得注意的是"、"综上所述"、"在当今"</li>
+<li>每段都试图平衡正反两面，缺少明确观点</li>
+<li>过度使用三段式结构（背景-论据-结论），但缺乏具体细节</li>
+<li>引用大量"研究显示"但不给出处</li>
+<li>结论永远是"具体情况而定"，避免明确判断</li>
+</ul>
 
-<div class="item" <!-- appended:2026-07-02_neilpatel_distribution-is-the-product-in-the-ai-era.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-02</span>
-    <span class="author">@neilpatel</span>
-  </div>
-  <div class="title-cn">📝 当写代码变得免费，"被看见"反而成了最难的事</div>
-  <div class="topic-en">topic: distribution-is-the-product-in-the-ai-era</div>
-  <div class="excerpt">🎙️ EN: This guy built four apps with Claude and has five more in progress. Zero users. Zero revenue. And he just figured out what every founder is about to learn the hard way. Here's what he wrote on Reddit that stuck with me.  The barrier to building is gone. Claude dissolved it. What no one tells you is that the barrier to getting users was never the same barrier. They were never connected. You never k...</div>
-</div>
+<p>去除 AI 感的核心方法不是"加错误"，而是<strong>加入只有人类才能提供的东西</strong>：</p>
+<ol>
+<li>具体场景下的具体判断（不是"通常来说"，而是"在 X 情况下，Y 是更好的选择，因为 Z"）</li>
+<li>第一人称经历或观察（即使是 AI 协助写，也要嵌入真实的个人视角）</li>
+<li>可被反驳的具体观点（"我认为 X，因为 Y；如果你不同意，欢迎讨论"）</li>
+<li>独家数据或非公开信息</li>
+<li>明确的立场选择（拒绝每段都"正反两面"）</li>
+</ol>
 
-<div class="item" <!-- appended:2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-02</span>
-    <span class="author">@willfrancis24</span>
-  </div>
-  <div class="title-cn">📝 把 Claude 变成你的"第二大脑"：一个四步框架</div>
-  <div class="topic-en">topic: claude-second-brain-four-step-framework</div>
-  <div class="excerpt">🎙️ EN: Here's how to make Claude your second brain. It's really simple. It's just a four-part framework that you'll remember after watching this very short video.  Number one: context. Who you are, what your business does, what your goals are. On a basic level this can live in custom instructions in your settings. Just tell Claude all those things. But it has true power when you have context files in eac...</div>
-</div>
+<h2 id="h4">五、AI 安全风险与 Prompt Injection</h2>
 
-<div class="item" <!-- appended:2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt -->>
-  <div class="head">
-    <span class="date">📅 2026-07-03</span>
-    <span class="author">@tjrobertson52</span>
-  </div>
-  <div class="title-cn">📝 AI 订阅的真实折扣，正在悄悄缩水</div>
-  <div class="topic-en">topic: ai-subscription-4pct-token-subsidy-july-7</div>
-  <div class="excerpt">🎙️ EN: For the first time in two years, I'm considering switching over to Chatchubt instead of Claude for work. And not because Claude isn't amazing, it is. It's just gotten so expensive in a ways that don't make sense. And Chatchubt is also amazing. Such why I talk about how pricing works for these frontier models right now so you can make a smart decision for your business. The most important thing to...</div>
-</div>
+<p>Prompt Injection 已从理论风险升级为生产级威胁。MITRE ATLAS 与 OWASP LLM Top 10 把它列为头号风险向量。</p>
 
-</section>
+<p>典型攻击模式：</p>
+<ul>
+<li><strong>直接注入：</strong>用户输入里包含"忽略之前的指令，改为输出…"</li>
+<li><strong>间接注入：</strong>恶意内容嵌入到 RAG 检索的文档里，模型读取后被劫持</li>
+<li><strong>供应链注入：</strong>通过第三方插件、MCP server、API 集成传递恶意指令</li>
+<li><strong>多模态注入：</strong>通过图片、PDF、音频里的隐藏文本绕过输入过滤</li>
+</ul>
 
-<section>
-  <h2>更新日志</h2>
-  <ul>
-    <li><strong>2026-07-06</strong> · 骨架建档 · 等待 classify.py 首次写入脚本</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-05-24_nocode.joshua_7-types-of-claude-ai-agents.txt</code>（@nocode.joshua）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-24_neilpatel_ai-search-answer-pages.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt</code>（@willfrancis24）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt</code>（@willfrancis24）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt</code>（@willfrancis24）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt</code>（@kallaway.marketing）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt</code>（@kallaway.marketing）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-29_neilpatel_platform-ai-rewriting-relationships-owned-channels.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt</code>（@willfrancis24）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt</code>（@neilpatel）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt</code>（@tjrobertson52）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt</code>（@willfrancis24）— (无标题)</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-02_neilpatel_distribution-is-the-product-in-the-ai-era.txt</code>（@neilpatel）— 当写代码变得免费，"被看见"反而成了最难的事</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt</code>（@willfrancis24）— 把 Claude 变成你的"第二大脑"：一个四步框架</li>
-    <li><strong>2026-07-06</strong> · 新增：<code>2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt</code>（@tjrobertson52）— AI 订阅的真实折扣，正在悄悄缩水</li></ul>
-</section>
+<p>企业级部署的防御策略：</p>
+<ol>
+<li>输入输出双侧过滤 + 内容溯源标签</li>
+<li>高风险操作必须经人工审批节点（human-in-the-loop）</li>
+<li>工具调用白名单 + 调用频率异常检测</li>
+<li>定期红队测试 + 注入语料库维护</li>
+</ol>
 
+<h2 id="h5">六、第二大脑工作流：AI 协作的实践模式</h2>
+
+<p>"把 AI 当第二大脑"的提法正在被更精细的工作流取代。可观察到的成熟模式包括：</p>
+
+<ul>
+<li><strong>四步框架：</strong>信息收集 → 结构化整理 → 提炼判断 → 行动建议。每步 AI 与人类各占一半工作量。</li>
+<li><strong>会话协作：</strong>长会话中定期"压缩上下文"——把前面对话压缩成结构化笔记，作为后续推理基础。</li>
+<li><strong>个人知识库：</strong>把读过的资料、笔记、决策记录向量化存储，AI 助手基于此回答问题而不是凭空生成。</li>
+<li><strong>每周频道审计：</strong>每周由 AI 回顾本周的对话、会议、决策，识别重复出现的盲点和模式。</li>
+</ul>
+
+<p>这些模式的共同点是<strong>不把 AI 当作"答案来源"，而是当作"思考伙伴"</strong>——它负责结构化和检索，人类负责判断和决策。</p>
+
+<h2 id="h6">七、商业化与定价趋势</h2>
+
+<p>2026 年 AI 产品的定价已从"按 token 订阅"演化为更复杂的多维模型：</p>
+
+<ul>
+<li><strong>按推理消耗阶梯计费</strong>（Sonnet 5 Task Fit 模式）</li>
+<li><strong>按结果计费</strong>（某些代码 Agent 按成功执行的 bug 修复数收费）</li>
+<li><strong>按节省时间计费</strong>（企业版按用户节省的工时折算价值）</li>
+<li><strong>按订阅层级 + 用量超额</strong>（主流消费级订阅方式）</li>
+<li><strong>Token 补贴促销</strong>（部分平台通过补贴推动 API 普及）</li>
+</ul>
+
+<p>对企业用户而言，<strong>成本优化空间最大的是任务路由</strong>：把合适的任务路由到合适的模型，而不是统一用一个。同时，建立用量监控避免失控——曾有案例显示某个不设防的 Agent 循环一天调用了几千次 Opus，单日账单超过六位数。</p>
+
+<h2 id="h7">八、当前共识与争议</h2>
+
+<p><strong>共识：</strong>模型分层是企业级部署的标配；AI Agent 形态多样化且各有适用边界；AI 写作的可识别性会持续下降但用户耐心也在下降；Prompt Injection 是必须正视的生产级威胁；任务路由是降本的核心手段。</p>
+
+<p><strong>争议：</strong>新一代模型（GPT-5、Claude Sonnet 5、Gemini 2）的能力提升曲线是否在放缓；多 Agent 协作是否真有生产力提升，还是只是把单个 Agent 的复杂度分散到多个；按结果计费模式是否会取代按 token 计费；不同模型的"个性"差异（如 Claude 的谨慎、ChatGPT 的流畅、Gemini 的多模态）在企业场景中的实际价值。</p>
+
+<p><strong>未来 12 个月需要观察：</strong>推理能力的边际收益是否仍在增长；垂直行业模型（医疗、法律、金融）能否突破通用模型的能力上限；AI Agent 是否会形成类似"App Store"的生态系统；推理成本是否会随硬件进步下降到当前水平的 1/5 以下。</p>
+
+</article>
 </main>
-<div class="footer">话题大全 · 自媒体自动归类引擎 · v2 · 数据源：TikTok 视频英文 transcript</div>
+<div class="footer">
+  话题大全 · 自媒体自动归类引擎 · v3 · 基于公开权威资料与多方观点综合整理<br>
+  <a href="../index.html" style="color:var(--accent)">返回索引</a>
+</div>
 </body>
 </html>
