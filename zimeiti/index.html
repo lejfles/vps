@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自媒体话题大全 · 索引</title>
+<style>
+:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
+header h1{margin:0 0 10px;font-size:34px}
+header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
+header .meta{color:var(--muted);font-size:13px}
+main{max-width:1100px;margin:0 auto;padding:24px}
+section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin-bottom:20px}
+h2{margin-top:0;font-size:24px;border-left:3px solid var(--accent);padding-left:10px}
+h3{font-size:18px;color:var(--accent);margin-top:20px}
+code{background:#0a0d12;color:#cfd6e4;padding:2px 6px;border-radius:4px;font-size:13px}
+.stats{display:flex;gap:16px;margin:16px 0;flex-wrap:wrap}
+.stat{background:#0c1018;border:1px solid var(--line);border-radius:6px;padding:14px 20px;flex:1;min-width:160px}
+.stat .num{font-size:30px;font-weight:700;color:var(--accent2)}
+.stat .label{color:var(--muted);font-size:12px;margin-top:4px}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:16px}
+.topic-card{background:#0c1018;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:18px 20px;transition:transform 0.15s}
+.topic-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+.topic-card h3{margin:0 0 6px;font-size:17px;color:var(--ink)}
+.topic-card .sub{color:var(--muted);font-size:13px;margin-bottom:8px}
+.topic-card .meta-row{display:flex;gap:12px;margin-top:10px;font-size:12px;color:var(--muted)}
+.topic-card .meta-row span{background:#0a0d12;padding:3px 8px;border-radius:4px}
+.topic-card a{display:inline-block;margin-top:12px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
+.topic-card a:hover{text-decoration:underline}
+.footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px}
+.hero{font-size:15px;color:#cfd6e4;margin:10px 0}
+ul{padding-left:22px}
+li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>自媒体话题大全</h1>
+  <div class="subtitle">每日 TikTok 视频脚本自动归类 · 中文展示 · 持续更新</div>
+  <div class="meta">数据源：<code>~/zimeiti_tiktok_monitor/outputs/</code> · 自动归类引擎：<code>classify.py</code></div>
+</header>
+<main>
+
+<section>
+  <h2>概览</h2>
+  <p class="hero">从历史视频脚本中归纳持续话题，每个话题一个持续更新的 HTML 大全（中文展示 + 权威资料补齐）。每天收到新脚本后由 <code>classify.py</code> 自动归类并追加。</p>
+  <div class="stats">
+    <div class="stat"><div class="num">7</div><div class="label">话题数量</div></div>
+    <div class="stat"><div class="num">78</div><div class="label">独立视频脚本</div></div>
+    <div class="stat"><div class="num">109</div><div class="label">话题归属条目（含多归属）</div></div>
+    <div class="stat"><div class="num">8</div><div class="label">独立创作者</div></div>
+  </div>
+  <p style="color:var(--muted);font-size:13px">时间跨度：<code>2026-05-24</code> → <code>2026-07-05</code></p>
+</section>
+
+<section>
+  <h2>7 个话题大全</h2>
+  <div class="topic-grid">
+<div class="topic-card">
+  <h3>AI 搜索 / GEO / AI Citation</h3>
+  <div class="sub">AI 搜索时代的引用与可见性</div>
+  <div class="hero">AI 搜索引擎（ChatGPT、Google AI Overviews、Perplexity、Claude、Gemini）正在改变信息检索方式。本话题聚焦：内容如何被 AI 引用、品牌如何被提及、AI 答案如何形成、SEO 与 GEO 如何...</div>
+  <div class="meta-row">
+    <span>📜 25 条目</span>
+    <span>👤 5 作者</span>
+    <span>📅 2026-06-22 → 2026-07-05</span>
+  </div>
+  <a href="topics_html/01-ai-search-geo-citation.html" target="_blank">打开话题大全 →</a>
+</div>
+
+<div class="topic-card">
+  <h3>Claude / AI 模型与产品</h3>
+  <div class="sub">AI 模型演进、能力边界与商业化</div>
+  <div class="hero">Claude、ChatGPT 等大模型的产品演进与商业化。覆盖模型对比、能力边界、定价策略、订阅模式、安全风险（prompt injection）、AI Agent 类型、AI 写作的检测与反检测、第二大脑工作流。...</div>
+  <div class="meta-row">
+    <span>📜 17 条目</span>
+    <span>👤 5 作者</span>
+    <span>📅 2026-05-24 → 2026-07-03</span>
+  </div>
+  <a href="topics_html/02-claude-ai-models.html" target="_blank">打开话题大全 →</a>
+</div>
+
+<div class="topic-card">
+  <h3>Conversion Funnel / 转化漏斗</h3>
+  <div class="sub">从流量到收入的最后一公里</div>
+  <div class="hero">把流量变成收入的关键路径：结账流程优化、表单字段精简、落地页 CRO、用户引导（onboarding）核心价值前置、对话式 AI 销售、创作者跨境支付、TikTok Shop 等。...</div>
+  <div class="meta-row">
+    <span>📜 21 条目</span>
+    <span>👤 5 作者</span>
+    <span>📅 2026-06-23 → 2026-07-05</span>
+  </div>
+  <a href="topics_html/03-conversion-funnel.html" target="_blank">打开话题大全 →</a>
+</div>
+
+<div class="topic-card">
+  <h3>大公司新闻与科技商业</h3>
+  <div class="sub">Big Tech 战略、资本动作与地缘政治</div>
+  <div class="hero">全球科技与商业大事件：Meta/Amazon/SpaceX/OpenAI 等公司的战略调整、上市动作、政府关系、加密货币布局、出口管制与地缘政治影响。...</div>
+  <div class="meta-row">
+    <span>📜 14 条目</span>
+    <span>👤 4 作者</span>
+    <span>📅 2026-06-23 → 2026-07-03</span>
+  </div>
+  <a href="topics_html/04-big-tech-business.html" target="_blank">打开话题大全 →</a>
+</div>
+
+<div class="topic-card">
+  <h3>内容创作与视频策略</h3>
+  <div class="sub">短视频时代的创作者方法论</div>
+  <div class="hero">短视频与社交媒体内容创作方法论：钩子设计、节奏控制、故事结构、失败模式诊断、定位与差异化、Z 世代品牌触达、长效营销。...</div>
+  <div class="meta-row">
+    <span>📜 10 条目</span>
+    <span>👤 2 作者</span>
+    <span>📅 2026-06-23 → 2026-07-03</span>
+  </div>
+  <a href="topics_html/05-content-creation-video.html" target="_blank">打开话题大全 →</a>
+</div>
+
+<div class="topic-card">
+  <h3>网站与本地 SEO</h3>
+  <div class="sub">网站健康度、本地搜索与个人 AI 隐私</div>
+  <div class="hero">网站本身的健康度与本地搜索优化：Google Business Profile、网站常见错误自查、AI bot 流量识别、AI 基础设施成本、个人 AI 隐私、Side hustle 网站质量与风险。...</div>
+  <div class="meta-row">
+    <span>📜 6 条目</span>
+    <span>👤 3 作者</span>
+    <span>📅 2026-06-23 → 2026-07-01</span>
+  </div>
+  <a href="topics_html/06-website-local-seo.html" target="_blank">打开话题大全 →</a>
+</div>
+
+<div class="topic-card">
+  <h3>营销信任与其他战略</h3>
+  <div class="sub">数字营销、信任构建与新兴趋势</div>
+  <div class="hero">不属于以上聚类的独立战略话题：分发渠道、内容自有化、AI 演示文稿工作流、AI 数字人视频制作、数字营销三步法、信任构建等。...</div>
+  <div class="meta-row">
+    <span>📜 16 条目</span>
+    <span>👤 6 作者</span>
+    <span>📅 2026-06-23 → 2026-07-05</span>
+  </div>
+  <a href="topics_html/07-marketing-trust-other.html" target="_blank">打开话题大全 →</a>
+</div>
+</div>
+</section>
+
+<section>
+  <h2>用法</h2>
+  <h3>查看话题大全</h3>
+  <p>点击上方任一话题卡片进入对应 HTML。每个 HTML 包含：话题定义、权威资料补齐、已归类的视频脚本（带日期/作者/英文 transcript 节选）、更新日志。</p>
+
+  <h3>每日自动归类</h3>
+  <p>每天收完 2 条新视频脚本后，跑一次：</p>
+  <pre><code>python3 classify.py</code></pre>
+  <p>脚本会自动扫描 <code>~/zimeiti_tiktok_monitor/outputs/</code>，按关键词匹配归入对应话题，追加到对应 HTML 的"已归类脚本"和"更新日志"两节。已处理过的文件通过 SHA256 + HTML marker 双重去重，不会重复。</p>
+
+  <h3>新增话题怎么办</h3>
+  <ol>
+    <li>在 <code>topics_html/</code> 下新建 HTML，模板可参考现有 7 个</li>
+    <li>HTML 必须含两个固定锚点：<code>&lt;h2&gt;本话题已归类的视频脚本&lt;/h2&gt;</code> 和 <code>&lt;h2&gt;更新日志&lt;/h2&gt;</code></li>
+    <li>在 <code>classify.py</code> 的 <code>TOPIC_RULES</code> 中加新规则</li>
+    <li>重跑 <code>classify.py</code>，新话题会开始被填充</li>
+  </ol>
+</section>
+
+</main>
+<div class="footer">
+  话题大全 · 自媒体自动归类引擎 · v2 · 数据源：TikTok 视频英文 transcript<br>
+  部署：<a href="https://lejfles.github.io/vps/zimeiti/" style="color:var(--accent)">https://lejfles.github.io/vps/zimeiti/</a>
+</div>
+</body>
+</html>
