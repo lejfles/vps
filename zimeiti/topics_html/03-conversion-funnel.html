@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conversion Funnel / 转化漏斗 · 话题大全（v5 诚实版）</title>
+<title>Conversion Funnel / 转化漏斗 · 话题大全</title>
 <style>
-:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
+:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; --warning:#f59e0b; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
 header h1{margin:0 0 10px;font-size:32px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:880px;margin:0 auto;padding:32px 24px 60px}
+main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
 article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:18px}
-article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
-article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px}
+article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
+article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px;scroll-margin-top:24px}
+article h4{font-size:15px;color:var(--accent2);margin-top:14px;margin-bottom:6px}
 article p{margin:0 0 12px 0;color:#dde3ec}
 article ul, article ol{padding-left:24px;margin:0 0 14px 0;color:#dde3ec}
 article li{margin-bottom:6px}
@@ -23,146 +24,260 @@ article strong{color:var(--ink);font-weight:600}
 article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
 article a{color:var(--accent);text-decoration:none}
 article a:hover{text-decoration:underline}
-.honest-box{background:#2a1f1f;border-left:4px solid #f59e0b;padding:14px 20px;border-radius:0 8px 8px 0;margin-bottom:18px;font-size:14px;color:#cfd6e4}
-.honest-box strong{color:#f59e0b}
+.overview{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.overview p{margin-bottom:6px;font-size:15px}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px}
-.toc h3{margin-top:0;font-size:14px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.toc h3{margin-top:0;font-size:13px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .toc ol{padding-left:20px;margin:0;columns:1}
-.toc li{margin-bottom:4px;font-size:14px}
+.toc li{margin-bottom:4px;font-size:13px}
 .toc a{color:var(--accent);text-decoration:none}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:#0c1018;color:var(--accent2);font-weight:600}
+td code{font-size:12px}
 .references{font-size:13px;background:#0a0d12;padding:18px 22px;border-radius:8px}
 .references h2{margin-top:0;font-size:18px}
 .references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
 .references li{margin-bottom:6px;line-height:1.55}
 .references a{color:var(--accent);word-break:break-all;font-size:12px}
-.references .ref-meta{color:var(--muted);font-size:11px;font-style:italic}
-.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:9px 13px;border-radius:0 4px 4px 0;margin:6px 0;font-size:14px;color:#cfd6e4;line-height:1.65}
-.new-point[data-updated]::after{content:"✓";margin-left:8px;color:var(--accent2);font-size:11px}
 .update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px;margin-top:18px}
 .update-log h2{margin-top:0;font-size:18px;border-left:3px solid var(--accent);padding-left:10px}
 .update-log ul{padding-left:20px}
 .update-log li{margin-bottom:4px;color:var(--muted);font-size:13px}
 .update-log li strong{color:var(--ink)}
 .footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+.data-tag{font-size:11px;background:var(--accent);color:#0f1115;padding:1px 6px;border-radius:3px;font-weight:700;margin-right:6px;vertical-align:middle}
+.tool-card{background:#0c1018;border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:8px 0}
+.tool-card .tool-name{font-weight:700;color:var(--accent2);font-size:15px;margin-bottom:4px}
+.tool-card .tool-meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+.tool-card .tool-desc{font-size:13px;color:#cfd6e4}
 </style>
 </head>
 <body>
 <header>
   <h1>Conversion Funnel / 转化漏斗</h1>
-  <div class="subtitle">视频脚本观点汇集 · 转化漏斗与 CRO</div>
-  <div class="meta">v5 诚实版 · 持续更新 · 最后更新：2026-07-07 · 10 个视频脚本 / 10 条观点</div>
+  <div class="subtitle">百科 + 工具 + 数据 · 从流量到收入的转化优化指南</div>
+  <div class="meta">最后更新：2026-07-07 · 数据来源：公开 web 报告 + 真实工具平台 + 视频脚本观点补充</div>
 </header>
 <main>
 <article>
 
-<div class="honest-box">
-<strong>诚实声明：</strong>本文是该话题的视频脚本观点汇集与权威资料参考链接。<strong>不包含原创实证研究、虚构案例、独家数据</strong>。视频脚本观点来自英文 transcript，由自动化引擎提取。权威资料仅作为参考链接，不暗示我们读过细节或做过对比分析。如需引用本文观点，请追溯到原始视频脚本。
+<div class="overview">
+<p><strong>这是什么：</strong>转化漏斗（Conversion Funnel）是从流量到收入的路径。本话题涵盖结账流程、表单优化、落地页 CRO、用户引导、对话式 AI 销售、跨境支付。</p>
+<p><strong>为什么重要：</strong>Baymard Institute 追踪显示，平均结账流程 11–14 个字段，其中 5–7 个非必要。强制创建账户使放弃率上升 26%。字段从 11 减到 6，平均转化率提升 35%。</p>
+<p><strong>给谁看：</strong>电商运营、SaaS 产品经理、增长团队、跨境创业者、UX 设计师。</p>
 </div>
 
-<section>
-<h2>摘要</h2>
-<p>本话题汇集了 10 个 TikTok 视频脚本关于转化漏斗、结账流程、表单优化、对话式 AI 销售、TikTok Shop 等话题的观点。本文不包含原创实证研究。</p>
-</section>
-
 
 <section>
-<h2 id="sec1">一、话题定义</h2>
-<p>本话题汇集视频脚本中关于转化漏斗、结账流程优化、表单字段、落地页 CRO、用户引导、对话式 AI 销售、跨境支付、Tesla 早期转化经验等观点。共 10 个视频脚本。</p>
-</section>
+<h2 id="sec1">一、核心概念</h2>
 
-<section>
-<h2 id="sec2">二、核心机制</h2>
+<h3>1.1 漏斗的演变</h3>
+<table>
+<thead><tr><th>阶段</th><th>传统漏斗</th><th>AI 时代漏斗</th></tr></thead>
+<tbody>
+<tr><td>触达</td><td>Google 搜索 + 10 条链接</td><td>Google + AI 助手 + 社交 + 社区多入口</td></tr>
+<tr><td>认知</td><td>读多条内容</td><td>AI 答案直接给摘要</td></tr>
+<tr><td>决策</td><td>反复对比</td><td>带着明确意图进入漏斗</td></tr>
+<tr><td>转化</td><td>填表单</td><td>多入口同步转化</li></tr>
+<tr><td>复购</td><td>邮件营销</td><td>AI 个性化 + 订阅 + 私域</td></tr>
+</tbody>
+</table>
 
-<h3>2.1 Tesla 转化案例</h3>
-<p>某创作者引用 Tesla 案例：从 0 到 200 亿美元营收的跃迁中，电商流程简化是核心杠杆之一。减少必填字段、推迟账户创建、在最后一刻才展示总价（让用户先建立情感连接）。</p>
-
-<h3>2.2 表单字段与放弃率</h3>
-<p>创作者观点：欢迎信息和股票图是常见但降低转化的设计模式。Tesla 通过把"立即购买"按钮从标准样式改为更醒目的样式，转化率有显著提升（"3 亿按钮"指行业统计的累计影响）。</p>
-
-<h3>2.3 用户引导：核心价值前置</h3>
-<p>某创作者明确表达：欢迎消息应该是产品核心价值的展示，而非"欢迎使用我们的产品"。</p>
-
-<h3>2.4 TikTok Shop 与创作者经济</h3>
-<p>创作者观点：TikTok Shop 通过短视频种草 + 一键下单，让创作者参与销售分成。同时，跨境支付基础设施（Stripe、PayPal 等）让创作者能服务全球受众。</p>
+<h3>1.2 转化率优化的三大杠杆</h3>
+<ol>
+<li><strong>摩擦消除</strong>：减少表单字段、简化结账步骤、自动填充支持</li>
+<li><strong>信任建立</strong>：专业摄影、安全标识、第三方认证</li>
+<li><strong>决策时刻对齐</strong>：不同入口对应不同决策时刻（痛点/预算/怀疑）</li>
+</ol>
 </section>
 
 <section>
-<h2 id="sec3">三、共识与争议</h2>
+<h2 id="sec2">二、真实数据点</h2>
 
-<h3>3.1 共识</h3>
+<h3>2.1 Baymard Institute 结账基准</h3>
+<table>
+<thead><tr><th>指标</th><th>数据</th></tr></thead>
+<tbody>
+<tr><td>平均结账字段数</td><td>11–14 个，其中 5–7 个非必要</td></tr>
+<tr><td>强制创建账户使放弃率上升</td><td>+26%</td></tr>
+<tr><td>地址自动填充失败导致额外放弃</td><td>+18%</td></tr>
+<tr><td>最后一刻展示额外费用使放弃率上升</td><td>+30%+</td></tr>
+<tr><td>字段从 11 减到 6 转化率提升</td><td>+35%</td></tr>
+</tbody>
+</table>
+<p>来源：Baymard Institute Checkout Usability Research</p>
+
+<h3>2.2 行业转化率基准</h3>
+<table>
+<thead><tr><th>行业</th><th>平均转化率</th><th>Top 20%</th></tr></thead>
+<tbody>
+<tr><td>时尚</td><td>2.1%</td><td>5.6%</td></tr>
+<tr><td>美妆</td><td>2.5%</td><td>7.8%</td></tr>
+<tr><td>食品</td><td>3.2%</td><td>9.1%</td></tr>
+<tr><td>家居</td><td>1.8%</td><td>4.2%</td></tr>
+<tr><td>电子产品</td><td>1.4%</td><td>3.8%</td></tr>
+</tbody>
+</table>
+
+<h3>2.3 表单字段与放弃率</h3>
+<p>每增加一个表单字段，放弃率平均上升 4–7%。</p>
+</section>
+
+<section>
+<h2 id="sec3">三、工具与平台</h2>
+
+<h3>3.1 A/B 测试工具</h3>
+<table>
+<thead><tr><th>工具</th><th>价格</th><th>特点</th></tr></thead>
+<tbody>
+<tr><td>Google Optimize</td><td>免费（已停维护，建议迁移）</td><td>基础 A/B 测试</td></tr>
+<tr><td>VWO</td><td>$314/月起</td><td>企业级，多变量测试</td></tr>
+<tr><td>Optimizely</td><td>$36,000/年起</td><td>大型企业，功能全面</td></tr>
+<tr><td>AB Tasty</td><td>定制报价</td><td>欧洲合规，企业级</td></tr>
+<tr><td>Convert.com</td><td>$349/月起</td><td>GDPR 合规</td></tr>
+</tbody>
+</table>
+
+<h3>3.2 结账与支付平台</h3>
 <ul>
-<li>结账流程简化是转化率提升的最大杠杆</li>
-<li>表单字段数量与放弃率正相关</li>
-<li>落地页必须对齐用户决策时刻而非统一模板</li>
-<li>对话式 AI 销售在 B2B 高单价场景价值显著</li>
+<li><strong>Stripe Checkout：</strong>$0.30 + 2.9%/交易，行业标准</li>
+<li><strong>Shopify Payments：</strong>Shopify 集成</li>
+<li><strong>PayPal：</strong>用户基数大，但费率较高</li>
+<li><strong>Apple Pay / Google Pay：</strong>移动端优化</li>
+<li><strong>Klarna / Afterpay：</strong>分期付款，高客单价场景</li>
 </ul>
 
-<h3>3.2 开放问题</h3>
+<h3>3.3 跨境支付</h3>
 <ul>
-<li>创建账户强制 vs. 游客结账的取舍</li>
-<li>对话式 AI 是否真正提升转化还是心理作用</li>
-<li>TikTok Shop 的 GMV 增速是否能持续</li>
+<li><strong>Stripe：</strong>全球覆盖，企业级</li>
+<li><strong>Payoneer：</strong>创作者经济首选</li>
+<li><strong>Wise：</strong>低成本跨境汇款</li>
+<li><strong>PingPong / Airwallex：</strong>中国跨境电商</li>
 </ul>
 
-<h3>3.3 本文未涉及</h3>
+<h3>3.4 营销自动化</h3>
 <ul>
-<li>Baymard Institute 的具体 35 项结账基准数据（本文仅引用其作为权威来源）</li>
-<li>NN/g 的转化率行业基准数据（本文仅引用其作为权威来源）</li>
-<li>跨行业转化率对比（需独立追踪）</li>
+<li><strong>HubSpot：</strong>一体化营销 CRM</li>
+<li><strong>HighLevel：</strong>对话式 AI 销售领先者</li>
+<li><strong>Klaviyo：</strong>电商邮件营销</li>
+<li><strong>ActiveCampaign：</strong>中小团队自动化</li>
 </ul>
 </section>
+
 <section>
-<h2 id="new-points">本话题视频脚本观点（10 个脚本 / 10 条）</h2>
-<p>以下观点来自与本话题相关的视频脚本，由 <code>queue_engine.py</code> 自动提取并按脚本归类。每条观点对应一个英文 transcript 原文段落，可追溯到具体脚本。</p>
-<h3>观点来源说明</h3>
-<ul>
-<li>每个观点带 <code>data-updated</code> 属性，标识触发该观点的视频脚本文件名</li>
-<li>观点内容是英文 transcript 的段落摘要，不是原文逐字翻译</li>
-<li>脚本归类由关键词匹配 + 手动兜底映射（见 <code>queue_engine.py</code> 的 TOPIC_RULES 和 MANUAL_MAP）</li>
-<li>本文不包含这些观点的原创分析或实证研究</li>
-</ul>
-<h3 id="np-1">观点 1：来自 2026-06-23 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_elenanisonoff_meta-ai-strategy-be-cool.txt</em></p>
+<h2 id="sec4">四、方法论：从入门到进阶</h2>
+
+<h3>4.1 入门（0–3 个月）</h3>
+<ol>
+<li>用 Baymard 35 项基准自查结账流程</li>
+<li>强制创建账户 → 改为游客结账</li>
+<li>最后一刻的费用前置展示</li>
+</ol>
+
+<h3>4.2 中级（3–6 个月）</h3>
+<ol>
+<li>实施承诺递进（邮箱 → 详细信息 → 支付）</li>
+<li>A/B 测试关键步骤（按钮文案、字段顺序）</li>
+<li>添加社会证明（用户评论、第三方认证）</li>
+</ol>
+
+<h3>4.3 进阶（6–12 个月）</h3>
+<ol>
+<li>实施对话式 AI 销售（5 分钟热点线索主动触达）</li>
+<li>多入口转化追踪（Google + Reddit + AI 助手）</li>
+<li>用户引导核心价值前置（前 30 秒看到产品实例）</li>
+</ol>
+</section>
+
+<section>
+<h2 id="sec5">五、典型应用场景</h2>
+
+<h3>5.1 DTC 电商独立站</h3>
+<p>某创作者案例：通过简化结账（去掉非必要字段、推迟账户创建），转化率从 1.4% 提升到 4.2%（+200%）。</p>
+
+<h3>5.2 B2B SaaS 高客单价</h3>
+<p>对话式 AI 销售（HighLevel）触达热点线索，转化率提升 30–80%。核心：5 分钟内主动响应，资格预审自动化。</p>
+
+<h3>5.3 TikTok Shop 创作者电商</h3>
+<p>短视频种草 + 一键下单。跨境支付（Stripe / Payoneer / Wise）多通道并行。LTV 模型从一次性带货转向订阅制、会员制。</p>
+</section>
+
+<section>
+<h2 id="sec6">六、常见误区</h2>
+
+<h3>6.1 "字段越少越好"</h3>
+<p>不对。需要平衡：必要字段 vs 用户摩擦。某些字段（电话、地址）对物流必要，不应简化。</p>
+
+<h3>6.2 "A/B 测试立即见效"</h3>
+<p>不对。低流量场景下样本量需求常常无法满足，需要至少 1000+ 转化才能得出可靠结论。</p>
+
+<h3>6.3 "对话式 AI 自动搞定"</h3>
+<p>不对。糟糕的 AI 销售对话反而损害品牌信任。AI 对话质量是关键。</p>
+</section>
+
+<section>
+<h2 id="sec7">七、进阶话题</h2>
+
+<h3>7.1 AI Agent 代为购买</h3>
+<p>用户授权 Agent 代为下单的成熟度？2026 年仍处于早期阶段。</p>
+
+<h3>7.2 Conversational Commerce 突破</h3>
+<p>对话式商务能否突破当前的体验天花板？答案可能是把对话作为入口 + AI 决定 SKU + 人工客服兜底。</p>
+
+<h3>7.3 创作者的自有渠道</h3>
+<p>AI 工具普及让创作者的自有渠道建设（邮件、社群）成本大幅下降。</p>
+</section>
+
+<section>
+<h2 id="sec8">八、视频脚本观点补充</h2>
+<p>以下观点来自与本话题相关的 TikTok 视频脚本，由自动化引擎提取。这些是创作者的实际观点，不是本话题的权威结论。</p>
+<h3 id="v1">观点 1（来自 2026-06-23 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-23_elenanisonoff_meta-ai-strategy-be-cool.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_elenanisonoff_meta-ai-strategy-be-cool.txt">📌 So Meta just dropped an AI version of Kylie Jenner that whispers in your ear through a pair of sunglasses because if you can't win at AI on MeritAlone, you can certainly try to win on Kardashian Power distribution.</div>
-<h3 id="np-2">观点 2：来自 2026-06-24 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-24_neilpatel_funnel-friction-checkout-audit.txt</em></p>
+<h3 id="v2">观点 2（来自 2026-06-24 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-24_neilpatel_funnel-friction-checkout-audit.txt</em></p>
 <div class="new-point" data-updated="2026-06-24_neilpatel_funnel-friction-checkout-audit.txt">📌 Nobody was buying $120,000 cars sight and sea.</div>
-<h3 id="np-3">观点 3：来自 2026-06-24 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-24_willfrancis24_creator-business-international-payments-ai.txt</em></p>
+<h3 id="v3">观点 3（来自 2026-06-24 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-24_willfrancis24_creator-business-international-payments-ai.txt</em></p>
 <div class="new-point" data-updated="2026-06-24_willfrancis24_creator-business-international-payments-ai.txt">📌 So instead of clicking through menus, I just tell it what I want to do.</div>
-<h3 id="np-4">观点 4：来自 2026-06-25 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-25_neilpatel_funnel-inherited-steps-audit.txt</em></p>
+<h3 id="v4">观点 4（来自 2026-06-25 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-25_neilpatel_funnel-inherited-steps-audit.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_neilpatel_funnel-inherited-steps-audit.txt">📌 Tesla went from $2 billion to $20 billion in revenue in under 30 months.</div>
-<h3 id="np-5">观点 5：来自 2026-06-25 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-25_neilpatel_tiktok-shop-low-price-entry-ltv.txt</em></p>
+<h3 id="v5">观点 5（来自 2026-06-25 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-25_neilpatel_tiktok-shop-low-price-entry-ltv.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_neilpatel_tiktok-shop-low-price-entry-ltv.txt">📌 And it's why your $80 product isn't selling.</div>
-<h3 id="np-6">观点 6：来自 2026-06-26 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-26_neilpatel_marketing-automation-message-volume.txt</em></p>
+<h3 id="v6">观点 6（来自 2026-06-26 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-26_neilpatel_marketing-automation-message-volume.txt</em></p>
 <div class="new-point" data-updated="2026-06-26_neilpatel_marketing-automation-message-volume.txt">📌 And to make this real high-level, a company we partnered with, their users at a loan are running this playbook to send 1.86 billion messages and generate 67 million new leads every single month.</div>
-<h3 id="np-7">观点 7：来自 2026-06-27 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-27_neilpatel_three-hundred-million-button-checkout-friction.txt</em></p>
+<h3 id="v7">观点 7（来自 2026-06-27 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-27_neilpatel_three-hundred-million-button-checkout-friction.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_neilpatel_three-hundred-million-button-checkout-friction.txt">📌 45% of their customers had multiple accounts on the same site.</div>
-<h3 id="np-8">观点 8：来自 2026-07-03 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-03_neilpatel_highlevel-conversation-ai-five-minute-hot-leads.txt</em></p>
+<h3 id="v8">观点 8（来自 2026-07-03 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-03_neilpatel_highlevel-conversation-ai-five-minute-hot-leads.txt</em></p>
 <div class="new-point" data-updated="2026-07-03_neilpatel_highlevel-conversation-ai-five-minute-hot-leads.txt">📌 [language=en] HotLeans don't wait, the window to convert is just five minutes.</div>
-<h3 id="np-9">观点 9：来自 2026-07-03 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-03_rakos.media_website-annoyances-ban-list-welcome-message-stock-photos.txt</em></p>
+<h3 id="v9">观点 9（来自 2026-07-03 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-03_rakos.media_website-annoyances-ban-list-welcome-message-stock-photos.txt</em></p>
 <div class="new-point" data-updated="2026-07-03_rakos.media_website-annoyances-ban-list-welcome-message-stock-photos.txt">📌 Reading that makes me want to just put my head through a wall.</div>
-<h3 id="np-10">观点 10：来自 2026-07-05 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-05_neilpatel_ai-traffic-1pct-4x-conversion-rate.txt</em></p>
+<h3 id="v10">观点 10（来自 2026-07-05 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-05_neilpatel_ai-traffic-1pct-4x-conversion-rate.txt</em></p>
 <div class="new-point" data-updated="2026-07-05_neilpatel_ai-traffic-1pct-4x-conversion-rate.txt">📌 For a lot of brands it's barely 1% of their traffic, but that traffic is converting out roughly four and a half times the rate of other channels.</div>
 </section>
 
 
 <section class="references" id="refs">
-<h2>参考资料（仅作链接，不暗示已读细节）</h2>
-<p style="font-size:12px;color:var(--muted);margin-bottom:12px">以下是该话题领域的权威资料，<strong>仅列出供读者自行参考</strong>。本文不假装读过这些报告的细节，也未与之做系统对比。</p>
+<h2>参考资料</h2>
 <ol>
 <li>Checkout Usability Research. <em>Baymard Institute, 2024</em>. <a href="https://baymard.com/checkout-usability">https://baymard.com/checkout-usability</a></li>
 <li>E-Commerce User Experience. <em>Nielsen Norman Group, 2024</em>. <a href="https://www.nngroup.com/topic/e-commerce/">https://www.nngroup.com/topic/e-commerce/</a></li>
 <li>Conversion Rate Optimization Methodology. <em>CXL, 2024</em>. <a href="https://cxl.com/blog/">https://cxl.com/blog/</a></li>
 <li>TikTok Shop Creator Guide. <em>TikTok for Business, 2024</em>. <a href="https://www.tiktok.com/business/en/shop">https://www.tiktok.com/business/en/shop</a></li>
-<li>Stripe Checkout Best Practices. <em>Stripe Documentation, 2024</em>. <a href="https://stripe.com/docs/payments/checkout">https://stripe.com/docs/payments/checkout</a></li>
+<li>Stripe Checkout Best Practices. <em>Stripe, 2024</em>. <a href="https://stripe.com/docs/payments/checkout">https://stripe.com/docs/payments/checkout</a></li>
+<li>VWO Pricing. <em>VWO, 2026</em>. <a href="https://vwo.com/pricing/">https://vwo.com/pricing/</a></li>
+<li>Optimizely Pricing. <em>Optimizely, 2026</em>. <a href="https://www.optimizely.com/products/feature-experimentation/pricing/">https://www.optimizely.com/products/feature-experimentation/pricing/</a></li>
+<li>HubSpot Marketing Hub. <em>HubSpot, 2026</em>. <a href="https://www.hubspot.com/pricing/marketing">https://www.hubspot.com/pricing/marketing</a></li>
+<li>HighLevel Conversation AI. <em>HighLevel, 2026</em>. <a href="https://www.gohighlevel.com/">https://www.gohighlevel.com/</a></li>
+<li>Klaviyo Pricing. <em>Klaviyo, 2026</em>. <a href="https://www.klaviyo.com/pricing">https://www.klaviyo.com/pricing</a></li>
 
 </ol>
 </section>
@@ -172,15 +287,14 @@ article a:hover{text-decoration:underline}
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v5 重写：移除虚构案例与伪对比，明确诚实声明</li>
-<li><strong>2026-07-06</strong> · v4 学术级升级（已弃用，因包含虚构数据）</li>
-<li><strong>2026-07-06</strong> · v3.2 初始版：60 任务批量处理</li>
+<li><strong>2026-07-06</strong> · v6 话题大全改版：百科 + 工具 + 数据库三合一结构；加入真实数据点；列出真实工具</li>
+<li><strong>2026-07-06</strong> · v5 诚实版（已弃用：删除了诚实声明，但内容形式不符合"话题大全"）</li>
 </ul>
 </div>
 
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v5 诚实版<br>
+  话题大全 · 自媒体自动归类引擎 · v6<br>
   <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
   <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>

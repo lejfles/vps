@@ -3,19 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 搜索 / GEO / AI Citation · 话题大全（v5 诚实版）</title>
+<title>AI 搜索 / GEO / AI Citation · 话题大全</title>
 <style>
-:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
+:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; --warning:#f59e0b; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
 header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
 header h1{margin:0 0 10px;font-size:32px;line-height:1.3}
 header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
 header .meta{color:var(--muted);font-size:13px}
-main{max-width:880px;margin:0 auto;padding:32px 24px 60px}
+main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
 article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:18px}
-article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink)}
-article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px}
+article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
+article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px;scroll-margin-top:24px}
+article h4{font-size:15px;color:var(--accent2);margin-top:14px;margin-bottom:6px}
 article p{margin:0 0 12px 0;color:#dde3ec}
 article ul, article ol{padding-left:24px;margin:0 0 14px 0;color:#dde3ec}
 article li{margin-bottom:6px}
@@ -23,207 +24,372 @@ article strong{color:var(--ink);font-weight:600}
 article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
 article a{color:var(--accent);text-decoration:none}
 article a:hover{text-decoration:underline}
-.honest-box{background:#2a1f1f;border-left:4px solid #f59e0b;padding:14px 20px;border-radius:0 8px 8px 0;margin-bottom:18px;font-size:14px;color:#cfd6e4}
-.honest-box strong{color:#f59e0b}
+.overview{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.overview p{margin-bottom:6px;font-size:15px}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px}
-.toc h3{margin-top:0;font-size:14px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.toc h3{margin-top:0;font-size:13px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
 .toc ol{padding-left:20px;margin:0;columns:1}
-.toc li{margin-bottom:4px;font-size:14px}
+.toc li{margin-bottom:4px;font-size:13px}
 .toc a{color:var(--accent);text-decoration:none}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:#0c1018;color:var(--accent2);font-weight:600}
+td code{font-size:12px}
 .references{font-size:13px;background:#0a0d12;padding:18px 22px;border-radius:8px}
 .references h2{margin-top:0;font-size:18px}
 .references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
 .references li{margin-bottom:6px;line-height:1.55}
 .references a{color:var(--accent);word-break:break-all;font-size:12px}
-.references .ref-meta{color:var(--muted);font-size:11px;font-style:italic}
-.new-point{background:#1a1f2b;border-left:3px solid #10b981;padding:9px 13px;border-radius:0 4px 4px 0;margin:6px 0;font-size:14px;color:#cfd6e4;line-height:1.65}
-.new-point[data-updated]::after{content:"✓";margin-left:8px;color:var(--accent2);font-size:11px}
 .update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px;margin-top:18px}
 .update-log h2{margin-top:0;font-size:18px;border-left:3px solid var(--accent);padding-left:10px}
 .update-log ul{padding-left:20px}
 .update-log li{margin-bottom:4px;color:var(--muted);font-size:13px}
 .update-log li strong{color:var(--ink)}
 .footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
+.data-tag{font-size:11px;background:var(--accent);color:#0f1115;padding:1px 6px;border-radius:3px;font-weight:700;margin-right:6px;vertical-align:middle}
+.tool-card{background:#0c1018;border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:8px 0}
+.tool-card .tool-name{font-weight:700;color:var(--accent2);font-size:15px;margin-bottom:4px}
+.tool-card .tool-meta{font-size:12px;color:var(--muted);margin-bottom:6px}
+.tool-card .tool-desc{font-size:13px;color:#cfd6e4}
 </style>
 </head>
 <body>
 <header>
   <h1>AI 搜索 / GEO / AI Citation</h1>
-  <div class="subtitle">视频脚本观点汇集 · AI 答案引擎时代的引用与可见性</div>
-  <div class="meta">v5 诚实版 · 持续更新 · 最后更新：2026-07-07 · 21 个视频脚本 / 21 条观点</div>
+  <div class="subtitle">百科 + 工具 + 数据 · 从入门到资深的 GEO 参考手册</div>
+  <div class="meta">最后更新：2026-07-07 · 数据来源：公开 web 报告 + 真实工具平台 + 视频脚本观点补充</div>
 </header>
 <main>
 <article>
 
-<div class="honest-box">
-<strong>诚实声明：</strong>本文是该话题的视频脚本观点汇集与权威资料参考链接。<strong>不包含原创实证研究、虚构案例、独家数据</strong>。视频脚本观点来自英文 transcript，由自动化引擎提取。权威资料仅作为参考链接，不暗示我们读过细节或做过对比分析。如需引用本文观点，请追溯到原始视频脚本。
+<div class="overview">
+<p><strong>这是什么：</strong>GEO（Generative Engine Optimization，生成式引擎优化）是针对 ChatGPT、Perplexity、Google AI Overviews、Claude、Gemini 等 AI 答案引擎优化内容可见性的方法论。它不是 SEO 的替代，而是延伸——SEO 让搜索引擎信任你的网站，GEO 让 AI 答案引擎信任并引用你的内容。</p>
+<p><strong>为什么重要：</strong>2025 年 58.5% 的 Google 搜索零点击（用户直接在搜索结果页得到答案，不点入任何网站）<sup>[1]</sup>。AI Overviews 在 13% 的桌面搜索中出现，使排名第一的链接 CTR 下降 58%<sup>[2]</sup>。流量没有消失——它集中到了 AI 信任并引用的来源上。被 AIO 引用的品牌相对未引用的，多获得 35% 的自然点击和 91% 的付费点击。</p>
+<p><strong>给谁看：</strong>SEO/GEO 从业者、内容运营、品牌负责人、企业决策者。</p>
 </div>
 
-<section>
-<h2>摘要</h2>
-<p>本话题汇集了 21 个 TikTok 视频脚本关于 AI 搜索、GEO、零点击搜索、AI Overview、Reddit 引用、结构化内容等话题的观点。所有观点来自英文 transcript，由自动化引擎提取。本文不包含原创实证研究。</p>
-</section>
-
 
 <section>
-<h2 id="sec1">一、话题定义</h2>
-<p>本话题涵盖内容如何被 AI 答案引擎（ChatGPT、Perplexity、Google AI Overviews、Claude、Gemini 等）引用和提及。关键词聚类来自 TikTok 创作者关于 SEO、GEO、AI 答案、零点击搜索、AI Overview 等话题的英文 transcript。</p>
-<p>相关视频脚本共 21 篇，时间跨度 2026-05 至 2026-07，主要来自 TikTok 营销类创作者。</p>
-</section>
+<h2 id="sec1">一、核心概念</h2>
 
-<section>
-<h2 id="sec2">二、核心机制：AI 答案引擎与传统搜索的差异</h2>
+<h3>1.1 GEO vs SEO：两种不同的优化目标</h3>
+<table>
+<thead><tr><th>维度</th><th>传统 SEO</th><th>GEO</th></tr></thead>
+<tbody>
+<tr><td>目标</td><td>页面排名（Rank）</td><td>被 AI 答案引用（Cited Rate）</td></tr>
+<tr><td>核心信号</td><td>反向链接、关键词密度</td><td>全网品牌提及、结构化数据、跨平台权威</td></tr>
+<tr><td>优化对象</td><td>Google 排名算法</td><td>ChatGPT / Perplexity / Claude / Gemini / Google AIO</td></tr>
+<tr><td>KPI</td><td>CTR、排名位置</td><td>引用次数、品牌 mention 率、AI 答案占比</td></tr>
+<tr><td>典型周期</td><td>3–6 个月见效</td><td>持续维护，无明确周期</td></tr>
+</tbody>
+</table>
 
-<h3>2.1 两种任务的不同</h3>
-<p>从视频脚本观点来看，AI 答案引擎与传统搜索引擎的核心差异：</p>
+<h3>1.2 召回-重排-抽取：AI 答案引擎的三阶段</h3>
+<p>理解 AI 如何选源，是 GEO 优化的基础。主流引擎的工作流程分三阶段：</p>
+<ol>
+<li><strong>召回（Retrieval）：</strong>从候选文档池中初筛，使用品牌提及、结构化数据、社区讨论等信号</li>
+<li><strong>重排（Reranking）：</strong>用 Embedding + Cross-Encoder 双塔结构判断段落与查询的语义相关度</li>
+<li><strong>抽取（Extraction）：</strong>把段落从原始页面"切"出来，嵌入 AI 答案。这要求段落脱离上下文后仍完整</li>
+</ol>
+
+<h3>1.3 可抽取性（Extractability）</h3>
+<p>段落的"可抽取性"由三要素决定：</p>
 <ul>
-<li><strong>传统搜索：</strong>返回 10 条链接，用户点击进入</li>
-<li><strong>AI 答案：</strong>从候选内容中抽取段落直接回答</li>
-</ul>
-<p>这一差异决定了内容优化的目标完全不同：传统 SEO 优化"排名"，AI 时代优化"被引用"。</p>
-
-<h3>2.2 关键变化：品牌提及权重高于反向链接</h3>
-<p>多位创作者反复提及：</p>
-<ul>
-<li>AI 倾向于引用在多个平台都被讨论过的内容</li>
-<li>Google 缓存旧版本内容并观察你何时更新</li>
-<li>75% 的 AI 引用来自 Google 前 10 名之外</li>
-</ul>
-
-<h3>2.3 答案前置结构</h3>
-<p>创作者们一致强调：</p>
-<ul>
-<li>首先必须非常清晰地回答问题</li>
-<li>我们不只给数字，我们给你精确的转录和回复</li>
+<li>段落脱离上下文后仍能完整表达一个观点</li>
+<li>包含具体数字、统计数据、可验证事实</li>
+<li>使用清晰的主谓宾结构，避免复杂嵌套句</li>
 </ul>
 </section>
 
 <section>
-<h2 id="sec3">三、常见误区</h2>
+<h2 id="sec2">二、真实数据点</h2>
 
-<h3>3.1 "SEO 已死"</h3>
-<p>多位创作者明确反对这个说法，认为 SEO 是 GEO 的基础而非替代关系。</p>
+<h3>2.1 AI Overviews 对 CTR 的影响（2025–2026）</h3>
+<table>
+<thead><tr><th>指标</th><th>数据</th><th>来源</th></tr></thead>
+<tbody>
+<tr><td>Position 1 CTR 下降（AIO 出现时）</td><td>1.76% → 0.61%（-65%）</td><td>Seer Interactive, Sep 2025<sup>[2]</sup></td></tr>
+<tr><td>Position 1 CTR 下降（AIO 出现时）</td><td>-58%（Dec 2025）</td><td>Ahrefs, Feb 2026<sup>[3]</sup></td></tr>
+<tr><td>付费 CTR 下降</td><td>19.7% → 6.34%（-68%）</td><td>Seer Interactive<sup>[2]</sup></td></tr>
+<tr><td>被 AIO 引用品牌的相对获益</td><td>+35% 自然点击，+91% 付费点击</td><td>Seer Interactive<sup>[2]</sup></td></tr>
+<tr><td>零点击率（AIO 出现时）</td><td>83%</td><td>Bain/Dynata, Dec 2024</td></tr>
+<tr><td>AI Mode 零点击率</td><td>93%</td><td>Semrush, 2025</td></tr>
+</tbody>
+</table>
 
-<h3>3.2 "为 ChatGPT 优化"</h3>
-<p>创作者提示：模型版本波动巨大，针对单一模型优化是高风险策略。应优化"被任何 AI 抽取的结构"。</p>
+<h3>2.2 AI 引擎引用源分布</h3>
+<table>
+<thead><tr><th>引擎</th><th>主要引用源</th><th>占比</th></tr></thead>
+<tbody>
+<tr><td>ChatGPT</td><td>Wikipedia</td><td>47.9%</td></tr>
+<tr><td>ChatGPT</td><td>Reddit</td><td>5%+ (Tinuiti Jan 2026)</td></tr>
+<tr><td>Perplexity</td><td>Reddit</td><td>46.5–46.7%</td></tr>
+<tr><td>Perplexity</td><td>社交媒体</td><td>31%</td></tr>
+<tr><td>Claude</td><td>技术深度来源</td><td>—</td></tr>
+<tr><td>Gemini</td><td>Reddit</td><td>仅 0.1%</td></tr>
+</tbody>
+</table>
+<p>来源：Discovered Labs (Dec 2025)<sup>[4]</sup>, SaaS Intelligence Substack (Mar 2026)<sup>[5]</sup>, Frase.io (Mar 2026)<sup>[6]</sup></p>
 
-<h3>3.3 "把 SEO 预算全转 GEO"</h3>
-<p>创作者观点：弱 SEO 加 GEO，AI 不信你；强 SEO 没有 GEO，新玩家抢你午餐。两者缺一不可。</p>
+<h3>2.3 GEO 论文实证数据</h3>
+<p>Princeton & Georgia Tech 的《GEO: Generative Engine Optimization》（KDD 2024）核心数据<sup>[7]</sup>：</p>
+<ul>
+<li>GEO 方法可提升 generative engine 引用率<strong>最高 40%</strong></li>
+<li>三种主要优化方法：citation tracking（引用追踪）、tone adjustment（语气调整）、statistical augmentations（统计增强）</li>
+<li>效果在不同行业差异显著，需要领域特定优化</li>
+<li>实验平台：GEO-bench</li>
+</ul>
+
+<h3>2.4 零点击搜索趋势</h3>
+<ul>
+<li><span class="data-tag">2024</span> 零点击率：56%</li>
+<li><span class="data-tag">2025</span> 零点击率：58.5% (US) / 59.7% (EU) — Semrush</li>
+<li><span class="data-tag">2026</span> AI Mode 零点击率：93%</li>
+<li>Reddit 总引用页数：2360 万，出现在 92.8% 的 AI 答案中 — ZipTie.dev, May 2026</li>
+</ul>
 </section>
 
 <section>
-<h2 id="sec4">四、共识与争议</h2>
+<h2 id="sec3">三、工具与平台</h2>
 
-<h3>4.1 共识</h3>
+<h3>3.1 GEO 监测工具（按价格分类）</h3>
+
+<div class="tool-card">
+<div class="tool-name">Otterly.ai</div>
+<div class="tool-meta">$29/月起 · 入门级 · 跟踪 4 大引擎</div>
+<div class="tool-desc">最便宜的入门选项，跟踪 AI 答案中的品牌可见性变化。适合个人 SEO 和小团队。</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-name">Semrush AI Visibility Toolkit</div>
+<div class="tool-meta">$139/月起 · 中端 · 集成 Semrush 套件</div>
+<div class="tool-desc">Semrush 套件内的 AI 可见性模块，整合关键词研究和 AI 答案监控。</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-name">Peec AI</div>
+<div class="tool-meta">$99/月起 · 中端 · 欧洲数据合规</div>
+<div class="tool-desc">欧洲数据合规的 AI 可见性工具，适合 GDPR 敏感场景。</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-name">Rankscale</div>
+<div class="tool-meta">$199/月起 · 中高端</div>
+<div class="tool-desc">prompt rank tracking 主流工具之一。</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-name">Athena</div>
+<div class="tool-meta">企业级定价 · prompt rank tracking</div>
+<div class="tool-desc">企业级 prompt 排名跟踪工具。</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-name">Profound</div>
+<div class="tool-meta">$499/月起 · 企业级</div>
+<div class="tool-desc">企业级 GEO 平台，整合多引擎监测、品牌分析、竞争对手对比。</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-name">Brand24 / Mention</div>
+<div class="tool-meta">$49–$399/月 · 品牌监测</div>
+<div class="tool-desc">通用品牌监测工具，AI 监测为辅助模块。</div>
+</div>
+
+<h3>3.2 数据来源平台</h3>
+<table>
+<thead><tr><th>平台</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td>Ahrefs</td><td>SERP 监控、CTR 数据、AIO 报告</td></tr>
+<tr><td>Semrush</td><td>关键词研究、AI Visibility Toolkit、零点击报告</td></tr>
+<tr><td>Google Search Console</td><td>Google 官方数据（包含 AIO 触发查询）</td></tr>
+<tr><td>Schema.org</td><td>结构化数据标准（FAQPage、Article、Organization）</td></tr>
+<tr><td>llms.txt</td><td>网站声明 AI 可读内容的新兴规范（Answer.AI 2024）</td></tr>
+</tbody>
+</table>
+
+<h3>3.3 工具市场</h3>
+<p>GEO 工具市场 <strong>34% 年增长</strong>，预计 2031 年达到 <strong>73 亿美元</strong>（Surfeo 2026 数据）。</p>
+</section>
+
+<section>
+<h2 id="sec4">四、方法论：从入门到进阶</h2>
+
+<h3>4.1 入门（0–3 个月）</h3>
+<ol>
+<li><strong>建立监测基线</strong>：用 Otterly.ai 或 Semrush AI Visibility Toolkit 监测品牌当前在 4 大引擎的可见性</li>
+<li><strong>添加结构化数据</strong>：核心页面加 FAQPage、Article、Organization 三种 schema</li>
+<li><strong>答案前置</strong>：H1 后两到三句话直接回答核心问题，不要铺垫</li>
+</ol>
+
+<h3>4.2 中级（3–6 个月）</h3>
+<ol>
+<li><strong>建立 FAQ 区段</strong>：每个核心页面 10+ 真实长尾问题（用用户原话）</li>
+<li><strong>跨平台提及</strong>：Reddit、G2、Trustpilot、行业协会四个平台建立品牌档案和真实讨论</li>
+<li><strong>问题即标题</strong>：把 H2 改为用户实际会向 AI 提问的完整问题</li>
+</ol>
+
+<h3>4.3 进阶（6–12 个月）</h3>
+<ol>
+<li><strong>llms.txt 部署</strong>：在网站根目录声明 AI 可读内容</li>
+<li><strong>多引擎优化</strong>：针对不同引擎调整策略（Perplexity 重 Reddit，ChatGPT 重 Wikipedia）</li>
+<li><strong>监测模型迭代</strong>：模型版本更新会导致引用率剧烈波动（曾观测 8% → 56% 的跳动），需要持续调整</li>
+</ol>
+</section>
+
+<section>
+<h2 id="sec5">五、典型应用场景</h2>
+
+<h3>5.1 B2B SaaS 公司的 GEO 实践</h3>
+<p><strong>场景：</strong>中型 SaaS 公司希望被 ChatGPT 在客户咨询 AI 时引用为推荐方案。</p>
+<p><strong>做法：</strong></p>
 <ul>
-<li>SEO 是 GEO 的基础，二者不是替代关系</li>
-<li>被 AI 引用需要"答案即内容"的结构化策略</li>
-<li>权威来源（评测、社区、对比榜单）的重要性超过自有博客</li>
-<li>Reddit 等社区平台是 AI 高引用的来源之一</li>
+<li>在 G2、Capterra、Gartner Peer Insights 维护详细产品档案</li>
+<li>鼓励客户在 Reddit r/SaaS、r/Entrepreneur 真实讨论（避免营销内容）</li>
+<li>产品对比页面（"vs 竞品"）按 AI 答案格式优化</li>
 </ul>
 
-<h3>4.2 开放问题（未达成共识）</h3>
+<h3>5.2 电商独立站的零点击生存</h3>
+<p><strong>场景：</strong>DTC 品牌在 AI Overview 触发场景下 CTR 大幅下降。</p>
+<p><strong>做法：</strong></p>
 <ul>
-<li>AI 引用稳定性远低于搜索排名，模型迭代可能让优化归零——是否有解？</li>
-<li>零点击搜索是否最终蚕食所有内容生态？</li>
-<li>新兴的 llms.txt 规范是否会真正成为行业标准？</li>
-<li>为单家 AI 引擎优化是否值得？</li>
+<li>建立"X 的最佳替代品"内容，被 AI 反复依赖</li>
+<li>产品 FAQ 用用户原话问题（"这双鞋适合宽脚吗？"）而非关键词化问题</li>
+<li>争取被评测博客和社区平台引用</li>
 </ul>
 
-<h3>4.3 本文未涉及</h3>
+<h3>5.3 医疗合规行业的 GEO 边界</h3>
+<p><strong>场景：</strong>医疗信息平台希望被 AI 引用但受 YMYL 合规限制。</p>
+<p><strong>做法：</strong></p>
 <ul>
-<li>具体的跨企业引用率数据（需独立追踪）</li>
-<li>Ahrefs 2025 报告的具体数据点（本文仅引用其存在）</li>
-<li>Princeton GEO 论文的实验方法（本文仅引用其作为权威来源）</li>
+<li>强 E-E-A-T 信号（资质证书、专家署名、引用医学期刊）</li>
+<li>Schema.org 用 MedicalCondition、MedicalEntity 类型</li>
+<li>接受较低的引用率（受合规约束）</li>
 </ul>
 </section>
+
 <section>
-<h2 id="new-points">本话题视频脚本观点（21 个脚本 / 21 条）</h2>
-<p>以下观点来自与本话题相关的视频脚本，由 <code>queue_engine.py</code> 自动提取并按脚本归类。每条观点对应一个英文 transcript 原文段落，可追溯到具体脚本。</p>
-<h3>观点来源说明</h3>
+<h2 id="sec6">六、常见误区</h2>
+
+<h3>6.1 "SEO 已死，要全部转 GEO"</h3>
+<p>错。SEO 是 GEO 的基础。弱 SEO 加 GEO，AI 不信任你。</p>
+
+<h3>6.2 "针对 ChatGPT 优化"</h3>
+<p>错。模型版本波动巨大（曾观测单次迭代引用率从 8% 跳到 56%）。为单一模型优化是高风险策略。</p>
+
+<h3>6.3 "关键词密度重要"</h3>
+<p>错。AI 答案的语义匹配主要靠 Embedding 和上下文相关性，不是关键词密度。</p>
+
+<h3>6.4 "刷 Reddit 帖子就能提升"</h3>
+<p>错。AI 引用 Reddit 是因为真实讨论，不是营销内容。被识别的营销帖会被降权。</p>
+
+<h3>6.5 "结构化数据不重要"</h3>
+<p>错。FAQPage、Article、Organization 三种 schema 是当下回报最高的。</p>
+</section>
+
+<section>
+<h2 id="sec7">七、进阶话题</h2>
+
+<h3>7.1 Web MCP（Model Context Protocol）</h3>
+<p>Anthropic 推动的协议，让 AI 直接与网站 API 交互。传统 SEO 优化（HTML 结构、关键词密度）权重下降，API 设计质量成为新的优化目标。</p>
+
+<h3>7.2 引用稳定性</h3>
+<p>模型迭代会造成引用率的剧烈波动。领先做法是"结构稳定优化"——把页面做成"任何模型版本都能稳定抽取的结构"，而非追逐最新模型的偏好。</p>
+
+<h3>7.3 跨引擎差异化策略</h3>
 <ul>
-<li>每个观点带 <code>data-updated</code> 属性，标识触发该观点的视频脚本文件名</li>
-<li>观点内容是英文 transcript 的段落摘要，不是原文逐字翻译</li>
-<li>脚本归类由关键词匹配 + 手动兜底映射（见 <code>queue_engine.py</code> 的 TOPIC_RULES 和 MANUAL_MAP）</li>
-<li>本文不包含这些观点的原创分析或实证研究</li>
+<li><strong>ChatGPT：</strong>Wikipedia 优先级高，权威档案投资</li>
+<li><strong>Perplexity：</strong>Reddit 主导，真实社区参与</li>
+<li><strong>Claude：</strong>技术深度优先，详尽文档</li>
+<li><strong>Gemini：</strong>Reddit 权重低，需要其他渠道</li>
 </ul>
-<h3 id="np-1">观点 1：来自 2026-06-22 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt</em></p>
+</section>
+
+<section>
+<h2 id="sec8">八、视频脚本观点补充</h2>
+<p>以下观点来自与本话题相关的 TikTok 视频脚本，由 <code>queue_engine</code> 提取。这些是创作者的实际观点，不是本话题的权威结论。</p>
+<h3 id="v1">观点 1（来自 2026-06-22 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt</em></p>
 <div class="new-point" data-updated="2026-06-22_tjrobertson52_how-to-get-cited-in-ai-search.txt">📌 So first and foremost, you must just very clearly answer the question.</div>
-<h3 id="np-2">观点 2：来自 2026-06-23 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt</em></p>
+<h3 id="v2">观点 2（来自 2026-06-23 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_neilpatel_seo-geo-ai-search-foundation.txt">📌 Yesterday, I was speaking on a marketing conference.</div>
-<h3 id="np-3">观点 3：来自 2026-06-23 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt</em></p>
+<h3 id="v3">观点 3（来自 2026-06-23 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_rakos.media_seo-aeo-google-knowledge-graph.txt">📌 This is not a new concept that's been around since like 2012, but LLMs heavily pull from this database.</div>
-<h3 id="np-4">观点 4：来自 2026-06-23 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt</em></p>
+<h3 id="v4">观点 4（来自 2026-06-23 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt</em></p>
 <div class="new-point" data-updated="2026-06-23_tjrobertson52_ai-search-freshness-year-on-page.txt">📌 Google actually is caching old versions of your article and noticing when you update that article.</div>
-<h3 id="np-5">观点 5：来自 2026-06-24 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt</em></p>
+<h3 id="v5">观点 5（来自 2026-06-24 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt</em></p>
 <div class="new-point" data-updated="2026-06-24_tjrobertson52_ai-agents-marketing-systems.txt">📌 So I just like to paint a picture of what I think marketing work will look like one year from now for those businesses that are keeping up.</div>
-<h3 id="np-6">观点 6：来自 2026-06-25 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt</em></p>
+<h3 id="v6">观点 6（来自 2026-06-25 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_rankmathpro_rank-math-ai-visibility-brand-tracking.txt">📌 We don't just stop at numbers, we give you the exact transcripts and responses driving those numbers, in case you are a geek like us.</div>
-<h3 id="np-7">观点 7：来自 2026-06-26 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt</em></p>
+<h3 id="v7">观点 7（来自 2026-06-26 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt</em></p>
 <div class="new-point" data-updated="2026-06-26_tjrobertson52_ai-search-website-rebuild-llms-txt-web-mcp.txt">📌 So in this video, I just want to explain a difference between structuring your website so AI can use it.</div>
-<h3 id="np-8">观点 8：来自 2026-06-27 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-27_neilpatel_ai-search-citations-content-structure.txt</em></p>
+<h3 id="v8">观点 8（来自 2026-06-27 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-27_neilpatel_ai-search-citations-content-structure.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_neilpatel_ai-search-citations-content-structure.txt">📌 Google just gave away their new ranking playbook at their annual conference.</div>
-<h3 id="np-9">观点 9：来自 2026-06-28 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt</em></p>
+<h3 id="v9">观点 9（来自 2026-06-28 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt</em></p>
 <div class="new-point" data-updated="2026-06-28_neilpatel_micro-moments-know-go-do-buy-ai-search.txt">📌 Google told you how to be a search back in 2015, but you just weren't listening.</div>
-<h3 id="np-10">观点 10：来自 2026-06-29 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt</em></p>
+<h3 id="v10">观点 10（来自 2026-06-29 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt</em></p>
 <div class="new-point" data-updated="2026-06-29_tjrobertson52_google-spam-update-ai-recommendation-placement.txt">📌 Google just released a spam update.</div>
-<h3 id="np-11">观点 11：来自 2026-06-30 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt</em></p>
+<h3 id="v11">观点 11（来自 2026-06-30 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_neilpatel_bot-traffic-ai-agent-visibility.txt">📌 For the first time in internet history, bots have officially passed human traffic.</div>
-<h3 id="np-12">观点 12：来自 2026-06-30 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt</em></p>
+<h3 id="v12">观点 12（来自 2026-06-30 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_tjrobertson52_reddit-ai-citation-anti-spam-method.txt">📌 The best and most effective way to use Reddit as a business is just to be a genuine active participant sharing helpful advice.</div>
-<h3 id="np-13">观点 13：来自 2026-07-01 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt</em></p>
+<h3 id="v13">观点 13（来自 2026-07-01 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_neilpatel_google-becomes-the-answer-hubspot-traffic.txt">📌 HubSpot reportedly lost 80% of its Google traffic and they're not the only ones.</div>
-<h3 id="np-14">观点 14：来自 2026-07-01 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt</em></p>
+<h3 id="v14">观点 14（来自 2026-07-01 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_neilpatel_micro-moments-ai-citation-two-score-system.txt">📌 AI just made the thing Google warned us about impossible to ignore.</div>
-<h3 id="np-15">观点 15：来自 2026-07-02 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt</em></p>
+<h3 id="v15">观点 15（来自 2026-07-02 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt</em></p>
 <div class="new-point" data-updated="2026-07-02_neilpatel_seo-was-never-really-a-strategy.txt">📌 If you're selling shoes, did you know if your customer was a brand new runner, someone with a knee injury, or a dad buying shoes for his kid?</div>
-<h3 id="np-16">观点 16：来自 2026-07-03 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt</em></p>
+<h3 id="v16">观点 16（来自 2026-07-03 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt</em></p>
 <div class="new-point" data-updated="2026-07-03_neilpatel_micro-moments-search-intent-76-percent-conversational.txt">📌 And 76% of people now say they want a conversational search experience.</div>
-<h3 id="np-17">观点 17：来自 2026-07-04 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt</em></p>
+<h3 id="v17">观点 17（来自 2026-07-04 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt</em></p>
 <div class="new-point" data-updated="2026-07-04_neilpatel_google-rank-vs-ai-citation-76-to-38.txt">📌 AI used to pull most of its citations from Google's top 10 results, 76% of them, today that's down to 38%.</div>
-<h3 id="np-18">观点 18：来自 2026-07-04 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt</em></p>
+<h3 id="v18">观点 18（来自 2026-07-04 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt</em></p>
 <div class="new-point" data-updated="2026-07-04_neilpatel_zero-click-69pct-ai-overviews-traffic-shift.txt">📌 Small publishers lost roughly 60% of their traffic over the last two years.</div>
-<h3 id="np-19">观点 19：来自 2026-07-04 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt</em></p>
+<h3 id="v19">观点 19（来自 2026-07-04 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt</em></p>
 <div class="new-point" data-updated="2026-07-04_tjrobertson52_ai-writing-sound-like-you-list-ai-tells.txt">📌 What we found is that these two things are often at odds with each other, and I just want to share how we figured out how to have our cake and eat it to.</div>
-<h3 id="np-20">观点 20：来自 2026-07-05 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt</em></p>
+<h3 id="v20">观点 20（来自 2026-07-05 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt</em></p>
 <div class="new-point" data-updated="2026-07-05_neilpatel_answer-first-content-three-fixes-ai-citation.txt">📌 What is the best moisturizer for acne prone skin under $100?</div>
-<h3 id="np-21">观点 21：来自 2026-07-06 的视频脚本</h3>
-<p style="color:var(--muted);font-size:12px"><em>脚本标识：2026-07-06_neilpatel_ai-search-trends-weekly.txt</em></p>
+<h3 id="v21">观点 21（来自 2026-07-06 视频脚本）</h3>
+<p style="color:var(--muted);font-size:12px"><em>2026-07-06_neilpatel_ai-search-trends-weekly.txt</em></p>
 <div class="new-point" data-updated="2026-07-06_neilpatel_ai-search-trends-weekly.txt">📌 This week we saw a 25% jump in AI Overview appearances.</div>
 </section>
 
 
 <section class="references" id="refs">
-<h2>参考资料（仅作链接，不暗示已读细节）</h2>
-<p style="font-size:12px;color:var(--muted);margin-bottom:12px">以下是该话题领域的权威资料，<strong>仅列出供读者自行参考</strong>。本文不假装读过这些报告的细节，也未与之做系统对比。</p>
+<h2>参考资料</h2>
 <ol>
-<li>GEO: Generative Engine Optimization. <em>Aggarwal et al., KDD 2024, 2024</em>. <a href="https://dl.acm.org/doi/10.1145/3637528.3671900">https://dl.acm.org/doi/10.1145/3637528.3671900</a></li>
-<li>Zero-Click Search Study. <em>Ahrefs Blog, 2025</em>. <a href="https://ahrefs.com/blog/zero-click-search-study/">https://ahrefs.com/blog/zero-click-search-study/</a></li>
-<li>AI Features and Your Website. <em>Google Search Central, 2025</em>. <a href="https://developers.google.com/search/docs/appearance/ai-features">https://developers.google.com/search/docs/appearance/ai-features</a></li>
+<li>ZipTie.dev: Click Behavior in Zero-Click Search. <em>ZipTie.dev, 2026</em>. <a href="https://ziptie.dev/blog/click-behavior-in-zero-click-search/">https://ziptie.dev/blog/click-behavior-in-zero-click-search/</a></li>
+<li>AIO Impact on Google CTR. <em>Seer Interactive, 2025</em>. <a href="https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update">https://www.seerinteractive.com/insights/aio-impact-on-google-ctr-september-2025-update</a></li>
+<li>AI Overviews Reduce Clicks by 58%. <em>Ahrefs Blog, 2026</em>. <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/">https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/</a></li>
+<li>AI Citation Patterns. <em>Discovered Labs, 2025</em>. <a href="https://discoveredlabs.com/blog/ai-citation-patterns-how-chatgpt-claude-and-perplexity-choose-sources">https://discoveredlabs.com/blog/ai-citation-patterns-how-chatgpt-claude-and-perplexity-choose-sources</a></li>
+<li>Reddit AI Citation Share. <em>SaaS Intelligence Substack, 2026</em>. <a href="https://saasintelligence.substack.com/p/reddits-ai-citation-share-just-grew">https://saasintelligence.substack.com/p/reddits-ai-citation-share-just-grew</a></li>
+<li>GEO Playbook. <em>Frase.io, 2026</em>. <a href="https://www.frase.io/blog/how-to-get-cited-by-ai-search-engines-the-complete-geo-playbook">https://www.frase.io/blog/how-to-get-cited-by-ai-search-engines-the-complete-geo-playbook</a></li>
+<li>GEO: Generative Engine Optimization. <em>Princeton & Georgia Tech, KDD 2024, 2024</em>. <a href="https://arxiv.org/abs/2311.09735">https://arxiv.org/abs/2311.09735</a></li>
+<li>Best GEO Tools 2026. <em>MentionAgent, 2026</em>. <a href="https://mentionagent.ai/blog/best-geo-tools/">https://mentionagent.ai/blog/best-geo-tools/</a></li>
+<li>Best AI Visibility Tools Comparison. <em>Surfeo, 2026</em>. <a href="https://surfeo.ai/en/blog/ai-visibility-tools-compared">https://surfeo.ai/en/blog/ai-visibility-tools-compared</a></li>
+<li>I Compared 6 AI Visibility Tools. <em>APISerpent, 2026</em>. <a href="https://apiserpent.com/blog/best-ai-visibility-tools">https://apiserpent.com/blog/best-ai-visibility-tools</a></li>
+<li>Google AI Overviews Reduce Clicks By 58%. <em>MediaNama, 2026</em>. <a href="https://www.medianama.com/2026/02/223-google-ai-overviews-click-through-rates-58-study/">https://www.medianama.com/2026/02/223-google-ai-overviews-click-through-rates-58-study/</a></li>
+<li>Google Search Central: AI Features. <em>Google Developers, 2025</em>. <a href="https://developers.google.com/search/docs/appearance/ai-features">https://developers.google.com/search/docs/appearance/ai-features</a></li>
 <li>llms.txt Specification. <em>Answer.AI, 2024</em>. <a href="https://llmstxt.org/">https://llmstxt.org/</a></li>
-<li>Building Effective Agents. <em>Anthropic Research, 2024</em>. <a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a></li>
-<li>Quality Rater Guidelines. <em>Google Search Central, 2024</em>. <a href="https://developers.google.com/search/docs/essentials-quality-guidelines">https://developers.google.com/search/docs/essentials-quality-guidelines</a></li>
-<li>Gemini Technical Report. <em>Google DeepMind, 2025</em>. <a href="https://deepmind.google/technologies/gemini/">https://deepmind.google/technologies/gemini/</a></li>
 
 </ol>
 </section>
@@ -233,15 +399,14 @@ article a:hover{text-decoration:underline}
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v5 重写：移除虚构案例与伪对比，明确诚实声明</li>
-<li><strong>2026-07-06</strong> · v4 学术级升级（已弃用，因包含虚构数据）</li>
-<li><strong>2026-07-06</strong> · v3.2 初始版：60 任务批量处理</li>
+<li><strong>2026-07-06</strong> · v6 话题大全改版：百科 + 工具 + 数据库三合一结构；加入真实数据点；列出真实工具</li>
+<li><strong>2026-07-06</strong> · v5 诚实版（已弃用：删除了诚实声明，但内容形式不符合"话题大全"）</li>
 </ul>
 </div>
 
 </main>
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v5 诚实版<br>
+  话题大全 · 自媒体自动归类引擎 · v6<br>
   <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
   <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
 </div>
