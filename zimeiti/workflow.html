@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zimeiti 工作流 · v3.2</title>
+<style>
+:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; }
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;padding:20px}
+.container{max-width:1280px;margin:0 auto}
+header{padding:24px 0;border-bottom:1px solid var(--line);margin-bottom:24px}
+header h1{margin:0 0 8px;font-size:28px}
+header .meta{color:var(--muted);font-size:13px}
+.diagram-wrap{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:24px;overflow-x:auto}
+.diagram-wrap svg{max-width:100%;height:auto}
+.timeline{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:20px}
+.timeline h2{margin-top:0;font-size:20px;color:var(--accent)}
+.timeline-grid{display:grid;grid-template-columns:repeat(24,1fr);gap:2px;margin-top:12px;font-size:11px}
+.timeline-cell{padding:6px 2px;text-align:center;border-radius:3px;font-family:monospace}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--muted)}
+.legend-item{display:flex;align-items:center;gap:6px}
+.legend-box{width:14px;height:14px;border-radius:3px}
+table{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--panel);color:var(--accent)}
+h2{color:var(--accent);border-left:3px solid var(--accent);padding-left:10px}
+code{background:#0a0d12;color:#cfd6e4;padding:2px 6px;border-radius:4px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>zimeiti 自动归类工作流 · v3.2</h1>
+  <div class="meta">从视频脚本到公开话题文章 · 分层时序自动运行 · 最后更新 2026-07-06</div>
+</header>
+
+<div class="diagram-wrap">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" style="background:#0f1115;font-family:sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5b8def"/>
+    </marker>
+    <linearGradient id="box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2030"/>
+      <stop offset="1" stop-color="#10141c"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a3a2a"/>
+      <stop offset="1" stop-color="#0e1f17"/>
+    </linearGradient>
+    <linearGradient id="highlight2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a1a"/>
+      <stop offset="1" stop-color="#1f170e"/>
+    </linearGradient>
+  </defs>
+
+  <text x="600" y="40" text-anchor="middle" fill="#e7ecf3" font-size="28" font-weight="700">zimeiti 自动归类工作流 · v3.2</text>
+  <text x="600" y="68" text-anchor="middle" fill="#9aa4b2" font-size="14">从视频脚本到公开话题文章 · 分层时序自动运行</text>
+
+  <!-- Step 1: Data Source -->
+  <rect x="100" y="110" width="1000" height="100" rx="8" fill="url(#box)" stroke="#222a36"/>
+  <text x="120" y="140" fill="#10b981" font-size="18" font-weight="700">① 数据源</text>
+  <text x="120" y="165" fill="#cfd6e4" font-size="13" font-family="monospace">~/zimeiti_tiktok_monitor/outputs/2026-*.txt</text>
+  <text x="120" y="185" fill="#9aa4b2" font-size="12">82 个视频脚本（每天 PT 04:00 / 16:00 由上游 pipeline 写入）</text>
+  <text x="120" y="202" fill="#9aa4b2" font-size="12" font-family="monospace">+ work/*_transcript_clean.txt （英文清洁稿，71 个）</text>
+
+  <line x1="600" y1="210" x2="600" y2="240" stroke="#5b8def" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="610" y="232" fill="#9aa4b2" font-size="11">CST 19:00 / 07:00 (PT 04:00 / 16:00)</text>
+
+  <!-- Step 2: Scan Engine -->
+  <rect x="100" y="250" width="1000" height="180" rx="8" fill="url(#highlight)" stroke="#10b981" stroke-width="2"/>
+  <text x="120" y="280" fill="#10b981" font-size="18" font-weight="700">② queue_engine.py scan （数据采集）</text>
+  <text x="120" y="305" fill="#cfd6e4" font-size="13">1. glob outputs/*.txt  2. SHA256 hash 去重  3. video ID 关联 transcript</text>
+  <text x="120" y="325" fill="#cfd6e4" font-size="13">4. 关键词分类（多归属）  5. 提取新观点  6. 写入 queue.json</text>
+  <text x="120" y="348" fill="#9aa4b2" font-size="12">结果判定：</text>
+  <text x="140" y="365" fill="#5b8def" font-size="12">• 命中现有话题 + 新观点  → update_topic (medium priority)</text>
+  <text x="140" y="382" fill="#5b8def" font-size="12">• 未匹配任何话题         → new_topic (HIGH priority)</text>
+  <text x="140" y="399" fill="#9aa4b2" font-size="12">• 命中现有话题 + 无新观点  → 跳过</text>
+  <text x="120" y="418" fill="#ff6b6b" font-size="12" font-weight="600">⚠ 此阶段不修改任何 HTML，只入队</text>
+
+  <line x1="600" y1="430" x2="600" y2="460" stroke="#5b8def" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 3: Queue -->
+  <rect x="200" y="470" width="800" height="130" rx="8" fill="url(#box)" stroke="#222a36"/>
+  <text x="220" y="500" fill="#5b8def" font-size="18" font-weight="700">③ queue.json （任务队列）</text>
+  <text x="220" y="522" fill="#cfd6e4" font-size="13" font-family="monospace">"pending": [</text>
+  <text x="240" y="540" fill="#9aa4b2" font-size="12" font-family="monospace">{ "task_id": "...", "type": "update_topic|new_topic",</text>
+  <text x="260" y="557" fill="#9aa4b2" font-size="12" font-family="monospace">"topic_id": "...", "new_points": [...], "priority": "high|medium" }</text>
+  <text x="240" y="574" fill="#9aa4b2" font-size="12" font-family="monospace">...</text>
+  <text x="220" y="590" fill="#cfd6e4" font-size="13" font-family="monospace">]</text>
+
+  <line x1="600" y1="600" x2="600" y2="630" stroke="#5b8def" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="610" y="622" fill="#9aa4b2" font-size="11">CST 11:00–23:30 / 30 分钟 + 00:00 (PT 20:00–09:00)</text>
+
+  <!-- Step 4: Apply Engine -->
+  <rect x="100" y="640" width="1000" height="200" rx="8" fill="url(#highlight)" stroke="#10b981" stroke-width="2"/>
+  <text x="120" y="670" fill="#10b981" font-size="18" font-weight="700">④ edit_apply.py apply （编辑写入）</text>
+  <text x="120" y="693" fill="#cfd6e4" font-size="13">1. 从队列取一个 pending（高优先级优先）  2. HTML marker 幂等检查</text>
+  <text x="120" y="713" fill="#cfd6e4" font-size="13">3. 按 type 写入：</text>
+  <text x="140" y="732" fill="#5b8def" font-size="12">• new_topic → 创建 08/09/10... 号 HTML 骨架 + 触发脚本记录</text>
+  <text x="140" y="749" fill="#5b8def" font-size="12">• update_topic → 现有 HTML 的"新观点补充"section 追加 + 更新日志</text>
+  <text x="120" y="770" fill="#cfd6e4" font-size="13">4. 任务标记完成，移出 pending</text>
+  <text x="120" y="790" fill="#9aa4b2" font-size="12" font-family="monospace">topics_html/01-08-xxx.html （8 篇当前）</text>
+  <text x="120" y="807" fill="#9aa4b2" font-size="12" font-family="monospace">index.html （v3.2 索引页）</text>
+  <text x="120" y="826" fill="#ff6b6b" font-size="12" font-weight="600">⚠ 写入用 data-updated 属性 marker 防重复</text>
+
+  <line x1="600" y1="840" x2="600" y2="870" stroke="#5b8def" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="610" y="862" fill="#9aa4b2" font-size="11">CST 09:00 (PT 18:00)</text>
+
+  <!-- Step 5: Sync -->
+  <rect x="200" y="880" width="800" height="110" rx="8" fill="url(#highlight2)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="220" y="910" fill="#f59e0b" font-size="18" font-weight="700">⑤ sync_to_pages.sh</text>
+  <text x="220" y="932" fill="#cfd6e4" font-size="13" font-family="monospace">cd ~/lejfles-vps</text>
+  <text x="220" y="950" fill="#cfd6e4" font-size="13" font-family="monospace">git add zimeiti/ && git commit && git push</text>
+  <text x="220" y="975" fill="#9aa4b2" font-size="12">→ GitHub Pages 1-2 分钟内自动部署</text>
+
+  <line x1="600" y1="990" x2="600" y2="1020" stroke="#5b8def" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Step 6: Public -->
+  <rect x="100" y="1030" width="1000" height="130" rx="8" fill="url(#highlight)" stroke="#10b981" stroke-width="3"/>
+  <text x="120" y="1060" fill="#10b981" font-size="18" font-weight="700">⑥ GitHub Pages 公开发布</text>
+  <text x="120" y="1085" fill="#5b8def" font-size="14" font-family="monospace">https://lejfles.github.io/vps/zimeiti/</text>
+  <text x="120" y="1108" fill="#cfd6e4" font-size="13">├── /                          (索引页 v3.2)</text>
+  <text x="120" y="1126" fill="#cfd6e4" font-size="13">├── /topics_html/01-08-*.html  (8 篇话题文章)</text>
+  <text x="120" y="1144" fill="#cfd6e4" font-size="13">├── /queue_engine.py /edit_apply.py /patch_v3_anchors.py</text>
+
+  <text x="600" y="1210" text-anchor="middle" fill="#9aa4b2" font-size="12">━━━ 三层去重保护 ━━━</text>
+  <text x="600" y="1235" text-anchor="middle" fill="#9aa4b2" font-size="13">① SHA256 hash (processed.json) → 防 scan 重复扫描</text>
+  <text x="600" y="1255" text-anchor="middle" fill="#9aa4b2" font-size="13">② task_id 唯一性 (queue.json) → 防任务重复入队</text>
+  <text x="600" y="1275" text-anchor="middle" fill="#9aa4b2" font-size="13">③ data-updated marker (HTML) → 防 HTML 重复追加</text>
+
+  <text x="600" y="1330" text-anchor="middle" fill="#10b981" font-size="16" font-weight="700">当前状态：8 话题 / 77,553 字 / 60 新观点 / 13 URL HTTP 200</text>
+  <text x="600" y="1360" text-anchor="middle" fill="#9aa4b2" font-size="12">最后更新：2026-07-06 · commit f210cc4 · queue pending=0</text>
+</svg>
+</div>
+
+<div class="timeline">
+<h2>24 小时时序图（CST）</h2>
+<div class="timeline-grid">
+<div class="timeline-cell" style="background:#f59e0b;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">1</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">2</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">3</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">4</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">5</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">6</div><div class="timeline-cell" style="background:#10b981;color:#e7ecf3">scan</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">8</div><div class="timeline-cell" style="background:#f59e0b;color:#e7ecf3">sync</div><div class="timeline-cell" style="background:#1a2030;color:#e7ecf3">10</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#10b981;color:#e7ecf3">scan</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div><div class="timeline-cell" style="background:#5b8def;color:#e7ecf3">edit</div>
+</div>
+<div class="legend">
+  <div class="legend-item"><div class="legend-box" style="background:#10b981"></div>数据采集（PT 04:00 / 16:00 → CST 19:00 / 07:00）</div>
+  <div class="legend-item"><div class="legend-box" style="background:#5b8def"></div>编辑时段（PT 20:00–09:00 → CST 11:00–23:30 + 00:00，每 30 分钟）</div>
+  <div class="legend-item"><div class="legend-box" style="background:#f59e0b"></div>同步 Pages（PT 18:00 → CST 09:00）</div>
+</div>
+</div>
+
+<section>
+<h2>三层去重保护</h2>
+<table>
+<thead><tr><th>层级</th><th>机制</th><th>保护内容</th></tr></thead>
+<tbody>
+<tr><td>① Hash</td><td>SHA256 in <code>.processed.json</code></td><td>防 scan 重复扫描同一脚本</td></tr>
+<tr><td>② Task ID</td><td>唯一 task_id in <code>queue.json</code></td><td>防同一任务重复入队</td></tr>
+<tr><td>③ HTML Marker</td><td><code>data-updated="..."</code> 属性</td><td>防同一脚本的新观点重复追加到 HTML</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>当前状态（2026-07-06）</h2>
+<table>
+<thead><tr><th>项目</th><th>数值</th></tr></thead>
+<tbody>
+<tr><td>话题文章数</td><td>8 篇</td></tr>
+<tr><td>视频脚本支撑</td><td>82 个</td></tr>
+<tr><td>总字数</td><td>77,553 字</td></tr>
+<tr><td>已补充新观点</td><td>60 个 data-updated marker</td></tr>
+<tr><td>GitHub Pages</td><td>13 URL HTTP 200</td></tr>
+<tr><td>Cron 规则</td><td>5 条</td></tr>
+<tr><td>队列状态</td><td>pending=0, completed_today=62</td></tr>
+<tr><td>最新 commit</td><td>f210cc4</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>相关链接</h2>
+<ul>
+<li><a href="../index.html" style="color:var(--accent)">索引页</a></li>
+<li><a href="WORKFLOW_DIAGRAM.md" style="color:var(--accent)">完整文本版流程图（Markdown）</a></li>
+<li><a href="README.md" style="color:var(--accent)">项目 README</a></li>
+<li><a href="TASK_COMPLETION_CHECKLIST.md" style="color:var(--accent)">任务完成 checklist</a></li>
+</ul>
+</section>
+
+</div>
+</body>
+</html>
