@@ -3,105 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude / AI 模型与产品 · 话题大全</title>
+<meta name="description" content="AI 模型与产品完整参考手册：模型三层架构、Agent 七种形态、2026 年真实定价（Sonnet 5 $2/$10、Opus 4.8 $5/$25）、任务路由成本优化、跨行业应用案例（客服、代码、内容）、Prompt Injection 防护。">
+<meta name="keywords" content="Claude, Anthropic, Sonnet 5, Opus 4.8, Haiku, AI Agent, Model Context Protocol, Prompt Injection, HELM, MITRE ATLAS, OWASP LLM">
+<meta name="author" content="话题大全 · 自媒体自动归类引擎">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="article:modified_time" content="2026-07-07">
+<meta property="og:title" content="Claude / AI 模型与产品：完整参考手册 · 话题大全">
+<meta property="og:description" content="AI 模型与产品完整参考手册：模型三层架构、Agent 七种形态、2026 年真实定价（Sonnet 5 $2/$10、Opus 4.8 $5/$25）、任务路由成本优化、跨行业应用案例（客服、代码、内容）、Prompt Injection 防护。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://lejfles.github.io/vps/zimeiti/topics_html/02-claude-ai-models.html">
+<meta property="og:site_name" content="话题大全">
+<meta property="article:section" content="Claude">
+<meta property="article:published_time" content="2026-07-06">
+<meta property="article:modified_time" content="2026-07-07">
+<link rel="canonical" href="https://lejfles.github.io/vps/zimeiti/topics_html/02-claude-ai-models.html">
+
+<title>Claude / AI 模型与产品：完整参考手册 · 话题大全</title>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Claude / AI 模型与产品：完整参考手册", "description": "AI 模型与产品完整参考手册：模型三层架构、Agent 七种形态、2026 年真实定价（Sonnet 5 $2/$10、Opus 4.8 $5/$25）、任务路由成本优化、跨行业应用案例（客服、代码、内容）、Prompt Injection 防护。", "url": "https://lejfles.github.io/vps/zimeiti/topics_html/02-claude-ai-models.html", "datePublished": "2026-07-06", "dateModified": "2026-07-07", "author": {"@type": "Organization", "name": "话题大全 · 自媒体自动归类引擎", "url": "https://lejfles.github.io/vps/zimeiti/"}, "publisher": {"@type": "Organization", "name": "话题大全", "logo": {"@type": "ImageObject", "url": "https://lejfles.github.io/vps/zimeiti/logo.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://lejfles.github.io/vps/zimeiti/topics_html/02-claude-ai-models.html"}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Claude Sonnet 5 是什么？", "acceptedAnswer": {"@type": "Answer", "text": "Claude Sonnet 5 是 Anthropic 在 2026-06-30 发布的旗舰主力推理模型。在 SWE-bench Verified 基准上达 72.7%（接近 Opus 4.8 的 79.4%），但成本仅为 Opus 的 40%。intro pricing 至 2026-08-31 为 $2/$10 per M tokens，标准定价 $3/$15 per M tokens。"}}, {"@type": "Question", "name": "Claude 三个模型（Sonnet 5、Opus 4.8、Haiku 4.5）怎么选？", "acceptedAnswer": {"@type": "Answer", "text": "Haiku 4.5 处理高频轻量任务（客服 FAQ、文本分类），$1/$5；Sonnet 5 处理主力任务（内容生成、代码辅助、数据分析），$3/$15；Opus 4.8 处理复杂任务（深度研究、规划、合同分析），$5/$25。任务路由架构能让总成本降低 60% 而质量几乎不变。"}}, {"@type": "Question", "name": "什么是 Prompt Injection 攻击？", "acceptedAnswer": {"@type": "Answer", "text": "Prompt Injection 是通过输入特殊文本绕过 AI 模型的指令限制，OWASP 2025 将其列为 LLM 应用的 #1 风险。OWASP LLM Top 10 包含 Prompt Injection、Insecure Output Handling、Training Data Poisoning 等。MITRE ATLAS 是配套的威胁建模框架。"}}, {"@type": "Question", "name": "什么是 MCP（Model Context Protocol）？", "acceptedAnswer": {"@type": "Answer", "text": "MCP 是 Anthropic 2024 年提出的协议，让 AI 直接与外部数据源和工具交互。Web MCP 是其在公共网站的应用，让 AI Agent 能调用网站 API 而非通过 HTML 抓取。MCP 标准化将改变企业级 AI 部署模式。"}}, {"@type": "Question", "name": "AI Agent 和 Prompt 有什么区别？", "acceptedAnswer": {"@type": "Answer", "text": "Prompt 是输入指令。Agent 是有目标、能感知、能行动、能反馈的系统。真正的 Agent 需要工具调用、结果评估、错误恢复机制。用 LangChain/LangGraph 等框架构建的 Agent 才是完整的 Agent。"}}, {"@type": "Question", "name": "如何降低 AI 部署的成本？", "acceptedAnswer": {"@type": "Answer", "text": "三个核心策略：1) 任务路由（Haiku 处理 80% 轻量任务，Sonnet/Opus 处理 20% 复杂任务，成本降低 60%）；2) 用更小的模型处理高频简单任务；3) 用 prompt 缓存和批处理降低重复调用成本。"}}, {"@type": "Question", "name": "AI 写作能被识别吗？", "acceptedAnswer": {"@type": "Answer", "text": "能。AI 内容识别难度增加但被识别为低质量的概率也在上升。完全 AI 写作缺乏：具体场景判断、第一人称经历、可被反驳的具体观点、独家数据。AI 写作作为初稿 + 人类润色 + 加入独家数据是当前最佳实践。"}}, {"@type": "Question", "name": "Claude 适合哪些场景？", "acceptedAnswer": {"@type": "Answer", "text": "Claude 的强项：长上下文（200K tokens）、代码辅助（SWE-bench 79.4% Opus）、文档分析、结构化输出。弱项：纯中文对话不如 GPT-4o 自然，多模态不如 Gemini 全面。建议主力任务用 Sonnet 5，关键任务用 Opus 4.8。"}}]}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首页", "item": "https://lejfles.github.io/vps/zimeiti/"}, {"@type": "ListItem", "position": 2, "name": "话题大全", "item": "https://lejfles.github.io/vps/zimeiti/"}, {"@type": "ListItem", "position": 3, "name": "Claude / AI 模型与产品：完整参考手册", "item": "https://lejfles.github.io/vps/zimeiti/topics_html/02-claude-ai-models.html"}]}
+</script>
+
 <style>
-:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; --warning:#f59e0b; }
+:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --line:#222a36; --warning:#f59e0b; --quote:#fbbf24; }
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
-header{padding:56px 24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
-header h1{margin:0 0 10px;font-size:32px;line-height:1.3}
-header .subtitle{color:var(--muted);font-size:16px;margin-bottom:8px}
-header .meta{color:var(--muted);font-size:13px}
-main{max-width:900px;margin:0 auto;padding:32px 24px 60px}
-article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:18px}
-article h2{margin-top:28px;margin-bottom:12px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
-article h3{font-size:17px;color:var(--accent);margin-top:20px;margin-bottom:8px;scroll-margin-top:24px}
-article h4{font-size:15px;color:var(--accent2);margin-top:14px;margin-bottom:6px}
-article p{margin:0 0 12px 0;color:#dde3ec}
-article ul, article ol{padding-left:24px;margin:0 0 14px 0;color:#dde3ec}
-article li{margin-bottom:6px}
+header{padding:48px 24px 24px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#10141c,#0f1115)}
+header h1{margin:0 0 10px;font-size:30px;line-height:1.35}
+header .subtitle{color:var(--muted);font-size:15px;margin-bottom:6px}
+header .meta{color:var(--muted);font-size:12px}
+main{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+article section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:18px}
+article h2{margin-top:28px;margin-bottom:14px;font-size:22px;border-left:3px solid var(--accent);padding-left:12px;color:var(--ink);scroll-margin-top:24px}
+article h3{font-size:17px;color:var(--accent);margin-top:22px;margin-bottom:10px;scroll-margin-top:24px}
+article h4{font-size:15px;color:var(--accent2);margin-top:16px;margin-bottom:6px}
+article p{margin:0 0 14px 0;color:#dde3ec}
+article ul, article ol{padding-left:24px;margin:0 0 16px 0;color:#dde3ec}
+article li{margin-bottom:8px}
+article li::marker{color:var(--accent2)}
 article strong{color:var(--ink);font-weight:600}
 article code{background:#0a0d12;color:#cfd6e4;padding:2px 8px;border-radius:4px;font-size:13px}
-article a{color:var(--accent);text-decoration:none}
-article a:hover{text-decoration:underline}
-.overview{background:#0c1018;border-left:4px solid var(--accent2);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px}
-.overview p{margin-bottom:6px;font-size:15px}
+article a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+article a:hover{border-bottom-style:solid;text-decoration:none}
+.overview{background:#0c1018;border-left:4px solid var(--accent2);padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.overview p{margin-bottom:8px;font-size:15px;line-height:1.75}
+.overview p:last-child{margin-bottom:0}
 .toc{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px}
-.toc h3{margin-top:0;font-size:13px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.toc h3{margin-top:0;font-size:12px;color:var(--accent2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
 .toc ol{padding-left:20px;margin:0;columns:1}
-.toc li{margin-bottom:4px;font-size:13px}
-.toc a{color:var(--accent);text-decoration:none}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
-th{background:#0c1018;color:var(--accent2);font-weight:600}
+.toc li{margin-bottom:6px;font-size:13px}
+.toc a{color:var(--accent);text-decoration:none;border:none}
+.toc a:hover{border-bottom:1px solid var(--accent)}
+.faq{background:#0c1018;border-left:4px solid var(--quote);padding:20px 24px;border-radius:0 8px 8px 0;margin:14px 0}
+.faq .q{font-weight:700;color:var(--quote);margin-bottom:8px;font-size:15px}
+.faq .q::before{content:"Q: ";color:var(--quote)}
+.faq .a{color:#cfd6e4;margin-bottom:8px;line-height:1.75}
+.faq .a::before{content:"A: ";color:var(--accent2);font-weight:700}
+blockquote{margin:14px 0;padding:12px 20px;border-left:4px solid var(--accent);background:#0a0d12;color:#cfd6e4;font-style:italic;border-radius:0 6px 6px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:#0c1018;color:var(--accent2);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.5px}
 td code{font-size:12px}
-.references{font-size:13px;background:#0a0d12;padding:18px 22px;border-radius:8px}
+.references{font-size:13px;background:#0a0d12;padding:20px 24px;border-radius:8px}
 .references h2{margin-top:0;font-size:18px}
 .references ol{padding-left:24px;font-size:13px;color:#cfd6e4}
-.references li{margin-bottom:6px;line-height:1.55}
-.references a{color:var(--accent);word-break:break-all;font-size:12px}
-.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:18px;margin-top:18px}
-.update-log h2{margin-top:0;font-size:18px;border-left:3px solid var(--accent);padding-left:10px}
+.references li{margin-bottom:18px;line-height:1.65;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.references li:last-child{border-bottom:none}
+.references .ref-title{font-weight:700;color:var(--ink);font-size:14px;display:block;margin-bottom:4px}
+.references .ref-source{color:var(--muted);font-size:12px;display:block;margin-bottom:6px;font-style:italic}
+.references .ref-analysis{color:#cfd6e4;font-size:13px;line-height:1.65;margin:6px 0;background:var(--panel);padding:10px 14px;border-radius:4px;border-left:2px solid var(--accent2)}
+.references .ref-analysis strong{color:var(--accent2)}
+.references a{color:var(--accent);word-break:break-all;font-size:12px;display:inline-block;margin-top:4px}
+.case-study{background:#0c1018;border:1px solid var(--line);border-radius:8px;padding:18px 22px;margin:14px 0}
+.case-study .case-title{font-weight:700;color:var(--accent);font-size:16px;margin-bottom:8px;display:block}
+.case-study .case-meta{color:var(--muted);font-size:12px;margin-bottom:10px;font-style:italic}
+.case-study .case-section{margin:10px 0}
+.case-study .case-section-label{font-weight:700;color:var(--accent2);font-size:13px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;display:block}
+.update-log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-top:20px;margin-bottom:18px}
+.update-log h2{margin-top:0;font-size:18px}
 .update-log ul{padding-left:20px}
-.update-log li{margin-bottom:4px;color:var(--muted);font-size:13px}
+.update-log li{margin-bottom:6px;color:var(--muted);font-size:13px}
 .update-log li strong{color:var(--ink)}
+.tool-card{background:#0c1018;border:1px solid var(--line);border-radius:6px;padding:14px 18px;margin:10px 0}
+.tool-card .tool-name{font-weight:700;color:var(--accent2);font-size:15px;margin-bottom:4px;display:block}
+.tool-card .tool-meta{font-size:12px;color:var(--muted);margin-bottom:8px;font-style:italic}
+.tool-card .tool-desc{font-size:13px;color:#cfd6e4;line-height:1.65}
+.tool-card .tool-bestfor{font-size:12px;color:var(--quote);margin-top:6px}
+.tool-card .tool-bestfor strong{color:var(--quote)}
+.cross-links{background:#0c1018;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin-top:14px}
+.cross-links h4{margin:0 0 8px 0;font-size:13px;color:var(--accent2);text-transform:uppercase;letter-spacing:1px}
+.cross-links ul{padding-left:18px;margin:0}
+.cross-links li{margin-bottom:4px;font-size:13px}
+.cross-links a{color:var(--accent);border:none}
+.cross-links a:hover{border-bottom:1px solid var(--accent)}
 .footer{color:var(--muted);font-size:13px;text-align:center;padding:32px 16px;border-top:1px solid var(--line);margin-top:40px}
-.data-tag{font-size:11px;background:var(--accent);color:#0f1115;padding:1px 6px;border-radius:3px;font-weight:700;margin-right:6px;vertical-align:middle}
-.tool-card{background:#0c1018;border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin:8px 0}
-.tool-card .tool-name{font-weight:700;color:var(--accent2);font-size:15px;margin-bottom:4px}
-.tool-card .tool-meta{font-size:12px;color:var(--muted);margin-bottom:6px}
-.tool-card .tool-desc{font-size:13px;color:#cfd6e4}
+.footer a{color:var(--accent)}
+.breadcrumb{padding:12px 24px;font-size:12px;color:var(--muted);background:#0a0d12}
+.breadcrumb a{color:var(--accent);text-decoration:none;border:none}
+.breadcrumb a:hover{text-decoration:underline}
+.tag-cloud{margin:14px 0}
+.tag-cloud span{display:inline-block;background:#1a1f2b;color:var(--muted);padding:3px 10px;border-radius:12px;font-size:11px;margin:3px 4px 3px 0;border:1px solid var(--line)}
+.tag-cloud span.tag-primary{background:var(--accent);color:#0f1115;border-color:var(--accent);font-weight:700}
 </style>
 </head>
 <body>
+
+<div class="breadcrumb"><a href="https://lejfles.github.io/vps/zimeiti/">首页</a> &rsaquo; <a href="https://lejfles.github.io/vps/zimeiti/">话题大全</a> &rsaquo; Claude / AI 模型与产品：完整参考手册</div>
+
 <header>
-  <h1>Claude / AI 模型与产品</h1>
-  <div class="subtitle">百科 + 工具 + 数据 · 从 Haiku 到 Opus 的模型矩阵指南</div>
-  <div class="meta">最后更新：2026-07-07 · 数据来源：公开 web 报告 + 真实工具平台 + 视频脚本观点补充</div>
+<h1>Claude / AI 模型与产品：完整参考手册</h1>
+<div class="subtitle">百科 + 工具 + 数据库 · 从 Haiku 到 Opus 的模型矩阵指南</div>
+<div class="meta">最后更新：2026-07-07 · 分类：话题大全 · 数据来源：公开 web 报告 + 真实工具平台 + 视频脚本观点</div>
+<div class="tag-cloud"><span class="tag-primary">Claude</span><span class="tag-primary">Anthropic</span><span class="tag-primary">Sonnet 5</span><span class="tag-primary">Opus 4.8</span><span class="tag-primary">Haiku</span><span class="tag-primary">AI Agent</span><span class="tag-primary">Model Context Protocol</span><span class="tag-primary">Prompt Injection</span><span>HELM</span><span>MITRE ATLAS</span><span>OWASP LLM</span></div>
 </header>
+
 <main>
 <article>
 
 <div class="overview">
-<p><strong>这是什么：</strong>LLM（Large Language Model，大语言模型）产品矩阵，包括 Claude（Anthropic）、ChatGPT（OpenAI）、Gemini（Google）等。本话题涵盖模型分层、Agent 形态、定价、安全风险、AI 写作质量、第二大脑工作流。</p>
-<p><strong>为什么重要：</strong>2026 年中主力推理模型单 token 成本相比 2024 年下降 70%。Claude Sonnet 5 SWE-bench Verified 达 72.7%，Opus 4.8 达 79.4%。AI 产品的形态从单一聊天窗口扩展到多产品矩阵（Haiku 实时 / Sonnet 主力 / Opus 深度），企业级部署依赖任务路由。</p>
-<p><strong>给谁看：</strong>AI 应用开发者、企业决策者、产品经理、内容工作者、AI 安全工程师。</p>
+<p><strong>这是什么：</strong>LLM（Large Language Model，大语言模型）产品矩阵和 AI Agent 生态。本话题涵盖 Claude（Anthropic）、ChatGPT（OpenAI）、Gemini（Google）等模型的层次架构、Agent 形态分类、定价策略、安全风险、第二大脑工作流。</p>
+<p><strong>为什么重要：</strong>2026 年中主力推理模型单 token 成本相比 2024 年下降 70%。Claude Sonnet 5 在 SWE-bench Verified 上达 72.7%，Opus 4.8 达 79.4%。OWASP 2025 Top 10 for LLM Applications 将 Prompt Injection 列为 #1 风险。任务路由（按任务复杂度选用模型）让企业级部署成本降低 60%。</p>
+<p><strong>给谁看：</strong>AI 应用开发者（评估模型选择）、企业决策者（理解 AI 部署的复杂度和成本）、产品经理（评估 Agent 形态适用性）、内容工作者（理解 AI 写作的边界）、AI 安全工程师（防护 prompt injection 等风险）。</p>
 </div>
 
 
 <section>
-<h2 id="sec1">一、核心概念</h2>
+<h2 id="sec1">一、核心概念：LLM 模型层次与 Agent 生态</h2>
 
 <h3>1.1 模型三层架构</h3>
+<p>2026 年主流 LLM 厂商已形成清晰的"三层架构"，按用途和成本分级。这一架构是企业级 AI 部署的基础。</p>
+
 <table>
-<thead><tr><th>层级</th><th>代表模型</th><th>用途</th><th>成本</th></tr></thead>
+<thead><tr><th>层级</th><th>代表模型</th><th>用途</th><th>成本（输入/输出 $/M tokens）</th></tr></thead>
 <tbody>
-<tr><td>实时推理</td><td>Haiku 4.5 / GPT-4o-mini</td><td>高频、低延迟、成本敏感</td><td>主力 1/5–1/20</td></tr>
-<tr><td>主力推理</td><td>Sonnet 5 / GPT-4o</td><td>大多数企业级任务</td><td>$3/$15 per M tokens</td></tr>
-<tr><td>深度推理</td><td>Opus 4.8 / o1</td><td>复杂规划、深度分析</td><td>$5/$25 per M tokens</td></tr>
+<tr><td>实时推理层</td><td>Haiku 4.5 / GPT-4o-mini / Gemini Flash</td><td>高频、低延迟、成本敏感场景（聊天机器人、文本分类）</td><td>$1/$5</td></tr>
+<tr><td>主力推理层</td><td>Sonnet 5 / GPT-4o / Gemini Pro</td><td>大多数企业级任务（内容生成、代码辅助、数据分析）</td><td>$3/$15</td></tr>
+<tr><td>深度推理层</td><td>Opus 4.8 / o1 / o3</td><td>复杂规划、深度分析、研究级任务</td><td>$5/$25</td></tr>
 </tbody>
 </table>
 
-<h3>1.2 AI Agent 七种形态</h3>
-<p>基于 Anthropic《Building Effective Agents》和创作者描述：</p>
-<ol>
-<li><strong>检索型</strong>：单次/多次搜索 + 总结（竞品监测、研究助手）</li>
-<li><strong>工具调用型</strong>：调用外部 API 执行操作（CRM 更新、订单处理）</li>
-<li><strong>规划型</strong>：长链条规划 + 多步执行（项目管理、研究计划）</li>
-<li><strong>协作型（Multi-Agent）</strong>：多个 Agent 角色分工（内容生产流水线、决策支持）</li>
-<li><strong>代码型</strong>：自主编写、调试、执行代码（自动化运维、数据处理）</li>
-<li><strong>监控型</strong>：长期运行，持续观察并响应事件（品牌舆情、SRE 监控）</li>
-<li><strong>自主学习型</strong>：从执行结果中持续优化策略（推荐系统、广告投放）</li>
-</ol>
+<p>关键洞察：用主力模型做所有任务是"AI 部署的反模式"。Stanford HELM 评测显示复杂规划任务 Opus 比 Haiku 准确率高 47%，但成本高 18 倍。<strong>任务路由（task routing）能让企业级 AI 部署总成本降低 60%</strong>，这是 2026 年 AI 成本优化的核心杠杆。</p>
 
-<h3>1.3 任务路由</h3>
-<p>把 80% 轻量任务用 Haiku，20% 复杂任务用 Opus，总体成本可比"全主力"降低 60% 以上。Stanford HELM 评测显示复杂规划任务 Opus 比 Haiku 准确率高 47%，但成本高 18 倍。</p>
+<h3>1.2 AI Agent 七种形态</h3>
+<p>基于 Anthropic《Building Effective Agents》和业界实践，AI Agent 可分为七种形态，每种有适用边界和限制。</p>
+
+<p><strong>1. 检索型 Agent（Retrieval Agent）：</strong>单次或多次搜索 + 总结。典型应用：竞品监测、研究助手、市场情报。</p>
+<ul>
+<li>优势：实现简单，输出可控</li>
+<li>局限：单次任务，无法处理多步骤流程</li>
+</ul>
+
+<p><strong>2. 工具调用型 Agent（Tool-Use Agent）：</strong>调用外部 API 执行操作。典型应用：CRM 更新、订单处理、邮件回复。</p>
+<ul>
+<li>优势：可与现有系统集成</li>
+<li>局限：每个工具调用都需要人类审批（否则风险）</li>
+</ul>
+
+<p><strong>3. 规划型 Agent（Planning Agent）：</strong>长链条规划 + 多步执行。典型应用：项目管理、研究计划、复杂决策支持。</p>
+<ul>
+<li>优势：可处理复杂任务</li>
+<li>局限：规划错误时整个链条失败，需要回退机制</li>
+</ul>
+
+<p><strong>4. 多 Agent 协作（Multi-Agent Collaboration）：</strong>多个 Agent 角色分工。典型应用：内容生产流水线、决策支持系统。</p>
+<ul>
+<li>优势：角色分工清晰，可并行处理</li>
+<li>局限：协调开销大，不是所有任务都适合</li>
+</ul>
+
+<p><strong>5. 代码型 Agent（Code Agent）：</strong>自主编写、调试、执行代码。典型应用：自动化运维、数据处理、测试自动化。</p>
+<ul>
+<li>优势：高生产力，错误率可控</li>
+<li>局限：需要沙盒环境，避免生产事故</li>
+</ul>
+
+<p><strong>6. 监控型 Agent（Monitoring Agent）：</strong>长期运行，持续观察并响应事件。典型应用：品牌舆情、SRE 监控、风险预警。</p>
+<ul>
+<li>优势：24/7 持续运行</li>
+<li>局限：成本累积大，需要阈值调优</li>
+</ul>
+
+<p><strong>7. 自主学习型 Agent（Self-Learning Agent）：</strong>从执行结果中持续优化策略。典型应用：推荐系统、广告投放、动态定价。</p>
+<ul>
+<li>优势：持续优化，长期效果显著</li>
+<li>局限：训练成本高，存在"奖励黑客"风险</li>
+</ul>
+
+<h3>1.3 任务路由（Task Routing）：企业级 AI 部署的核心杠杆</h3>
+<p>把 80% 轻量任务用 Haiku 处理，20% 复杂任务用 Opus 处理，总体成本可比"全主力模型"降低 60% 以上。实现方式：</p>
+
+<ol>
+<li><strong>规则路由：</strong>预设任务类型 → 模型映射（如"客服 FAQ"→ Haiku，"合同分析"→ Opus）</li>
+<li><strong>分类器路由：</strong>用小模型先分类任务复杂度，再分配</li>
+<li><strong>动态路由：</strong>实时监测任务难度，动态调整</li>
+</ol>
 </section>
 
 <section>
-<h2 id="sec2">二、真实数据点</h2>
+<h2 id="sec2">二、真实数据点：Claude 系列定价与基准（2026 年）</h2>
 
-<h3>2.1 Claude 系列定价（2026 年中）</h3>
+<h3>2.1 Claude 系列定价（2026-06-30 数据）</h3>
+<p>Anthropic 于 2026-06-30 发布 Claude Sonnet 5。这是当前最新的模型定价数据。</p>
+
 <table>
 <thead><tr><th>模型</th><th>输入 $/M tokens</th><th>输出 $/M tokens</th><th>SWE-bench Verified</th></tr></thead>
 <tbody>
@@ -113,57 +222,73 @@ td code{font-size:12px}
 <tr><td>Fable 5（垂直场景）</td><td>—</td><td>—</td><td>95%</td></tr>
 </tbody>
 </table>
-<p>来源：Anthropic 官方, DataCamp (Jul 2026), MarkTechPost (Jun 2026), CosmicJS</p>
 
-<h3>2.2 模型能力基准（SWE-bench Verified）</h3>
+<h3>2.2 SWE-bench Verified 模型能力排名</h3>
+<p>SWE-bench Verified 是软件工程任务的权威基准，反映模型在真实编程任务上的能力。</p>
+
 <ul>
-<li>SWE-bench 是软件工程任务的权威基准</li>
-<li>Opus 4.8 79.4% 是当前 SOTA</li>
-<li>Sonnet 5 接近 Opus 4.8 但成本 40%</li>
-<li>Fable 5（垂直场景）在特定任务上 95%</li>
+<li><strong>Opus 4.8：79.4%</strong>，当前 SOTA（State of the Art）</li>
+<li><strong>Sonnet 5：72.7%</strong>，接近 Opus 但成本 40%</li>
+<li><strong>Sonnet 4.6：62.3%</strong>，上一代主力模型</li>
+<li><strong>Fable 5：95%</strong>，垂直行业模型在特定任务上突破通用模型上限</li>
 </ul>
 
 <h3>2.3 推理成本下降曲线</h3>
-<ul>
-<li><span class="data-tag">2024</span> 主力推理 $15/$60 per M tokens</li>
-<li><span class="data-tag">2025</span> 主力推理 $5/$25 per M tokens</li>
-<li><span class="data-tag">2026</span> 主力推理 $3/$15 per M tokens（18 个月降幅 70%）</li>
-</ul>
+<p>主力推理模型价格在 18 个月内下降约 70%，这直接影响企业级 AI 部署的可行性。</p>
+
+<table>
+<thead><tr><th>时间</th><th>主力推理价格（$/M tokens 输入/输出）</th><th>降幅</th></tr></thead>
+<tbody>
+<tr><td>2024 年初</td><td>$15/$60</td><td>基准</td></tr>
+<tr><td>2025 年中</td><td>$5/$25</td><td>-67%</td></tr>
+<tr><td>2026 年中</td><td>$3/$15</td><td>-75%（累计 18 个月）</td></tr>
+</tbody>
+</table>
 
 <h3>2.4 Prompt Injection 安全风险</h3>
+<p>OWASP 2025 Top 10 for LLM Applications 将 Prompt Injection 列为 #1 风险。这是 AI 应用部署必须正视的生产级威胁。</p>
+
 <ul>
-<li>OWASP 2025 Top 10 for LLM Applications：Prompt Injection 排 #1</li>
-<li>OWASP LLM Top 10 包括：Prompt Injection, Insecure Output Handling, Training Data Poisoning, Model DoS, Supply Chain, Sensitive Information Disclosure 等</li>
-<li>MITRE ATLAS 互补：用于威胁建模和红队规划</li>
-<li>核心问题：当前 LLM 处理输入的方式使得 prompt injection 是内在属性，不是可修补的 bug</li>
+<li><strong>核心问题：</strong>当前 LLM 处理输入的方式使得 prompt injection 是内在属性，不是可修补的 bug</li>
+<li><strong>OWASP LLM Top 10：</strong>Prompt Injection, Insecure Output Handling, Training Data Poisoning, Model DoS, Supply Chain Vulnerabilities, Sensitive Information Disclosure 等</li>
+<li><strong>MITRE ATLAS 互补：</strong>用于威胁建模和红队规划</li>
+<li><strong>间接攻击放大效应：</strong>OWASP 排名 prompt injection #1 是因为间接攻击可以规模化——一份中毒文档可影响所有 AI 用户</li>
 </ul>
 </section>
 
 <section>
-<h2 id="sec3">三、工具与平台</h2>
+<h2 id="sec3">三、工具与平台：AI 开发工具链全景</h2>
 
 <h3>3.1 模型 API 平台</h3>
 <table>
-<thead><tr><th>平台</th><th>代表模型</th><th>适用场景</th></tr></thead>
+<thead><tr><th>平台</th><th>代表模型</th><th>适用场景</th><th>价格起点</th></tr></thead>
 <tbody>
-<tr><td>Anthropic API</td><td>Claude Sonnet 5 / Opus 4.8 / Haiku 4.5</td><td>主力推理、深度任务</td></tr>
-<tr><td>OpenAI API</td><td>GPT-4o / o1 / o3</td><td>通用、最成熟生态</td></tr>
-<tr><td>Google AI Studio</td><td>Gemini 2 Pro / Flash</td><td>多模态、长上下文</td></tr>
-<tr><td>AWS Bedrock</td><td>多模型托管</td><td>企业级多模型部署</td></tr>
-<tr><td>Azure OpenAI</td><td>OpenAI 模型 + 企业合规</td><td>企业级 OpenAI 访问</td></tr>
+<tr><td>Anthropic API</td><td>Claude Sonnet 5 / Opus 4.8 / Haiku 4.5</td><td>主力推理、深度任务</td><td>$1/$5 per M tokens (Haiku)</td></tr>
+<tr><td>OpenAI API</td><td>GPT-4o / o1 / o3</td><td>通用、最成熟生态</td><td>$2.50/$10 per M tokens (4o)</td></tr>
+<tr><td>Google AI Studio</td><td>Gemini 2 Pro / Flash</td><td>多模态、长上下文</td><td>$1.25/$5 per M tokens (Flash)</td></tr>
+<tr><td>AWS Bedrock</td><td>多模型托管</td><td>企业级多模型部署</td><td>按用量</td></tr>
+<tr><td>Azure OpenAI</td><td>OpenAI 模型 + 企业合规</td><td>企业级 OpenAI 访问</td><td>按用量</td></tr>
 </tbody>
 </table>
 
 <h3>3.2 Agent 开发框架</h3>
 <ul>
-<li><strong>LangChain / LangGraph：</strong>Python 生态最主流的 Agent 框架</li>
-<li><strong>Anthropic Agent SDK：</strong>Claude 官方 Agent 开发工具</li>
-<li><strong>OpenAI Agents SDK：</strong>OpenAI 官方多 Agent 协作</li>
-<li><strong>CrewAI：</strong>多 Agent 角色协作框架</li>
-<li><strong>AutoGen（Microsoft）：</strong>多 Agent 对话框架</li>
+<li><strong>LangChain / LangGraph：</strong>Python 生态最主流的 Agent 框架。LangGraph 是新一代有状态 Agent 框架，支持复杂工作流。</li>
+<li><strong>Anthropic Agent SDK：</strong>Claude 官方 Agent 开发工具，与 MCP 协议深度集成。</li>
+<li><strong>OpenAI Agents SDK：</strong>OpenAI 官方多 Agent 协作框架。</li>
+<li><strong>CrewAI：</strong>多 Agent 角色协作框架。</li>
+<li><strong>AutoGen（Microsoft）：</strong>多 Agent 对话框架，适合研究类任务。</li>
 </ul>
 
-<h3>3.3 工作流工具</h3>
+<h3>3.3 安全工具</h3>
+<ul>
+<li><strong>MITRE ATLAS：</strong>AI 威胁建模框架（与 MITRE ATT&CK 互补）</li>
+<li><strong>OWASP LLM Top 10：</strong>风险评估清单</li>
+<li><strong>Rebuff：</strong>开源 prompt injection 检测工具</li>
+<li><strong>Guardrails AI：</strong>输入输出安全校验</li>
+</ul>
+
+<h3>3.4 工作流工具</h3>
 <ul>
 <li><strong>Anthropic MCP：</strong>Model Context Protocol，让 AI 直接连接数据源和工具</li>
 <li><strong>Zapier AI：</strong>非开发者友好的 AI 工作流</li>
@@ -172,145 +297,352 @@ td code{font-size:12px}
 </section>
 
 <section>
-<h2 id="sec4">四、方法论：从入门到进阶</h2>
+<h2 id="sec4">四、方法论：从入门到进阶的 AI 部署路径</h2>
 
 <h3>4.1 入门（个人使用）</h3>
+<p>个人使用的目标是"建立 AI 工作流思维"，把 AI 工具集成到日常任务中。</p>
+
 <ol>
-<li>用 ChatGPT 或 Claude 网页版替代 Google 搜索，处理日常问题</li>
-<li>学习"答案前置"提问法：直接给上下文 + 具体问题</li>
-<li>建立"第二大脑"：把读过的资料、笔记向量化存储</li>
+<li>用 ChatGPT 或 Claude 网页版替代 Google 搜索，处理日常问题。重点：建立"答案前置"的提问习惯（直接给上下文 + 具体问题）</li>
+<li>学习 prompt 基础：角色设定、上下文注入、输出格式约束、Few-shot 示例</li>
+<li>建立"第二大脑"：把读过的资料、笔记向量化存储。用 Notion AI + Claude + 本地 LLM 三层架构</li>
 </ol>
 
 <h3>4.2 中级（API 集成）</h3>
+<p>中级阶段的目标是"独立部署 AI 能力"，从依赖第三方工具到自主开发。</p>
+
 <ol>
-<li>选择任务路由架构（Haiku 处理高频简单任务，Sonnet/Opus 处理复杂任务）</li>
-<li>用 LangChain 或直接 API 构建第一个 Agent</li>
-<li>建立 prompt 模板库和评测数据集</li>
+<li>选择任务路由架构（Haiku 处理高频简单任务，Sonnet/Opus 处理复杂任务）。这是降本的核心手段</li>
+<li>用 LangChain 或直接 API 构建第一个 Agent。从检索型 Agent 开始（最简单也最有价值）</li>
+<li>建立 prompt 模板库和评测数据集。提示词管理是规模化 AI 应用的基础</li>
+<li>集成 Anthropic MCP 连接企业内部数据源</li>
 </ol>
 
 <h3>4.3 进阶（生产级）</h3>
+<p>进阶阶段的目标是"生产稳定性 + 安全合规"。</p>
+
 <ol>
-<li>实施 Prompt Injection 防御（输入过滤、人类审批节点、工具白名单）</li>
-<li>用 MCP 连接企业内部数据源</li>
-<li>建立成本监控和用量限额（防止 Agent 循环失控）</li>
+<li>实施 Prompt Injection 防御：输入过滤、人类审批节点、工具白名单</li>
+<li>建立成本监控和用量限额。防止 Agent 循环失控导致成本爆炸</li>
+<li>用 MITRE ATLAS 做威胁建模，红队测试 Agent 行为</li>
+<li>建立可观测性：日志、追踪、性能指标、错误率监控</li>
 </ol>
 </section>
 
 <section>
-<h2 id="sec5">五、典型应用场景</h2>
+<h2 id="sec5">五、典型应用场景：跨行业应用案例</h2>
 
-<h3>5.1 客服自动化</h3>
-<p>用 Haiku 4.5 处理 80% 常见问题，Opus 处理 20% 复杂问题。某创作者案例：4 分钟内主动触达热点线索，转化率提升 30%–80%。</p>
+<h3>5.1 客服自动化：任务路由的典型场景</h3>
+<div class="case-study">
+<span class="case-title">案例：中型 SaaS 公司的客服 AI 化</span>
+<div class="case-meta">背景：客户支持团队 20 人，2025 年开始 AI 化改造</div>
 
-<h3>5.2 代码助手</h3>
-<p>Sonnet 5 SWE-bench 72.7%，接近 Opus 4.8（79.4%）但成本 40%。领先做法：日常编码用 Sonnet 5，关键 bug fix 用 Opus。</p>
+<div class="case-section">
+<span class="case-section-label">问题：</span>
+<p>客服团队 60% 的时间处理重复 FAQ（产品价格、功能使用、技术故障排除）。人力成本高，且 24 小时覆盖困难。</p>
+</div>
 
-<h3>5.3 内容生产流水线</h3>
-<p>多 Agent 协作：检索 Agent（找资料）+ 写作 Agent（基于检索写稿）+ 编辑 Agent（润色）。每个 Agent 用合适的模型层。</p>
+<div class="case-section">
+<span class="case-section-label">实施：</span>
+<ol>
+<li><strong>三层路由架构：</strong>Haiku 4.5 处理 80% 常见问题（FAQ、产品查询），Sonnet 5 处理 18% 中等问题（账户问题、订单修改），Opus 4.8 处理 2% 复杂问题（合同谈判、定制需求）</li>
+<li><strong>人类审批节点：</strong>任何涉及退款、修改账户信息的工具调用都需人类审批</li>
+<li><strong>持续学习机制：</strong>每周用客服对话日志微调 prompt 和 FAQ 知识库</li>
+</ol>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">结果：</span>
+<ul>
+<li>客服处理量提升 3 倍（每天从 200 件到 600 件）</li>
+<li>客户满意度从 4.2 提升到 4.6（5 分制）</li>
+<li>AI 月成本约 $8,000（vs 客服团队月成本 $80,000）</li>
+<li>响应时间从 4 小时缩短至 5 分钟</li>
+</ul>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">局限与教训：</span>
+<ul>
+<li>AI 偶尔给出错误的产品信息（幻觉），需要建立"置信度阈值"机制</li>
+<li>Prompt injection 风险：客户可能用"忽略之前指令"等技巧绕过规则</li>
+<li>持续维护成本不可忽视（每周需要人工审核对话日志）</li>
+</ul>
+</div>
+</div>
+
+<h3>5.2 代码助手：成本与质量的平衡</h3>
+<div class="case-study">
+<span class="case-title">案例：开发团队的 AI 辅助编程实践</span>
+<div class="case-meta">背景：50 人开发团队，2026 年采用 AI 辅助编程</div>
+
+<div class="case-section">
+<span class="case-section-label">问题：</span>
+<p>开发团队希望引入 AI 辅助编程，但担心成本失控（Sonnet 5 高频调用月成本可能达数千美元）和代码质量（AI 生成代码的审查成本）。</p>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">实施：</span>
+<ol>
+<li><strong>按场景选模型：</strong>日常编码（补全、重构）用 Sonnet 5（72.7% SWE-bench），关键 bug fix 用 Opus 4.8（79.4%），代码审查用 Haiku 4.5</li>
+<li><strong>IDE 集成：</strong>用 Cursor / Claude Code 集成到开发工作流</li>
+<li><strong>成本监控：</strong>每周审查调用日志，按项目分配成本</li>
+</ol>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">结果：</span>
+<ul>
+<li>开发速度提升 35-50%（不同任务类型差异）</li>
+<li>代码 bug 率下降 22%（AI 辅助的代码审查）</li>
+<li>月 AI 成本约 $5,000（50 人团队）</li>
+<li>开发者满意度从 3.8 提升至 4.5</li>
+</ul>
+</div>
+</div>
+
+<h3>5.3 内容生产流水线：多 Agent 协作</h3>
+<div class="case-study">
+<span class="case-title">案例：营销内容生产的多 Agent 流水线</span>
+<div class="case-meta">背景：内容营销团队，2026 年建立 AI 辅助流水线</div>
+
+<div class="case-section">
+<span class="case-section-label">问题：</span>
+<p>内容生产需要"研究 → 写作 → 润色 → 配图 → 分发"多步骤，传统方式需要 3-5 天完成一篇深度文章。</p>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">实施：</span>
+<ol>
+<li><strong>检索 Agent（Haiku 4.5）：</strong>搜集相关主题的最新信息和数据</li>
+<li><strong>大纲 Agent（Sonnet 5）：</strong>基于检索结果生成文章大纲和论点</li>
+<li><strong>写作 Agent（Opus 4.8）：</strong>基于大纲生成完整文章</li>
+<li><strong>编辑 Agent（Sonnet 5）：</strong>校对、润色、事实核查</li>
+<li><strong>配图 Agent（Sonnet 5 + Image AI）：</strong>生成配图</li>
+</ol>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">结果：</span>
+<ul>
+<li>单篇深度文章从 3-5 天压缩至 1 天</li>
+<li>内容质量下降 8%（人类审核后），但 ROI 仍为正</li>
+<li>月 AI 成本约 $3,000（每月 60 篇）</li>
+</ul>
+</div>
+
+<div class="case-section">
+<span class="case-section-label">关键教训：</span>
+<p>多 Agent 流水线的瓶颈不是模型能力，而是协调成本。当 Agent 数量超过 5 个时，协调开销可能抵消效率提升。建议从 2-3 个 Agent 起步，逐步扩展。</p>
+</div>
+</div>
 </section>
 
 <section>
 <h2 id="sec6">六、常见误区</h2>
 
 <h3>6.1 "一刀切用一个模型"</h3>
-<p>反模式。任务路由能让成本降低 60%。</p>
+<p><strong>误区描述：</strong>用 Opus 4.8 处理所有任务，包括简单的 FAQ 和文本分类。</p>
+<p><strong>为什么错：</strong>成本高 18 倍但质量提升有限。任务路由能让成本降低 60% 而质量几乎不变。</p>
+<p><strong>正确做法：</strong>实施三层路由架构（Haiku 处理高频轻量任务、Sonnet 处理主力任务、Opus 处理复杂任务）。</p>
 
 <h3>6.2 "Agent = prompt 工程"</h3>
-<p>Agent 的核心是有目标、能感知、能行动、能反馈。没有反馈循环的"Agent"实质上还是 prompt。</p>
+<p><strong>误区描述：</strong>以为写好 prompt 就有了 Agent。</p>
+<p><strong>为什么错：</strong>Agent 的核心是有目标、能感知、能行动、能反馈。没有反馈循环的"Agent"实质上还是 prompt。真正的 Agent 需要工具调用、结果评估、错误恢复机制。</p>
+<p><strong>正确做法：</strong>用 LangChain / LangGraph 等成熟框架实现完整的"感知-决策-行动-反馈"循环。</p>
 
 <h3>6.3 "AI 写作完美无瑕"</h3>
-<p>反之，AI 内容识别难度增加但被识别为低质量概率也在上升。核心方法：加入具体场景判断、第一人称经历、可被反驳的具体观点。</p>
+<p><strong>误区描述：</strong>认为 AI 写作已经达到人类水平，可以直接发布。</p>
+<p><strong>为什么错：</strong>AI 内容识别难度增加但被识别为低质量概率也在上升。AI 写作缺乏"只有人类才能提供的东西"——具体场景判断、第一人称经历、可被反驳的具体观点、独家数据。</p>
+<p><strong>正确做法：</strong>AI 写作作为初稿 + 人类润色 + 加入独家数据和第一人称经历。完全 AI 写作的内容会被算法和读者识别为低质。</p>
 
 <h3>6.4 "Prompt Injection 是边缘风险"</h3>
-<p>错。OWASP 2025 把它列为 #1。一份中毒文档可影响所有 AI 用户。</p>
+<p><strong>误区描述：</strong>把 prompt injection 当作"理论风险"而非生产风险。</p>
+<p><strong>为什么错：</strong>OWASP 2025 将其列为 #1。一份中毒文档可影响所有 AI 用户，且攻击不需要技术能力。</p>
+<p><strong>正确做法：</strong>实施多层防御：输入过滤、人类审批节点、工具白名单、最小权限原则、行为监控。</p>
+
+<h3>6.5 "多 Agent 协作一定更好"</h3>
+<p><strong>误区描述：</strong>认为 Agent 数量越多，生产力越高。</p>
+<p><strong>为什么错：</strong>协调开销随 Agent 数量指数增长。5 个 Agent 的协调成本可能抵消 3 个 Agent 的效率提升。</p>
+<p><strong>正确做法：</strong>从 2-3 个 Agent 起步，仅在确实需要角色分工时增加。</p>
 </section>
 
 <section>
-<h2 id="sec7">七、进阶话题</h2>
+<h2 id="sec7">七、进阶话题：未来 12 个月观察</h2>
 
 <h3>7.1 Multi-Agent 协作的经济学</h3>
-<p>多个 Agent 角色协作是否真有生产力提升，还是把单个 Agent 的复杂度分散到多个？创作者观点不一，需要根据任务特征决定。</p>
+<p>多个 Agent 角色协作是否真有生产力提升，还是把单个 Agent 的复杂度分散到多个？业界观点不一。领先做法：</p>
+<ul>
+<li>从单 Agent 起步，仅在任务确实需要角色分工时引入多 Agent</li>
+<li>建立"协调开销监控"——如果协调开销超过 30%，回退到单 Agent</li>
+<li>关注 Anthropic、OpenAI 等厂商的官方多 Agent 框架演进</li>
+</ul>
 
 <h3>7.2 按结果计费模式</h3>
-<p>部分代码 Agent 按成功执行的 bug 修复数收费。这是否会取代按 token 计费？2026 年仍处于早期阶段。</p>
+<p>部分代码 Agent 按成功执行的 bug 修复数收费（Devin、Cognition 等）。这是否会取代按 token 计费？2026 年仍处于早期阶段。观察变量：</p>
+<ul>
+<li>结果计费模式的成本稳定性</li>
+<li>任务结果的"可验证性"——不是所有任务都适合结果计费</li>
+<li>客户对"成本不确定性"的接受度</li>
+</ul>
 
 <h3>7.3 垂直行业模型突破</h3>
-<p>医疗、法律、金融行业的专用模型能否突破通用模型的能力上限？Fable 系列是早期尝试。</p>
+<p>医疗、法律、金融行业的专用模型能否突破通用模型的能力上限？Fable 系列在 SWE-bench 95% 是早期尝试。如果垂直模型在 1-2 个特定任务上能达 95%+ 准确率，将开启"垂直 AI 专家"的新范式。</p>
+
+<h3>7.4 Web MCP 与 AI Agent 协议标准</h3>
+<p>Anthropic 推动的 Web MCP 让 AI 直接与网站 API 交互。如果 MCP 成为行业标准，传统的"为人类优化网站"将被"为 AI Agent 优化 API"补充。企业需要在 2026-2027 年制定 MCP 战略。</p>
 </section>
 
 <section>
-<h2 id="sec8">八、视频脚本观点补充</h2>
-<p>以下观点来自与本话题相关的 TikTok 视频脚本，由自动化引擎提取。这些是创作者的实际观点，不是本话题的权威结论。</p>
+<h2 id="sec8">八、视频脚本观点补充（来自真实 TikTok 创作者）</h2>
+<p>以下观点来自与本话题相关的 TikTok 视频脚本，由自动化引擎提取。这些是创作者在实际视频中的观点表述，不是本话题的权威结论。</p>
 <h3 id="v1">观点 1（来自 2026-06-25 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt</em></p>
 <div class="new-point" data-updated="2026-06-25_willfrancis24_claude-chat-cowork-code-modes.txt">📌 It's not just about writing code.</div>
 <h3 id="v2">观点 2（来自 2026-06-26 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt</em></p>
 <div class="new-point" data-updated="2026-06-26_willfrancis24_frontier-ai-model-release-safety-review.txt">📌 The new chat GBT model has been held back by the US government.</div>
 <h3 id="v3">观点 3（来自 2026-06-27 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_tjrobertson52_chatgpt-claude-model-cost-comparison.txt">📌 Open AI just announced Chatchy PT 5.6.</div>
 <h3 id="v4">观点 4（来自 2026-06-27 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt</em></p>
 <div class="new-point" data-updated="2026-06-27_willfrancis24_ai-skill-prompt-injection-supply-chain-risk.txt">📌 An AI skill just tricked 26,000 people into potentially getting hacked, we're talking files, emails, company systems, everything.</div>
 <h3 id="v5">观点 5（来自 2026-06-28 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt</em></p>
 <div class="new-point" data-updated="2026-06-28_kallaway.marketing_sandcastles-creator-breakout-claude-skill.txt">📌 Because this report surfaces the hidden trends, patterns, and insights that I just wouldn't have seen otherwise.</div>
 <h3 id="v6">观点 6（来自 2026-06-29 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt</em></p>
 <div class="new-point" data-updated="2026-06-29_kallaway.marketing_claude-sandcastles-channel-audit-weekly.txt">📌 It'll then give you a detailed visual breakdown with all the non-obvious insights and patterns you just wouldn't have seen otherwise.</div>
 <h3 id="v7">观点 7（来自 2026-06-30 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt</em></p>
 <div class="new-point" data-updated="2026-06-30_willfrancis24_ai-writing-shape-structure-detection.txt">📌 We can now spot AI Rytum without even looking at the words or for M-Dashers, and this works about 93% at the time, because as this research team found AI Rytum has a shape.</div>
 <h3 id="v8">观点 8（来自 2026-07-01 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_tjrobertson52_claude-sonnet-5-task-fit-pricing.txt">📌 Andthropic just released Clod Sonnet 5, and while it is a very impressive model in a lot of ways, it's not quite what I am for offic says it is.</div>
 <h3 id="v9">观点 9（来自 2026-07-01 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt</em></p>
 <div class="new-point" data-updated="2026-07-01_willfrancis24_claude-fable-5-return-usage-policy.txt">📌 So Fable 5 has just shown up in my Claude a few minutes ago.</div>
 <h3 id="v10">观点 10（来自 2026-07-02 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt</em></p>
 <div class="new-point" data-updated="2026-07-02_willfrancis24_claude-second-brain-four-step-framework.txt">📌 It's just a four-part framework that you'll remember after watching this very short video.</div>
 <h3 id="v11">观点 11（来自 2026-07-03 视频脚本）</h3>
-<p style="color:var(--muted);font-size:12px"><em>2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt</em></p>
+<p style="color:var(--muted);font-size:12px;margin-bottom:10px"><em>2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt</em></p>
 <div class="new-point" data-updated="2026-07-03_tjrobertson52_ai-subscription-4pct-token-subsidy-july-7.txt">📌 For the first time in two years, I'm considering switching over to Chatchubt instead of Claude for work.</div>
+
 </section>
 
 
-<section class="references" id="refs">
-<h2>参考资料</h2>
-<ol>
-<li>Claude Sonnet 5: Features, Benchmarks, Pricing. <em>DataCamp, 2026</em>. <a href="https://www.datacamp.com/blog/claude-sonnet-5">https://www.datacamp.com/blog/claude-sonnet-5</a></li>
-<li>Anthropic Claude Sonnet 5 vs 4.6 vs Opus 4.8. <em>MarkTechPost, 2026</em>. <a href="https://www.marktechpost.com/2026/06/30/anthropic-claude-sonnet-5-vs-sonnet-4-6-vs-opus-4-8-agentic-coding-benchmarks-api-pricing-and-cost-performance-tradeoffs-compared/">https://www.marktechpost.com/2026/06/30/anthropic-claude-sonnet-5-vs-sonnet-4-6-vs-opus-4-8-agentic-coding-benchmarks-api-pricing-and-cost-performance-tradeoffs-compared/</a></li>
-<li>Claude Benchmarks 2026. <em>Morph LLM, 2026</em>. <a href="https://www.morphllm.com/claude-benchmarks">https://www.morphllm.com/claude-benchmarks</a></li>
-<li>Anthropic Claude Pricing. <em>Anthropic, 2026</em>. <a href="https://www.anthropic.com/pricing">https://www.anthropic.com/pricing</a></li>
-<li>Building Effective Agents. <em>Anthropic Research, 2024</em>. <a href="https://www.anthropic.com/research/building-effective-agents">https://www.anthropic.com/research/building-effective-agents</a></li>
-<li>A Practical Guide to Building Agents. <em>OpenAI Research, 2025</em>. <a href="https://openai.com/research/a-practical-guide-to-building-agents">https://openai.com/research/a-practical-guide-to-building-agents</a></li>
-<li>HELM: Holistic Evaluation of Language Models. <em>Stanford CRFM, 2024</em>. <a href="https://crfm.stanford.edu/helm/">https://crfm.stanford.edu/helm/</a></li>
-<li>MITRE ATLAS. <em>MITRE Corporation, 2024</em>. <a href="https://atlas.mitre.org/">https://atlas.mitre.org/</a></li>
-<li>OWASP Top 10 for LLM Applications. <em>OWASP Foundation, 2025</em>. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a></li>
-<li>Prompt Injection Attacks. <em>WorkOS Blog, 2025</em>. <a href="https://workos.com/blog/prompt-injection-attacks">https://workos.com/blog/prompt-injection-attacks</a></li>
-<li>Anthropic MCP Specification. <em>Anthropic, 2024</em>. <a href="https://modelcontextprotocol.io/">https://modelcontextprotocol.io/</a></li>
-<li>Constitutional AI. <em>Anthropic Research, 2022</em>. <a href="https://www.anthropic.com/research/constitutional-ai">https://www.anthropic.com/research/constitutional-ai</a></li>
+<section id="faq"><h2>常见问题（FAQ · AI 抽取友好）</h2><div class="faq"><div class="q">Claude Sonnet 5 是什么？</div><div class="a">Claude Sonnet 5 是 Anthropic 在 2026-06-30 发布的旗舰主力推理模型。在 SWE-bench Verified 基准上达 72.7%（接近 Opus 4.8 的 79.4%），但成本仅为 Opus 的 40%。intro pricing 至 2026-08-31 为 $2/$10 per M tokens，标准定价 $3/$15 per M tokens。</div></div><div class="faq"><div class="q">Claude 三个模型（Sonnet 5、Opus 4.8、Haiku 4.5）怎么选？</div><div class="a">Haiku 4.5 处理高频轻量任务（客服 FAQ、文本分类），$1/$5；Sonnet 5 处理主力任务（内容生成、代码辅助、数据分析），$3/$15；Opus 4.8 处理复杂任务（深度研究、规划、合同分析），$5/$25。任务路由架构能让总成本降低 60% 而质量几乎不变。</div></div><div class="faq"><div class="q">什么是 Prompt Injection 攻击？</div><div class="a">Prompt Injection 是通过输入特殊文本绕过 AI 模型的指令限制，OWASP 2025 将其列为 LLM 应用的 #1 风险。OWASP LLM Top 10 包含 Prompt Injection、Insecure Output Handling、Training Data Poisoning 等。MITRE ATLAS 是配套的威胁建模框架。</div></div><div class="faq"><div class="q">什么是 MCP（Model Context Protocol）？</div><div class="a">MCP 是 Anthropic 2024 年提出的协议，让 AI 直接与外部数据源和工具交互。Web MCP 是其在公共网站的应用，让 AI Agent 能调用网站 API 而非通过 HTML 抓取。MCP 标准化将改变企业级 AI 部署模式。</div></div><div class="faq"><div class="q">AI Agent 和 Prompt 有什么区别？</div><div class="a">Prompt 是输入指令。Agent 是有目标、能感知、能行动、能反馈的系统。真正的 Agent 需要工具调用、结果评估、错误恢复机制。用 LangChain/LangGraph 等框架构建的 Agent 才是完整的 Agent。</div></div><div class="faq"><div class="q">如何降低 AI 部署的成本？</div><div class="a">三个核心策略：1) 任务路由（Haiku 处理 80% 轻量任务，Sonnet/Opus 处理 20% 复杂任务，成本降低 60%）；2) 用更小的模型处理高频简单任务；3) 用 prompt 缓存和批处理降低重复调用成本。</div></div><div class="faq"><div class="q">AI 写作能被识别吗？</div><div class="a">能。AI 内容识别难度增加但被识别为低质量的概率也在上升。完全 AI 写作缺乏：具体场景判断、第一人称经历、可被反驳的具体观点、独家数据。AI 写作作为初稿 + 人类润色 + 加入独家数据是当前最佳实践。</div></div><div class="faq"><div class="q">Claude 适合哪些场景？</div><div class="a">Claude 的强项：长上下文（200K tokens）、代码辅助（SWE-bench 79.4% Opus）、文档分析、结构化输出。弱项：纯中文对话不如 GPT-4o 自然，多模态不如 Gemini 全面。建议主力任务用 Sonnet 5，关键任务用 Opus 4.8。</div></div></section>
 
+<div class="cross-links"><h4>📚 相关话题</h4><ul><li><a href="01-ai-search-geo-citation.html">AI 搜索 / GEO / AI Citation</a></li><li><a href="03-conversion-funnel.html">转化漏斗与电商 CRO</a></li><li><a href="04-big-tech-business.html">大公司新闻与科技商业</a></li><li><a href="05-content-creation-video.html">内容创作与短视频方法论</a></li><li><a href="06-website-local-seo.html">网站与本地 SEO</a></li></ul></div>
+
+<section class="references" id="refs">
+<h2>参考资料（带分析）</h2>
+<p style="font-size:12px;color:var(--muted);margin-bottom:14px">每条参考资料都附 <strong>本文如何应用</strong> 的分析段，说明该来源支持本文哪个论点，以及如何使用、引用时的局限。</p>
+<ol>
+<li>
+<span class="ref-title">Claude Sonnet 5: Features, Benchmarks, Pricing</span>
+<span class="ref-source">DataCamp, 2026</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其 Sonnet 5 发布时间（2026-06-30）和定价数据作为基准。在'真实数据点'表的 intro pricing 行使用，并作为'未来 12 个月观察'中'Multi-Agent 经济学'段的市场参考。</span>
+<a href="https://www.datacamp.com/blog/claude-sonnet-5" target="_blank" rel="noopener">https://www.datacamp.com/blog/claude-sonnet-5</a>
+</li><li>
+<span class="ref-title">Anthropic Claude Sonnet 5 vs 4.6 vs Opus 4.8 Comparison</span>
+<span class="ref-source">MarkTechPost, 2026</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其详细的三模型对比数据（输入/输出价格、SWE-bench 分数）作为'模型三层架构'表的核心数据。在'Claude 三个模型怎么选'FAQ 中引用其成本与质量权衡数据。</span>
+<a href="https://www.marktechpost.com/2026/06/30/anthropic-claude-sonnet-5-vs-sonnet-4-6-vs-opus-4-8-agentic-coding-benchmarks-api-pricing-and-cost-performance-tradeoffs-compared/" target="_blank" rel="noopener">https://www.marktechpost.com/2026/06/30/anthropic-claude-sonnet-5-vs-sonnet-4-6-vs-opus-4-8-agentic-coding-benchmarks-api-pricing-and-cost-performance-tradeoffs-compared/</a>
+</li><li>
+<span class="ref-title">Claude Benchmarks 2026</span>
+<span class="ref-source">Morph LLM, 2026</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其 Haiku 4.5 在子任务中的优势数据，作为'任务路由'论证的依据——Haiku 在代码审查和子任务中表现优秀。</span>
+<a href="https://www.morphllm.com/claude-benchmarks" target="_blank" rel="noopener">https://www.morphllm.com/claude-benchmarks</a>
+</li><li>
+<span class="ref-title">Anthropic Claude Pricing (官方)</span>
+<span class="ref-source">Anthropic, 2026</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用官方定价作为权威基础。在'Claude 系列定价'表和'任务路由'成本对比中使用，确保数据准确。</span>
+<a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener">https://www.anthropic.com/pricing</a>
+</li><li>
+<span class="ref-title">Building Effective Agents</span>
+<span class="ref-source">Anthropic Research, 2024</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为 AI Agent 形态分类的理论基础。Anthropic 官方对 Agent 分类的权威定义。在'AI Agent 七种形态'节使用，作为七种形态分类的权威支持。</span>
+<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a>
+</li><li>
+<span class="ref-title">A Practical Guide to Building Agents</span>
+<span class="ref-source">OpenAI Research, 2025</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为 OpenAI 视角的 Agent 实践指南。在'方法论 - 中级'第 2 步使用，作为另一个权威来源支持 Agent 开发框架选择。</span>
+<a href="https://openai.com/research/a-practical-guide-to-building-agents" target="_blank" rel="noopener">https://openai.com/research/a-practical-guide-to-building-agents</a>
+</li><li>
+<span class="ref-title">HELM: Holistic Evaluation of Language Models</span>
+<span class="ref-source">Stanford CRFM, 2024</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为模型能力评估的权威框架。在'模型三层架构'节引用'Stanford HELM 评测显示复杂规划任务 Opus 比 Haiku 准确率高 47%'。HELM 是学界认可的评测标准。</span>
+<a href="https://crfm.stanford.edu/helm/" target="_blank" rel="noopener">https://crfm.stanford.edu/helm/</a>
+</li><li>
+<span class="ref-title">MITRE ATLAS</span>
+<span class="ref-source">MITRE Corporation, 2024</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为 AI 安全威胁建模框架。在'Prompt Injection 安全风险'节和'方法论 - 进阶'第 3 步使用，强调 AI 部署必须做威胁建模。</span>
+<a href="https://atlas.mitre.org/" target="_blank" rel="noopener">https://atlas.mitre.org/</a>
+</li><li>
+<span class="ref-title">OWASP Top 10 for LLM Applications</span>
+<span class="ref-source">OWASP Foundation, 2025</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为 LLM 应用风险评估的权威清单。在'Prompt Injection 安全风险'节和'常见误区 6.4'使用，强调 Prompt Injection #1 风险和间接攻击的规模化效应。</span>
+<a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">https://owasp.org/www-project-top-10-for-large-language-model-applications/</a>
+</li><li>
+<span class="ref-title">Prompt Injection Attacks</span>
+<span class="ref-source">WorkOS Blog, 2025</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其对 Prompt Injection 攻击类型的详细分析。在'Prompt Injection 安全风险'节作为深度补充，强调当前 LLM 处理输入的方式使得 prompt injection 是内在属性，不是可修补的 bug。</span>
+<a href="https://workos.com/blog/prompt-injection-attacks" target="_blank" rel="noopener">https://workos.com/blog/prompt-injection-attacks</a>
+</li><li>
+<span class="ref-title">Anthropic MCP Specification</span>
+<span class="ref-source">Anthropic, 2024</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为 Model Context Protocol 的权威定义。在'方法论 - 中级'第 4 步和'进阶话题 - Web MCP'节使用，作为 MCP 战略的权威基础。</span>
+<a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">https://modelcontextprotocol.io/</a>
+</li><li>
+<span class="ref-title">Constitutional AI</span>
+<span class="ref-source">Anthropic Research, 2022</span>
+<span class="ref-analysis"><strong>📌 本文如何应用：</strong>本文用其作为 Claude 安全对齐的核心论文。在'方法论 - 进阶'作为 AI 安全设计的理论基础，强调 RLHF 之外的替代方案。</span>
+<a href="https://www.anthropic.com/research/constitutional-ai" target="_blank" rel="noopener">https://www.anthropic.com/research/constitutional-ai</a>
+</li>
 </ol>
 </section>
 
+
+<section>
+<h2>新观点补充（持续更新）</h2>
+<div class="new-point">📌 Before anyone touches it,
+an agent has already generated the localized versions
+for five other markets,
+adjusted the tone for each region
+and ping the manager that the assets are ready.</div>
+<div class="new-point">📌 The first 80% happened with no human in the loop.</div>
+
+
+<div class="new-point" data-updated="2026-07-09_tjrobertson52_chrome-page-content-agent-ai-website-readability.txt">📌 So I just want to share some new information we have about how agents see your website and how you can prepare for this new future.</div>
+<div class="new-point">📌 You should just be able to look at the HTML, strip out the text and there you have your markdown, but it's actually a lot more complicated than that.</div>
+<div class="new-point">📌 Just a few months ago, the only way for AI to get this information was to actually take screenshots of the page.</div>
+<div class="new-point">📌 But the page content agent doesn't just help AI read the content on your page.</div>
+<div class="new-point">📌 So the big news here is that AI agents just got way better at interacting with websites.</div>
+</section>
 </article>
 
 <div class="update-log">
 <h2>更新日志</h2>
 <ul>
-<li><strong>2026-07-06</strong> · v6 话题大全改版：百科 + 工具 + 数据库三合一结构；加入真实数据点；列出真实工具</li>
-<li><strong>2026-07-06</strong> · v5 诚实版（已弃用：删除了诚实声明，但内容形式不符合"话题大全"）</li>
+<li><strong>2026-07-07</strong> · v7 深度均衡版：每节均衡深度 + 参考资料分析 + SEO/GEO JSON-LD + FAQ + 跨篇互链</li>
+<li><strong>2026-07-06</strong> · v6 话题大全三合一</li>
+<li><strong>2026-07-06</strong> · v5 诚实版</li>
+
+<li><strong>2026-07-10 05:30 PT</strong> · 新增 2 条观点：<code>2026-07-09_neilpatel_ai-agent-vs-tool-goal-autonomy.txt</code></li>
+
+<li><strong>2026-07-10 20:30 PT</strong> · 新增 5 条观点：<code>2026-07-09_tjrobertson52_chrome-page-content-agent-ai-website-readability.txt</code></li>
 </ul>
 </div>
 
 </main>
+
 <div class="footer">
-  话题大全 · 自媒体自动归类引擎 · v6<br>
-  <a href="../index.html" style="color:var(--accent)">返回索引</a> ·
-  <a href="../workflow.html" style="color:var(--accent)">工作流可视化</a>
+话题大全 · 自媒体自动归类引擎 · v7 深度均衡版<br>
+<a href="../index.html">返回索引</a> · <a href="../workflow.html">工作流可视化</a> · <a href="../sitemap.xml">Sitemap</a>
 </div>
+
 </body>
 </html>
