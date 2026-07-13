@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yika.ca SEO 审计报告 — 2026-07-12</title>
+<style>
+:root { --bg:#0f1115; --panel:#161a22; --ink:#e7ecf3; --muted:#9aa4b2; --accent:#5b8def; --accent2:#10b981; --warn:#f59e0b; --danger:#ef4444; --line:#222a36; }
+body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.7; font-size:15px; padding:30px }
+.container { max-width:1200px; margin:0 auto }
+h1 { margin:0 0 10px; font-size:32px }
+h2 { margin-top:32px; border-top:1px solid var(--line); padding-top:20px; font-size:22px }
+h3 { font-size:17px; color:var(--accent); margin-top:18px }
+.meta { color:var(--muted); font-size:13px; margin-bottom:24px }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; margin-bottom:14px }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:22px 0 }
+.stat { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:18px }
+.num { font-size:32px; font-weight:800; }
+.pct { color:var(--muted); font-size:13px; margin-top:4px }
+.danger { color:var(--danger) } .warn { color:var(--warn) } .ok { color:var(--accent2) }
+table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-top:14px }
+th, td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--line); font-size:13px }
+th { background:#0c1018; color:var(--accent2) }
+.severity { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:700 }
+.sev-p0 { background:var(--danger); color:#fff } .sev-p1 { background:var(--warn); color:#000 } .sev-p2 { background:var(--accent); color:#fff }
+ul.problems { list-style:none; padding-left:0 }
+ul.problems li { padding:8px 12px; margin:4px 0; background:#1a1f2b; border-left:3px solid var(--warn); border-radius:0 4px 4px 0; font-size:14px }
+ul.problems li.p0 { border-left-color:var(--danger) }
+.fix { background:#1a1f2b; border:1px solid var(--line); border-radius:6px; padding:12px 16px; margin:8px 0; font-family:monospace; font-size:13px; color:#cfd6e4 }
+</style></head><body><div class="container">
+<h1>yika.ca SEO & GEO 审计报告</h1>
+<div class="meta">生成时间: 2026-07-12 23:30 PST | 文章数: <strong>189</strong> + 12 分类 + 307 标签 + 3 页面<br>扫描方法: WordPress REST API (ai-agent Editor) + 直接 HTML 抓取</div>
+<h2>📊 核心指标</h2><div class="grid">
+<div class="stat"><div class="num">189</div><div class="pct">总文章数</div></div>
+<div class="stat"><div class="num">1566</div><div class="pct"><span class="danger">天未更新（4.3 年）</span></div></div>
+<div class="stat"><div class="num">108</div><div class="pct"><span class="danger">平均字数</span></div></div>
+<div class="stat"><div class="num">0</div><div class="pct"><span class="danger">JSON-LD 结构化数据</span></div></div>
+</div>
+<h2>🚨 严重问题清单</h2>
+<h3><span class="severity sev-p0">P0</span> 致命问题</h3><ul class="problems">
+<li class="p0">站点停滞 1566 天 — 189 篇全部停留在 2022-03-30，4.3 年零更新。Google 排名会大幅下降，AI 引擎不会引用"过时"内容。</li>
+<li class="p0">0% RankMath 配置 — 189/189 篇缺失 SEO Title / Description / Focus Keyword。装的是付费 RankMath Pro 但完全没用。</li>
+<li class="p0">0% JSON-LD 结构化数据 — 文章、页面、产品全部无 schema。AI 引擎无法结构化抽取，必失"被 AI 引用"机会。</li>
+<li class="p0">0/189 内部链接 — 文章之间完全无链接，形成孤岛。PageRank 不流动，主题权威无法建立。</li>
+<li class="p0">0/189 外部链接 — 无任何 outbound links，丧失 E-E-A-T 信号和引用价值。</li>
+</ul>
+<h3><span class="severity sev-p1">P1</span> 重要问题</h3><ul class="problems">
+<li class="p1">91.5% 短内容（&lt;300 字）— 173/189 篇文章字数 &lt;300，无法参与 long-form 关键词排名。</li>
+<li class="p1">31.2% 文章无图 — 59 篇文章正文无图片。</li>
+<li class="p1">154 张图片缺 alt — 494 张图中 154 张（31%）无 alt 文本。</li>
+<li class="p1">6.3% 文章有 H1 — 仅 12 篇用 H1 标题。</li>
+</ul>
+<h2>📈 详细健康指标</h2>
+<h3>SEO Meta 指标（最关键）</h3><table><tr><th>指标</th><th>数量</th><th>占比</th><th>状态</th></tr>
+<tr><td>有摘要 excerpt</td><td>176</td><td>93.1%</td><td><span class="ok">好</span></td></tr>
+<tr><td>有 JSON-LD</td><td>0</td><td>0.0%</td><td><span class="danger">差</span></td></tr>
+<tr><td>RankMath Title</td><td>0</td><td>0.0%</td><td><span class="danger">差</span></td></tr>
+<tr><td>RankMath Description</td><td>0</td><td>0.0%</td><td><span class="danger">差</span></td></tr>
+<tr><td>RankMath Focus Keyword</td><td>0</td><td>0.0%</td><td><span class="danger">差</span></td></tr>
+</table>
+<h3>结构指标</h3><table><tr><th>指标</th><th>数量</th><th>占比</th></tr>
+<tr><td>有 H1</td><td>12</td><td>6.3%</td></tr>
+<tr><td>含内部链接</td><td>0</td><td>0.0%</td></tr>
+<tr><td>含外部链接</td><td>0</td><td>0.0%</td></tr>
+</table>
+<h3>内容质量</h3><table><tr><th>指标</th><th>数值</th><th>状态</th></tr>
+<tr><td>平均字数</td><td>108</td><td><span class="danger">极差</span></td></tr>
+<tr><td>&lt; 300 字短文</td><td>173 (91.5%)</td><td><span class="danger">差</span></td></tr>
+</table>
+<h2>🏗️ 站点结构</h2>
+<div class="card"><h3>分类（12 个）</h3><table><tr><th>分类</th><th>文章数</th><th>占比</th></tr>
+<tr><td>品牌动态</td><td>90</td><td>47.6%</td></tr>
+<tr><td>大温哥华手机计划</td><td>53</td><td>28.0%</td></tr>
+<tr><td>科技信息</td><td>18</td><td>9.5%</td></tr>
+<tr><td>加拿大运营商介绍</td><td>11</td><td>5.8%</td></tr>
+<tr><td>大多伦多手机计划</td><td>8</td><td>4.2%</td></tr>
+<tr><td>news</td><td>5</td><td>2.6%</td></tr>
+<tr><td>agency</td><td>3</td><td>1.6%</td></tr>
+<tr><td>大温哥华网络计划</td><td>3</td><td>1.6%</td></tr>
+</table><p style="color:var(--muted)"><strong>洞察</strong>: 内容严重偏向"品牌动态"（47.6%）+ 大温哥华手机计划（28%）= 75.6%。缺少"对比/评测/决策类"内容。</p></div>
+<h2>🔧 基础设施</h2><table><tr><th>项</th><th>状态</th><th>说明</th></tr>
+<tr><td>robots.txt</td><td><span class="warn">⚠️ 异常</span></td><td>用 Cloudflare "Content-Signal"，search=yes, ai-train=no</td></tr>
+<tr><td>sitemap.xml</td><td><span class="danger">❌ 缺失</span></td><td>根域名无 sitemap.xml</td></tr>
+<tr><td>llms.txt</td><td><span class="danger">❌ 301 重定向</span></td><td>不存在实际文件</td></tr>
+<tr><td>Google Tag Manager</td><td><span class="ok">✅ 已装</span></td><td>主页有 gtm.js</td></tr>
+<tr><td>Cloudflare CDN</td><td><span class="ok">✅ 启用</span></td><td>Free 套餐</td></tr>
+<tr><td>WordPress 版本</td><td><span class="ok">✅ 7.0</span></td><td>最新版 + wp-abilities</td></tr>
+<tr><td>RankMath</td><td><span class="warn">⚠️ 装了但没用</span></td><td>付费 Pro 装了，但 0% 文章配置</td></tr>
+</table>
+<h2>🎯 修复建议（按 ROI 排序）</h2>
+<h3><span class="severity sev-p0">P0</span> 立即修复</h3>
+<div class="card"><h3>1. 给 189 篇文章配置 RankMath SEO meta</h3>
+<div class="fix">for each post:<br>  rank_math_title = 原 title 简化到 50-60 字符<br>  rank_math_description = 取 excerpt 前 155 字符<br>  rank_math_focus_keyword = 从分类 + 标题提取</div>
+<p><strong>预期 ROI</strong>: 数小时内完成，立即让 189 篇有 SEO meta。</p></div>
+<div class="card"><h3>2. 为文章添加 Article + FAQPage JSON-LD</h3>
+<p>用 RankMath Schema 或 Elementor 单篇文章模板插入 JSON-LD。</p></div>
+<div class="card"><h3>3. 修复 sitemap.xml</h3>
+<p>启用 RankMath Sitemap: <code>Settings → RankMath → Sitemap → Enable</code></p></div>
+<h3><span class="severity sev-p1">P1</span> 重要改进</h3>
+<div class="card"><h3>4. 内容刷新（每月 5-10 篇）</h3><ul>
+<li>优先级: 90 篇"品牌动态"中流量最高的 10 篇</li>
+<li>每篇扩展到 1500+ 字（基于 2026 最新运营商数据）</li>
+<li>添加 FAQ（4-6 条）和 HowTo schema</li>
+<li>添加内部链接网</li></ul></div>
+<div class="card"><h3>5. 内部链接网状结构</h3>
+<p>建立分类 → 文章 → 文章 的 3 层链接网。每篇链接到同分类下 3-5 篇相关文章。</p></div>
+<div class="card"><h3>6. 修复图片 alt（154 张缺 alt）</h3>
+<p>用脚本批量生成 alt（基于图片文件名）</p></div>
+<h3><span class="severity sev-p2">P2</span> 增强</h3>
+<div class="card"><h3>7. 创建 About / Contact / Pricing 关键页面</h3></div>
+<div class="card"><h3>8. llms.txt 配置</h3>
+<p>添加 <code>/llms.txt</code> 描述站点核心信息</p></div>
+<h2>📊 健康评分</h2><div class="card">
+<p><strong>技术 SEO</strong>: ⭐⭐ (2/5) — 基础设施 OK，但 0% 利用</p>
+<p><strong>内容 SEO</strong>: ⭐ (1/5) — 91.5% 短文，无 H1，无内链</p>
+<p><strong>SEO Meta</strong>: ⭐ (1/5) — 0% RankMath 配置</p>
+<p><strong>结构化数据</strong>: ⭐ (1/5) — 0% JSON-LD</p>
+<p><strong>活跃度</strong>: ⭐ (1/5) — 4.3 年未更新</p>
+<p><strong>综合</strong>: ⭐⭐ (2/5) — <strong>必须立即行动</strong></p></div>
+<div style="text-align:center;color:var(--muted);font-size:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line)">
+扫描完成: 2026-07-12 23:30 PST | Hermes Agent v0.18.2</div>
+</div></body></html>
