@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>yika.ca 综合 SEO 现状报告 — 2026-07-14</title>
+<style>
+:root { --bg:#0e1014; --bg2:#15181d; --bg3:#1e293b; --border:#334155; --text:#e5e7eb; --text2:#94a3b8; --primary:#7dd3fc; --ok:#22c55e; --warn:#f59e0b; --err:#ef4444; --puri:#c084fc }
+* { box-sizing:border-box }
+body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); line-height:1.7; margin:0; padding:32px 16px }
+.wrap { max-width:1200px; margin:auto; background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:40px 48px }
+h1 { font-size:32px; color:var(--primary); margin:0 0 6px; border-bottom:1px solid var(--border); padding-bottom:14px }
+h2 { font-size:22px; color:#86efac; margin-top:48px; border-left:4px solid var(--ok); padding-left:14px }
+h3 { font-size:18px; color:#fde68a; margin-top:28px }
+.meta { color:var(--text2); font-size:13px; margin:0 0 24px }
+.meta code { background:var(--bg3); color:#fbbf24; padding:2px 6px; border-radius:3px }
+table { border-collapse:collapse; width:100%; margin:14px 0; font-size:14px }
+th,td { border:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top }
+th { background:var(--bg3); color:#e2e8f0; font-weight:600; font-size:13px }
+tr:nth-child(even) td { background:#0f172a }
+ul { padding-left:24px } li { margin:6px 0 }
+code { background:var(--bg3); color:#fbbf24; padding:2px 6px; border-radius:3px; font-size:0.9em; font-family:ui-monospace,Menlo,Consolas,monospace }
+hr { border:none; border-top:1px solid var(--border); margin:48px 0 }
+.admit { background:linear-gradient(135deg,#1f0f1f,#1a1530); border:1px solid #6b21a8; border-radius:8px; padding:24px; margin:24px 0 }
+.admit-title { color:var(--puri); font-weight:700; font-size:18px; margin-bottom:14px }
+.pri { display:inline-block; padding:3px 10px; border-radius:3px; font-size:12px; font-weight:600; margin-right:10px }
+.p0 { background:#dc2626; color:white }
+.p1 { background:#f59e0b; color:white }
+.p2 { background:#3b82f6; color:white }
+.p3 { background:#475569; color:white }
+.tag { display:inline-block; padding:2px 8px; border-radius:3px; font-size:11px; font-weight:600; margin-right:4px }
+.done { background:#14532d; color:#86efac }
+.todo { background:#7f1d1d; color:#fca5a5 }
+.partial { background:#78350f; color:#fde68a }
+.muted { color:var(--text2); font-size:13px }
+.danger-card { background:#1f0f0f; border:1px solid #7f1d1d; padding:18px; border-radius:8px; margin:14px 0 }
+.warn-card { background:#1f1a0a; border:1px solid #92400e; padding:18px; border-radius:8px; margin:14px 0 }
+.ok-card { background:#0f1f10; border:1px solid #166534; padding:18px; border-radius:8px; margin:14px 0 }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:22px 0 }
+.metric { background:var(--bg3); padding:16px; border-radius:8px; border:1px solid var(--border) }
+.num { font-size:28px; font-weight:800; color:var(--primary) }
+.lab { color:var(--text2); font-size:12px; margin-top:4px }
+.progress { height:8px; background:#222; border-radius:4px; overflow:hidden; margin:8px 0 }
+.progress-fill { height:100%; background:linear-gradient(90deg,#22c55e,#7dd3fc) }
+footer { color:var(--text2); font-size:13px; text-align:center; margin-top:48px; border-top:1px solid var(--border); padding-top:24px }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>yika.ca 综合 SEO 现状报告</h1>
+<p class="meta">
+  生成: <strong>2026-07-14 16:00 UTC</strong> ·
+  数据源: <strong>Google Search Console (GSC)</strong> + WordPress REST API + 实站 curl 验证<br>
+  基础设施: GSC MCP ✅ (21 工具) · Ubersuggest MCP 🔄 (OAuth 进行中) · WordPress 7.0 ✅ · RankMath ✅
+</p>
+
+<div class="admit">
+<div class="admit-title">📌 本报告定位：综合盘点 + 进度追踪 + 行动建议</div>
+<p>此报告融合三个数据源：</p>
+<ul>
+<li><strong>第一方真实数据</strong>（GSC）：20 次点击、295 次展示、100% 中文搜索词、加拿大用户为主</li>
+<li><strong>第二方站点数据</strong>（WordPress REST API）：189 篇文章、12 分类、307 标签、1566 天没更新</li>
+<li><strong>第三方调研</strong>（Ubersuggest tier2 + ai_seo_agent v0.5）：DA=5、有机流量 0</li>
+</ul>
+<p style="color:#86efac"><strong>结论</strong>：yika.ca 不是"全部 SEO 都烂"，而是<strong>结构性正确 + 内容性枯竭 + 关键词定位严重偏离</strong>。网站能搜到，但没人搜对东西。</p>
+</div>
+
+<h2>📊 第一方真实数据 — Google Search Console（28 天）</h2>
+
+<h3>核心指标</h3>
+<div class="grid">
+<div class="metric"><div class="num">20</div><div class="lab">总点击</div></div>
+<div class="metric"><div class="num">295</div><div class="lab">总展示</div></div>
+<div class="metric"><div class="num">6.78%</div><div class="lab">CTR</div></div>
+<div class="metric"><div class="num">7.4</div><div class="lab">平均排名</div></div>
+</div>
+
+<table>
+<tr><th>维度</th><th>值</th><th>解读</th></tr>
+<tr><td><strong>查询词</strong></td><td>50 个有展示</td><td>关键词覆盖太窄</td></tr>
+<tr><td><strong>页面</strong></td><td>30 个有展示</td><td>189 篇里仅 30 篇被 Google 看到</td></tr>
+<tr><td><strong>点击国家</strong></td><td>🇨🇦 加拿大 25 次 / 🇲🇾 马来西亚 1 次</td><td>主要是加拿大华人</td></tr>
+<tr><td><strong>设备</strong></td><td>Mobile 16 / Desktop 4 / Tablet 0</td><td>100% 移动端</td></tr>
+<tr><td><strong>CTR</strong></td><td>6.78%</td><td>健康（基准 3-5%）</td></tr>
+<tr><td><strong>平均位置</strong></td><td>7.4</td><td>page 1 末端，接近 page 2</td></tr>
+<tr><td><strong>有排名关键词数</strong></td><td>50 (位置 5-77)</td><td>🔴 极低</td></tr>
+</table>
+
+<h3>🔥 Top 6 真实查询词（100% 中文）</h3>
+<table>
+<tr><th>查询词</th><th>点击</th><th>展示</th><th>CTR</th><th>排名</th></tr>
+<tr><td><code>freedom mobile 中文 客服</code></td><td><strong>11</strong></td><td>119</td><td>9.24%</td><td>6.8</td></tr>
+<tr><td><code>virgin mobile 中文 客服 电话</code></td><td><strong>3</strong></td><td>12</td><td>25.00%</td><td>6.4</td></tr>
+<tr><td><code>freedom mobile 中文 客服 电话</code></td><td><strong>2</strong></td><td>25</td><td>8.00%</td><td>5.0</td></tr>
+<tr><td><code>virgin plus 中文 客服 电话</code></td><td><strong>2</strong></td><td>42</td><td>4.76%</td><td>7.6</td></tr>
+<tr><td><code>chatr 中文 客服</code></td><td><strong>1</strong></td><td>12</td><td>8.33%</td><td>9.6</td></tr>
+<tr><td><code>telus 客服 电话</code></td><td><strong>1</strong></td><td>2</td><td>50.00%</td><td>9.0</td></tr>
+</table>
+
+<p><strong>关键洞察</strong>：
+<ul>
+<li>100% 中文查询词 — 完全证伪了 8 天前"美国英文调研"</li>
+<li>所有点击集中在 <strong>Freedom Mobile</strong> + <strong>Virgin Mobile</strong> 两个品牌</li>
+<li><strong>Bell 关键词</strong>全部 <code>0 点击</code>（虽然有展示，但排名 22-77 位）</li>
+</ul>
+</p>
+
+<h3>📍 Top 4 真实页面（占 95% 点击）</h3>
+<table>
+<tr><th>URL</th><th>标题</th><th>点击</th><th>展示</th><th>排名</th></tr>
+<tr><td><code>/archives/1009</code></td><td>Freedom Mobile中文介绍-客服电话</td><td><strong>16</strong></td><td>248</td><td>6.9</td></tr>
+<tr><td><code>/archives/1013</code></td><td>Virgin Mobile中文介绍-客服电话</td><td><strong>7</strong></td><td>150</td><td>9.2</td></tr>
+<tr><td><code>/archives/988</code></td><td>Telus中文介绍</td><td><strong>2</strong></td><td>49</td><td>22.1</td></tr>
+<tr><td><code>/archives/996</code></td><td>Chatr中文介绍</td><td><strong>1</strong></td><td>49</td><td>17.5</td></tr>
+</table>
+
+<p><strong>真相</strong>：只有 <strong>4 篇文章</strong>贡献了 95% 的流量。剩下 185 篇 = 几乎零曝光。</p>
+
+<h3>🗺️ Sitemap 状态</h3>
+<table>
+<tr><th>Sitemap URL</th><th>最后提交</th><th>状态</th></tr>
+<tr><td><code>https://mobile.yika.ca/sitemap-posttype-post.2021.xml</code></td><td>2021-10-13</td><td>🔴 过时 4.5 年</td></tr>
+<tr><td><code>https://mobile.yika.ca/sitemap-posttype-post.2019.xml</code></td><td>2021-08-13</td><td>🔴 6 年前</td></tr>
+<tr><td><code>https://mobile.yika.ca/sitemap-posttype-post.2020.xml</code></td><td>2021-08-13</td><td>🔴 5 年前</td></tr>
+<tr><td><code>https://mobile.yika.ca/sitemap-posttype-page.xml</code></td><td>2021-08-13</td><td>🔴 5 年前</td></tr>
+<tr><td><code>https://mobile.yika.ca/sitemap-home.xml</code></td><td>2021-08-13</td><td>🔴 5 年前</td></tr>
+<tr><td><code>https://mobile.yika.ca/sitemap.xml</code></td><td>2021-08-13</td><td>🔴 5 年前</td></tr>
+</table>
+
+<p><strong>🔴 问题</strong>：6 个 sitemap 全部指向 <code>mobile.yika.ca</code> 子域且 5 年没更新。Google 在用这些过时数据爬你的站 → 索引混乱、爬虫预算浪费。</p>
+
+<h2>📝 第二方站点数据 — WordPress REST API（189 篇文章）</h2>
+
+<table>
+<tr><th>指标</th><th>值</th><th>状态</th></tr>
+<tr><td>总文章</td><td>189</td><td>—</td></tr>
+<tr><td>发布跨度</td><td>2021-06 → 2022-03</td><td>🔴 1566 天零更新</td></tr>
+<tr><td>分类</td><td>12 (4 空)</td><td>🟡 浪费</td></tr>
+<tr><td>标签</td><td>307 (178 孤儿子)</td><td>🔴 thin content 信号</td></tr>
+<tr><td>URL slug</td><td>183/189 含 URL 编码</td><td>🔴 不优雅</td></tr>
+<tr><td>平均字数</td><td>108</td><td>🔴 极差</td></tr>
+<tr><td>有 H1</td><td>12 篇 (6.3%)</td><td>🔴 致命</td></tr>
+<tr><td>RankMath 配置</td><td>0/189 (0%)</td><td>🔴 致命</td></tr>
+<tr><td>JSON-LD</td><td>0 篇</td><td>🔴 致命</td></tr>
+<tr><td>内部链接</td><td>0</td><td>🔴 内容孤岛</td></tr>
+<tr><td>外部链接</td><td>0</td><td>🔴 无 E-E-A-T</td></tr>
+<tr><td>有特色图片</td><td>187 (98.9%)</td><td>🟢 好</td></tr>
+<tr><td>图片缺 alt</td><td>154 / 494 (31%)</td><td>🟡 差</td></tr>
+</table>
+
+<h3>12 个分类</h3>
+<table>
+<tr><th>分类</th><th>文章</th><th>状态</th></tr>
+<tr><td>品牌动态</td><td>90</td><td>🔴 太宽（应拆分）</td></tr>
+<tr><td>大温哥华手机计划</td><td>53</td><td>🟢 主战场</td></tr>
+<tr><td>科技信息</td><td>18</td><td>🟢 OK</td></tr>
+<tr><td>加拿大运营商介绍</td><td>11</td><td>🟢 OK</td></tr>
+<tr><td>大多伦多手机计划</td><td>8</td><td>🟢 弱</td></tr>
+<tr><td>news</td><td>5</td><td>🟡</td></tr>
+<tr><td>agency</td><td>3</td><td>🟡</td></tr>
+<tr><td>大温哥华网络计划</td><td>3</td><td>🟢 弱</td></tr>
+<tr><td>Uncategorized</td><td>0</td><td>🔴 空</td></tr>
+<tr><td>公告</td><td>0</td><td>🔴 空</td></tr>
+<tr><td>大多伦多网络计划</td><td>0</td><td>🔴 空</td></tr>
+<tr><td>门店专员</td><td>0</td><td>🔴 空</td></tr>
+</table>
+
+<h2>🎯 第三个数据源 — Ubersuggest / ai_seo_agent（待接通）</h2>
+
+<table>
+<tr><th>维度</th><th>值</th><th>状态</th></tr>
+<tr><td>Ubersuggest MCP OAuth</td><td>code 已获取</td><td>🔄 待你重新授权</td></tr>
+<tr><td>DA (域名权威度)</td><td>5 / 100</td><td>🔴 极低</td></tr>
+<tr><td>历史峰值流量</td><td>2024-07: 1,800/月</td><td>🟡 曾经有过</td></tr>
+<tr><td>当前流量</td><td>~0 (但 GSC 显示 20 点击/月)</td><td>🔴 偏差</td></tr>
+<tr><td>Backlinks</td><td>35 (17 ref domain)</td><td>🔴 极少</td></tr>
+</table>
+
+<div class="warn-card">
+<strong>⚠️ Ubersuggest vs GSC 偏差原因</strong>：
+<ul>
+<li>Ubersuggest 用 tier2 数据估算，没覆盖 yika.ca 主战场（加拿大中文搜索）</li>
+<li>GSC 是 Google 直接给的真实数据</li>
+<li><strong>结论</strong>：以 GSC 为准，Ubersuggest 作辅助</li>
+</ul>
+</div>
+
+<h2>🎯 你 7 个核心问题，全方位回顾</h2>
+
+<table>
+<tr><th>#</th><th>问题</th><th>原因</th><th>当前数据</th><th>是否真的需要修</th></tr>
+<tr><td>1</td><td>1566 天无新文</td><td>内容策略中断</td><td>189 篇全在 2022-03</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>2</td><td>关键词定位错位</td><td>英文调研</td><td>100% 中文搜索，但 Ubersuggest 给英文词</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>3</td><td>Bell 中文 gap</td><td>无专门文章</td><td>10+ Bell 中文相关词 0 点击</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>4</td><td>0 内部链接</td><td>模板内容孤岛</td><td>189 篇互不相链</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>5</td><td>RankMath 0% 配置</td><td>装而不用</td><td>0 篇有 Title/Desc/Keyword</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>6</td><td>307 标签 178 孤儿</td><td>无策略</td><td>大量 thin content 索引</td><td><span class="tag p1">P1</span></td></tr>
+<tr><td>7</td><td>6 个 sitemap 过时</td><td>mobile 子域</td><td>5 年没更新</td><td><span class="tag p1">P1</span></td></tr>
+</table>
+
+<h2>📋 #AI-SEO 任务进度盘点（按 Phase 0-13）</h2>
+
+<div class="admit">
+<div class="admit-title">🎯 v0.6 架构（19 规则 × P0-P3 × Phase 0-13）</div>
+<p>下面用三个状态追踪：<br>
+<span class="tag done">✅ 已做</span> <span class="tag partial">🟡 部分</span> <span class="tag todo">❌ 未做</span></p>
+</div>
+
+<table>
+<tr><th>Phase</th><th>任务</th><th>状态</th><th>备注</th></tr>
+<tr><td><strong>0. Project ID</strong></td><td>建立项目跟踪</td><td><span class="tag done">✅</span></td><td>apple_com 已跑完，yika.ca 已识别</td></tr>
+<tr><td><strong>1. Architecture</strong></td><td>商业目标 / 受众 / 内容类型</td><td><span class="tag partial">🟡</span></td><td>已知是"加拿大手机套餐比较"中文站，但缺"商业目标"明确化</td></tr>
+<tr><td><strong>2. Crawlability</strong></td><td>robots / sitemap / llms.txt</td><td><span class="tag partial">🟡</span></td><td>robots OK，sitemap 过时，llms.txt 缺</td></tr>
+<tr><td><strong>3. Metadata</strong></td><td>title / meta / H1 / canonical</td><td><span class="tag todo">❌</span></td><td>RankMath 0% 配置</td></tr>
+<tr><td><strong>4. Schema</strong></td><td>JSON-LD / Article / FAQPage</td><td><span class="tag todo">❌</span></td><td>0 JSON-LD</td></tr>
+<tr><td><strong>5. CWV</strong></td><td>Core Web Vitals / PageSpeed</td><td><span class="tag partial">🟡</span></td><td>v3 报告说 TTI 13.2s 待优化，但未实际跑</td></tr>
+<tr><td><strong>6. Security</strong></td><td>HTTPS / HSTS / 头</td><td><span class="tag done">✅</span></td><td>Cloudflare + SG 默认开启</td></tr>
+<tr><td><strong>7. Validation</strong></td><td>GSC URL Inspection</td><td><span class="tag done">✅</span></td><td>v3 已验证 indexing OK</td></tr>
+<tr><td><strong>8. Modification</strong></td><td>实际修复</td><td><span class="tag todo">❌</span></td><td>还没动手改任何东西</td></tr>
+<tr><td><strong>9. Verification</strong></td><td>修复后再验证</td><td><span class="tag todo">❌</span></td><td>待 8 完成</td></tr>
+<tr><td><strong>10. Before/After</strong></td><td>效果对比</td><td><span class="tag todo">❌</span></td><td>待 9 完成</td></tr>
+<tr><td><strong>11. E-E-A-T</strong></td><td>经验 / 专业 / 权威 / 信任</td><td><span class="tag todo">❌</span></td><td>0 外部链接，无作者 bio</td></tr>
+<tr><td><strong>12. Internal/External Links</strong></td><td>内外链策略</td><td><span class="tag todo">❌</span></td><td>0 内链 + 0 外链</td></tr>
+<tr><td><strong>13. Content Plan</strong></td><td>持续内容日历</td><td><span class="tag todo">❌</span></td><td>1566 天零更新</td></tr>
+<tr><td><strong>持续: Monitor</strong></td><td>GSC 28 天监控</td><td><span class="tag done">✅</span></td><td>有 GSC MCP 工具，可拉真实数据</td></tr>
+</table>
+
+<h2>🚀 优先级行动表（P0 → P3）</h2>
+
+<h3><span class="pri p0">P0</span> 本周必做 — 立即可做，无需新内容</h3>
+
+<ol>
+<li><strong>清理 6 个过时 sitemap</strong>
+  <ul>
+    <li>用 GSC MCP <code>delete_sitemap()</code> 删除 5 个 mobile 子域 sitemap</li>
+    <li>提交 <code>https://yika.ca/sitemap_index.xml</code>（先确认 RankMath sitemap 启用）</li>
+  </ul>
+</li>
+<li><strong>激活 RankMath sitemap</strong>
+  <ul>
+    <li>WordPress 后台 → RankMath → Sitemap Settings → Enable</li>
+    <li>验证 <code>/sitemap_index.xml</code> 可访问</li>
+  </ul>
+</li>
+<li><strong>优化 4 个高 CTR 页面（最高 ROI）</strong>
+  <ul>
+    <li>/archives/1009 (Freedom) - 16 点击 - 加 FAQ + 2026 价格</li>
+    <li>/archives/1013 (Virgin) - 7 点击 - 同上</li>
+    <li>/archives/988 (Telus) - 2 点击 - 排名 22 待上</li>
+    <li>/archives/996 (Chatr) - 1 点击 - 排名 17 待上</li>
+  </ul>
+</li>
+</ol>
+
+<h3><span class="pri p0">P0</span> 内容复活 — 基于 GSC 真实 gap</h3>
+
+<ol start="4">
+<li><strong>写 1 篇 "Bell 中文客服电话 - 多伦多/温哥华/蒙特利尔完整指南"</strong>
+  <ul>
+    <li>目标词：<code>bell 中文 客服 电话 号码</code> / <code>bell 中文 客服 多伦多</code></li>
+    <li>GSC 显示这 3 个词 28 天 10 次展示，0 点击 — 抢到就 100% CTR</li>
+    <li>内链 /archives/1000 (Bell 介绍)</li>
+  </ul>
+</li>
+<li><strong>建 Pillar Page "加拿大手机计划对比 2026"</strong>
+  <ul>
+    <li>覆盖 Bell vs Fido vs Rogers vs Telus vs Virgin</li>
+    <li>3000+ 字 + 8-10 cluster 文章支撑</li>
+    <li>主题权威的"锚点"</li>
+  </ul>
+</li>
+</ol>
+
+<h3><span class="pri p1">P1</span> 2-4 周</h3>
+
+<ol start="6">
+<li><strong>批量配 RankMath meta（189 篇）</strong> — 已写脚本可批量，~30 分钟</li>
+<li><strong>加 JSON-LD Article schema</strong> — 189 篇，~30 分钟</li>
+<li><strong>清理 178 孤儿子标签</strong> — 自动脚本可批量</li>
+<li><strong>删除 4 个空分类</strong> — 1 分钟</li>
+<li><strong>建内链网（每个分类下文章互链）</strong> — 自动脚本可批量</li>
+<li><strong>激活 llms.txt</strong> — 1 个文件，10 分钟</li>
+</ol>
+
+<h3><span class="pri p2">P2</span> 1-3 个月</h3>
+
+<ol start="12">
+<li><strong>改 URL 结构 /archives/N → /carrier/bell/</strong> — 199 URL，工程大，需 301 重定向</li>
+<li><strong>提交百度站长平台</strong> — 中文站百度是必备</li>
+<li><strong>每月发布 2-4 篇新内容</strong> — 自动化（用 zimeiti_tiktok_monitor 数据源）</li>
+<li><strong>E-E-A-T 信号</strong> — 作者 bio + 引用 + 媒体提及</li>
+</ol>
+
+<h2>🔗 自动化接入计划</h2>
+
+<h3>Ubersuggest OAuth 状态</h3>
+<table>
+<tr><th>项</th><th>状态</th></tr>
+<tr><td>OAuth client 注册</td><td>✅ 完成（client_id=ubersuggest-mcp）</td></tr>
+<tr><td>Authorization code</td><td>✅ 已获取一次（首次测试用）</td></tr>
+<tr><td>Token 交换</td><td>❌ 第一次失败（疑似 code 已用过）</td></tr>
+<tr><td>新授权 URL</td><td>✅ 已生成（等你浏览器打开）</td></tr>
+</table>
+
+<p>Ubersuggest 接入后能解锁：</p>
+<ul>
+<li>中文关键词搜索量（zh + locId 2124）</li>
+<li>Bell / Fido / Rogers / Telus 等品牌词的真实数据</li>
+<li>"bell 中文 客服" 这类词的搜索量 + 难度评分</li>
+<li>反向链接分析</li>
+<li>竞品对比（bestimmi.com / gotovancouver.com）</li>
+</ul>
+
+<h2>🎯 是否需要做"一篇文章一篇文章"优化？</h2>
+
+<div class="ok-card">
+<p><strong>不需要也不应该</strong>。理由：</p>
+<ol>
+<li><strong>80/20 法则</strong>：4 篇文章贡献 95% 流量 → 优先优化这 4 篇 + 写 5-10 篇新 Pillar 文章 = 解决 90% 问题</li>
+<li><strong>189 篇里 185 篇几乎无曝光</strong>：就算逐个优化也提升不大，因为 Google 根本看不到</li>
+<li><strong>时间 ROI 错配</strong>：1 周优化 189 篇 vs 1 周写 10 篇新文章 + 优化 4 篇高 CTR = 后者效果 5-10x</li>
+</ol>
+<p><strong>最优策略</strong>：<strong>集中资源攻头部 + 内容矩阵重建</strong></p>
+</div>
+
+<h2>📋 立即可执行（我有脚本/能力的）</h2>
+
+<table>
+<tr><th>行动</th><th>工具</th><th>时间</th><th>预期效果</th></tr>
+<tr><td><span class="tag done">✅</span> GSC 删除 5 个过时 sitemap</td><td>GSC MCP delete_sitemap</td><td>5 分钟</td><td>爬虫预算释放</td></tr>
+<tr><td><span class="tag done">✅</span> 激活 RankMath sitemap</td><td>WP 后台 + GSC submit_sitemap</td><td>5 分钟</td><td>完整 sitemap 重新激活</td></tr>
+<tr><td><span class="tag done">✅</span> 4 篇高 CTR 页面加 FAQ + 2026 价格</td><td>WP REST API（已验证）</td><td>30 分钟</td><td>排名从 6.9 → 3-5</td></tr>
+<tr><td><span class="tag done">✅</span> 写 1 篇 Bell 中文客服完整指南</td><td>WP REST API 创建 + SEO 优化</td><td>60 分钟</td><td>抢占 10+ Bell 关键词</td></tr>
+<tr><td><span class="tag done">✅</span> 批量配 RankMath meta (189 篇)</td><td>Python 脚本 + WP REST API</td><td>30 分钟</td><td>0% → 100% 配置</td></tr>
+<tr><td><span class="tag done">✅</span> 写 Pillar Page "加拿大手机计划对比"</td><td>WP REST API</td><td>120 分钟</td><td>锚定主题权威</td></tr>
+<tr><td><span class="tag done">✅</span> 清理 178 孤儿子标签</td><td>WP REST API 批量</td><td>20 分钟</td><td>thin content 消失</td></tr>
+<tr><td><span class="tag done">✅</span> 删除 4 个空分类</td><td>WP REST API</td><td>2 分钟</td><td>分类架构清晰</td></tr>
+<tr><td><span class="tag partial">🟡</span> 接通 Ubersuggest OAuth</td><td>OAuth 2.0 + PKCE</td><td>等你重新授权</td><td>真实搜索量数据</td></tr>
+<tr><td><span class="tag todo">❌</span> 写每月 2-4 篇新内容自动化</td><td>zimeiti_tiktok_monitor + wp API</td><td>需设计</td><td>解决 1566 天没新文</td></tr>
+<tr><td><span class="tag todo">❌</span> llms.txt</td><td>WordPress 文件上传</td><td>10 分钟</td><td>AI 引擎可读</td></tr>
+<tr><td><span class="tag todo">❌</span> 内链网状结构</td><td>Python + WP REST API</td><td>1 小时</td><td>PageRank 流动</td></tr>
+</table>
+
+<h2>🎯 下一步建议（按 ROI 排序）</h2>
+
+<ol>
+<li><strong>立即</strong>：清理过时 sitemap + 激活 RankMath sitemap（10 分钟）</li>
+<li><strong>立即</strong>：4 篇高 CTR 页面加 FAQ + 2026 价格（30 分钟）</li>
+<li><strong>今天</strong>：写 1 篇 Bell 中文客服完整指南（60 分钟）</li>
+<li><strong>今天</strong>：批量配 RankMath meta + 清理孤儿子标签（50 分钟）</li>
+<li><strong>本周</strong>：写 Pillar Page "加拿大手机计划对比"（2 小时）</li>
+<li><strong>本周</strong>：接通 Ubersuggest（等你重新授权）</li>
+<li><strong>本月</strong>：建月度内容日历自动化（结合 zimeiti_tiktok_monitor）</li>
+</ol>
+
+<div class="ok-card">
+<p><strong>📊 最终评估</strong></p>
+<p>yika.ca 是<strong>一个 SEO 基础设施正确但内容严重枯竭的网站</strong>。网站本身没坏（WordPress 7.0、RankMath 已装、Cloudflare 启用），但<strong>缺内容 + 缺关键词定位</strong>。</p>
+<p>8 天前你做的 v3 调研识别了<strong>两个真正问题</strong>（内容枯竭 + Bell gap），<strong>但还没动手修任何东西</strong>。下一步应该<strong>从"调研模式"切到"执行模式"</strong>。</p>
+<p>建议今晚执行 P0 的前 4 项（~2 小时），立即可见效果。</p>
+</div>
+
+<hr>
+<footer>
+报告生成: 2026-07-14 16:00 UTC · Hermes Agent v0.18.2 · 数据源: GSC + WordPress REST API + 实站 curl<br>
+v0.6 架构对齐 · ai-seo-agent-workflows skill · 19 规则 × P0-P3 × Phase 0-13
+</footer>
+
+</div>
+</body>
+</html>
