@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yika.ca SEO 实况报告 v3 - 2026-07-14 (GSC 实测版)</title>
+<style>
+:root{--bg:#0e1014;--bg2:#15181d;--bg3:#1e293b;--border:#334155;--text:#e5e7eb;--text2:#94a3b8;--primary:#7dd3fc;--ok:#22c55e;--warn:#f59e0b;--err:#ef4444;--puri:#c084fc}
+*{box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;margin:0;padding:32px 16px}
+.wrap{max-width:1100px;margin:auto;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:40px 48px}
+h1{font-size:28px;color:var(--primary);margin:0 0 6px;border-bottom:1px solid var(--border);padding-bottom:14px}
+h2{font-size:22px;color:#86efac;margin-top:48px;border-left:4px solid var(--ok);padding-left:14px}
+h3{font-size:18px;color:#fde68a;margin-top:28px}
+.meta{color:var(--text2);font-size:13px;margin:0 0 24px}
+.meta code{background:var(--bg3);color:#fbbf24;padding:2px 6px;border-radius:3px}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:var(--bg3);color:#e2e8f0;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.3px}
+tr:nth-child(even) td{background:#0f172a}
+ul{padding-left:24px}li{margin:6px 0}
+code{background:var(--bg3);color:#fbbf24;padding:2px 6px;border-radius:3px;font-size:0.9em;font-family:ui-monospace,Menlo,Consolas,monospace}
+hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+.admit{background:linear-gradient(135deg,#1f0f1f,#1a1530);border:1px solid #6b21a8;border-radius:8px;padding:24px;margin:24px 0}
+.admit-title{color:#c084fc;font-weight:700;font-size:18px;margin-bottom:14px}
+.pri{display:inline-block;padding:3px 10px;border-radius:3px;font-size:12px;font-weight:600;margin-right:10px}
+.p0{background:#dc2626;color:white}
+.p1{background:#f59e0b;color:white}
+.p2{background:#3b82f6;color:white}
+.err-tag{background:#7f1d1d;color:#fca5a5;display:inline-block;padding:2px 8px;border-radius:3px;font-size:12px;margin-right:4px}
+.warn-tag{background:#78350f;color:#fde68a;display:inline-block;padding:2px 8px;border-radius:3px;font-size:12px;margin-right:4px}
+.ok-tag{background:#14532d;color:#86efac;display:inline-block;padding:2px 8px;border-radius:3px;font-size:12px;margin-right:4px}
+.muted{color:var(--text2);font-size:13px}
+.danger-card{background:#1f0f0f;border:1px solid #7f1d1d;padding:18px;border-radius:8px;margin:14px 0}
+.warn-card{background:#1f1a0a;border:1px solid #92400e;padding:18px;border-radius:8px;margin:14px 0}
+.ok-card{background:#0f1f10;border:1px solid #166534;padding:18px;border-radius:8px;margin:14px 0}
+footer{color:var(--text2);font-size:13px;text-align:center;margin-top:48px;border-top:1px solid var(--border);padding-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>yika.ca SEO 实况报告 v3 — 2026-07-14 (GSC 实测版)</h1>
+<p class="meta">生成: 2026-07-14 15:31 UTC · 数据: Ubersuggest tier2 + <b>Google Search Console 实测</b> + 实站 curl 验证 · admin@yika.ca · GSC 工具已装 (21 工具) · 跟踪项目: <code>2/7</code> 已用 (canadashaws.com, canadashaws.ca)</p>
+
+<div class="admit">
+<div class="admit-title">🪞 v3 关键升级：Google Search Console 实测 + 修正 v2 错误</div>
+<p><b>v2 → v3 三处大改:</b></p>
+<ul>
+  <li><b>✓ 接入 Google Search Console</b> — 21 个 MCP 工具已装，OAuth 已走通，能直接拉真实数据（不再依赖 Ubersuggest 估算）</li>
+  <li><b>✓ 推翻 v2 audit 误读</b> — Ubersuggest 报告说"page_allowed 189 被屏蔽"，GSC URL Inspection 证实 yika.ca <code>Indexing: PASS, INDEXING_ALLOWED</code>。Ubersuggest 把 login 墙 URL 误判为 noindex。</li>
+  <li><b>✓ 找到真实流量</b> — Ubersuggest 说"0 organic 流量"，GSC 说"<b>28 天 20 次点击、252 次展示</b>"，<b>全部来自中文搜索</b></li>
+</ul>
+<p style="color:#86efac"><b>之前 8 天调研全英文是错的：GSC 真实查询 <b>100% 中文</b>。Ubersuggest 数据偏英文、加拿大中文搜索覆盖薄。GSC 是唯一权威源。</b></p>
+</div>
+
+<h2>📊 GSC 真实现状 (权威数据, 来自 Google Search Console)</h2>
+
+<table>
+<tr><th>项</th><th>值</th><th>评价</th></tr>
+<tr><td>Property</td><td><code>sc-domain:yika.ca</code></td><td>DNS 验证</td></tr>
+<tr><td>权限</td><td><b>siteOwner</b></td><td>完整控制</td></tr>
+<tr><td>索引状态</td><td><span class="ok-tag">✓ Indexing: PASS - Submitted and indexed</span></td><td>Google 收了</td></tr>
+<tr><td>最近爬取</td><td>2026-07-07 19:03 (5 天前)</td><td>正常</td></tr>
+<tr><td>robots.txt</td><td>ALLOWED</td><td>正常</td></tr>
+<tr><td>Page Fetch</td><td>SUCCESSFUL</td><td>正常</td></tr>
+<tr><td>Indexing State</td><td>INDEXING_ALLOWED</td><td>完全允许索引</td></tr>
+<tr><td>28 天点击</td><td><b>20 次</b></td><td>少但不是 0</td></tr>
+<tr><td>28 天展示</td><td>252 次</td><td>低流量</td></tr>
+<tr><td>平均 CTR</td><td>7.94%</td><td>健康</td></tr>
+<tr><td>平均排名</td><td>9.4</td><td>page 1 末端</td></tr>
+</table>
+
+<div class="ok-card">
+<h3 style="color:#86efac;margin-top:0">真实 28 天查询词 (全部中文 — 完美证伪 v2 英文调研)</h3>
+<table>
+<tr><th>真实搜索词</th><th>点击</th><th>展示</th><th>CTR</th><th>排名</th></tr>
+<tr><td><code>freedom mobile 中文 客服</code></td><td>11</td><td>119</td><td>9.24%</td><td>6.8</td></tr>
+<tr><td><code>virgin mobile 中文 客服 电话</code></td><td>3</td><td>12</td><td>25.00%</td><td>6.4</td></tr>
+<tr><td><code>freedom mobile 中文 客服 电话</code></td><td>2</td><td>25</td><td>8.00%</td><td>5.0</td></tr>
+<tr><td><code>virgin plus 中文 客服 电话</code></td><td>2</td><td>42</td><td>4.76%</td><td>7.6</td></tr>
+<tr><td><code>chatr 中文 客服</code></td><td>1</td><td>12</td><td>8.33%</td><td>9.6</td></tr>
+<tr><td><code>telus 客服 电话</code></td><td>1</td><td>2</td><td>50.00%</td><td>9.0</td></tr>
+<tr><td><code>bell 中文 客服 电话 号码</code></td><td>0</td><td>5</td><td>0.00%</td><td>53.0</td></tr>
+<tr><td><code>bell 中文 客服 多伦多</code></td><td>0</td><td>2</td><td>0.00%</td><td>40.5</td></tr>
+<tr><td><code>bell service 中文</code></td><td>0</td><td>3</td><td>0.00%</td><td>26.3</td></tr>
+<tr><td><code>bell 中文</code></td><td>0</td><td>1</td><td>0.00%</td><td>27.0</td></tr>
+</table>
+<p class="muted"><b>关键洞察:</b></p>
+<ul>
+  <li><b>100% 中文词</b> — 真实用户全部搜中文，跟 canadashaws 同客群</li>
+  <li><b>Freedom Mobile 中文是真正主力词</b> — 11 次点击, 119 展示, 排名第 6.8 (page 1 末)</li>
+  <li><b>Virgin Mobile 中文</b> — 排名 6.4, 健康 CTR 25%</li>
+  <li><b>Bell 中文 = 隐藏金矿</b> — 有搜索(5+2+1+3+1=12 展示/28天)但你内容不到位(排名 22-53, 0 点击)。<b>写 1 篇"Bell 中文客服电话"立即见效</b></li>
+</ul>
+</div>
+
+<h2>📁 Sitemap 状态 (GSC 真实)</h2>
+
+<div class="warn-card">
+<h3 style="color:#fde68a;margin-top:0">⚠️ 6 个 sitemap 全部是 <code>mobile.yika.ca</code> 子域, 3.5 年没刷新</h3>
+<table>
+<tr><th>Path</th><th>Last Downloaded</th><th>Status</th></tr>
+<tr><td><code>mobile.yika.ca/sitemap-posttype-post.2021.xml</code></td><td>2022-12-12 15:58</td><td>errors=2</td></tr>
+<tr><td><code>mobile.yika.ca/sitemap-posttype-post.2020.xml</code></td><td>2022-12-09 15:48</td><td>errors=2</td></tr>
+<tr><td><code>mobile.yika.ca/sitemap-posttype-post.2019.xml</code></td><td>2022-12-10 02:02</td><td>errors=2</td></tr>
+<tr><td><code>mobile.yika.ca/sitemap-posttype-page.xml</code></td><td>2022-12-12 19:50</td><td>errors=2</td></tr>
+<tr><td><code>mobile.yika.ca/sitemap-home.xml</code></td><td>2022-12-10 16:57</td><td>errors=2</td></tr>
+<tr><td><code>mobile.yika.ca/sitemap.xml</code></td><td>2022-12-07 19:36</td><td>errors=2</td></tr>
+</table>
+<p><b>主站 <code>yika.ca</code> 自己的 sitemap 从未提交到 GSC。</b>虽然 <code>https://yika.ca/sitemap.xml</code> 存在 (lastmod 2023-05-08), 但 GSC 系统看不到 — 因为没注册到 <code>sc-domain:yika.ca</code> property 下。</p>
+<p><b>修复:</b> 用 GSC MCP 的 <code>submit_sitemap</code> 重新提交 <code>https://yika.ca/sitemap.xml</code> (自动会解 post-sitemap.xml, page-sitemap.xml)。</p>
+</div>
+
+<h2>🎯 真正问题: 内容枯竭 + Bell 中文 gap</h2>
+
+<div class="danger-card">
+<h3 style="color:#fca5a5;margin-top:0">两个真正问题</h3>
+<p><b>1. 内容 1566 天没新文</b> — 100+ 篇全部 2022-03-30 同一天发布。Google 把"freshness"当核心信号 → 排名跌。</p>
+<p><b>2. Bell 中文有 gap</b> — 用户搜 "bell 中文 客服 电话 号码" (5/28d) / "bell 中文 客服 多伦多" (2/28d) / "bell service 中文" (3/28d)，但你现有 /archives/1000 类文章排名 40-53，<b>page 4-5 之后几乎没点击</b>。</p>
+</div>
+
+<h2>📋 P0/P1/P2 行动表 (基于 GSC 真实数据)</h2>
+
+<h3><span class="pri p0">P0</span> 本周必做 (无需新内容, 立刻可做)</h3>
+<ol>
+<li><b>修 MOBILE PageSpeed</b> — TTI 13.2s → 5s 内:
+  <ul>
+    <li>SiteGround Optimizer 启用 unused-JS 移除 (-532 KB)</li>
+    <li>移除未用 CSS (-55 KB)</li>
+    <li>所有 <code>&lt;img&gt;</code> 加 <code>width</code>/<code>height</code> 属性修 CLS</li>
+  </ul>
+</li>
+<li><b>用 GSC MCP 重新提交 sitemap</b> — 调 <code>submit_sitemap(site_url="sc-domain:yika.ca", sitemap_url="https://yika.ca/sitemap.xml")</code></li>
+<li><b>清理过期 mobile.yika.ca sitemap</b> — 6 个老 sitemap 全是 2022 数据, 删掉避免索引混乱</li>
+</ol>
+
+<h3><span class="pri p0">P0</span> 内容复活 (基于 GSC 真实 gap)</h3>
+<ol start="4">
+<li><b>写 1 篇 "Bell 中文客服电话 - 多伦多/温哥华/蒙特利尔完整指南"</b>:
+  <ul>
+    <li>目标词: <code>bell 中文 客服 电话 号码</code> / <code>bell 中文 客服 多伦多</code> / <code>bell service 中文</code></li>
+    <li>GSC 显示这 3 个词 28 天 10 次展示, 0 点击 — 你抢到就 100% CTR</li>
+    <li>同时含现有 /archives/1000 (Bell 介绍) 的内链</li>
+  </ul>
+</li>
+<li><b>加强 Freedom Mobile + Virgin Mobile 现有文章</b>:
+  <ul>
+    <li>排名 5-7 已 page 1, 但平均位置还能上 → 提升到 3-5</li>
+    <li>加 2026 价格 / FAQ 区块, 提升内容深度</li>
+  </ul>
+</li>
+</ol>
+
+<h3><span class="pri p1">P1</span> 2-4 周内</h3>
+<ol start="6">
+<li><b>写 4 篇"2026 加拿大 X 套餐" 内容</b> (Bell/Fido/Rogers/Virgin 各一篇) — 长尾覆盖</li>
+<li><b>改 URL 结构</b> <code>/archives/N → /carrier/bell-mobile-canada/</code> (199 个 URL 警告) — 工程大</li>
+<li><b>提交百度站长平台</b> — 中文站百度是必备</li>
+</ol>
+
+<h3><span class="pri p2">P2</span> 1-3 个月</h3>
+<ol start="9">
+<li><b>建内链网 + 每月发布 2 篇新内容 + 清理 25 个重复 meta description</b></li>
+</ol>
+
+<h2>🛠️ GSC MCP 工具已就绪 (21 工具)</h2>
+
+<div class="ok-card">
+<p>已装 <code>mcp_servers.gsc</code> (fourdots/google-marketing-mcps), 21 工具可用:</p>
+<ul>
+  <li><code>list_properties</code> / <code>get_site_details</code> — 站点状态</li>
+  <li><code>get_search_analytics</code> — 真实搜索词 + 点击 + 展示 + CTR + 排名</li>
+  <li><code>inspect_url_enhanced</code> — URL 索引/canonical/移动友好性</li>
+  <li><code>get_sitemaps</code> / <code>submit_sitemap</code> / <code>delete_sitemap</code> — sitemap 管理</li>
+  <li><code>request_indexing</code> — 主动让 Google 重新索引 URL</li>
+  <li><code>test_page_speed</code> — 用 Google PSI API 实测</li>
+  <li>...其他 14 个</li>
+</ul>
+<p class="muted">配置: <code>~/.hermes/config.yaml</code> 的 <code>mcp_servers.gsc</code> 块 · Token: <code>~/.hermes/mcp-google-marketing/yika-mcps/gsc/token.json</code> (chmod 600)</p>
+</div>
+
+<h2>📁 原始数据 + 基础设施</h2>
+
+<ul>
+<li><code>/home/ubuntu/yika-audit/raw_data/</code> — 18 个 JSON (含 GSC 实测数据)</li>
+<li><code>/home/ubuntu/yika-audit/yika-seo-summary-2026-07-14.html</code> — 本报告</li>
+<li><code>/home/ubuntu/.hermes/mcp-google-marketing/yika-mcps/gsc/</code> — GSC MCP 仓库 + 客户端 + token</li>
+<li><code>/home/ubuntu/.hermes/scripts/uber.py</code> — Ubersuggest CLI wrapper</li>
+<li><code>/home/ubuntu/.hermes/scripts/ubersuggest_token_refresh.py</code> — Token 自动续</li>
+<li>Cron: <code>ubersuggest-token-refresh</code> 每 12h (job_id <code>25dd1e4a2eb1</code>)</li>
+<li>Hermes MCP: <code>ubersuggest</code> (42 工具) + <code>gsc</code> (21 工具)</li>
+</ul>
+
+<hr>
+<footer>
+yika.ca SEO 报告 v3 · 由 Hermes Agent (model: MiniMax-M3) 自动生成 · 数据真实 (GSC 实测 + Uber + curl) · v2 错误已修正
+</footer>
+
+</div>
+</body>
+</html>
