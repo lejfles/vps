@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Ubersuggest MCP · OAuth Callback</title>
+<style>
+  body{font-family:ui-monospace,Menlo,Consolas,monospace;background:#0e0f12;color:#e6e6e6;margin:0;padding:32px;line-height:1.55}
+  .card{max-width:880px;margin:auto;background:#15181d;border:1px solid #2b313a;border-radius:10px;padding:28px 32px}
+  h1{font-size:18px;margin:0 0 8px;color:#7dd3fc}
+  .muted{color:#9aa4af;font-size:13px;margin-bottom:20px}
+  pre{background:#0a0c10;border:1px solid #232831;border-radius:6px;padding:14px;overflow:auto;font-size:13px;color:#a7f3d0;white-space:pre-wrap;word-break:break-all}
+  .ok{color:#86efac}.warn{color:#fbbf24}.err{color:#fca5a5}
+  button{background:#1e40af;color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer;font:inherit;margin-right:8px}
+  button:hover{background:#1d4ed8}
+  input{width:100%;background:#0a0c10;color:#a7f3d0;border:1px solid #232831;border-radius:6px;padding:10px;font:inherit;box-sizing:border-box}
+  .row{margin-top:18px}
+  .hint{font-size:12px;color:#6b7280;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Ubersuggest MCP · OAuth Callback</h1>
+  <div class="muted">浏览器从 <code>ubersuggest-mcp.neilpatelapi.com/authorize</code> 跳回来时，会带 <code>?code=...&amp;state=...</code>。下面是从地址栏自动抓出来的授权 code。</div>
+
+  <div class="row">
+    <div><b>state:</b></div>
+    <pre id="stateBox">—</pre>
+  </div>
+
+  <div class="row">
+    <div><b>code（一次性,只发一次给 Hermes Agent）:</b></div>
+    <pre id="codeBox">—</pre>
+    <div class="hint">完整复制（含 ?code= 那一段），只发给 Hermes 一次。</div>
+  </div>
+
+  <div class="row">
+    <button onclick="copyCode()">📋 复制 code 到剪贴板</button>
+    <button onclick="copyAll()">📋 复制整个 callback URL</button>
+  </div>
+
+  <div class="row">
+    <div><b>或者手动粘贴</b>（如果自动抓失败）:</div>
+    <input id="manual" placeholder="完整的 callback URL 粘到这里，按 Enter"/>
+    <div class="hint">浏览器跳转时通常会跳到 callback URL 但这页可能 404，看到 404 也请把地址栏的 URL 完整复制下来</div>
+  </div>
+
+  <div id="status" class="row"></div>
+</div>
+
+<script>
+// 抓地址栏参数。GitHub Pages 在子路径所以用 location.search + hash 都看
+(function(){
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+  let code = params.get('code');
+  let state = params.get('state');
+  let error = params.get('error');
+
+  // 兼容:有些 oauth server 把参数放 hash
+  if(!code && window.location.hash){
+    const hp = new URLSearchParams(window.location.hash.slice(1));
+    code = code || hp.get('code');
+    state = state || hp.get('state');
+    error = error || hp.get('error');
+  }
+
+  const status = document.getElementById('status');
+
+  if(error){
+    status.innerHTML = `<div class="err">❌ OAuth error: ${error} - ${params.get('error_description')||''}</div>`;
+  } else if(!code){
+    status.innerHTML = `<div class="warn">⚠️ 没抓到 code。请把浏览器地址栏完整的 URL 复制下来粘到下方输入框。</div>`;
+  } else {
+    status.innerHTML = `<div class="ok">✅ 抓到 code。点上面按钮复制，发给 Hermes Agent（只一次！）。</div>`;
+  }
+
+  document.getElementById('codeBox').textContent = code || '(未抓到)';
+  document.getElementById('stateBox').textContent = state || '(未抓到)';
+
+  window.__code = code;
+  window.__fullUrl = window.location.href;
+})();
+
+function copyCode(){
+  if(!window.__code){ alert('没抓到 code'); return; }
+  navigator.clipboard.writeText(window.__code).then(()=>{
+    document.getElementById('status').innerHTML = '<div class="ok">✅ code 已复制。发给 Hermes，只发一次。</div>';
+  });
+}
+
+function copyAll(){
+  navigator.clipboard.writeText(window.__fullUrl).then(()=>{
+    document.getElementById('status').innerHTML = '<div class="ok">✅ 完整 URL 已复制。</div>';
+  });
+}
+
+document.getElementById('manual').addEventListener('keydown', e=>{
+  if(e.key==='Enter'){
+    const v = e.target.value.trim();
+    try{
+      const u = new URL(v);
+      const c = u.searchParams.get('code');
+      const s = u.searchParams.get('state');
+      if(c){ window.__code = c; window.__fullUrl = v;
+        document.getElementById('codeBox').textContent = c;
+        document.getElementById('stateBox').textContent = s||'(无)';
+        document.getElementById('status').innerHTML = '<div class="ok">✅ 手动粘贴成功,可点复制按钮</div>';
+      }
+    }catch(err){
+      document.getElementById('status').innerHTML = '<div class="err">URL 解析失败</div>';
+    }
+  }
+});
+</script>
+</body>
+</html>
