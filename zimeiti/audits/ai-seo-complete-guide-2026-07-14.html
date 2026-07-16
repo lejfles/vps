@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI SEO 完整知识体系 — #AI搜索-SEO 项目百科</title>
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg2: #131829;
+  --bg3: #1a2138;
+  --bg4: #232b46;
+  --border: #2a3556;
+  --text: #e8eef5;
+  --text2: #a8b3cf;
+  --text3: #6b7691;
+  --primary: #5b9eff;
+  --primary2: #7dc1ff;
+  --accent: #b48eff;
+  --accent2: #ff8fb3;
+  --success: #4ade80;
+  --warn: #fbbf24;
+  --danger: #f87171;
+  --s-tier: #22c55e;
+  --a-tier: #5b9eff;
+  --b-tier: #fbbf24;
+  --c-tier: #f97316;
+  --d-tier: #ef4444;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.85;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 40px 24px; }
+
+/* 头部 */
+.hero {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a2138 50%, #2a3556 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 60px 50px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(91, 158, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(180, 142, 255, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #5b9eff 0%, #b48eff 50%, #ff8fb3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.hero .subtitle {
+  font-size: 18px;
+  color: var(--text2);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+.hero .meta {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text3);
+  position: relative;
+  z-index: 1;
+}
+.hero .meta span { display: flex; align-items: center; gap: 6px; }
+.hero .meta .pill {
+  padding: 4px 12px;
+  background: rgba(91, 158, 255, 0.15);
+  border: 1px solid rgba(91, 158, 255, 0.3);
+  border-radius: 20px;
+  color: var(--primary2);
+}
+
+/* 目录 */
+.toc {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+.toc h2 {
+  color: var(--primary2);
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.toc-grid a {
+  color: var(--text2);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-grid a:hover {
+  background: var(--bg4);
+  border-color: var(--primary);
+  color: var(--primary2);
+  transform: translateX(4px);
+}
+.toc-grid a .num {
+  background: var(--primary);
+  color: var(--bg);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* 主章节 */
+section {
+  margin-bottom: 60px;
+  scroll-margin-top: 30px;
+}
+section h2 {
+  font-size: 32px;
+  color: var(--text);
+  margin-bottom: 10px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+section h2 .ch-num {
+  background: linear-gradient(135deg, #5b9eff 0%, #b48eff 100%);
+  color: var(--bg);
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+section h2 .en {
+  color: var(--text3);
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: auto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+section > p.lead {
+  font-size: 16px;
+  color: var(--text2);
+  margin: 20px 0 30px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(91, 158, 255, 0.08), rgba(180, 142, 255, 0.08));
+  border-left: 4px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+}
+
+h3 {
+  font-size: 22px;
+  color: var(--primary2);
+  margin: 35px 0 16px;
+  padding-left: 16px;
+  border-left: 3px solid var(--primary);
+}
+h4 {
+  font-size: 17px;
+  color: var(--accent);
+  margin: 24px 0 12px;
+  font-weight: 600;
+}
+
+/* 卡片 */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.card-grid .item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.card-grid .item::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--primary);
+}
+.card-grid .item h4 {
+  margin-top: 0;
+  color: var(--primary2);
+  font-size: 16px;
+}
+.card-grid .item p { font-size: 13px; color: var(--text2); margin-top: 8px; }
+.card-grid .item .icon { font-size: 24px; margin-bottom: 8px; }
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 6px;
+  letter-spacing: 0.5px;
+}
+.tag.p0 { background: var(--danger); color: white; }
+.tag.p1 { background: var(--warn); color: #1a1a1a; }
+.tag.p2 { background: var(--primary); color: white; }
+.tag.p3 { background: var(--text3); color: white; }
+.tag.s { background: var(--s-tier); color: white; }
+.tag.a { background: var(--a-tier); color: white; }
+.tag.b { background: var(--b-tier); color: black; }
+.tag.c { background: var(--c-tier); color: white; }
+.tag.d { background: var(--d-tier); color: white; }
+.tag.done { background: var(--success); color: #0a0e1a; }
+.tag.todo { background: var(--danger); color: white; }
+.tag.partial { background: var(--warn); color: #1a1a1a; }
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+  font-size: 14px;
+}
+th {
+  background: var(--bg3);
+  color: var(--primary2);
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(91, 158, 255, 0.05); }
+
+/* 代码 */
+pre {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.65;
+}
+code {
+  font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--bg3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--primary2);
+}
+pre code { background: transparent; padding: 0; color: #e6edf3; }
+
+/* 引用 */
+blockquote {
+  margin: 20px 0;
+  padding: 16px 24px;
+  background: rgba(91, 158, 255, 0.08);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 8px 8px 0;
+  color: var(--text2);
+  font-style: italic;
+}
+blockquote.warning {
+  background: rgba(248, 113, 113, 0.08);
+  border-left-color: var(--danger);
+}
+blockquote.success {
+  background: rgba(74, 222, 128, 0.08);
+  border-left-color: var(--success);
+}
+
+/* 强调 */
+ul, ol { padding-left: 28px; margin: 12px 0; }
+li { margin: 6px 0; color: var(--text2); }
+li strong { color: var(--text); }
+strong { color: var(--primary2); font-weight: 600; }
+
+/* Tier 表 */
+.tier-table {
+  margin: 20px 0;
+}
+.tier-row {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+}
+.tier-badge {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  flex-shrink: 0;
+}
+.tier-badge.s { background: var(--s-tier); }
+.tier-badge.a { background: var(--a-tier); }
+.tier-badge.b { background: var(--b-tier); color: #1a1a1a; }
+.tier-badge.c { background: var(--c-tier); }
+.tier-badge.d { background: var(--d-tier); }
+.tier-content {
+  padding: 16px 20px;
+  flex: 1;
+}
+.tier-content h4 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 16px;
+}
+.tier-content p { color: var(--text2); font-size: 14px; margin: 0; }
+
+/* 评分表 */
+.scoring-table {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+.scoring-table .num { text-align: right; color: var(--accent2); font-weight: 700; }
+
+/* 调用 */
+.callout {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.callout.warning { border-left-color: var(--warn); background: rgba(251, 191, 36, 0.05); }
+.callout.danger { border-left-color: var(--danger); background: rgba(248, 113, 113, 0.05); }
+.callout.success { border-left-color: var(--success); background: rgba(74, 222, 128, 0.05); }
+.callout h4 { margin: 0 0 10px; color: var(--accent); }
+.callout.warning h4 { color: var(--warn); }
+.callout.danger h4 { color: var(--danger); }
+.callout.success h4 { color: var(--success); }
+.callout p { margin: 0; color: var(--text2); }
+
+/* Schema 例子 */
+.schema-example {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  position: relative;
+}
+.schema-example .lang {
+  position: absolute;
+  top: 8px; right: 12px;
+  font-size: 11px;
+  color: var(--text3);
+  background: var(--bg3);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* Agent 卡片 */
+.agent-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  position: relative;
+  overflow: hidden;
+}
+.agent-card .agent-num {
+  position: absolute;
+  top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--bg);
+  border-bottom-left-radius: 30px;
+}
+.agent-card h3 {
+  margin: 0 0 8px;
+  color: var(--primary2);
+  font-size: 20px;
+  border: none;
+  padding: 0;
+}
+.agent-card .role {
+  color: var(--accent);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.agent-card ul { font-size: 14px; }
+
+/* 流程图 */
+.flow-diagram {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.flow-step {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg3);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 4px;
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+}
+.flow-step .num {
+  background: var(--primary);
+  color: var(--bg);
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.flow-step .name { font-size: 13px; font-weight: 600; color: var(--text); }
+.flow-step .desc { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.flow-arrow {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 20px;
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+/* 关键词选词 demo */
+.demo-table {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  overflow-x: auto;
+}
+.demo-table table { background: transparent; border: none; }
+.demo-table th { font-size: 11px; padding: 8px; }
+.demo-table td { font-size: 12px; padding: 8px; }
+.demo-table .winner { background: rgba(74, 222, 128, 0.1); }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text3);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+/* 图片容器 */
+.fig {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+.fig .caption {
+  text-align: center;
+  color: var(--text3);
+  font-size: 12px;
+  margin-top: 12px;
+  font-style: italic;
+}
+.fig img, .fig svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+
+/* 流程示意 */
+.svg-flow {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 20px 16px; }
+  .hero { padding: 40px 24px; }
+  .hero h1 { font-size: 28px; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  section h2 { font-size: 24px; flex-wrap: wrap; }
+  section h2 .en { display: none; }
+  .tier-badge { width: 60px; font-size: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <h1>🤖 AI SEO 完整知识体系</h1>
+  <p class="subtitle">#AI搜索-SEO 项目百科 · 8-Agent 架构 × 19 规则 × Phase 0-13 工作流 × 关键词 7 维评分 × S/A/B/C/D 五级实操</p>
+  <div class="meta">
+    <span class="pill">📅 v0.6 架构</span>
+    <span class="pill">🎯 2026-07-14 完整版</span>
+    <span class="pill">📚 41 个参考资料</span>
+    <span class="pill">🧪 7 份资料导入 + 1 份融资材料 + 5 份 v0.x 状态</span>
+  </div>
+</div>
+
+<!-- ========== 目录 ========== -->
+<div class="toc">
+  <h2>📋 目录</h2>
+  <div class="toc-grid">
+    <a href="#ch1"><span class="num">1</span>核心理念：AI SEO ≠ 堆关键词</a>
+    <a href="#ch2"><span class="num">2</span>8-Agent 系统架构</a>
+    <a href="#ch3"><span class="num">3</span>19 规则 × Phase 0-13 工作流</a>
+    <a href="#ch4"><span class="num">4</span>关键词选词 7 维评分算法</a>
+    <a href="#ch5"><span class="num">5</span>9 节均衡写作 + 4 层内容分层</a>
+    <a href="#ch6"><span class="num">6</span>结构化数据 / Schema 完全指南</a>
+    <a href="#ch7"><span class="num">7</span>外链 / 负面 SEO / Spam Backlinks</a>
+    <a href="#ch8"><span class="num">8</span>AI Visibility 监测 + 商业边界</a>
+  </div>
+</div>
+
+<!-- ========== 章节 1 ========== -->
+<section id="ch1">
+  <h2>
+    <span class="ch-num">1</span>
+    核心理念：AI SEO ≠ 堆关键词
+    <span class="en">Core Philosophy</span>
+  </h2>
+
+  <p class="lead">
+    AI 时代最大的认知误区：把 SEO 简化为"批量写文章堆关键词"。
+    真正的 AI SEO 是<strong>可控的内容资产系统</strong>——以商业目标为中心、以证据为支撑、以结构化交付物为成果、以商业风险为红线。
+  </p>
+
+  <h3>1.1 AI SEO 的本质是「内容资产生产」</h3>
+
+  <div class="card-grid">
+    <div class="item">
+      <div class="icon">🎯</div>
+      <h4>商业目标优先</h4>
+      <p>明确是流量、信任、AI 引用、转化、还是销售支持。每种目标对应不同内容策略。</p>
+    </div>
+    <div class="item">
+      <div class="icon">📋</div>
+      <h4>内容类型匹配</h4>
+      <p>基础 SEO 文章 / 判断型文章 / 权威资产页 / 转化页 / 更新复盘 / 监测报告，6 种类型各有打法。</p>
+    </div>
+    <div class="item">
+      <div class="icon">🔍</div>
+      <h4>证据先于写作</h4>
+      <p>主张、证据、推理、含义、来源、新鲜度——任何一节缺失都会被 AI 标记为低质。</p>
+    </div>
+    <div class="item">
+      <div class="icon">🛡️</div>
+      <h4>商业边界先于架构</h4>
+      <p>公开 / 匿名化 / 概括化 / 不公开，4 级边界决定能不能写、写到哪一层。</p>
+    </div>
+    <div class="item">
+      <div class="icon">👤</div>
+      <h4>人工审批先于发布</h4>
+      <p>任何账号/CMS/API 操作前必须有人工审批节点。AI 不替你点发布按钮。</p>
+    </div>
+    <div class="item">
+      <div class="icon">🔄</div>
+      <h4>持续监测+复盘</h4>
+      <p>Search Console / Analytics / 排名工具 / AI 引用数据，月度复盘形成迭代闭环。</p>
+    </div>
+  </div>
+
+  <h3>1.2 AI SEO 内容的 6 大核心要素</h3>
+
+  <p>从「ChatGPT 分享-AI 搜索排名算法分析」提炼的 6 大要素（资料源：30 段视频脚本深度解析）：</p>
+
+  <div class="tier-table">
+    <div class="tier-row">
+      <div class="tier-badge s">S</div>
+      <div class="tier-content">
+        <h4>① 原创数据、真实案例、行业观察、价格/政策/流程差异</h4>
+        <p>AI 最怕回答"大家都已经写过的废话"。如果你的网站有别人没有的数据（如加拿大移民客户案例、OSSD 学生路径、费用区间、真实问答、政策变化整理、表格对比），AI 更容易引用你。这是 S 级（最值得做）。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge s">S</div>
+      <div class="tier-content">
+        <h4>② 高质量 Digital PR</h4>
+        <p>不是随便发新闻稿，而是让行业媒体、协会、权威博客、学校、律师、顾问、研究报告、地方媒体提到你。AI 搜索更容易相信"第三方可信来源对你的描述"。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge s">S</div>
+      <div class="tier-content">
+        <h4>③ 品牌实体清晰度</h4>
+        <p>AI 要知道：你是谁、公司叫什么、服务范围是什么、谁负责、资质是什么、和其他品牌是什么关系。尤其做多品牌、多实体的公司，如果网上信息混乱，AI 很可能不敢引用，或者引用错。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge a">A</div>
+      <div class="tier-content">
+        <h4>④ 可被 AI 抽取的内容结构</h4>
+        <p>AI 喜欢清楚的定义、步骤、表格、FAQ、对比、费用、资格条件、风险提示、更新时间。不是为了"讨好 AI"，而是让答案更容易被提取。Google 官方也明确：不需要专门为生成式 AI 改写，但基础 SEO、清晰结构、独特有价值内容仍然是基础。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge a">A</div>
+      <div class="tier-content">
+        <h4>⑤ 主题权威（Topical Authority），而不是单篇爆文</h4>
+        <p>不是只写一篇"什么是 OSSD"，而是形成完整内容群：9/10/11/12 年级路径、PLAR、BSID、毕业要求、大学申请、费用、录播课、线上课合规、家长常见误区。AI 会更容易判断你在这个主题上"持续覆盖"。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge a">A</div>
+      <div class="tier-content">
+        <h4>⑥ 被 ChatGPT / Google / Bing 能正常抓取</h4>
+        <p>非常现实。OpenAI 明确说，ChatGPT Search 要显示网站，重要前提是不要屏蔽 OAI-SearchBot；而 GPTBot 和 OAI-SearchBot 是不同用途，前者偏训练，后者偏搜索展示。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge b">B</div>
+      <div class="tier-content">
+        <h4>⑦ Schema / 结构化数据</h4>
+        <p>适合做 Organization、LocalBusiness、FAQ、Product、Review、Article、Person、Breadcrumb。不是 AI 搜索捷径，但能帮搜索引擎理解页面。Google 官方说结构化数据可帮助理解页面和获得富结果，但不是生成式 AI 的特殊要求。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge b">B</div>
+      <div class="tier-content">
+        <h4>⑧ 真实论坛、Reddit、小红书、YouTube 评论区讨论</h4>
+        <p>对品牌信任有用，但前提是自然、真实、有语境。刷 mention 没意义，甚至可能有反效果。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge b">B</div>
+      <div class="tier-content">
+        <h4>⑨ 页面速度、移动端、可访问性</h4>
+        <p>不是排名核心，但如果 agent 要访问网站、读 DOM、看按钮、理解表单，网站可访问性会变重要。OpenAI 开发者 FAQ 也提到，ARIA 标签和可访问性有助于 ChatGPT Agent 理解网站结构和交互元素。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge c">C</div>
+      <div class="tier-content">
+        <h4>⑩ 程序化 SEO</h4>
+        <p>只有在"每页有真实差异"的情况下值得做。比如"加拿大各省移民项目对比""不同学校 OSSD 课程差异""温哥华各区 daycare 费用数据"。如果只是批量套模板，会越来越危险。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge c">C</div>
+      <div class="tier-content">
+        <h4>⑪ Guest post</h4>
+        <p>只做高相关、高可信、有编辑审核的网站。不要做泛泛的"Top 10 immigration agency"垃圾站。</p>
+      </div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-badge d">D</div>
+      <div class="tier-content">
+        <h4>⑫ DA / DR / 低质外链 / Blog comments</h4>
+        <p>可以参考，但不能当核心策略。AI 搜索更看重"这个来源是否值得被引用"，不是某个 SEO 工具给你几分。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>1.3 文中没提到但同样重要的 5 个隐藏要素</h3>
+
+  <div class="callout success">
+    <h4>💡 隐藏要素 #1：AI 引用的不是网页，是"答案片段"</h4>
+    <p>你要把内容写成 AI 能直接拿来回答的问题，比如"2026 年加拿大 CEC 抽分为什么还高？""OSSD 11 年级入学要多久毕业？""移民公司和持牌 RCIC 的关系怎么判断？"这类内容比泛泛写品牌故事更容易被引用。</p>
+  </div>
+
+  <div class="callout success">
+    <h4>💡 隐藏要素 #2：实体一致性（Entity Consistency）</h4>
+    <p>公司名、创始人、地址、电话、资质、服务范围、Logo、LinkedIn、Google Business、Crunchbase、新闻稿、社媒简介都要一致。尤其做过多品牌、多公司架构的，这种信息如果混乱，AI 会降低信任。</p>
+  </div>
+
+  <div class="callout success">
+    <h4>💡 隐藏要素 #3：监测现在开始变重要</h4>
+    <p>Google 已经在 2026 年 6 月推出 Search Console 的<strong>生成式 AI 表现报告</strong>，用来查看 URL 在 AI Overviews、AI Mode、Discover 生成式功能中的曝光、页面、国家、设备和时间维度。以后 GEO 不是只靠猜，要开始看数据。</p>
+  </div>
+
+  <div class="callout warning">
+    <h4>⚠️ 隐藏要素 #4：不要迷信 llms.txt</h4>
+    <p>Google 明确说，Google Search 包括生成式 AI 功能<strong>不使用 llms.txt</strong>，做了不会伤害排名，但也不会帮助 Google 排名。它可以作为给其他 agent 的说明文件，但不能当成 AI SEO 的核心。</p>
+  </div>
+
+  <div class="callout success">
+    <h4>💡 隐藏要素 #5：品牌被提到的语境，比提到次数更重要</h4>
+    <p>AI 不只是数 mention，还会看"谁说的、在哪里说、怎么说、是否和你的核心服务一致"。比如"X 公司是 OSSD 线上项目运营方"这种清楚描述，比 100 个无意义品牌名出现更有价值。</p>
+  </div>
+
+  <blockquote>
+    <strong>AI 搜索排名的核心不是"哪里能发链接"，而是：你有没有独特、可信、结构清楚、能被第三方验证、并且能被 AI 直接拿来回答用户问题的信息。</strong>
+  </blockquote>
+
+  <h3>1.4 内容生产三重审计</h3>
+  <p>每篇文章必须先过审再交付，三道关卡不可省略：</p>
+
+  <div class="card-grid">
+    <div class="item">
+      <div class="icon">✓</div>
+      <h4>Trust Audit（信任审计）</h4>
+      <p>可信度、来源、作者/机构、更新时间。查作者 bio、引用源、是否有同行引用。</p>
+    </div>
+    <div class="item">
+      <div class="icon">🤖</div>
+      <h4>AI Citation Audit（引用审计）</h4>
+      <p>定义、表格、FAQ、步骤、结论句、可抽取性。查结构化数据、段落自包含度。</p>
+    </div>
+    <div class="item">
+      <div class="icon">⚠️</div>
+      <h4>Commercial Risk Audit（商业风险审计）</h4>
+      <p>是否泄露商业机密、是否让同行可复制。查客户名单、内部 SOP、成本结构。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 章节 2 ========== -->
+<section id="ch2">
+  <h2>
+    <span class="ch-num">2</span>
+    8-Agent 系统架构
+    <span class="en">8-Agent Architecture</span>
+  </h2>
+
+  <p class="lead">
+    将 SEO 专员的全部工作拆解为 8 个独立 Agent，每个 Agent 都有自己的输入/输出 schema 和检查清单。
+    8 个 Agent 通过 handoff（交接）机制串成完整 pipeline，失败时精准路由到对应环节而非全流程重跑。
+  </p>
+
+  <h3>2.1 8-Agent 流程图</h3>
+
+  <div class="svg-flow">
+<svg viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" style="background: #0a0e1a">
+<defs>
+<linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#5b9eff"/><stop offset="100%" stop-color="#b48eff"/>
+</linearGradient>
+<linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#5b9eff"/>
+</linearGradient>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+<polygon points="0 0, 9 3, 0 6" fill="#5b9eff"/>
+</marker>
+</defs>
+
+<!-- 8 agent boxes -->
+<g font-family="-apple-system,sans-serif" font-size="12" fill="#e8eef5">
+
+<g transform="translate(20,80)">
+<rect width="120" height="120" rx="10" fill="url(#g1)" opacity="0.2" stroke="#5b9eff" stroke-width="2"/>
+<text x="60" y="35" fill="#7dc1ff" font-size="22" font-weight="800" text-anchor="middle">01</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Strategy</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">商业目标 / 内容类型</text>
+</g>
+
+<g transform="translate(160,80)">
+<rect width="120" height="120" rx="10" fill="url(#g1)" opacity="0.2" stroke="#5b9eff" stroke-width="2"/>
+<text x="60" y="35" fill="#7dc1ff" font-size="22" font-weight="800" text-anchor="middle">02</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Research</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">关键词 / SERP / Gap</text>
+</g>
+
+<g transform="translate(300,80)">
+<rect width="120" height="120" rx="10" fill="url(#g1)" opacity="0.2" stroke="#5b9eff" stroke-width="2"/>
+<text x="60" y="35" fill="#7dc1ff" font-size="22" font-weight="800" text-anchor="middle">03</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Evidence</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">数据 / 案例 / 来源</text>
+</g>
+
+<g transform="translate(440,80)">
+<rect width="120" height="120" rx="10" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
+<text x="60" y="35" fill="#4ade80" font-size="22" font-weight="800" text-anchor="middle">04</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Risk</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">商业机密 / 合规</text>
+</g>
+
+<g transform="translate(580,80)">
+<rect width="120" height="120" rx="10" fill="url(#g1)" opacity="0.2" stroke="#5b9eff" stroke-width="2"/>
+<text x="60" y="35" fill="#7dc1ff" font-size="22" font-weight="800" text-anchor="middle">05</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Content</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Architect</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">大纲 / Schema / CTA</text>
+</g>
+
+<g transform="translate(720,80)">
+<rect width="120" height="120" rx="10" fill="url(#g1)" opacity="0.2" stroke="#5b9eff" stroke-width="2"/>
+<text x="60" y="35" fill="#7dc1ff" font-size="22" font-weight="800" text-anchor="middle">06</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Writer</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">草稿 / 风格 / 平台变体</text>
+</g>
+
+<g transform="translate(860,80)">
+<rect width="120" height="120" rx="10" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+<text x="60" y="35" fill="#fbbf24" font-size="22" font-weight="800" text-anchor="middle">07</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Audit</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">19 规则 / 三重审计</text>
+</g>
+
+<g transform="translate(1000,80)">
+<rect width="120" height="120" rx="10" fill="url(#g2)" opacity="0.2" stroke="#10b981" stroke-width="2"/>
+<text x="60" y="35" fill="#4ade80" font-size="22" font-weight="800" text-anchor="middle">08</text>
+<text x="60" y="65" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Monitor</text>
+<text x="60" y="82" fill="#e8eef5" font-size="13" font-weight="700" text-anchor="middle">Agent</text>
+<text x="60" y="105" fill="#a8b3cf" font-size="10" text-anchor="middle">GSC / AI 引用 / 迭代</text>
+</g>
+
+<!-- Arrows -->
+<g stroke="#5b9eff" stroke-width="2" fill="none" marker-end="url(#arrow)">
+<line x1="140" y1="140" x2="160" y2="140"/>
+<line x1="280" y1="140" x2="300" y2="140"/>
+<line x1="420" y1="140" x2="440" y2="140"/>
+<line x1="560" y1="140" x2="580" y2="140"/>
+<line x1="700" y1="140" x2="720" y2="140"/>
+<line x1="840" y1="140" x2="860" y2="140"/>
+<line x1="980" y1="140" x2="1000" y2="140"/>
+</g>
+
+<!-- Failure routing arrows -->
+<g stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,4" fill="none">
+<path d="M 920 80 Q 920 30 80 30 Q 60 30 60 80" marker-end="url(#arrow)"/>
+</g>
+<text x="500" y="22" fill="#f87171" font-size="11" text-anchor="middle">失败路由：精准回到对应 Agent（不重跑全流程）</text>
+
+<!-- Bottom labels -->
+<text x="80" y="240" fill="#a8b3cf" font-size="11" text-anchor="middle">策略</text>
+<text x="220" y="240" fill="#a8b3cf" font-size="11" text-anchor="middle">研究</text>
+<text x="360" y="240" fill="#a8b3cf" font-size="11" text-anchor="middle">证据</text>
+<text x="500" y="240" fill="#4ade80" font-size="11" text-anchor="middle">风险</text>
+<text x="640" y="240" fill="#a8b3cf" font-size="11" text-anchor="middle">架构</text>
+<text x="780" y="240" fill="#a8b3cf" font-size="11" text-anchor="middle">写作</text>
+<text x="920" y="240" fill="#fbbf24" font-size="11" text-anchor="middle">审计</text>
+<text x="1060" y="240" fill="#4ade80" font-size="11" text-anchor="middle">监测</text>
+</g>
+</svg>
+  </div>
+
+  <h3>2.2 每个 Agent 的详细职责</h3>
+
+  <div class="agent-card">
+    <div class="agent-num">01</div>
+    <h3>Strategy Agent · 战略</h3>
+    <p class="role">业务目标 / 受众 / 转化动作 / 禁止披露</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>明确商业目标：流量 / 信任 / AI 引用 / 转化 / 销售支持 / 监测</li>
+      <li>锁定目标用户画像：行业、规模、痛点、决策路径</li>
+      <li>设计转化动作：加微信 / 表单 / 电话 / 预约 / 下载</li>
+      <li>划定商业边界：客户名单 / 内部 SOP / 成本结构 / 合作渠道</li>
+      <li>选择内容类型：基础 SEO / 判断 / 权威资产 / 转化 / 更新 / 报告</li>
+    </ul>
+    <h4>输入</h4>
+    <p>行业 / 网站 URL / 目标服务 / 目标客户 / 地区 / 语言 / 禁止公开信息</p>
+    <h4>输出</h4>
+    <p>项目 brief + 内容边界 + 合规边界 + 关键词策略</p>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">02</div>
+    <h3>Research Agent · 研究</h3>
+    <p class="role">真实用户问题 / 主次问题 / SERP 竞品 / 知识模型 / 关键词冲突</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>调研真实用户问题（4 大意图：定义 / How-To / 列表 / 对比）</li>
+      <li>设计主问题 + 3-5 个次问题（7 维评分算法选词）</li>
+      <li>分析 SERP top-3 页面（能否被我的内容替代？）</li>
+      <li>检查关键词冲突（cannibalization）</li>
+      <li>建立知识模型：实体 / 关系 / 概念层级</li>
+      <li>判断 DA 5 的站能打哪些词（SD ≤ 30 是 DA&lt;10 的实战阈值）</li>
+    </ul>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">03</div>
+    <h3>Evidence Agent · 证据</h3>
+    <p class="role">事实 / 数据 / 来源 / 案例 / 主张-证据-推理-含义 库</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>收集一手数据：行业报告 / 官方公告 / 政策文件</li>
+      <li>收集二手数据：权威媒体 / 同行研究 / 学术论文</li>
+      <li>建立主张-证据-推理-含义（Claim-Evidence-Reasoning-Implication）四要素</li>
+      <li>维护证据库：可复用 vs 一次性</li>
+      <li>检查来源新鲜度（updated_at）</li>
+    </ul>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">04</div>
+    <h3>Risk Agent · 风险</h3>
+    <p class="role" style="color: #4ade80">商业机密 / 隐私 / 版权 / 平台条款 / 法律 / 品牌</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>扫描商业机密泄露风险</li>
+      <li>检查隐私数据（PII）</li>
+      <li>验证版权和引用授权</li>
+      <li>审核平台服务条款（robots.txt、OAI-SearchBot、GPTBot）</li>
+      <li>法律风险（如医美 / 金融 / 移民行业的合规要求）</li>
+      <li>品牌口径一致性（多品牌实体）</li>
+    </ul>
+    <h4>输出</h4>
+    <p>风险评估：🟢 通过 / 🟡 需修改 / 🔴 高风险暂停</p>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">05</div>
+    <h3>Content Architect Agent · 内容架构</h3>
+    <p class="role">内容蓝图 / 章节 / 表格 / FAQ / CTA / 内链 / Schema / AI 可抽取结构</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>设计 9 节均衡结构（问题→答案→证据→对比→FAQ→CTA）</li>
+      <li>布局 JSON-LD：Article + FAQPage + BreadcrumbList + Organization</li>
+      <li>段落自包含（每段独立有意义）</li>
+      <li>内链网：分类页 → 文章 → 相关文章 3 层结构</li>
+      <li>CTA 设计：上下文匹配（不要硬塞转化）</li>
+      <li>视觉资产：表格 / 图表 / 截图（不是装饰，是信息）</li>
+    </ul>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">06</div>
+    <h3>Writer Agent · 写作</h3>
+    <p class="role">草稿 / 标题 / meta / FAQ / 摘要 / 平台变体 / 去 AI 腔</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>按公式写：具体人群 + 具体场景 + 具体问题 + 企业经验 + 数据/案例 + 风险判断 + 可执行建议</li>
+      <li>避免 AI 腔（"在当今时代""毫无疑问""总而言之"）</li>
+      <li>避免 clickbait（夸张、虚假承诺）</li>
+      <li>生成平台变体：网站 / 公众号 / 小红书 / 知乎 / Medium</li>
+      <li>标题/description/FAQ/excerpt 一并输出</li>
+    </ul>
+    <h4>核心公式</h4>
+    <blockquote><strong>具体人群</strong> + <strong>具体场景</strong> + <strong>具体问题</strong> + <strong>企业经验</strong> + <strong>数据/案例</strong> + <strong>风险判断</strong> + <strong>可执行建议</strong></blockquote>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">07</div>
+    <h3>Audit Agent · 审计</h3>
+    <p class="role" style="color: #fbbf24">SEO / 语义 / 信任 / AI 可抽取 / 商业风险 / 转化审计 / 失败路由</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>执行 19 规则 × P0-P3 风险分级（详见第 3 章）</li>
+      <li>三重审计：Trust + AI Citation + Commercial Risk</li>
+      <li>失败路由：精准回到对应 Agent（不重跑全流程）</li>
+      <li>输出 7 段结构化报告</li>
+    </ul>
+  </div>
+
+  <div class="agent-card">
+    <div class="agent-num">08</div>
+    <h3>Monitor Agent · 监测</h3>
+    <p class="role" style="color: #4ade80">Search Console / Analytics / 排名 / AI 引用 / 转化 / 用户反馈</p>
+    <h4>核心职责</h4>
+    <ul>
+      <li>GSC 28 天滚动数据：曝光 / 点击 / CTR / 排名</li>
+      <li>AI 引擎引用监测：ChatGPT / Perplexity / Gemini / AI Overviews</li>
+      <li>排名变化追踪：每周 + 每月复盘</li>
+      <li>用户反馈收集：评论 / 表单 / 客服</li>
+      <li>更新 backlog：哪些文章该刷新</li>
+    </ul>
+  </div>
+
+  <h3>2.3 Handoff（交接）规范</h3>
+
+  <p>每个 Agent 之间的交接必须包含以下字段：</p>
+
+<pre><code>{
+  "run_id": "v0.6-yika-ca-20260714",
+  "project_id": "yika-ca",
+  "source_agent": "01_strategy",
+  "target_agent": "02_research",
+  "summary": "yika.ca 是加拿大中文手机计划比较站，DA=5，目标受众是加拿大华人",
+  "payload_path": "/04_projects/yika-ca/01_strategy_output.json",
+  "risk_flags": [
+    {
+      "id": "RF-001",
+      "risk_level": "P1",
+      "category": "商业边界",
+      "rule_reference": "4.x 商业边界规则",
+      "description": "需确认是否公开 yika.ca 客户转化数据",
+      "evidence": "未在策略 brief 中标注",
+      "fix_action": "等待用户确认",
+      "owner_agent": "01_strategy"
+    }
+  ],
+  "open_questions": [
+    "用户对中文 AI 引擎（如 Kimi）的监测需求？"
+  ],
+  "status": "ready"
+}</code></pre>
+
+  <h3>2.4 失败路由规则</h3>
+
+  <p>当 Audit Agent 失败时，<strong>不要全流程重跑</strong>，精准回到对应环节：</p>
+
+<table>
+<tr><th>失败原因</th><th>路由到</th><th>不路由到</th></tr>
+<tr><td>商业目标错位</td><td><span class="tag p0">01 Strategy</span></td><td>其他</td></tr>
+<tr><td>SERP / 主题匹配弱</td><td><span class="tag p0">02 Research</span></td><td>其他</td></tr>
+<tr><td>证据缺失/弱</td><td><span class="tag p0">03 Evidence</span></td><td>其他</td></tr>
+<tr><td>披露/合规风险</td><td><span class="tag p0">04 Risk</span></td><td>其他</td></tr>
+<tr><td>结构/转化路径差</td><td><span class="tag p0">05 Architect</span></td><td>其他</td></tr>
+<tr><td>语言/清晰度</td><td><span class="tag p0">06 Writer</span></td><td>其他</td></tr>
+<tr><td>P0 finding</td><td><strong>原位修复</strong></td><td>不重跑工作流</td></tr>
+</table>
+</section>
+
+<!-- ========== 章节 3 ========== -->
+<section id="ch3">
+  <h2>
+    <span class="ch-num">3</span>
+    19 规则 × Phase 0-13 工作流
+    <span class="en">19 Rules × Phase 0-13</span>
+  </h2>
+
+  <p class="lead">
+    Audit Agent 的核心是 <strong>19 条 Pass/Fail 规则</strong>，每条带 P0-P3 风险等级，附 P0-P3 风险分级。
+    整个工作流分 14 个 Phase（0-13），从项目识别到效果对比全链路覆盖。
+  </p>
+
+  <h3>3.1 19 条审计规则（按 P0-P3 分级）</h3>
+
+  <h4>P0 — 致命（必须立即修复）</h4>
+<table>
+<tr><th>ID</th><th>规则</th><th>检测方法</th><th>风险</th></tr>
+<tr><td>R01</td><td>robots.txt 关键路径被误禁</td><td>curl /robots.txt | grep -i disallow</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>R02</td><td>sitewide noindex</td><td>抽样 10 页，检查 meta robots</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>R03</td><td>canonical 错误 / 循环</td><td>每页 canonical 必须指向自己</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>R04</td><td>页面 5xx 错误</td><td>批量检查 5xx 占比</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>R05</td><td>关键内容被 login 墙挡</td><td>curl 不带 cookie 检查</td><td><span class="tag p0">P0</span></td></tr>
+<tr><td>R06</td><td>结构化数据错误（影响 rich results）</td><td>Schema.org Validator</td><td><span class="tag p0">P0</span></td></tr>
+</table>
+
+  <h4>P1 — 重要（影响显著）</h4>
+<table>
+<tr><th>ID</th><th>规则</th><th>检测方法</th><th>风险</th></tr>
+<tr><td>R07</td><td>title 缺失/重复/过长</td><td>全站 title 唯一性 + 长度 50-60</td><td><span class="tag p1">P1</span></td></tr>
+<tr><td>R08</td><td>meta description 缺失/重复</td><td>全站 description 唯一性 + 长度 150-160</td><td><span class="tag p1">P1</span></td></tr>
+<tr><td>R09</td><td>H1 缺失/多个</td><td>每页恰好 1 个 H1</td><td><span class="tag p1">P1</span></td></tr>
+<tr><td>R10</td><td>图片缺 alt</td><td>所有 img 必须有 alt</td><td><span class="tag p1">P1</span></td></tr>
+<tr><td>R11</td><td>内链数 = 0（孤岛页面）</td><td>每页至少 3 个内链</td><td><span class="tag p1">P1</span></td></tr>
+<tr><td>R12</td><td>外链数 = 0（E-E-A-T 弱）</td><td>每页至少 1 个权威外链</td><td><span class="tag p1">P1</span></td></tr>
+</table>
+
+  <h4>P2 — 中等（应优化）</h4>
+<table>
+<tr><th>ID</th><th>规则</th><th>检测方法</th><th>风险</th></tr>
+<tr><td>R13</td><td>关键词密度异常</td><td>0.75%-2.5% 范围</td><td><span class="tag p2">P2</span></td></tr>
+<tr><td>R14</td><td>段落过长（影响可读性）</td><td>&lt; 120 词/段</td><td><span class="tag p2">P2</span></td></tr>
+<tr><td>R15</td><td>无 FAQ / 表格 / 列表</td><td>AI 可抽取性弱</td><td><span class="tag p2">P2</span></td></tr>
+<tr><td>R16</td><td>sitemap.xml 缺失</td><td>curl /sitemap.xml</td><td><span class="tag p2">P2</span></td></tr>
+<tr><td>R17</td><td>URL 不友好（带 ID/中文编码）</td><td>/archives/1013 vs /bell-mobile/</td><td><span class="tag p2">P2</span></td></tr>
+</table>
+
+  <h4>P3 — 次要（可观察）</h4>
+<table>
+<tr><th>ID</th><th>规则</th><th>风险</th></tr>
+<tr><td>R18</td><td>页面速度 CWV 不达标</td><td><span class="tag p3">P3</span></td></tr>
+<tr><td>R19</td><td>可访问性问题（无 ARIA）</td><td><span class="tag p3">P3</span></td></tr>
+</table>
+
+  <h3>3.2 Phase 0-13 工作流</h3>
+
+  <div class="card">
+    <h4>Phase 0 — Project ID（项目识别）</h4>
+    <p>为每个审计目标建立唯一 project_id，记录基础信息（网站、行业、目标）。<span class="tag done">v0.5 已完成</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 1 — Architecture（架构）</h4>
+    <p>明确商业目标 / 受众 / 内容类型 / 转化路径 / 商业边界。<span class="tag partial">部分完成</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 2 — Crawlability（可爬性）</h4>
+    <p>robots.txt / sitemap / llms.txt 三件套。<span class="tag partial">部分完成</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 3 — Metadata（SEO Meta）</h4>
+    <p>title / meta / H1 / canonical 全站配置。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 4 — Schema（结构化数据）</h4>
+    <p>JSON-LD：Article / FAQPage / Organization / BreadcrumbList。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 5 — CWV（Core Web Vitals）</h4>
+    <p>LCP / FID / CLS 三大核心指标。<span class="tag partial">部分完成</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 6 — Security（安全）</h4>
+    <p>HTTPS / HSTS / 安全头 / SSL 证书。<span class="tag done">完成</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 7 — Validation（验证）</h4>
+    <p>GSC URL Inspection 确认 indexing / canonical / mobile-friendly。<span class="tag done">完成</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 8 — Modification（修改）</h4>
+    <p>实际执行修复（最关键但最容易被跳过）。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 9 — Verification（修复后验证）</h4>
+    <p>19 规则重跑，确认 P0/P1 全部清零。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 10 — Before/After（效果对比）</h4>
+    <p>GSC 28 天数据对比修复前后曝光/点击/排名变化。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 11 — E-E-A-T（专业权威）</h4>
+    <p>Experience / Expertise / Authoritativeness / Trust 四大信号建设。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 12 — Internal/External Links（内外链）</h4>
+    <p>3 层内链网 + 高质量外链 + 垃圾外链监控。<span class="tag todo">未做</span></p>
+  </div>
+
+  <div class="card">
+    <h4>Phase 13 — Content Plan（内容日历）</h4>
+    <p>持续发布计划 + 集群矩阵 + Pillar Page 锚定。<span class="tag todo">未做</span></p>
+  </div>
+
+  <h3>3.3 7 段结构化报告模板</h3>
+
+  <p>每次审计输出 7 段标准报告：</p>
+
+  <ol>
+    <li><strong>Executive Summary</strong> — 1 段话讲清整体健康度</li>
+    <li><strong>P0/P1/P2/P3 风险表</strong> — 按风险等级分组的 findings</li>
+    <li><strong>证据溯源</strong> — 每个 finding 的 URL/HTML 片段/截图</li>
+    <li><strong>修复建议</strong> — 具体到命令级别</li>
+    <li><strong>修复后效果预期</strong> — GSC 指标变化预测</li>
+    <li><strong>附录：原始数据</strong> — 可被审计的原始 JSON</li>
+    <li><strong>下阶段计划</strong> — 修复后进入 Phase 9</li>
+  </ol>
+</section>
+
+<!-- ========== 章节 4 ========== -->
+<section id="ch4">
+  <h2>
+    <span class="ch-num">4</span>
+    关键词选词 7 维评分算法
+    <span class="en">Keyword Scoring</span>
+  </h2>
+
+  <p class="lead">
+    关键词选词不是凭感觉，是<strong>7 个可审计的评分维度</strong>，每个维度 0-100 分，
+    按权重加权得到总分。透明、可审计、可对比。
+  </p>
+
+  <h3>4.1 7 维评分表</h3>
+
+<table>
+<tr><th>#</th><th>维度</th><th>权重</th><th>测量什么</th><th>如何计算</th></tr>
+<tr><td>1</td><td><strong>相关性 Relevance</strong></td><td>25%</td><td>关键词是否描述文章实际主题</td><td>人工 1-5 → (score/5 × 100)。离题关键词永远输。</td></tr>
+<tr><td>2</td><td><strong>搜索意图 Intent</strong></td><td>25%</td><td>文章格式是否满足搜索者需求</td><td>"客服/电话/号码/服务" +40；"价格/套餐/vs/对比/划算" +35；"介绍/是什么/怎么" +25；默认 50。封顶 100。</td></tr>
+<tr><td>3</td><td><strong>搜索量 Volume</strong></td><td>15%</td><td>GSC 展示数或第三方搜索量</td><td>GSC: min(impressions/100, 100)；第三方: min(monthly_volume/1000, 100)。零搜索量 = 1（绝不选）。</td></tr>
+<tr><td>4</td><td><strong>SEO 难度 Difficulty（反）</strong></td><td>15%</td><td>站点能否有机会排名</td><td>长度因子 max(0, 100 - 词数×10) + GSC 排名反算 max(0, 100 - position)；平均。</td></tr>
+<tr><td>5</td><td><strong>商业价值 Commercial</strong></td><td>10%</td><td>是否带来转化</td><td>商业意图词 100；其他 50。"cheap/best/buy/套餐"类。</td></tr>
+<tr><td>6</td><td><strong>CTR Gap</strong></td><td>5%</td><td>已有曝光但没点击？快赢机会</td><td>max(0, impressions × 0.10)。已排名但零点击的词增益最大。</td></tr>
+<tr><td>7</td><td><strong>竞争密度 Competition（反）</strong></td><td>5%</td><td>SERP 拥挤程度</td><td>max(0, 100 - 词数×15)。1 词=85，5 词=25。惩罚 "Bell" 或 "中文" 单独作为 focus。</td></tr>
+</table>
+
+  <h3>4.2 yika.ca 实测案例（2026-07-14）</h3>
+
+  <p>对 yika.ca 的 GSC 90 天 Bell 相关查询词打分：</p>
+
+  <div class="demo-table">
+<table>
+<tr><th>关键词</th><th>Impr</th><th>Pos</th><th>Rel</th><th>Int</th><th>Vol</th><th>Diff</th><th>Comm</th><th>Gap</th><th>Comp</th><th class="num">总分</th></tr>
+<tr class="winner"><td>多伦多bell中文客服电话</td><td>1</td><td>12.0</td><td>100</td><td>90</td><td>1</td><td>89</td><td>100</td><td>0</td><td>25</td><td class="num">75.3</td></tr>
+<tr><td>bell中文客服</td><td>5</td><td>26.2</td><td>100</td><td>90</td><td>5</td><td>82</td><td>100</td><td>0</td><td>40</td><td class="num">74.8</td></tr>
+<tr><td>多伦多bell网络中文客服</td><td>1</td><td>18.0</td><td>100</td><td>90</td><td>1</td><td>86</td><td>100</td><td>0</td><td>25</td><td class="num">74.8</td></tr>
+<tr><td>bell 中文 客服 电话 号码</td><td>7</td><td>44.0</td><td>100</td><td>90</td><td>7</td><td>53</td><td>100</td><td>0</td><td>10</td><td class="num">67.8</td></tr>
+<tr><td>bell 中文 客服 工作 时间</td><td>4</td><td>50.8</td><td>100</td><td>90</td><td>4</td><td>50</td><td>100</td><td>0</td><td>10</td><td class="num">66.8</td></tr>
+<tr><td>bell 中文</td><td>63</td><td>15.0</td><td>100</td><td>50</td><td>63</td><td>82</td><td>50</td><td>6</td><td>25</td><td class="num">68.1</td></tr>
+<tr><td>bell service 中文</td><td>13</td><td>16.1</td><td>100</td><td>50</td><td>13</td><td>77</td><td>50</td><td>1</td><td>25</td><td class="num">63.8</td></tr>
+</table>
+  </div>
+
+  <div class="callout success">
+    <h4>✅ 结论</h4>
+    <p>选 <strong>"多伦多bell中文客服电话"</strong> 为 ID 1020 现有文章的 focus_keyword（分数 75.3，已经排名 12 → 30-60 天可上 page 1）。</p>
+    <p>选 <strong>"bell 中文 客服"</strong> 为新文章（ID 2603）的 focus_keyword（Ubersuggest 验证：1000/月，SD 20，DA=5 完全能打）。</p>
+  </div>
+
+  <h3>4.3 两种场景的完整工作流</h3>
+
+  <h4>场景 A — 现有文章选 focus_keyword</h4>
+  <ol>
+    <li>从 GSC <code>searchanalytics.query</code> 拉 90 天所有查询词（按品牌过滤如果语料大）</li>
+    <li>用 7 维评分给每个候选词打分</li>
+    <li>取 top-1 作为 <code>focus_keyword</code>，top 3-5 作为 secondary keyword（用于 H2/H3）</li>
+  </ol>
+
+  <h4>场景 B — 新文章选 focus_keyword</h4>
+  <ol>
+    <li>用户陈述的主题作为 seed</li>
+    <li>从 3 个来源生成候选词池：
+      <ul>
+        <li>用户已覆盖的相关搜索</li>
+        <li>主题集群内的 brand-vs-brand 和 X vs Y</li>
+        <li>4 大意图：定义 / how-to / 列表 / 对比</li>
+      </ul>
+    </li>
+    <li>DA-low 站点硬约束：<strong>Ubersuggest SD ≤ 30</strong>（DA&lt;10 的实战阈值）</li>
+    <li>取 top-1 作为 focus_keyword，建 1 个 Pillar Page（3000+ 字）+ 5-8 个 Cluster 文章（1500 字）</li>
+  </ol>
+
+  <h3>4.4 4 项"会带流量"验证</h3>
+
+  <p>写完前必须通过 4 个测试，否则不算 done：</p>
+
+  <div class="card-grid">
+    <div class="item">
+      <div class="icon">①</div>
+      <h4>Volume Check</h4>
+      <p>估计月展示数 ≥ 50（DA&lt;10 站低于 50 是虚荣陷阱——根本不会显示）</p>
+    </div>
+    <div class="item">
+      <div class="icon">②</div>
+      <h4>SERP Eligibility</h4>
+      <p>搜这个词，目标站点在 top 30 出现；如果没在 SERP，要长尾子词</p>
+    </div>
+    <div class="item">
+      <div class="icon">③</div>
+      <h4>Intent Match</h4>
+      <p>看 top-3 排名页，如果都是商业落地页（"buy X"），信息型文章赢不了</p>
+    </div>
+    <div class="item">
+      <div class="icon">④</div>
+      <h4>Capability Match</h4>
+      <p>文章能否真回答搜索者的问题？做不到那个深度，别打这个词</p>
+    </div>
+  </div>
+
+  <h3>4.5 关键经验教训</h3>
+
+  <div class="callout warning">
+    <h4>⚠️ 估算与真实值差异可达 5-10x</h4>
+    <p>yika.ca 2026-07-14 案例：从 GSC 推断 "Bell 中文 客服" ~80/月，Ubersuggest 验证 1000/月。<strong>12.5 倍差距</strong>。第三方工具对非英语/非主流地区覆盖差，必须用真实工具交叉验证。</p>
+  </div>
+
+  <div class="callout success">
+    <h4>💡 75 分可打比 95 分慢打更值</h4>
+    <p>别追求 100/100 —— 一个 75/100 的词在 60 天能排上，比 95/100 的词等 18 个月强得多。</p>
+  </div>
+</section>
+
+<!-- ========== 章节 5 ========== -->
+<section id="ch5">
+  <h2>
+    <span class="ch-num">5</span>
+    9 节均衡写作 + 4 层内容分层
+    <span class="en">Content Writing</span>
+  </h2>
+
+  <p class="lead">
+    不是"写 3000 字"——而是按 <strong>9 节均衡结构</strong> 写，确保每节都有信息密度。
+    内容按 <strong>4 层分层</strong>：基础事实 → 判断 → 经验 → 风险，构成信息增益。
+  </p>
+
+  <h3>5.1 9 节均衡结构</h3>
+
+  <p>每篇文章必须覆盖这 9 个章节（可以合并但不能缺失）：</p>
+
+  <div class="card-grid">
+    <div class="item">
+      <div class="icon">1</div>
+      <h4>Hook（钩子）</h4>
+      <p>3 秒抓住读者：用户痛点 / 反常识 / 紧迫性</p>
+    </div>
+    <div class="item">
+      <div class="icon">2</div>
+      <h4>Definition（定义）</h4>
+      <p>用 1 段话讲清"这是什么"，AI 最爱引用</p>
+    </div>
+    <div class="item">
+      <div class="icon">3</div>
+      <h4>Context（背景）</h4>
+      <p>为什么这个问题重要？时间线 / 市场规模 / 影响范围</p>
+    </div>
+    <div class="item">
+      <div class="icon">4</div>
+      <h4>Method / How-to（方法）</h4>
+      <p>步骤化、可执行；用编号列表，不是段落</p>
+    </div>
+    <div class="item">
+      <div class="icon">5</div>
+      <h4>Comparison（对比）</h4>
+      <p>表格化比较至少 3-5 个方案</p>
+    </div>
+    <div class="item">
+      <div class="icon">6</div>
+      <h4>Evidence（证据）</h4>
+      <p>数据 / 案例 / 引用源 / 截图 / 时间戳</p>
+    </div>
+    <div class="item">
+      <div class="icon">7</div>
+      <h4>FAQ（常见问题）</h4>
+      <p>4-6 条 Q&A，每条 1-3 段，AI 抽取频率最高</p>
+    </div>
+    <div class="item">
+      <div class="icon">8</div>
+      <h4>Risk（风险）</h4>
+      <p>副作用 / 反例 / 常见错误 / 何时不应该这么做</p>
+    </div>
+    <div class="item">
+      <div class="icon">9</div>
+      <h4>CTA + Related（行动 + 相关）</h4>
+      <p>明确的下一步 + 3-5 个相关文章内链</p>
+    </div>
+  </div>
+
+  <h3>5.2 4 层内容分层</h3>
+
+  <p>信息密度从浅到深：</p>
+
+<table>
+<tr><th>层级</th><th>类型</th><th>例子</th><th>AI 引用率</th></tr>
+<tr><td>L1</td><td><strong>基础事实</strong></td><td>"加拿大手机计划由 Bell/Telus/Rogers 三大运营商主导"</td><td>30%</td></tr>
+<tr><td>L2</td><td><strong>比较 / 排名</strong></td><td>"2026 年最便宜的前 5 个加拿大手机计划"</td><td>50%</td></tr>
+<tr><td>L3</td><td><strong>判断 / 经验</strong></td><td>"如果你是新移民，建议从 Fido 开始，理由是……"</td><td>70%</td></tr>
+<tr><td>L4</td><td><strong>风险 / 边界</strong></td><td>"Fido 套餐不适合长期合约用户，因为……"</td><td>90%</td></tr>
+</table>
+
+  <div class="callout success">
+    <h4>💡 信息增益 5 问</h4>
+    <p>写完每篇文章，回答 5 个问题检查信息密度：</p>
+    <ol>
+      <li>用户读完整篇能记住的 3 件事是什么？</li>
+      <li>和我内容相似的 top-3 文章，他们没写什么？</li>
+      <li>如果只有 30 秒跳读，能得到核心答案吗？</li>
+      <li>有 1 个数据 / 案例 / 引文是 top-3 没有的吗？</li>
+      <li>AI 抽取出来能直接回答用户问题吗？</li>
+    </ol>
+  </div>
+
+  <h3>5.3 AI 可引用结构审计 8 项</h3>
+
+  <p>每篇文章必须通过这 8 项结构审计：</p>
+
+  <ol>
+    <li><strong>每段独立可读</strong> —— 段落自包含，不依赖上下文</li>
+    <li><strong>定义清晰</strong> —— 第一段就讲清"这是什么"</li>
+    <li><strong>步骤编号</strong> —— How-to 内容用编号列表</li>
+    <li><strong>表格化对比</strong> —— 至少 1 个真实数据表格</li>
+    <li><strong>FAQ 区块</strong> —— 4-6 条 Q&A</li>
+    <li><strong>结论句</strong> —— 每节末尾有"所以"句</li>
+    <li><strong>来源标注</strong> —— 关键数据有引用源</li>
+    <li><strong>更新时间</strong> —— 显著位置标注 "最后更新 YYYY-MM-DD"</li>
+  </ol>
+</section>
+
+<!-- ========== 章节 6 ========== -->
+<section id="ch6">
+  <h2>
+    <span class="ch-num">6</span>
+    结构化数据 / Schema 完全指南
+    <span class="en">Schema.org</span>
+  </h2>
+
+  <p class="lead">
+    Schema 不是 AI 引用捷径（Google 官方说不是），但是 SEO 基础设施。
+    8 大核心 Schema + 完整 JSON-LD 示例，每个企业网站都应配置。
+  </p>
+
+  <h3>6.1 8 大核心 Schema</h3>
+
+<table>
+<tr><th>Schema</th><th>适用</th><th>价值</th></tr>
+<tr><td><code>Organization</code></td><td>公司主页 / About</td><td>建立品牌实体一致性</td></tr>
+<tr><td><code>LocalBusiness</code></td><td>本地商家</td><td>Google Business 整合</td></tr>
+<tr><td><code>Article</code> / <code>BlogPosting</code></td><td>所有文章</td><td>AI 抽取文章元数据</td></tr>
+<tr><td><code>FAQPage</code></td><td>FAQ 区块</td><td>富结果显示</td></tr>
+<tr><td><code>HowTo</code></td><td>步骤化教程</td><td>富结果显示</td></tr>
+<tr><td><code>Product</code> / <code>Offer</code></td><td>产品页 / 套餐</td><td>价格 / 库存 / 评论</td></tr>
+<tr><td><code>Review</code> / <code>AggregateRating</code></td><td>评论页</td><td>星级显示</td></tr>
+<tr><td><code>BreadcrumbList</code></td><td>所有页</td><td>面包屑导航</td></tr>
+</table>
+
+  <h3>6.2 完整 JSON-LD 示例：Article + FAQ + Organization</h3>
+
+  <div class="schema-example">
+    <span class="lang">JSON-LD</span>
+<pre><code>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://yika.ca/#organization",
+      "name": "YIKA Canada",
+      "url": "https://yika.ca",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yika.ca/logo.png",
+        "width": 600,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/yika-canada",
+        "https://www.facebook.com/yikacanada"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-888-884-8333",
+        "contactType": "customer service",
+        "areaServed": "CA",
+        "availableLanguage": ["zh-Hans", "en", "fr"]
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://yika.ca/archives/2603#article",
+      "headline": "Bell 中文客服电话 - 多伦多/温哥华/蒙特利尔完整指南 (2026 最新)",
+      "datePublished": "2026-07-14T16:00:00-07:00",
+      "dateModified": "2026-07-14T16:00:00-07:00",
+      "author": {
+        "@type": "Person",
+        "name": "YIKA 编辑部",
+        "url": "https://yika.ca/about"
+      },
+      "publisher": {
+        "@id": "https://yika.ca/#organization"
+      },
+      "mainEntityOfPage": "https://yika.ca/archives/2603",
+      "image": "https://yika.ca/bell-chinese-guide-2026.png",
+      "articleSection": "加拿大运营商介绍",
+      "keywords": ["Bell 中文 客服", "bell 中文 客服 电话", "Bell 中文 24 小时"],
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bell 真的提供中文客服吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的。Bell 是加拿大少数几家提供直接中文电话客服的运营商，号码 +1 888-884-8333，7×24 小时。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "拨 *611 真的免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在加拿大境内使用 Bell 手机拨打 *611 完全免费，可直接接通客服系统。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://yika.ca"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "加拿大运营商介绍",
+          "item": "https://yika.ca/category/carriers"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bell 中文客服"
+        }
+      ]
+    }
+  ]
+}</code></pre>
+  </div>
+
+  <h3>6.3 Schema 验证 3 步</h3>
+
+  <ol>
+    <li>用 <a href="https://validator.schema.org/" style="color: var(--primary2)">Schema.org Validator</a> 测试</li>
+    <li>用 <a href="https://search.google.com/test/rich-results" style="color: var(--primary2)">Google Rich Results Test</a> 检查富结果</li>
+    <li>在 GSC 提交 "Enhancements" → 看是否被识别</li>
+  </ol>
+
+  <h3>6.4 实战对比案例（yika.ca）</h3>
+
+  <table>
+<tr><th>指标</th><th>修复前</th><th>修复后（预期）</th></tr>
+<tr><td>JSON-LD 覆盖率</td><td>0% (0/189)</td><td>100% (189/189)</td></tr>
+<tr><td>Organization 实体</td><td>无</td><td>全站统一</td></tr>
+<tr><td>FAQ Schema</td><td>0 篇</td><td>所有有 FAQ 区块的页面</td></tr>
+<tr><td>Breadcrumb</td><td>无</td><td>全站</td></tr>
+<tr><td>Author 标注</td><td>无</td><td>全站（E-E-A-T 必需）</td></tr>
+</table>
+</section>
+
+<!-- ========== 章节 7 ========== -->
+<section id="ch7">
+  <h2>
+    <span class="ch-num">7</span>
+    外链 / 负面 SEO / Spam Backlinks
+    <span class="en">Backlinks &amp; Negative SEO</span>
+  </h2>
+
+  <p class="lead">
+    垃圾外链不会直接让网站降权（Google Penguin 后），但仍需监控。
+    负面 SEO 攻击有 4 大类型，识别后必须 4 步处理。
+    来源：「ChatGPT 分享-垃圾外链与负面SEO」48KB 深度分析。
+  </p>
+
+  <h3>7.1 4 大垃圾外链类型</h3>
+
+  <div class="card-grid">
+    <div class="item">
+      <div class="icon">🚜</div>
+      <h4>① Link Farm（链接农场）</h4>
+      <p>大量低质网站互相链接形成网状结构，无实际内容。识别：IP 段集中 / 域名年龄新 / 出站链接数 &gt; 100</p>
+    </div>
+    <div class="item">
+      <div class="icon">🤖</div>
+      <h4>② Auto-generated Sites（自动生成站）</h4>
+      <p>用 GPT/AI 批量生成的内容站，无人工编辑。识别：内容无内在逻辑 / 互相抄袭 / 模式化标题</p>
+    </div>
+    <div class="item">
+      <div class="icon">⚠️</div>
+      <h4>③ Negative SEO（负面 SEO 攻击）</h4>
+      <p>竞争对手故意给你发垃圾外链。识别：突然大量异常外链 / 锚文本异常 / 集中在某关键词</p>
+    </div>
+    <div class="item">
+      <div class="icon">💬</div>
+      <h4>④ Blog Comments / Forum Spam</h4>
+      <p>博客评论、论坛签名大量留链接。识别：锚文本高度重复 / 来自不相关主题站点</p>
+    </div>
+  </div>
+
+  <h3>7.2 关键区分：4 个相关概念</h3>
+
+<table>
+<tr><th>概念</th><th>定义</th><th>Google Penguin 后是否还有效？</th></tr>
+<tr><td><strong>Link Farm</strong></td><td>一群专门为互相链接存在的网站</td><td>无效（Google 早就能识别）</td></tr>
+<tr><td><strong>PBN (Private Blog Network)</strong></td><td>自己控制的私人博客网络，互相链接</td><td>无效 + 高风险（一旦被识别会牵连整站）</td></tr>
+<tr><td><strong>Spam Backlinks</strong></td><td>来自垃圾站的外链</td><td>无害（被 Google 忽略）</td></tr>
+<tr><td><strong>Toxic Backlinks</strong></td><td>人工处罚级别的外链（少见）</td><td>有害 → 需 disavow</td></tr>
+<tr><td><strong>Negative SEO Attack</strong></td><td>竞争对手故意制造垃圾外链</td><td>Google 否认有效，但实测可能短期波动</td></tr>
+</table>
+
+  <h3>7.3 Google Penguin 算法的核心规则</h3>
+
+  <blockquote>
+    <strong>Google Penguin 2012 后：</strong>大部分垃圾外链被算法<strong>自动忽略</strong>，不会传递权重，也不会降权。
+    只有在极端情况下（人工处罚 / 模式明显恶意）才需要 disavow。
+  </blockquote>
+
+  <h4>不会降权的情况（不用管）</h4>
+  <ul>
+    <li>少量博客评论外链（10-100 个）</li>
+    <li>来自低 DA 站点的链接</li>
+    <li>锚文本不完全匹配的链接</li>
+    <li>来自无关行业的链接</li>
+    <li>PBN 链接（如果 Google 没识别，就当"普通"链接）</li>
+  </ul>
+
+  <h4>可能降权的情况（建议处理）</h4>
+  <ul>
+    <li>几天内突然增加 1000+ 异常外链（可能是负面 SEO 攻击）</li>
+    <li>锚文本 100% 匹配你的核心商业关键词（操控迹象）</li>
+    <li>来自明显垃圾站的成千上万个链接</li>
+    <li>GSC 收到 "Unnatural links" 手动操作警告</li>
+    <li>曾经买过链的历史（历史负担）</li>
+  </ul>
+
+  <h3>7.4 处理方案 3 选 1</h3>
+
+  <h4>方案 1（推荐）：观察为主</h4>
+  <ol>
+    <li>用工具（Ahrefs / Semrush / Majestic）监控新外链</li>
+    <li>设置阈值告警：单日新增 &gt; 50 触发</li>
+    <li>每周看 GSC "Links" 报告</li>
+    <li>没有手动操作警告就<strong>不动</strong></li>
+  </ol>
+
+  <h4>方案 2：Disavow 部分链接</h4>
+  <ol>
+    <li>在工具中识别最严重的 Spam 来源（域名级）</li>
+    <li>列出 .txt 格式的 disavow 列表：<code>domain:spamlink1.com</code></li>
+    <li>在 GSC 上传 disavow 文件</li>
+    <li>等 1-2 个月观察</li>
+  </ol>
+
+  <h4>方案 3：完全 disavow（仅紧急情况）</h4>
+  <ol>
+    <li>在 GSC 收到 manual action 时使用</li>
+    <li>整站或大面积 disavow</li>
+    <li>提交 reconsideration request</li>
+  </ol>
+
+  <h3>7.5 关键原则</h3>
+
+  <div class="callout warning">
+    <h4>⚠️ 不轻易 disavow</h4>
+    <p>大部分垃圾外链<strong>先监控</strong>，不轻易 disavow；只有出现人工处罚、明显恶意模式或历史买链风险时再建议进一步处理。</p>
+  </div>
+
+  <div class="callout success">
+    <h4>💡 优先级</h4>
+    <p>把 80% 时间放在<strong>内容质量 + Digital PR + 实体清晰度</strong>，把 20% 时间放在外链监控。不要本末倒置。</p>
+  </div>
+</section>
+
+<!-- ========== 章节 8 ========== -->
+<section id="ch8">
+  <h2>
+    <span class="ch-num">8</span>
+    AI Visibility 监测 + 商业边界
+    <span class="en">AI Visibility &amp; Boundaries</span>
+  </h2>
+
+  <p class="lead">
+    v0.5 新增 AI Visibility Monitor：监测品牌在 ChatGPT / Perplexity / Gemini / AI Overviews 等
+    AI 引擎中的 mention、citation、competitor share。这是 GEO 时代的核心 KPI。
+  </p>
+
+  <h3>8.1 AI Visibility Monitor 输入输出</h3>
+
+  <h4>输入：手动采集的 AI answer observation CSV</h4>
+
+  <pre><code>engine,query,answer,citations,competitors
+ChatGPT,"加拿大手机计划哪个好","YIKA Canada 是专业的加拿大中文手机计划比较站...","https://yika.ca/archives/1009","bestimmi.com|gotovancouver.com"
+Perplexity,"Bell 中文客服","Bell 提供中文客服电话 +1 888-884-8333...","https://yika.ca/archives/2603","bell.ca"
+Gemini,"Freedom Mobile 怎么样","Freedom Mobile 在 BC 省覆盖好...","https://yika.ca/archives/1009","freedommobile.ca"
+</code></pre>
+
+  <h4>输出：6 大核心指标</h4>
+
+  <ol>
+    <li><strong>brand mentions</strong> —— 品牌被提到次数</li>
+    <li><strong>brand mention rate</strong> —— 品牌被提到的查询占比</li>
+    <li><strong>brand citation count</strong> —— 品牌被引用次数</li>
+    <li><strong>brand citation rate</strong> —— 品牌被引用的查询占比</li>
+    <li><strong>engine breakdown</strong> —— 各 AI 引擎的表现</li>
+    <li><strong>competitor mentions</strong> —— 竞品被提到次数</li>
+    <li><strong>visibility gaps</strong> —— 机会缺口</li>
+  </ol>
+
+  <h3>8.2 CLI 集成（v0.5）</h3>
+
+  <pre><code>PYTHONPATH=src python3 -m ai_seo_agent.cli run \
+  --project-id v05-visibility \
+  --url file:///path/to/site \
+  --output-dir 05_runs \
+  --max-pages 5 \
+  --use-sitemap \
+  --visibility-csv observations.csv \
+  --brand "YIKA Canada" \
+  --competitor "bestimmi.com" \
+  --competitor "gotovancouver.com"</code></pre>
+
+  <h3>8.3 Visibility Gap 推荐行动</h3>
+
+  <table>
+<tr><th>Gap 类型</th><th>示例</th><th>推荐行动</th></tr>
+<tr><td>零引用（high volume query）</td><td>"加拿大最便宜手机计划"</td><td>立即写 Pillar Page</td></tr>
+<tr><td>低引用率</td><td>100 个查询只 1-2 个被引</td><td>扩展集群内容</td></tr>
+<tr><td>被竞品压制</td><td>bestimmi.com 5 次 vs YIKA 0 次</td><td>写对比型内容</td></tr>
+<tr><td>在某个引擎弱</td><td>Gemini 中 0 引用</td><td>检查 robots.txt 是否屏蔽</td></tr>
+</table>
+
+  <h3>8.4 商业边界规则（4 级）</h3>
+
+  <h4>可公开（Public）</h4>
+  <ul>
+    <li>常见误区 / 判断标准 / 匿名案例</li>
+    <li>行业趋势 / 方案对比 / 风险提醒</li>
+    <li>决策清单 / FAQ / 行业术语解释</li>
+  </ul>
+
+  <h4>不公开（Do Not Publish）</h4>
+  <div class="callout danger">
+    <h4>🚫 红线</h4>
+    <ul>
+      <li>❌ 客户名单或私人详情</li>
+      <li>❌ 内部 SOP</li>
+      <li>❌ 成本结构或报价底线</li>
+      <li>❌ 合作渠道名单</li>
+      <li>❌ 广告账户数据</li>
+      <li>❌ 销售话术全文 / 跟进节奏</li>
+      <li>❌ 供应商/合作资源网络</li>
+      <li>❌ 未公开产品或渠道计划</li>
+    </ul>
+  </div>
+
+  <h4>公开判断，保留执行</h4>
+  <blockquote>
+    <strong>公开判断，保留执行；公开经验，保留系统；公开案例，保留名单；公开框架，保留 SOP。</strong>
+  </blockquote>
+
+  <h3>8.5 合规边界（强制）</h3>
+
+  <div class="callout danger">
+    <h4>🚫 禁止项</h4>
+    <ul>
+      <li>不做垃圾外链 / 刷评论 / 刷 mention / 批量灌水 / 平台滥用</li>
+      <li>不绕过 robots.txt / 登录墙 / 付费墙 / 反爬限制 / 平台条款</li>
+      <li>不自动发布未经人工确认的内容</li>
+      <li>不公开客户隐私 / 内部 SOP / 报价底线 / 渠道名单 / 广告账户数据</li>
+      <li>使用搜索、抓取、API、发布、账号操作时必须遵守平台服务条款和当地法律法规</li>
+    </ul>
+  </div>
+
+  <h3>8.6 OAI-SearchBot / GPTBot 配置</h3>
+
+  <p>OpenAI 官方有 2 个 bot，作用不同：</p>
+
+  <table>
+<tr><th>Bot</th><th>用途</th><th>建议</th></tr>
+<tr><td><code>GPTBot</code></td><td>训练数据抓取</td><td>按业务决定（不愿被训练 → 屏蔽）</td></tr>
+<tr><td><code>OAI-SearchBot</code></td><td>ChatGPT Search 实时展示</td><td><strong>必开放</strong>（不开放 = 不在 ChatGPT 搜索结果）</td></tr>
+<tr><td><code>ChatGPT-User</code></td><td>用户主动触发的 fetch</td><td>必开放</td></tr>
+</table>
+
+  <h3>8.7 监测开始变重要</h3>
+
+  <div class="callout success">
+    <h4>💡 Google Search Console 2026 年 6 月更新</h4>
+    <p>Google 推出<strong>生成式 AI 表现报告</strong>，可以查看 URL 在 AI Overviews、AI Mode、Discover 等生成式功能中的曝光、页面、国家、设备和时间维度。</p>
+    <p>以后 GEO 不是只靠猜，要看 GSC 的 AI 表现数据。</p>
+  </div>
+</section>
+
+<!-- ========== 总结 ========== -->
+<section>
+  <h2 style="color: var(--accent2);">
+    📚 资料来源完整列表
+  </h2>
+  <p>本文档内容综合自 #AI搜索-SEO 项目 19 份资料：</p>
+
+  <h4>📥 资料导入（2 份，102 KB）</h4>
+  <ul>
+    <li>资料导入/ChatGPT分享-AI搜索排名算法分析.md（53 KB / 1190 行）</li>
+    <li>资料导入/ChatGPT分享-垃圾外链与负面SEO.md（48 KB / 4032 行）</li>
+  </ul>
+
+  <h4>🤖 Agent 规划（11 份）</h4>
+  <ul>
+    <li>AI-SEO-Agent-MVP规划.md</li>
+    <li>AI-SEO-Agent-MVP实现状态.md</li>
+    <li>AI-SEO-Agent-v0.2/v0.3/v0.4/v0.5 状态记录（4 份）</li>
+    <li>AI-SEO-Agent对标Anthropic-OpenAI岗位分析.md</li>
+    <li>AI-SEO-Agent系统文件结构.md</li>
+    <li>完全可补齐模块融合方案.md</li>
+    <li>未来虚拟企业部门负责人AI角色库.md</li>
+    <li>AI-SEO-8-Agent工作流程图.html（28 KB）</li>
+  </ul>
+
+  <h4>📊 案例分析（1 份）</h4>
+  <ul>
+    <li>案例分析/AI-SEO-Agent竞品与开源项目全面对比.md</li>
+  </ul>
+
+  <h4>📈 融资材料（1 份）</h4>
+  <ul>
+    <li>AI-SEO-Agent融资展示报告.html + 说明.md</li>
+  </ul>
+
+  <h4>🏆 竞品报告（1 份）</h4>
+  <ul>
+    <li>AI-SEO-Agent市面产品与开源项目对比报告.html</li>
+  </ul>
+
+  <h4>🔗 关联 Skill &amp; 工具</h4>
+  <ul>
+    <li>~/.hermes/skills/research/ai-seo-agent-workflows/SKILL.md（v1.1 完整版）</li>
+    <li>~/.hermes/skills/research/ai-seo-agent-workflows/references/（8 份）</li>
+    <li>/home/ubuntu/ai_seo_agent/（本地项目，v0.5 完整 pipeline）</li>
+    <li>/home/ubuntu/yika-audit/（yika.ca 实战案例）</li>
+  </ul>
+
+  <h3>🏛 核心结论</h3>
+  <blockquote style="background: linear-gradient(135deg, rgba(91, 158, 255, 0.1), rgba(180, 142, 255, 0.1)); border-left-color: var(--accent); font-size: 18px; padding: 30px;">
+    <strong>AI SEO 的核心不是"哪里能发链接"，而是：</strong><br><br>
+    你有没有<strong>独特</strong>、<strong>可信</strong>、<strong>结构清楚</strong>、<strong>能被第三方验证</strong>、并且<strong>能被 AI 直接拿来回答用户问题</strong>的信息。
+  </blockquote>
+</section>
+
+<footer>
+  <p>🤖 AI SEO 完整知识体系 · #AI搜索-SEO 项目百科</p>
+  <p>v0.6 架构 · 8-Agent × 19 规则 × Phase 0-13 × 7 维评分 × S/A/B/C/D 五级实操</p>
+  <p>数据来源：<a href="https://lejfles.github.io/vps/" style="color: var(--primary2)">https://lejfles.github.io/vps/</a> · Hermes Agent v0.18.2 · 2026-07-14</p>
+</footer>
+
+</div>
+</body>
+</html>
